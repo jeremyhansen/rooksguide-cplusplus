@@ -1,0 +1,643 @@
+ \documentclass[11pt,final]{book}
+ \title{The Rook's Guide to C++
+ \\ \small{Kickstarter Backer \& Contributor Version}
+% \\A \href{http://creativecommons.org/licenses/by-nc/3.0/}
+%      {Creative Commons}%
+%      -Licensed text
+      }
+% \author{Norwich University Students}
+ \date{May 1, 2013}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                    %
+%% 2013-01-30:                                                        %
+%%   To get the proper thumbs up:                                     %
+%%     Rename the checkmark in the dingbats.sty file to, um,          %
+%%  dingbatcheckmark, then use this name in the \newcommand           %
+%%                                                                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hyphenation{Je-re-my}
+\hyphenation{Le-Blanc}
+\hyphenation{Ver-gnes}
+\hyphenation{Zach-a-ry}
+\hyphenation{Pat-rick}
+\hyphenation{Du-Harte}
+\hyphenation{Ry-an}
+\hyphenation{Mat-thew}
+\hyphenation{Ke-vin}
+\hyphenation{Wer-zing-er}
+\hyphenation{Mi-chael}
+\hyphenation{Ar-chie}
+\hyphenation{Bo-ren-stein}
+\hyphenation{Buck-ley}
+\hyphenation{Ca-ma-ra}
+\hyphenation{Mac-Gil-liv-ray}
+\hyphenation{Li-ber}
+\hyphenation{Stu-art}
+\hyphenation{Ma-rone}
+\hyphenation{maz-zel-lo}
+\hyphenation{Mo-ra-les}
+\hyphenation{Tor-res}
+\hyphenation{Ne-ben-fuhr}
+\hyphenation{Pat-rice}
+\hyphenation{Dan-i-el}
+\hyphenation{Ta-ba-ry}
+\hyphenation{De-vin}
+\hyphenation{Wil-li-am-i-tis}
+\hyphenation{To-ny}
+\hyphenation{A-dam}
+\hyphenation{Wheel-er}
+\hyphenation{Lo-thar}
+\hyphenation{Sand-berg}
+\hyphenation{Val-de-mar}
+\hyphenation{Da-vies}
+\hyphenation{Jo-seph}
+\hyphenation{Wil-li-am}
+\hyphenation{Mad-sen}
+\hyphenation{Carl-ton}
+\hyphenation{Do-mi-nic}
+\hyphenation{Ash-ley}
+\hyphenation{Da-vid}
+\hyphenation{Cris-to-fo-ri}
+\hyphenation{Mes-ki-men}
+\hyphenation{Bran-don}
+\hyphenation{Nord-garden}
+\hyphenation{A-leks-an-der}
+\hyphenation{Pa-da-wer}
+\hyphenation{Aar-on}
+\hyphenation{Mc-In-tosh}
+\hyphenation{Moul-ton}
+\hyphenation{niel-sen}
+\hyphenation{Pon-tus}
+\hyphenation{Nils-son}
+\hyphenation{Mar-shall}
+\hyphenation{To-ny}
+\hyphenation{Wil-li-ams}
+\hyphenation{Dy-lan}
+\hyphenation{Wi-dis}
+\hyphenation{Ste-phen}
+\hyphenation{Ja-net}
+\hyphenation{Maw-yer}
+\hyphenation{Phi-lip}
+\hyphenation{Pet-rov}
+\hyphenation{Slon-ka}
+\hyphenation{Til-brook}
+\hyphenation{Ar-man-do}
+\hyphenation{Pin-ches}
+\hyphenation{Ring-man}
+\hyphenation{E-man-u-el}
+\hyphenation{Pe-ter-son}
+\hyphenation{Rich-ard}
+\hyphenation{Ko-gut}
+\hyphenation{Mitch-ell}
+\hyphenation{Sig-mund}
+\hyphenation{Sat-tler}
+\hyphenation{Le-vi}
+\hyphenation{Ra-man}
+\hyphenation{Ko-soy}
+\hyphenation{Ja-mie}
+
+%\usepackage{arev}             % Nice heart. ($\varheart$)
+%\usepackage{dingbat}          % Fists (thumbs up} (better)
+%\usepackage{bbding}           % Fists (thumbs up}
+%\usepackage{yfonts}           % German font(s).
+%\usepackage{ulem}             % strikeout fonts.
+
+%\newcommand{\Frak}            {\textfrak}
+%\newcommand{\Frak}            {\textgoth}
+%\newcommand{\Frak}            {\textswab}
+
+%\newcommand{\F}[1]            {\Frak{#1}}
+
+\usepackage{libertine}
+\usepackage{fontspec}
+%\usepackage{polyglossia}
+%\usepackage{xunicode}
+%\usepackage{xltxtra}
+
+% Packages loaded by todonotes.  Included here so that needed options may be specified.
+ \usepackage{ifthen}
+%\usepackage{xkeyval}
+\usepackage{xcolor}
+%\usepackage{tikz}
+%\usepackage{calc}
+ \usepackage{graphicx}         % Loaded via the tikz package.
+%\usepackage{todonotes}        % http://www.tex.ac.uk/tex-archive/macros/latex/contrib/todonotes/todonotes.pdf
+
+ %\definecolor{MainFont}        {rgb}{0.000000, 0.180000, 0.180000}
+ 
+ %\setmainfont[
+ %  Color=MainFont,
+ %  Opacity=0.0,
+ %  Ligatures=TeX
+ %  ]
+ %  {Linux Biolinum}
+%  {DejaVu Serif}
+
+ %\definecolor{SansFont}        {rgb}{0.000000, 0.080000, 0.080000}
+% \setsansfont[
+%   Color=SansFont,
+%   Opacity=0.0,
+%   Ligatures=TeX
+%   ]
+%   {Linux Biolinum}
+%  {DejaVu Sans}
+ \usepackage{verbatim}
+%\usepackage{wasysym}
+
+ \usepackage{framed}
+ \usepackage{layout}
+\usepackage[paperwidth=6.0in, paperheight=9.0in]{geometry}
+%\usepackage[paperwidth=8.5in, paperheight=11.0in]{geometry}
+ \usepackage{hyperref}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                   %%
+%%   The listings package produces nicely-formatted source-code      %%
+%% listings.                                                         %%
+%%                                                                   %%
+%% http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/listings     %%
+%%                                                                   %%
+%%   We specified only the parameters necessary produce this         %%
+%% document.  There are more.  Consult the package documentation     %%
+%% at the above site.                                                %%
+%%                                                                   %%
+%% Wikibooks has a writeup, too.                                     %%
+%% \href{http://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}    %%
+%%     {source code listings package}                                %%
+%%                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \usepackage{listings}
+
+ \usepackage{fancyhdr}
+ \setlength{\headheight}{15.2pt}
+
+ \usepackage{makeidx}
+ \makeindex
+
+ \newcommand{\Comment}[1]      {}
+
+ \newcommand{\LevelA}[1]         {\part{#1}}
+ \newcommand{\LevelB}[1]         {\chapter{#1}}
+ \newcommand{\LevelC}[1]         {\chapter{#1}}
+ \newcommand{\LevelD}[1]         {\section{#1}}
+ \newcommand{\LevelE}[1]         {\subsection{#1}}
+
+
+ \Comment { %LevelX
+ \newcommand{\LevelA}[1]         {\chapter{#1}}
+ \newcommand{\LevelB}[1]         {\section{#1}}
+ \newcommand{\LevelC}[1]         {\subsection{#1}}
+ \newcommand{\LevelD}[1]         {\subsubsection{#1}}
+ } % End LevelX Comment.
+
+ \newcommand{\ToCComment}[1]   {\subsubsection{#1}}
+
+ \newcommand{\Picture}[3] {
+ \begin{center}
+   \ToCComment{#1}
+
+   \includegraphics#2{#3}
+
+   \textbf{#1}
+ \end{center}
+ }
+
+ \newcommand{\Code}[1]         {\texttt{#1}}
+ \newcommand{\Keyword}[1]      {\textbf{#1}}
+ \newcommand{\ceol}            {\\}                % Code end-of-line.
+
+ \newcommand{\book}[1]         {\emph{#1}}
+ \newcommand{\Cry}             {(':}
+ \newcommand{\Fr}[1]           {\textbf{#1}}
+
+ \newcommand{\Frownie}         {\frownie}
+%\newcommand{\Heart}           {$\varheart$ }      % From arev package
+ \newcommand{\Heart}           {♥}                 % Heisted from a graphic.
+ \newcommand{\RTLKissie}       {*-:}
+ \newcommand{\Kissie}          {:-*}
+ \newcommand{\Laughie}         {:-D}
+ \newcommand{\leol}            {\\}
+ \newcommand{\lparen}          {)}
+ \newcommand{\rparen}          {(}
+ \newcommand{\seol}            {\\}
+ \newcommand{\Smiley}          {\smiley}
+ \newcommand{\teol}            {\\ \hline}
+%\newcommand{\ThumbsUp}        {\HandLeftUp}       % bbding  package Fists
+ \newcommand{\ThumbsUp}        {\rightthumbsup}    % dingbat package Fists (better)
+
+ \setcounter{tocdepth}{4}
+
+ \begin{document}
+ \maketitle
+ \tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                   %%
+%%   Here are the listing package's parameters used in the creation  %%
+%% of this book.                                                     %%
+%%                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ \definecolor{CommentColor}                    {rgb}{0.000000, 0.600000, 0.000000}
+ \definecolor{KeywordStyleColor}               {rgb}{0.000000, 0.000000, 1.000000}
+ \definecolor{ListingBgColor}                  {rgb}{1.000000, 1.000000, 1.000000}
+ \definecolor{ListingFrameColor}               {rgb}{1.000000, 1.000000, 0.920000}
+ \definecolor{LiteralStringColor}              {rgb}{0.500000, 0.000000, 0.820000}
+ \definecolor{NumStyleColor}                   {rgb}{0.500000, 0.500000, 0.500000}
+ \definecolor{RuleColor}                       {rgb}{0.000000, 0.000000, 0.000000}
+ \definecolor{RuleSepColor}                    {rgb}{0.840000, 0.840000, 0.840000}
+ \definecolor{ShadowBoxFrameColor}             {rgb}{0.920000, 0.920000, 0.920000}
+ \definecolor{ShadowBoxColor}                  {rgb}{0.920000, 1.000000, 1.000000}
+
+ \lstset{
+   backgroundcolor=\color{ListingBgColor},     % choose the listing background color.
+   basicstyle=\footnotesize,                   % the size of the fonts that are used for the code
+   breakatwhitespace=false,                    % sets if automatic breaks should only happen at whitespace
+   breaklines=true,                            % sets automatic line breaking
+   captionpos=b,                               % sets the caption-position to bottom
+   commentstyle=\color{CommentColor},          % comment style
+   deletekeywords={...},                       % if you want to delete keywords from the given language
+   extendedchars=true,                         % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+   frame=shadowbox,
+   framexleftmargin=2.0mm,                     % Extend left frame margin to put line numbers inside the frame.
+   keywordstyle=\color{KeywordStyleColor},     % keyword style
+   language=C++,                               % the language of the code
+   morecomment=[l]{/}                          % displays comments in italics (language-dependent)
+   morekeywords={*,...},                       % if you want to add more keywords to the set
+   numbers=none,                               % where to put the line-numbers; possible values are (none, left, right)
+   numbersep=0.0mm,                            % how far the line-numbers are from the code. Can't be < 10pt?
+   numberstyle=\tiny\color{NumStyleColor},     % determines the font and size of the numbers.
+   rulecolor=\color{RuleColor},                % if not set, the frame-color may be changed on line-breaks within not-black text.
+   rulesepcolor=\color{RuleSepColor},  
+   showspaces=false,                           % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+   showstringspaces=false,                     % underline spaces within strings only
+   showtabs=false,                             % show tabs within strings adding particular underscores
+   stepnumber=1,                               % the step between two line-numbers. If it's 1, each line will be numbered
+   stringstyle=\color{LiteralStringColor},     % string literal style
+   tabsize=2,                                  % sets default tabsize to 2 spaces
+   title=\lstname,                             % show the filename of files included with \lstinputlisting; also try caption instead of title
+   xleftmargin=4.0mm
+ } % End of big lstset.
+
+ \lstset{                      % This lstset must be in the preamble.
+   numberbychapter=true
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                   %%
+%%   End of listings package parameters.                             %%
+%%                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ %\Comment{ % Frontmatter.
+
+   \chapter*{Dramatis Person\ae}
+
+ \begin{description}
+
+ \item[Editor:] ~
+ 
+ Jeremy A. Hansen, PhD, CISSP
+
+ \item[Technical Editor \& Typesetting:] ~
+ 
+ Theodore M. Rolle, Jr.
+
+ \item[Media \& Outreach:] ~
+ 
+ Matthew E. Russo
+
+ \item[Cover Art \& Graphic Design:] ~
+ 
+ Allyson E. LeFebvre
+
+ \item[Content Authors:]\label{ContentAuthors} ~
+ 
+Tyler Atkinson,
+Troy M. Dundas,
+Connor J. Fortune,
+Jeremy A. Hansen, PhD, CISSP,
+Scott T. Heimann,
+Benjamin J. Jones,
+Michelle Kellerman,
+Michael E. Kirl,
+Zachary LeBlanc,
+Allyson E. LeFebvre,
+Gerard O. McEleney,
+Phung P. Pham,
+Megan Rioux,
+Alex Robinson ,
+Kyle R. Robinson-O'Brien,
+Jesse A. Rodimon,
+Matthew E. Russo,
+Yosary Silvestre,
+%Dale R. Stevens,
+Ryan S. Sutherland,
+James M. Verderico,
+Christian J. Vergnes,
+Rebecca Weaver,
+Richard Z. Wells, and
+Branden M. Wilson.
+
+ \item[Funding \& Support:] ~
+ 
+\begin{itemize}
+	\item Peter Stephenson, PhD, VSM, CISSP, CISM, FICAF, LPI at the Norwich University Center for Advanced Computing \& Digital Forensics
+  \item Andrew Pedley at Depot Square Pizza
+  \item Theodore M. Rolle, Jr.
+\end{itemize}
+
+ \item[Kickstarter contributors:] ~  
+ 
+Nathan Adams,
+Chris Aldrich,
+Jay Anderson,
+Kent Archie,
+Erik Arvedson,
+Astrolox,
+Phoebe Ayers,
+Papa Joe Barr,
+Julia Benson-Slaughter, Georgia Perimeter College,
+Patrick Berthon,
+Francis Bolduc,
+Greg Borenstein,
+Mark Braun,
+Patrick Breen,
+Igor Bronshteyn,
+Valdemar Bu\-{\v{c}}il\-ko,
+Ross Buckley,
+Nikita Burtsev,
+Jakob Bysewski,
+David Camara,
+Dave M. Campbell,
+Brian V. Campbell III,
+S. Canero,
+Serge Canizares,
+Andrew Carlberg,
+Casey B. Cessnun,
+Winston Chow,
+W. Jesse Clements,
+Greg Crawford,
+Sean Cristofori,
+Jordan G Cundiff,
+Michael David,
+Joseph Davies,
+Ashley Davis,
+David C. Dean,
+DJS,
+Carlton Doc Dodd,
+Phil Dodds,
+Dominic,
+Sankar Dorai,
+dryack,
+Matt DuHarte,
+Brandon Duong,
+Van Van Duong,
+Daniel Egger,
+Chris Fabian,
+Jorge F. Falcon,
+Tek Francis,
+Fuchsi,
+Steve Gannon,
+Michael Gaskins,
+Gavlig,
+Adam Gibson,
+Russell E. Gibson,
+Goldenwyrm,
+James Green,
+Brian J. Green,
+Casey Grooms,
+Vitalik Gruntkovskiy,
+Vegar Guldal,
+Felix Gutbrodt,
+Jeremy Gwinnup,
+Beau T. Hahn,
+Paul R. Harms - Norwich 1975,
+Corey H. Hart, MBA,
+Aaron A. Haviland,
+Josh Heffner,
+Greg Holland,
+Henry Howard,
+Mark V Howe,
+Ivaliy Ivanov,
+Matt Jadud,
+Joseph Jaoudi,
+Tim R. Johnson,
+Ibi-Wan Kentobi,
+Mark King,
+Mitchell Kogut III,
+Sigmund Kopperud,
+Michael Korolev,
+Jamie Kosoy,
+Aria Kraft,
+Alexander T{\'{y}}r Kristj{\'{a}}nsson,
+Richard Kutscher,
+Eric Laberge,
+John Lagerquist,
+Philip Lawrence,
+Mark Brent Lee,
+John and Nancy LeFebvre,
+Nevin :-) Liber,
+Jonathan Lindquist,
+Thomas Lockney,
+Stuart A. MacGillivray,
+Dr. Pedro Maciel,
+Troels Holstein Madsen,
+William Marone,
+Fred Mastropasqua,
+Miles Mawyer,
+michael mazzello,
+Ryan McDonough,
+Matthew McFadden,
+John McIntosh II,
+Sean McNamara,
+mdsaravanan,
+Brandon Meskimen,
+Andrew Mike,
+G.F. Miller IV,
+Marcus Millin,
+Salvador Torres Morales,
+Danny Morgan,
+Ken Moulton,
+Aaron Murray,
+mvi,
+Jon Nebenfuhr,
+Philip K. Nicholson,
+chris nielsen,
+Pontus Nilsson,
+Mike Noble,
+Aleksander R. Nord\-gar\-den-R{\o}d\-ner,
+Greg O'Han\-lon,
+Doug Otto,
+Randy Padawer, Ph.D.,
+J Palmer,
+Tasos Papastylianou,
+Paul,
+James Pearson-Kirk,
+Matthew Peterson,
+Grigory Petrov,
+pezmanlou,
+Joachim Pileborg,
+Kyle Pinches,
+pkh,
+Mary Purdey,
+Marshall Reeves,
+Matthew Ringman,
+Craig D. Robbins,
+Antonio Rodriguez,
+Armando Emanuel Roggio,
+Victor Suarez Rovere,
+Christian Sandberg,
+Jaymes Sattler,
+Paolo Scalia,
+Patrice Scheidt,
+Daniel Schmitt,
+Levi Schuck,
+Raman Sharma\_Himachali,
+Michael Shashoua,
+Daniel Shiffman,
+Clay Shirky,
+sillygoatgirl,
+Kevin J. Slonka,
+Brian Smith,
+Hazel Smith \& Rebecca Twigg,
+Andrey Soplevenko,
+Kasper Souren,
+Derek A. Spangler,
+Speckman,
+Kellan St.Louis,
+Nick Stefanou,
+Steve,
+Andrew Stewart,
+Jeremy Sturdivant,
+Cyrille Tabary,
+Adam 8T Tannir,
+M Taylor,
+Telecat Productions,
+Aron Temkin,
+Mitchell Tilbrook,
+Nathan Tolbert,
+Devin M. Tomlinson - Vermont Born,
+Todd Trimble,
+Michiel van Slobbe,
+James A. Velez,
+Marco Verdecchia,
+David Walter,
+Lothar Werzinger,
+Wayne West,
+Sean Whaley '05 \& M'08,
+Mark Wheeler,
+Tommy Widenflycht,
+Dylan Widis,
+Tony Williamitis,
+Adam M. Williams,
+Stephen D. Williams,
+Dylan Wilson,
+Wesley Wiser,
+wizzy,
+Sam Wright,
+Janet Hong Yam,
+and
+Jy Yaworski.
+
+
+ \end{description}
+% } % End Frontmatter Comment.
+
+% \LevelA{Section 1}
+   %\LevelB{Chapters:}
+      \LevelC{History}
+      \input{chap_history.tex}
+%      \LevelC{Types of languages}
+%      \input{chap_types.tex}
+%      \LevelC{How Computers Use Memory}
+%      \input{chap_memory.tex}
+      \LevelC{Sample Program}
+      \input{chap_sampleprogram.tex}
+% \LevelA{Section 2}
+   %\LevelB{Chapters:}
+     \LevelC{Variables}
+      \input{chap_variables.tex}
+     \LevelC{Constants}
+      \input{chap_constants.tex}
+     \LevelC{Assignments}
+      \input{chap_assignments.tex}
+     \LevelC{Input}
+      \input{chap_input.tex}
+     \LevelC{Output}]
+      \input{chap_output.tex}
+     \LevelC{Arithmetic}
+      \input{chap_arithmetic.tex}
+     \LevelC{Comments}
+      \input{chap_comments.tex}
+     \LevelC{Data types, conversion}
+      \input{chap_datatypes.tex}
+
+% \LevelA{Section 3}
+%   \LevelB{Chapters:}
+     \LevelC{Conditionals}
+      \input{chap_conditionals.tex}
+     \LevelC{Strings}
+      \input{chap_strings.tex}
+     \LevelC{Loops}
+      \input{chap_loops.tex}
+     \LevelC{Functions, Scope, and Blocks}
+      \input{chap_functions.tex}
+     \LevelC{Problem Solving}
+      \input{chap_problems.tex}
+     \LevelC{Testing}
+      \input{chap_testing.tex}
+
+% \LevelA{Section 4}
+%   \LevelB{Chapters}
+     \LevelC{Preprocessor}
+      \input{chap_preproc.tex}
+     \LevelC{Advanced Arithmetic}
+      \input{chap_advancedarith.tex}
+     \LevelC{File I/O}
+      \input{chap_file_io.tex}
+     \LevelC{Arrays}
+      \input{chap_arrays.tex}
+     \LevelC{Pointers}
+      \input{chap_pointers.tex}
+     \LevelC{Dynamic Data}
+      \input{chap_dynamic.tex}
+
+ \Comment{ % LevelX comment.
+
+ \LevelA{}
+   \LevelB{}
+     \LevelC{}
+     \LevelC{}
+     \LevelC{}
+     \LevelC{}
+     \LevelC{}
+     \LevelC{}
+     \LevelC{}
+     \LevelC{}
+ } % End LevelX comment.
+
+% \LevelA{Section 5}
+%   \LevelB{Chapters}
+     \LevelC{Separate compilation}
+      \input{chap_separate.tex}
+%     \LevelC{User-defined types}
+%      \input{chap_userdefined.tex}
+     \LevelC{Classes and Abstraction}
+      \input{chap_classes.tex}
+%     \LevelC{Exceptions}
+%      \input{chap_exceptions.tex}
+     \LevelC{STL}
+      \input{chap_stl.tex}
+
+ %\missingfigure{Pictures and figures and tables are a nice touch.}
+
+ %\listoftodos
+
+ \lstlistoflistings
+
+ \printindex
+
+ \end{document}

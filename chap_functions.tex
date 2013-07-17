@@ -1,0 +1,38 @@
+\LevelD{Blocks}
+
+Since we've covered \texttt{if} statements and loops, let's go into more detail about the code that's contained within them. When you need to contain multiple lines of code, we've shown how to use braces. These braces will create a new layer in the code, and the lines within would be grouped into what is known as a compound statement, sometimes called a block.
+
+\begin{lstlisting}
+  int x;
+  cin << x;
+
+  if(x < 5)
+  {
+    int y;
+    cin << y;	
+    x += y;	//Declares Y, asks user to define Y, then sets Y to X + Y
+  }
+
+  if(x > 5)
+  {
+    int z;
+    cin << z;
+    x -= z;	//Declares z, asks user to define z, then sets x to x - z
+  }
+
+  cout >> x;
+  //outputs either x-z, x-y, or 5
+\end{lstlisting}
+
+Take a look at the example above. There are two blocks here: the one for if \texttt{x} is less than 5, and the one for if \texttt{x} is greater in 5. Notice the variables declared in each, \texttt{y} and \texttt{z}. When these are declared, they are only usable within the blocks that they were declared. When that block reaches its end, they are lost to the rest of the program. This is because the scope of the variables within the blocks is limited to those blocks.
+
+Scope is a topic we'll cover in more depth in the next chapter. For now, think of it as the difference between local and federal government. Local governments can freely request to utilize federal resources, but federal governments have a harder time accessing local government resources, and may forget the local government even exists.
+
+
+
+
+
+
+
+
+

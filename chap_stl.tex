@@ -1,0 +1,53 @@
+The Standard Template Library (STL) provides a set of tools beyond those that are provided by the ``base'' C++ language. In fact, you have already become familiar with some of them [back in Chapter X], such as input and output streams, Y, and Z. While a comprehensive discussion of the features of the STL is far beyond the scope of this text, there are several libraries that offer extremely important features with which you should become comfortable. [footnote: A reasonable place to start for a wider view of the STL is here:
+ \href{http://en.wikipedia.org/wiki/Standard_Template_Library}
+      {Wikipedia Standard Template Library}
+
+
+ \Keyword{\#include <cstdlib>}
+
+ \Keyword{\#include <vector>}
+
+ \Keyword{\#include <map>}
+
+This library provides one of the STL's associative container object classes. An associative container differs from an array in that items in an array are referenced with a number which indicates the item’s position in memory:
+
+ \begin{lstlisting}
+int myArray[10]; // An array of ten integers
+myArray[0] = -5; // Set the first integer in the array to -5
+ \end{lstlisting}
+
+
+An associative container, on the other hand, can use any data type to reference the items in the container. For example, you might choose to use a string to reference a collection of int items.
+
+
+ \begin{lstlisting}
+ std::map<std::string,int> myMap;}
+\end{lstlisting}
+
+Perhaps you want to create the object with some initial values:
+
+ \begin{lstlisting}
+   std::map<std::string,int> myMa=p;
+
+   // map::at
+
+   int main ()
+   {
+    std::map<std::string,int> mymap = {
+               { "alpha", 0 },
+               { "beta", 0 },
+               { "gamma", 0 } };
+
+   mymap.at("alpha") = 10;
+   mymap.at("beta") = 20;
+   mymap.at("gamma") = 30;
+
+   for (auto\& x: mymap) {
+     std::cout << x.first << ": " << x.second << '\\n';
+   }
+
+   return 0;
+   }
+ \end{lstlisting}
+
+The container can only hold one instance of each key, and attempts to add a duplicate item will not overwrite the existing item. The multimap object is a similar structure to map that allows for duplicate items to be added.

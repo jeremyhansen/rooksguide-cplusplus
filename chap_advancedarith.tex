@@ -1,0 +1,198 @@
+	Advanced arithmetic in C++ includes math that can't be used in code without the use of the \texttt{<cmath>} library. This is math that goes above and beyond the standard operations: addition (\texttt{+}), subtraction (\texttt{-}), multiplication (\texttt{*}), and division (\texttt{/}). As we have seen before, some  simple arithmetic might look like:
+	
+\begin{lstlisting}
+	int x;
+	x = 1;
+	x += 5;
+	return x;
+\end{lstlisting}
+	The variable \texttt{x} is declared as an integer. The next line sets it to one. The \texttt{+=} operator adds five to \texttt{x}, which makes \texttt{x} contain six.
+	Doing simple operations like these does not require any special libraries or unusual commands. Any compiler can look at a \texttt{+}, \texttt{-}, \texttt{*}, or \texttt{/} in a line of code and know exactly what the programmer is expecting to happen. Some math requires a little extra help, though. In this case, help is the \texttt{<cmath>} library.
+	\texttt{<cmath>} is a library that is needed for trigonometric, hyperbolic, exponential, logarithmic, rounding, and absolute value functions. The \texttt{<cmath>} library is designed to make your life simple and to make complicated math easier in C++. Using the \texttt{<cmath>} library in code is as simple as including it at the top of your source code file with the rest of your libraries:
+
+\begin{lstlisting}
+#include <iostream>	
+#include <cmath>
+\end{lstlisting}
+
+	After the inclusion of the \texttt{<cmath>} library, you can use certain mathematical functions in your code such as \texttt{pow(x,y)}, which raises parameter \texttt{x} to the power of parameter \texttt{y}, and \texttt{sqrt(z)}, which returns the square root of parameter \texttt{z}. In your first few C++ programs, you will probably not use the more advanced mathematical functions included in the \texttt{<cmath>} library, but for a full list of the mathematical functions, refer to ``Further Reading'' at the end of this chapter. 
+
+\LevelD{Examples}
+
+\LevelE{\texttt{pow()}}
+	\texttt{pow} is the function that is called when a value or variable needs to be raised to a certain power. Take a look at this code and we'll break it down line by line:
+
+\begin{lstlisting}
+int x, y;
+x = 4;
+y = pow (x+1, 3) + 6;
+\end{lstlisting}
+
+	First off, we are initializing two variables, \texttt{x} and \texttt{y}. After that, we take \texttt{x} and set it to 4. Now we get to a more interesting section of code. We are asking the compiler to raise the value of \texttt{x} plus 1 to the power of 3, add 6, and then place the result in \texttt{y}. To use the \texttt{pow} function, you must understand its syntax. Here is the breakdown:
+
+\begin{lstlisting}
+	pow (starting value, power being raised)
+\end{lstlisting}
+
+ 	So for \texttt{pow (x+1, 3) + 6}, we are raising the starting value \texttt{x}~+~1 to the power of 3. Before the power of 3 is applied to \texttt{x}+1, 1 needs to be added to \texttt{x}. In this case, it is the simple operation of 4+1, which nets us 5. After we get 5, we raise it to the 3\textsuperscript{ rd} power to get a value of 125. After we reach the value of 125, we are finished with the \texttt{pow} function and return to using normal math when we add 6 to 125 and get a value of 131.  
+	
+
+	Undoubtedly there are more complicated uses of the \texttt{pow} function, such as multiple uses of \texttt{pow} in the same line of code. You might use multiple \texttt{pow} operations in code that calculates the length of one side of a triangle using the Pythagorean Theorem. Look at the following code and see if you can figure out what the output value would be:
+
+\begin{lstlisting}
+  int x, y, z;
+  x = 3;
+  y = x + 1;
+  z = pow (x, 2) + pow (y, 2);
+  cout << z;
+\end{lstlisting}
+
+	If you got 25, then you have the right answer! A breakdown reveals that after initializing the variables \texttt{x} and \texttt{y} and setting their values (3 for \texttt{x} and \texttt{x}+1 for \texttt{y}), we raise each value to the power of 2. For visual reference,
+
+\begin{lstlisting}
+	z = pow (3, 2) + pow (x+1, 2);
+\end{lstlisting}
+gets changed to
+\begin{lstlisting}
+	z = 9 + 16;
+\end{lstlisting}	
+	
+	\texttt{z}'s value is set to 25. The \texttt{pow} operation is simple to use, and can make operations used in a program simpler from both a computing and visual stand point.
+
+\LevelE{\texttt{sqrt()}}
+	Square root operations are called in the program with \texttt{sqrt}. Take a look at the example below to see how it is called in a program:
+
+\begin{lstlisting}
+  int a, b;
+  a = 25;
+  b = sqrt(a);
+\end{lstlisting}
+
+	\texttt{sqrt} is simpler than \texttt{pow} in that it only requires one parameter. Since \texttt{sqrt} returns a \texttt{float} or \texttt{double}, you should usually assign the result to a \texttt{float} or \texttt{double} variable, but in this example, \texttt{sqrt} returns exactly 5, so it can be converted to an \texttt{int} without any issues. 
+	There are cases where both \texttt{sqrt} and \texttt{pow} are used in the same formula, such as when calculating the distance between two points. When writing such code, it is very important to keep track of the parentheses and to use correct syntax. One such syntax mistake is made when programmers think that C++ syntax is the same as algebraic syntax. This is \emph{not} the case in C++!
+
+\begin{lstlisting}
+  int x = (5)(pow (3, 3) );
+\end{lstlisting}
+
+is NOT correct syntax. When the compiler sees this, it doesn't view it as multiplication, but instead as (according to a professional), “function shenanigans.” It is important to be explicit with symbols relating to math in C++. So instead of the inaccurate code above, use:
+
+\begin{lstlisting}
+int x = 5 * (pow (3, 3) );
+\end{lstlisting}
+
+	Now, as an example, we will use code to compute the distance between two points on a plane. Refer to the code and the diagrams if you do not understand or get lost.
+
+\begin{lstlisting}
+int x1, x2, y1, y2;
+float dist;
+x1 = 4;
+y1 = 4;
+x2 = 6;
+y2 = 10;
+
+dist = sqrt  (pow (x2 – x1, 2) + pow (y2-y1, 2));
+cout << dist;
+\end{lstlisting}
+	
+	So your final answer after the calculation is executed is roughly 6.342555. Without the help of the advanced arithmetic operations, getting to this result would be a difficult, long, drawn-out process. \texttt{pow} and \texttt{sqrt} are handy little functions that make life easier, all with the help of the \texttt{<cmath>} library.
+
+\LevelE{Modulo}
+The modulo operator (the percent sign: \texttt{\%}) finds the remainder, or what was left over from division. This program uses the modulo operator to find all prime numbers (all the numbers that never have a remainder of 0 when divided by every number except 1 and itself) that can be held by an \texttt{int}.
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	int testprime = 0, divby = 0, remainder = 0;
+	bool isprime;
+	cout << "Prime Number Finder" << endl;
+	while(testprime < 2147483647)//The Maximum for int
+	{
+    	isprime=true;
+    	testprime++;
+    	for(divby=2; divby < testprime; divby++)
+    	{
+        	remainder = testprime \% divby; // store the remainder of the current number when divided by divby
+        	if (remainder == 0)//If the number is not prime
+        	{
+            	isprime = false;
+		break;
+        	}
+    	}
+    	if (isprime)//If it passes the test, it is prime.
+    	{
+        	cout << " " << testprime; // tell us what the prime number is.
+    	}
+	}
+	return 0;
+}
+\end{lstlisting}
+
+\LevelD{Review Questions}
+1. Which \texttt{\#include} library is needed to use advance arithmetic operators?
+
+2. Write C++ code to calculate $2^9$.
+
+3. Write a statement to set the value of a variable of type double to the square root of 10001.
+
+\LevelD{Homework Questions}
+Write a code to find the hypotenuse of a right triangle (remember that $a^2 + b^2 = c^2$) by filling in the blanks and finishing the code. What will be the final output of the code?
+
+\begin{lstlisting}
+#include <iostream>
+// Add necessary libraries here
+
+using namespace std;
+
+int main()
+{
+	float a=3.0, b=4.0;
+	float c;
+	
+	//
+	// Finish the program...
+	//
+	cout << “The hypotenuse of the right triangle is “ <<  c << endl;
+}
+\end{lstlisting}
+
+
+\LevelD{Review Questions Answers}
+\begin{itemize}
+\item \texttt{\#include <cmath>} must be included to include advanced operators.
+\item \texttt{pow(2, 9)}
+\item \texttt{double b = sqrt(10001);}
+\end{itemize}
+
+\LevelD{Homework Questions Answers}
+\begin{lstlisting}
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+	float a=3.0, b=4.0;
+	double c;
+	
+	a=pow(a,2);
+	b=pow(b,2);
+	c=sqrt(a+b);
+
+	cout << "The hypotenuse of the right triangle is " << c << endl;
+}
+\end{lstlisting}
+
+The final output of the code is: 
+
+\texttt{The hypotenuse of the right triangle is 5}
+
+
+\LevelD{Further Reading}
+\begin{itemize}
+\item \url{http://pages.cpsc.ucalgary.ca/~jacob/Courses/Fall00/CPSC231/Slides/08-Arithmetic.pdf}
+\item \url{http://www.cplusplus.com/reference/cmath/}
+\end{itemize}

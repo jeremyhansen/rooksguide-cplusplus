@@ -1,0 +1,50 @@
+%Assignments
+
+	Assignments are a way for a user or a programmer to assign a value to a variable. The way we assign a value to a variable in C++ is different from how we would might do it in math. In mathematics we are allowed to say that \texttt{x = 3} or \texttt{3 = x}, but in C++ the only acceptable way to assign the value of 3 to \texttt{x} is to type \texttt{x = 3}. 
+The \texttt{=} in the expression \texttt{x = 3} is known as an \emph{assignment operator}. This allows the program to set a variable’s value depending on its type. Here are some examples on setting a value to different types of variables:
+
+		int x = 4;
+
+		char alpha = 'A';
+
+		string word = \"Alpha\";
+
+		float y = 3.14;
+
+
+	We are able to declare variables and assign a value to those variables immediately by using the assignment operator. When we assign literal values to variables of type char, the value must be surrounded by single quotes (example: \texttt{'A'}). When we assign values of type string, the literal value must be surrounded by double quotes (example: \texttt{\"Alpha\"}). We do not have to initialize the values of the variables, however. We can set them with a value later in the code like this:
+		int myVal;
+		//some code
+		myVal = 0; 
+
+	In all of the lines of code in this section where a variable is set using the assignment operator, the “thing that is being given a value” is known as an \emph{lvalue}, and the expression on the right that is being stored in the variable is known as the \emph{rvalue}. Literals such as \texttt{'A'} or 3 can never be an lvalue. Aside from literals, the rvalue can consist of other variables as well, like this:
+
+		myVal = myVal2;
+
+Even though \texttt{myVal2} is a variable, we are only passing the \emph{value stored in the variable}, not the variable itself. For example if \texttt{myVal2} had a value of 6, \texttt{myVal} would then have a value of 6 with the above code. 
+
+We can also store an arithmetic expression in a variable like this: 
+	
+		myVal = 5 + 6; //assigns myVal a value of 11 because 5 plus (+) 6 is 11
+
+	But we can't write
+
+		5 + 6 = myVal; // ERROR!
+
+	since 5 + 6 doesn't refer to a place where we can store a value. We can also combine arithmetic expressions with other variables to be stored in a variable like this:
+	
+		myVal2 = 6;
+		myVal = 4 + myVal2;
+
+In this case, the variable \texttt{myVal} would be given a value of 10 because the variable \texttt{myVal2} was initialized with a value of 6 before the assignment was executed. The value of \texttt{myVal2} remains unchanged. Make sure that the variable \texttt{myVal}, the variable \texttt{myVal2}, and the value 4 are the same type. For example, the following code will result in an error:
+
+		int myValue = 4;
+		int yourVal;
+		string myString = \"word\";
+		
+		yourVal = myValue + myString; // Adding an int to a string is
+						// probably not what you meant!
+
+When we try to combine different variable types, the compiler will get very mad at us. Some exceptions to this rule are if we try to combine \texttt{float}s, \texttt{int}s, and \texttt{double}s. These types have the ability to be combined because they are all numeric values. Both \texttt{double}s and \texttt{float}s can hold values with a decimal point such as -3.14, 0.003, or 5.167289 whereas an \texttt{int} can only hold round values such as 2, -18, or 100. Refer to Chapter \ref{Data types, conversion} for more information on converting between data types.
+
+
