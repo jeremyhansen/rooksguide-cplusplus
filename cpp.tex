@@ -231,6 +231,12 @@
 
  \begin{document}
  \maketitle
+ \thispagestyle{empty}
+ \newpage
+
+ \setcounter{page}{1}
+ \pagenumbering{roman}
+% \pagestyle{plain}
  \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -293,6 +299,28 @@
 
  %\Comment{ % Frontmatter.
 
+\chapter*{License}
+
+\vspace{1in}
+
+\includegraphics[width=.25\textwidth]{graphics/cc.large.png} \
+\includegraphics[width=.25\textwidth]{graphics/by.large.png} \
+\includegraphics[width=.25\textwidth]{graphics/nc.large.png} \
+\includegraphics[width=.25\textwidth]{graphics/sa.large.png}
+
+\vspace{1in}
+
+\noindent This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License, as described at \newline
+
+\noindent \footnotesize \url{http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode}
+
+
+
+
+
+% \\A \href{http://creativecommons.org/licenses/by-nc/3.0/}
+
+
    \chapter*{Dramatis Person\ae}
 
  \begin{description}
@@ -303,7 +331,14 @@
 
  \item[Technical Editing \& Typesetting:] ~
  
+ Jeremy A. Hansen, PhD, CISSP
+ 
+ Matt Jadud, PhD
+ 
+ Craig D. Robbins
+ 
  Theodore M. Rolle, Jr.
+ 
 
  \item[Media \& Outreach:] ~
  
@@ -333,7 +368,7 @@ Kyle R. Robinson-O'Brien,
 Jesse A. Rodimon,
 Matthew E. Russo,
 Yosary Silvestre,
-%Dale R. Stevens,
+Dale R. Stevens,
 Ryan S. Sutherland,
 James M. Verderico,
 Christian J. Vergnes,
@@ -346,7 +381,7 @@ Branden M. Wilson.
 \begin{itemize}
 	\item Peter Stephenson, PhD, VSM, CISSP, CISM, FICAF, LPI at the Norwich University Center for Advanced Computing \& Digital Forensics
   \item Andrew Pedley at Depot Square Pizza
-  \item Theodore M. Rolle, Jr.
+
 \end{itemize}
 
  \item[Kickstarter contributors:] ~  
@@ -546,9 +581,13 @@ Jy Yaworski.
  \end{description}
 % } % End Frontmatter Comment.
 
+
 % \LevelA{Section 1}
    %\LevelB{Chapters:}
       \LevelC{History}
+ \setcounter{page}{1}
+ \pagenumbering{arabic}
+ %\pagestyle{fancy}
       \input{chap_history.tex}
 %      \LevelC{Types of languages}
 %      \input{chap_types.tex}

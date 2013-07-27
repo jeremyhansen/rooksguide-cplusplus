@@ -12,9 +12,11 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * Chapter \sections should be designated with \LevelD{My section} and \subsections with \LevelE{My subsection}
 
-* Bits of code and symbols within a sentence should be placed within a \texttt{...}. So should program output, which should appear on its own line.
+* Bits of code and symbols within a sentence should be placed within a \Code{...}. (Note that this has changed from \texttt!) So should program output, which should appear on its own line.
 
 * Code listings that stand on their own (and pseudocode) should be put in \begin{lstlisting}/* Code */ \end{lstlisting}
+
+* Important terms should be placed within \Keyword{...}
 
 * Each chapter has the following sections, in this order:
 
