@@ -1,28 +1,33 @@
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
-    int testprime = 0, divby = 0, remainder = 0;
+    int testprime = 0, divby, remainder;
     bool isprime;
-    cout << "Prime Number Finder" << endl;
-    while(testprime < 2147483647)//The Maximum for int
+    
+    cout << "Prime Number Finder (Searching for primes > 0 and < 50000)" << endl;
+    
+    while (testprime < 50000)
     {
-        isprime=true;
-        testprime++;
-        for(divby=2; divby < testprime; divby++)
+        testprime++;                        // Advance to next number to check for primeness
+        
+        isprime = true;                     
+        for (divby = 2; divby < testprime; divby++)
         {
-            remainder = testprime % divby; // store the remainder of the current number when divided by divby
-            if (remainder == 0)//If the number is not prime
+            remainder = testprime % divby;  // Store the remainder of testprime when divided by divby
+            if (remainder == 0)             // If the number was evenly divisible by another number...
             {
-                isprime = false;
+                isprime = false;            // ... then it is not a prime number.
                 break;
             }
         }
-        if (isprime)//If it passes the test, it is prime.
+        if (isprime)                        // If the number is prime based on the test above
         {
-            cout << " " << testprime; // tell us what the prime number is.
+            cout << " " << testprime;       // Print the prime number
         }
     }
+    cout << endl;   // advance output to a new line
     return 0;
 }
-
