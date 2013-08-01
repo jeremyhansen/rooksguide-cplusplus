@@ -15,7 +15,7 @@ int main()
             if (remainder == 0)//If the number is not prime
             {
                 isprime = false;
-        break;
+                break;
             }
         }
         if (isprime)//If it passes the test, it is prime.
