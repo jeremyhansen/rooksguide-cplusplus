@@ -11,7 +11,7 @@ int main()
     y1 = 4;
     x2 = 6;
     y2 = 10;
-    
+
     dist = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
     cout << dist;
 
