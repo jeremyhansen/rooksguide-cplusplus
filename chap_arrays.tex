@@ -5,95 +5,61 @@ Array
 \Comment {
 
 What is it, how they work?
-	An array is a series of variables that are the same of the same type (int, float, double, char etc…). Arrays are held in a computer's memory in a strict linear sequence. An array does not hold anything other than the elements of the specified type. So there is no assigning an array of type float and hoping to store a string there. Doing so would cause a "type mismatch error" and the program wouldn't compile. To create an array, the user types into their compiler 
+	An array is a series of variables that are the same of the same type (int, float, double, char etc\ldots). Arrays are held in a computer's memory in a strict linear sequence. An array does not hold anything other than the elements of the specified type. Therefore there is no assigning an array of type float and hoping to store a string there. Doing so would cause a "type mismatch error" and the program wouldn't compile. To create an array, the syntax is:
+
 (data type) (array name)[(length of array)];
+
 A concrete example looks like: 
-	char Scott [5];
-The char is the data type for all elements in the array, Scott is the name of the array (you can be as creative as you want with the name) and the 5 inside the square brackets represents the size of the array. So char Scott [5] can hold 5 pieces of data that are of type char. Look at the diagram below for assistance.
+
+	char Scott[5];
+
+The char is the data type for all elements in the array; Scott is the name of the array (you can be as creative as you want with the name) and the 5 inside the square brackets represents the size of the array. So char Scott[5] can hold 5 pieces of data that are of type char. Look at the diagram below for assistance.
 When trying to visualize an array, think of a rectangle split up into as many open slots as the user defines. In the case of the above example, think of a rectangle with 5 open slots, each of type char that are waiting for some form of input. 
 
+In order to refer to the individual elements in an array, we start with the number 0 and count upwards. We use [0] to access the first element in the array, [1] for the second, [2] for the third, and so on.  In other words, arrays in C++ are indexed starting at 0. In order to read or write certain locations of the array, we state the name of the array and the element we want to access. It should look like this (refer to the diagram to visualize how the computer interprets this).
 
+Scott[3] = 'Q';     // Assign the character 'Q' to the 4th element of Scott[]
+cout << Scott[3];   // Retrieve the value of the 4th element of Scott[] and print it
 
-In order to refer to the individual elements in an array, we start with the number 0 and count upwards. We use [0] to access the first element in the array, [1] for the second, [2] for the third, and so on. In order to read or write certain locations of the array, we state the name of the array and the element we want to call. It should look like this (refer to the diagram to visualize how the computer interprets this).
-Scott[3] = 'Q'; // editor's note - make this a single apostrophe
-cout << Scott[3];
-
-
-
-
-
-
-
-
-
-You can also store values inside the array ahead of time when you are declaring the array. To do so, you need to enclose the values of the appropriate type in brackets and separate the values with a comma. Below are two examples, one of type char and one of type int.
+You can also store values inside the array ahead of time when you are declaring the array. To do so, you need to enclose the values of the appropriate type in brackets and separate the values with a comma. Below are two examples, one an array where each element is of type char and one and another where each element is of type int.
 
 char Scott [5] = {' S', 'c', 'o', 't', 't'};	
 
-
-
-
-
-
-
-
-
-
 int John [5] = {99, 5, 1, 22, 7};
 
-	
+% TODO: Elements in the preceding text are not referred to as "slots" like the paragraph below
 
-	Note that, in the C and C++ language, arrays of characters intended to be printed must contain a special character called the null character or null terminator. In the language, this character is represented by '\0'. The null character marks the end of the array and may be put in the last slot in the array, after any printable characters. Because the null character takes up one slot on its own, any character array should be declared as at least one space larger than the longest string that you expect to store.
+	Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the null character (abbreviated NUL; Note that this is not the same as the NULL pointer) or null-terminator. The NUL character marks the end of the string. In C++ the null character is '\0'. Because the null character takes up one "slot" of the array, any character array that is intended to be used as a string must be declared having a size one more than the longest string that you expect to store.
 
 	char witch_doctor[10] = {'v', 'o', 'o', 'd', 'o', 'o', 'b', 'a', 'd'};
 	cout << witch_doctor[7];
 
-
-
-
-
-
-
-
-
-
-
-
-
+% note: The above example implicity appends a 0 to all elements not initalized by the initializer list (assuming it's a local object). In the example, only 9 elements are explicitly initialized however the C++ standard states that when an initializer list is supplied then elements not given a value in the list are assigned the value 0 as if the aggregate object (in this case an array) was a static or global object. For readability it would be better to include the '\0' in the initializer list: char witch_doctor[10] = {'v', 'o', 'o', 'd', 'o', 'o', 'b', 'a', 'd', '\0'};
 
 Multi-dimensional Arrays
-A two dimensional array (some might call it a "matrix") is the same thing as an array, but is an "array of arrays." Here's a two-dimensional three-by-three array:
+A two-dimensional array (nearly always semantically equivalent to a "matrix") is the same thing as an array, but is an "array of arrays." Here's a two-dimensional array, with each dimension having three elements; i.e. it's a three-by-three array of integers.
+
 int Rich [3][3] // 2D
+
 Declaring arrays with more dimensions are possible with similar syntax. Here's a three-dimensional 10x10x10 example:
-int Sam [10] [10] [10] // 3D
+
+int Sam [10][10][10] // 3D
+
 And a four-dimensional 10x10x10x10 array. This is possible, even though it's hard to visualize.
-int Rich [10] [10] [10] [10] // 4D…etc
-A user can input values into a multi-dimensional array in a similar way as with a single-dimensional array. 
+
+int Rich [10][10][10][10] // 4D
+
+A programmer can initalize values in a multi-dimensional array in a similar way as for a single-dimensional array.
+
 int main()
 {
     int neo[3][3] = { {1,2,3}, {4,5,6}, {7,8,9} }; // filling matrix with set numbers
-    cout << neo[0][0] << endl <<endl; // first number, 1
-    cout << "  " << neo[2][2]; // last number, 9
+    cout << neo[0][0] << endl; // first number, 1
+    cout << "  " << neo[2][2] << endl; // last number, 9
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	The same logic is applied for 3 dimensional and 4 dimensional arrays, but when filling them, be mindful of the order of the input so that when you want to view certain elements in the array you are able to correctly access them.
+	The same logic is applied for 3-dimensional and 4-dimensional arrays, but when filling them be mindful of the order of the input so that when you want to view certain elements in the array you are able to correctly access them.
 
 
 References: 
