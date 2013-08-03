@@ -1,4 +1,5 @@
 style=stroustrup    # bracketing style
+--break-closing-brackets
 break-blocks        # Pad empty lines around header blocks (e.g. 'if', 'for', 'while'...).
 --pad-oper
 --pad-header

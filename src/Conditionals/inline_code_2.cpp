@@ -26,9 +26,11 @@ int main()
     case 3:
         if (a > b) {
             cout << "A is greater than B";
-        } else if (a < b) {
+        }
+        else if (a < b) {
             cout << "A is less than B";
-        } else { //a == b
+        }
+        else {   //a == b
             cout << "A equals B";
         }
 

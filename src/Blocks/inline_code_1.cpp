@@ -14,9 +14,9 @@ int main()
 
 void test()
 {
-    
+
 // **** INLINE-TEXT CODE START **************************************
-    
+
     int x;
     cin >> x;
 
@@ -25,7 +25,8 @@ void test()
         int y;
         cin >> y;
         x += y;
-    } else if (x > 5) {
+    }
+    else if (x > 5) {
         // Declares z, assigns user input to z, then sets x to x - z
         int z;
         cin >> z;
@@ -35,5 +36,5 @@ void test()
     cout << x; // Outputs either: x - z; x - y; or 5
 
 // **** INLINE-TEXT CODE END ****************************************
-    
+
 }

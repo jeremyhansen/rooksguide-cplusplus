@@ -37,7 +37,8 @@ int main()
         cont = toupper(cont);
         cout << endl;
 
-    } while (cont == 'Y');
+    }
+    while (cont == 'Y');
 
     return 0;
 }
