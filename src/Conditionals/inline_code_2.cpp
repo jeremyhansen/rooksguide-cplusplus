@@ -31,6 +31,7 @@ int main()
         } else { //a == b
             cout << "A equals B";
         }
+
         cout << endl << endl;
         break;
 

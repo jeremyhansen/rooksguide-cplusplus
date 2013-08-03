@@ -14,7 +14,7 @@ int main()
     // obvious to someone other than programmer
 
     cin >> date; // gets the date from the user
-    
+
     /* You can also use comments to remind yourself of changes you want to make
      * e.g. output date to screen or debug code passed this point
      */
