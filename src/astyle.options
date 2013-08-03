@@ -1,0 +1,7 @@
+style=stroustrup    # bracketing style
+break-blocks        # Pad empty lines around header blocks (e.g. 'if', 'for', 'while'...).
+--pad-oper
+--pad-header
+--add-brackets      # Add brackets to unbracketed one line conditional statements 
+indent=spaces=4
+--convert-tabs      # Converts tabs into spaces in the non-indentation part of the line.
