@@ -4,7 +4,7 @@ for (int j = 10, j > 0, j--)
     cout << j << endl;
 
     if (j = 1) {
-        cout << “BOOM!\n”
+        cout << "BOOM!\n"
     }
 }
 

@@ -10,6 +10,6 @@ int main()
     cin >> x;
 
     if (cin.fail()) {
-        cout << “That is not a valid data type!”;
+        cout << "That is not a valid data type!";
     }
 }

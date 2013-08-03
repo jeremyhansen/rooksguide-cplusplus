@@ -1,6 +1,6 @@
 int i = 10; //initializes i at 10
 
-cout << “T - minus “;
+cout << "T - minus ";
 
 while (i >= 0) // while loop that is ended when i is less than 0
 {
@@ -8,4 +8,4 @@ while (i >= 0) // while loop that is ended when i is less than 0
     i--;    //decreases the value of i by 1
 };
 
-cout << “Lift Off!”;
+cout << "Lift Off!";

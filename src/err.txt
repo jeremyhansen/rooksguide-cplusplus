@@ -1,0 +1,3 @@
+[File I-O/inline_code_1.cpp:14]: (error) syntax error
+[Loops/inline_code_5.cpp:2]: (error) syntax error
+[User Defined Types/inline_code_4.cpp:6]: (error) Invalid number of character ({) when these macros are defined: ''.

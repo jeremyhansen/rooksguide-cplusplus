@@ -7,8 +7,7 @@ int main()
 {
     double sq, num;
 
-cout  << “please enter a number:
-          “;
+    cout  << "please enter a number:";
     cin >> num;
 
     sq = sqrt(num);

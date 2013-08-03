@@ -2,9 +2,9 @@
 using namespace std;
 int main()
 {
-    cout << “Go Cadets!”;
+    cout << "Go Cadets!";
 
-    cout << “You can do it!”;
+    cout << "You can do it!";
 
     return 0;
 }

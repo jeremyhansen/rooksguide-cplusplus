@@ -8,11 +8,9 @@ int main ()
 
     double a, b;
     int c;
-cout << “Enter the manufacturing cost of the item:
-         “;
+    cout << "Enter the manufacturing cost of the item:";
     cin >> c;
-cout << “Enter the retail price of the item:
-         “;
+    cout << "Enter the retail price of the item:";
     cin >> b;
 
     a = profit (c, b); // function call profit with cost = c and price = b
