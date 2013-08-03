@@ -5,9 +5,10 @@ using namespace std;
 int main()
 {
     int input1, input2;
-    cout << "enter a number: ";
+    
+    cout << "Enter a number: ";
     cin >> input1;
-    cout << "enter a number to compare to the first: ";
+    cout << "Enter a number to compare with the first: ";
     cin >> input2;
 
     if (input1 > input2) {
@@ -15,4 +16,8 @@ int main()
     } else {
         cout << input2 << " is greater than " << input1;
     }
+    
+    cout << endl;
+    
+    return 0;
 }
