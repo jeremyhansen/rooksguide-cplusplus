@@ -10,16 +10,16 @@ int main()
 
 {
     games = 5;
-        my_games();
-        their_games();
+    my_games();
+    their_games();
 
-        return 0;
+    return 0;
 }
 
 void my_games()
 {
 
-        cout << games << endl;
+    cout << games << endl;
 }
 
 

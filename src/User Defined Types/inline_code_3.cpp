@@ -1,8 +1,8 @@
-union example{
-int M;
-char R;
-float W;
-string L;
+union example {
+    int M;
+    char R;
+    float W;
+    string L;
 } example;
 
 Typedef

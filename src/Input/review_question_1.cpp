@@ -5,22 +5,22 @@ using namespace std;
 int main()
 {
 
-int x=0;
+    int x = 0;
 
-int y=0;
+    int y = 0;
 
-cout<<"please enter a value for x  "<<endl;
+    cout << "please enter a value for x  " << endl;
 //1.
-cin<<x;
+    cin << x;
 //2.
-cin>>x;
+    cin >> x;
 //3.
-cin>>x
+    cin >> x
 //4.
-cin x;
+        cin x;
 //5.
-cin><x;
+    cin > < x;
 //6.
-x >> cin;
-return 0;
+    x >> cin;
+    return 0;
 }

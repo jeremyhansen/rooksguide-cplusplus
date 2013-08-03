@@ -48,63 +48,76 @@ int main()
     cout.setf(ios::showpoint);
     cout.precision(deci);
 
-    do{ //starts a do-while loop
+    do { //starts a do-while loop
 
-    system ("CLS"); //clears the screen
+        system ("CLS"); //clears the screen
 
-    int choice; //integer variable that allows users to pick from a menu shown on screen
+        int choice; //integer variable that allows users to pick from a menu shown on screen
 
-    displayMenu(); //calls and runs the function titled displayMenu()
+        displayMenu(); //calls and runs the function titled displayMenu()
 
-    cout << "What would you like to do?\t"; //prompts the user
-    cin >> choice; //takes input from the user
-    cout << endl; //outputs an endline for readability
+        cout << "What would you like to do?\t"; //prompts the user
+        cin >> choice; //takes input from the user
+        cout << endl; //outputs an endline for readability
 
-    switch (choice) //variable 'choice' is used by switch statement; case is picked based on the user input stored in choice
-    { //start case list
+        switch (choice) { //variable 'choice' is used by switch statement; case is picked based on the user input stored in choice
+            //start case list
         case 1: //if user inputs 1 this case is executed
             add(); //call to function 'addition'
-        break; //break statement; end of switch statement
+            break; //break statement; end of switch statement
+
         case 2: //if user inputs 2 this case is executed
             subtract(); //call to function 'subtraction'
-        break; //break statement
+            break; //break statement
+
         case 3: //if user inputs 3 this case is executed
             multipy(); //call to function 'multiplication'
-        break; //break
+            break; //break
+
         case 4: //if user inputs 4
             division(); //call to function 'division'
-        break; //break
+            break; //break
+
         case 5: //if user inputs 5
             square(); //call to function 'square'
-        break; //break
+            break; //break
+
         case 6: //if user inputs 6
             squareRoot(); //call to function 'squareroot'
-        break; //break
+            break; //break
+
         case 7: //is user inputs 7
             power(); //call to function 'power'
-        break; //break
+            break; //break
+
         case 8: //if user inputs 8
-                system ("CLS"); //clear screen
-                displayTrianglesMenu(); //call to function displayTrianglesMenu()
-                cout << "What would you like to do?\t"; //prompts user for input
-                cin >> choice; //takes input from user
-                cout << endl; //outputs endline for readability
-                switch(choice) //new switch statement using new user input; switch statement within switch statement
-                { //start case list
-                case 1: //if new user input is 1
-                    triArea(); //call to function triArea
+            system ("CLS"); //clear screen
+            displayTrianglesMenu(); //call to function displayTrianglesMenu()
+            cout << "What would you like to do?\t"; //prompts user for input
+            cin >> choice; //takes input from user
+            cout << endl; //outputs endline for readability
+
+            switch (choice) { //new switch statement using new user input; switch statement within switch statement
+                //start case list
+            case 1: //if new user input is 1
+                triArea(); //call to function triArea
                 break; //break
-                case 2: //new user input = 2
-                    triPerim(); //call to function triPerim
+
+            case 2: //new user input = 2
+                triPerim(); //call to function triPerim
                 break; //break
-                case 3: //new user input = 3
-                    right(); //call to function right
+
+            case 3: //new user input = 3
+                right(); //call to function right
                 break; //break
-                default: //if user input is not found as a case statement above
-                    cout << "That is not a valid option.\n\n"; //outputs text in "" to screen
+
+            default: //if user input is not found as a case statement above
+                cout << "That is not a valid option.\n\n"; //outputs text in "" to screen
                 break; //break
-                } //end case list
-        break; //break statement after case 8 in main menu
+            } //end case list
+
+            break; //break statement after case 8 in main menu
+
         case 9: //if user inputs 9
             system ("CLS"); //clear screen
             displayCirclesMenu(); //function call to displayCirclesMenu()
@@ -112,33 +125,42 @@ int main()
             cin >> choice; //takes new user input
             cout << endl; //outputs endline for readability
 
-            switch(choice)
-            { //start case list
+            switch (choice) {
+                //start case list
             case 1: //if new user input is 1
                 areaCirc(); //call to areaCirc
-            break; //break statement
+                break; //break statement
+
             case 2: //if new user input is 2
                 circumCirc(); //call to circumCirc
-            break; //break statement
+                break; //break statement
+
             default: //if user input is not found as a case statement above
                 cout << "That is not a valid option.\n\n"; //outputs text in "" to screen
-            break; //break statement
+                break; //break statement
             } //end case list
-        break; //break statement after case 9 in main menu
+
+            break; //break statement after case 9 in main menu
+
         case 99: //if user input is 99
             return 0; //end program
-        break; //break statement
+            break; //break statement
+
         default: //if user input is not found as case statement above
             cout << "That is not a valid option.\n\n"; //outputs text in "" to screen
-        break; //break
-    } //end case list
-    cout << "Press M to return to the main menu. Press any key to quit.\n"; //prompts user
-    cin >> a; //gets input from user
-    a = toupper (a); //converts input to uppercase
-    cout << endl; //outputs endline for readability
-    if (a != 'M') //if input is not M
-        cout << "Goodbye!\n\n"; //outputs text in "" to screen
-    } while (a == 'M'); //starts loop over again if input is M
+            break; //break
+        } //end case list
+
+        cout << "Press M to return to the main menu. Press any key to quit.\n"; //prompts user
+        cin >> a; //gets input from user
+        a = toupper (a); //converts input to uppercase
+        cout << endl; //outputs endline for readability
+
+        if (a != 'M') //if input is not M
+            cout << "Goodbye!\n\n"; //outputs text in "" to screen
+    }
+    while (a == 'M');   //starts loop over again if input is M
+
     system("PAUSE"); //pauses program until user hits a key
     return 0; //ends program
 } //end of int main
@@ -165,167 +187,182 @@ void displayMenu() //function header; void, so function has no return type
 void add() //function header
 {
     do { //start of do while loop
-    system("CLS"); //clears screen
+        system("CLS"); //clears screen
 
-    double n1, n2 = 0;
+        double n1, n2 = 0;
 
-    cout << "Enter numbers to add. Enter 0 to get total.\n";
+        cout << "Enter numbers to add. Enter 0 to get total.\n";
 
-    do {
-        cin >> n1;
-        if (n1 != 0)
-            n2 = n2 + n1;
-    } while (n1 != 0);
+        do {
+            cin >> n1;
 
-    cout << "The answer is " << n2 << endl << endl;
+            if (n1 != 0)
+                n2 = n2 + n1;
+        }
+        while (n1 != 0);
 
-    cout << "Add again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "The answer is " << n2 << endl << endl;
 
-    }while (b == 'Y');
+        cout << "Add again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
+    }
+    while (b == 'Y');
 }
 
 void subtract()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1, n2 = 0;
+        double n1, n2 = 0;
 
-    cout << "Enter the numbers to subtract. Enter 0 to get total.\n";
-    cout << "(Note: The second number is subtracted from the first,\nthe third is subtracted from that result, etc)\n";
+        cout << "Enter the numbers to subtract. Enter 0 to get total.\n";
+        cout << "(Note: The second number is subtracted from the first,\nthe third is subtracted from that result, etc)\n";
 
-    cin >> n2;
+        cin >> n2;
 
-    do {
-        cin >> n1;
-        if (n1 != 0)
-            n2 = n2 - n1;
-    } while (n1 != 0);
+        do {
+            cin >> n1;
 
-    cout << "The answer is " << n2 << endl << endl;
+            if (n1 != 0)
+                n2 = n2 - n1;
+        }
+        while (n1 != 0);
 
-    cout << "Subtract again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "The answer is " << n2 << endl << endl;
 
-    }while (b == 'Y');
+        cout << "Subtract again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
+    }
+    while (b == 'Y');
 }
 
 void multipy()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1 = 0, n2 = 1;
+        double n1 = 0, n2 = 1;
 
-    cout << "Input the numbers you would like to multiply. Enter 1 to get total.\n";
+        cout << "Input the numbers you would like to multiply. Enter 1 to get total.\n";
 
-    do {
-        cin >> n1;
-        if (n1 != 1)
-            n2 = n2 * n1;
-    } while (n1 != 1);
+        do {
+            cin >> n1;
 
-    cout << "The answer is " << n2 << endl << endl;
+            if (n1 != 1)
+                n2 = n2 * n1;
+        }
+        while (n1 != 1);
 
-    cout << "Multiply again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "The answer is " << n2 << endl << endl;
 
-    }while (b == 'Y');
+        cout << "Multiply again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
+    }
+    while (b == 'Y');
 }
 
 void division()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1, n2 = 0;
+        double n1, n2 = 0;
 
-    cout << "Enter the numbers to divide. Enter 1 to get total.\n";
-    cout << "(Note: The first number is divided by the second,\nthat result is divided by the third, etc)\n";
+        cout << "Enter the numbers to divide. Enter 1 to get total.\n";
+        cout << "(Note: The first number is divided by the second,\nthat result is divided by the third, etc)\n";
 
-    cin >> n2;
+        cin >> n2;
 
-    do {
-        cin >> n1;
-        if (n1 != 1)
-            n2 = n2/n1;
-    } while (n1 != 1);
+        do {
+            cin >> n1;
 
-    cout << "The answer is " << n2 << endl << endl;
+            if (n1 != 1)
+                n2 = n2 / n1;
+        }
+        while (n1 != 1);
 
-    cout << "Divide again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "The answer is " << n2 << endl << endl;
 
-    }while (b == 'Y');
+        cout << "Divide again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
+    }
+    while (b == 'Y');
 }
 
 void square()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1 = 0;
-    cout << "Input the number to square:\t";
-    cin >> n1;
-    cout << "The answer is " << n1*n1 << endl << endl;
+        double n1 = 0;
+        cout << "Input the number to square:\t";
+        cin >> n1;
+        cout << "The answer is " << n1*n1 << endl << endl;
 
-    cout << "Square again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "Square again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
 
-    }while (b == 'Y');
+    }
+    while (b == 'Y');
 }
 
 void squareRoot()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1 = 0;
+        double n1 = 0;
 
-    cout << "Input the number you'd like the square root of:\t";
-    cin >> n1;
+        cout << "Input the number you'd like the square root of:\t";
+        cin >> n1;
 
-    cout << "The answer is " << sqrt (n1) << endl << endl;
+        cout << "The answer is " << sqrt (n1) << endl << endl;
 
-    cout << "Find square root again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "Find square root again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
 
-    }while (b == 'Y');
+    }
+    while (b == 'Y');
 }
 
 void power()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1, n2 = 0;
-    cout << "Input the base number. ";
-    cin >> n1;
+        double n1, n2 = 0;
+        cout << "Input the base number. ";
+        cin >> n1;
 
-    cout << "Input the exponent. ";
-    cin >> n2;
+        cout << "Input the exponent. ";
+        cin >> n2;
 
-    cout << "The answer is " << pow (n1, n2) << endl << endl;
+        cout << "The answer is " << pow (n1, n2) << endl << endl;
 
-    cout << "Raise to power again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "Raise to power again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
 
-    }while (b == 'Y');
+    }
+    while (b == 'Y');
 }
 
 void displayTrianglesMenu()
@@ -340,92 +377,92 @@ void displayTrianglesMenu()
 void triArea()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1, n2 = 0;
+        double n1, n2 = 0;
 
-    cout << "Enter the length of the base of the triangle: ";
-    cin >> n1;
+        cout << "Enter the length of the base of the triangle: ";
+        cin >> n1;
 
-    cout << "Enter the height of the triangle: ";
-    cin >> n2;
+        cout << "Enter the height of the triangle: ";
+        cin >> n2;
 
-    cout << endl << "The area of the triangle is " << (n1*n2)/2 << endl << endl;
+        cout << endl << "The area of the triangle is " << (n1 * n2) / 2 << endl << endl;
 
-    cout << "Find area of triangle again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "Find area of triangle again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
 
-    }while (b == 'Y');
+    }
+    while (b == 'Y');
 }
 
 void triPerim()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1, n2, n3;
+        double n1, n2, n3;
 
-    cout << "Enter the length of side one: ";
-    cin >> n1;
+        cout << "Enter the length of side one: ";
+        cin >> n1;
 
-    cout << "Enter the length of side two: ";
-    cin >> n2;
+        cout << "Enter the length of side two: ";
+        cin >> n2;
 
-    cout << "Enter the length of side three: ";
-    cin >> n3;
+        cout << "Enter the length of side three: ";
+        cin >> n3;
 
-    cout << endl << "The perimeter of the triangle is " << n1 + n2 + n3 << endl << endl;
+        cout << endl << "The perimeter of the triangle is " << n1 + n2 + n3 << endl << endl;
 
-    cout << "Find perimeter again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
+        cout << "Find perimeter again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
 
-    }while (b == 'Y');
+    }
+    while (b == 'Y');
 }
 
 void right()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    double n1, n2, n3 = 0;
+        double n1, n2, n3 = 0;
 
-    cout << "Enter the lengths of the sides: ";
-    cin >> n1;
-    cin >> n2;
-    cin >> n3;
+        cout << "Enter the lengths of the sides: ";
+        cin >> n1;
+        cin >> n2;
+        cin >> n3;
 
-    if (n1 > n2 && n1 > n3)
-    {
-        if (n1*n1 == n2*n2 + n3 * n3)
-            cout << "This is a RIGHT TRIANGLE.\n\n";
-        else // n1 squared does not equal n2 squared plus n3 squared
-            cout << "This is NOT a right triangle.\n\n";
+        if (n1 > n2 && n1 > n3) {
+            if (n1 * n1 == n2 * n2 + n3 * n3)
+                cout << "This is a RIGHT TRIANGLE.\n\n";
+            else // n1 squared does not equal n2 squared plus n3 squared
+                cout << "This is NOT a right triangle.\n\n";
+        }
+        else if (n2 > n1 && n2 > n3) {
+            if (n2 * n2 == n1 * n1 + n3 * n3)
+                cout << "This is a RIGHT TRIANGLE.\n\n";
+            else // n2 squared does not equal n1 squared plus n3 squared
+                cout << "This is NOT a right triangle.\n\n";
+        }
+        else { // n3 > n1 & n1
+            if (n3 * n3 == n1 * n1 + n2 * n2)
+                cout << "This is a RIGHT TRIANGLE.\n\n";
+            else // n3 squared does not equal n1 squared plus n2 squared
+                cout << "This is NOT a right triangle.\n\n";
+        }
+
+        cout << "Perform check again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
     }
-    else if (n2 > n1 && n2 > n3)
-    {
-        if (n2*n2 == n1*n1 + n3 * n3)
-            cout << "This is a RIGHT TRIANGLE.\n\n";
-        else // n2 squared does not equal n1 squared plus n3 squared
-            cout << "This is NOT a right triangle.\n\n";
-    }
-    else // n3 > n1 & n1
-    {
-        if (n3*n3 == n1*n1 + n2 * n2)
-            cout << "This is a RIGHT TRIANGLE.\n\n";
-        else // n3 squared does not equal n1 squared plus n2 squared
-            cout << "This is NOT a right triangle.\n\n";
-    }
-
-    cout << "Perform check again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
-
-    }while (b == 'Y');
+    while (b == 'Y');
 }
 
 void displayCircles()
@@ -439,79 +476,77 @@ void displayCircles()
 void areaCirc()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    char op;
-    double n1, n2 = 0;
+        char op;
+        double n1, n2 = 0;
 
-    cout << "Would you like to calculate using <r> radius or <d> diameter?\t";
-    cin >> op;
-    op = tolower(op);
+        cout << "Would you like to calculate using <r> radius or <d> diameter?\t";
+        cin >> op;
+        op = tolower(op);
 
-    if (op == 'r')
-    {
-        cout << "Enter the radius:\t";
-        cin >> n1;
+        if (op == 'r') {
+            cout << "Enter the radius:\t";
+            cin >> n1;
 
-        n2 = pi * (n1 * n1);
+            n2 = pi * (n1 * n1);
+        }
+        else if (op == 'd') {
+            cout << "Enter the diameter:\t";
+            cin >> n1;
+
+            n1 = n1 / 2;
+
+            n2 = pi * (n1 * n1);
+        }
+        else
+            cout << "Invalid option.\n";
+
+        cout << endl << "The area of the circle is " << n2 << endl << endl;
+
+        cout << "Find area of circle again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
     }
-    else if (op == 'd')
-    {
-        cout << "Enter the diameter:\t";
-        cin >> n1;
-
-        n1 = n1/2;
-
-        n2 = pi * (n1 * n1);
-    }
-    else
-        cout << "Invalid option.\n";
-
-    cout << endl << "The area of the circle is " << n2 << endl << endl;
-
-    cout << "Find area of circle again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
-
-    }while (b == 'Y');
+    while (b == 'Y');
 }
 
 void circumCirc()
 {
     do {
-    system("CLS");
+        system("CLS");
 
-    char op;
-    double n1, n2 = 0;
+        char op;
+        double n1, n2 = 0;
 
-    cout << "Would you like to calculate using <r> radius or <d> diameter?\t";
-    cin >> op;
-    op = tolower(op);
+        cout << "Would you like to calculate using <r> radius or <d> diameter?\t";
+        cin >> op;
+        op = tolower(op);
 
-    if (op == 'r')
-    {
-        cout << "Enter the radius:\t";
-        cin >> n1;
+        if (op == 'r') {
+            cout << "Enter the radius:\t";
+            cin >> n1;
 
-        n2 = 2 * pi * n1;
+            n2 = 2 * pi * n1;
+        }
+        else if (op == 'd') {
+            cout << "Enter the diameter:\t";
+            cin >> n1;
+
+            n2 = pi * n1;
+        }
+        else
+            cout << "Invalid option.\n";
+
+        cout << endl << "The circumference of the circle is " << n2 << endl << endl;
+
+        cout << "Find circumference again? Y/N\t";
+        cin >> b;
+        b = toupper(b);
+        cout << endl;
+
     }
-    else if (op == 'd')
-    {
-        cout << "Enter the diameter:\t";
-        cin >> n1;
-
-        n2 = pi * n1;
-    }
-    else
-        cout << "Invalid option.\n";
-
-    cout << endl << "The circumference of the circle is " << n2 << endl << endl;
-
-    cout << "Find circumference again? Y/N\t";
-    cin >> b;
-    b = toupper(b);
-    cout << endl;
-
-    }while (b == 'Y');
+    while (b == 'Y');
 }

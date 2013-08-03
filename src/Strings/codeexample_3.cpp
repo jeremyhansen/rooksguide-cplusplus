@@ -4,18 +4,17 @@
 #include <string>
 int main()
 {
-string input;
-getline(cin, input);
-for(int I = 0; I < input.length(); i++)
-{
-    if(a[i] == 'a')
-    {
-    cout << "There is a letter a" << endl;
+    string input;
+    getline(cin, input);
+
+    for (int I = 0; I < input.length(); i++) {
+        if (a[i] == 'a') {
+            cout << "There is a letter a" << endl;
+        }
+        else {
+            //do nothing
+        }
     }
-    else
-    {
-    //do nothing
-    }
-}
-return 0;
+
+    return 0;
 }

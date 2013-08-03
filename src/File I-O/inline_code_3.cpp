@@ -1,12 +1,12 @@
-#include <iostream> 
+#include <iostream>
 #include <fstream>
-        
+
 using namespace std;
 int main ()
 {
-            
+
     char Letter = ‘A’
-    ofstream outFile;
+                  ofstream outFile;
 
     outFile.open(“OutputTextFile.txt”);
 

@@ -10,11 +10,10 @@ int main()
 {
     ofstream example;
     example.open ("first.txt");
-    example<<"Hello World";
+    example << "Hello World";
     example.close();
-    
+
     return 0;
-    
+
 }
 
-  

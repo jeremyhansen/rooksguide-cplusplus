@@ -1,9 +1,8 @@
 #include string
 
-    using namespace std;
+using namespace std;
 
-class student
-{
+class student {
 public:
     student();
     int getage();

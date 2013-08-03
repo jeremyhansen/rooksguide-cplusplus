@@ -8,8 +8,8 @@ int main()
 
     cout << "please enter a value for x: " << endl;
     cin >> x;
-    if (cin.fail())
-    {
+
+    if (cin.fail()) {
         cout << “That is not a valid data type!”;
     }
 }

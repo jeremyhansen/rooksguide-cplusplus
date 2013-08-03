@@ -11,18 +11,18 @@ int numbers = 35;
 
 int main()
 {
-int user_number;
+    int user_number;
 
-cout <<"Hello and welcome to my program." << endl;
-cout <<"Two functions will do two different operations to whatever interger you enter." << endl;
-cout <<"Please enter in a number." << endl;
-cin >> user_number;
+    cout << "Hello and welcome to my program." << endl;
+    cout << "Two functions will do two different operations to whatever interger you enter." << endl;
+    cout << "Please enter in a number." << endl;
+    cin >> user_number;
 
-figure_out(user_number);
-I_love_math(user_number);
+    figure_out(user_number);
+    I_love_math(user_number);
 
-system("PAUSE");
-return EXIT_SUCCESS;
+    system("PAUSE");
+    return EXIT_SUCCESS;
 }
 
 int figure_out(int user_number)
