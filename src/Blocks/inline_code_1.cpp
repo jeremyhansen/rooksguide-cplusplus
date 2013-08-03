@@ -3,32 +3,31 @@
 
 using namespace std;
 
+void test(void);
+
 int main()
 {
-// **** EXCLUDE END
-
-    
-    int x;
-    cin << x;
-
-    if(x<5)
-    {
-        int y;
-        cin << y;   
-        x += y; //Declares Y, asks user to define Y, then sets Y to X + Y
-    }
-
-    if(x>5)
-    {
-        int z;
-        cin << z;
-        x-=z;   //Declares z, asks user to define z, then sets x to x - z
-    }
-
-    cout >> x; //outputs either x-z, x-y, or 5
-
-    
-// *** EXCLUDE START
+    test();
     return 0;
 }
-// *** EXCLUDE END
+// **** EXCLUDE END
+
+void test()
+{
+    int x;
+    cin >> x;
+
+    if (x < 5) {
+        // Declares Y, gets user input to define Y, then sets X to X + Y
+        int y;
+        cin >> y;
+        x += y;
+    } else if (x > 5) {
+        // Declares Z, gets user input to define Y, then sets X to X - Z
+        int z;
+        cin >> z;
+        x -= z;
+    }
+
+    cout << x; // Outputs either x-z, x-y, or 5
+}
