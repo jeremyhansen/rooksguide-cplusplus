@@ -18,16 +18,16 @@ void test()
     cin >> x;
 
     if (x < 5) {
-        // Declares Y, gets user input to define Y, then sets X to X + Y
+        // Declares y, assigns user input to y, then sets x to x + y
         int y;
         cin >> y;
         x += y;
     } else if (x > 5) {
-        // Declares Z, gets user input to define Y, then sets X to X - Z
+        // Declares z, assigns user input to z, then sets x to x - z
         int z;
         cin >> z;
         x -= z;
     }
 
-    cout << x; // Outputs either x-z, x-y, or 5
+    cout << x; // Outputs either: x - z; x - y; or 5
 }
