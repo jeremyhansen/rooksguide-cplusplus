@@ -1,21 +1,25 @@
-/*What this code does is take your input
-ans writes it and adds a new line after that
-in the first text file on your computer*/
-
-#include<iostream>
+/* Get the user to input a string and then write the string into a file
+ * called "file.txt" in the current directory.
+ */
+#include <iostream>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
 int main()
-
 {
     string input;
-    ifstream example;
-    example.open ("first.txt");
-    example >> input >> endl;;
+    ofstream example;
+
+    cout << "Enter a string and press [ENTER]: ";
+    getline(cin, input);
+    
+    example.open("file.txt");
+    example << input << endl;
     example.close();
+    
+    cout << "Saved string into file.txt" << endl;
 
     return 0;
-
 }
