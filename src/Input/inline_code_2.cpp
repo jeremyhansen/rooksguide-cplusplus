@@ -4,9 +4,9 @@ int main()
 {
     int x = 0;
 
-cout << "please enter a value for x:" << endl;
+    cout << "please enter a value for x:" << endl;
 
-cin >> x;
-cout << "The value of x is:" << x;
-return 0;
+    cin >> x;
+    cout << "The value of x is:" << x;
+    return 0;
 }

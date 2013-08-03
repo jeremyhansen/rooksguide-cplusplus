@@ -1,0 +1,59 @@
+------------------------------------------------------------
+Directory  /home/crobbins/rook/rooksguide-cplusplus/src/*.cpp
+------------------------------------------------------------
+Unchanged  Advanced Arithmetic/distance.cpp
+Unchanged  Advanced Arithmetic/findprimes.cpp
+Unchanged  Array-Matrix/hwork_exercise_1.cpp
+Unchanged  Assignments/hwork_exercise_1.cpp
+Unchanged  Blocks/inline_code_1.cpp
+Unchanged  Comments/example_1.cpp
+Unchanged  Comments/hwork_exercise_1.cpp
+Unchanged  Conditionals/hwork_exercise_1.cpp
+Unchanged  Conditionals/hwork_exercise_1_bonus.cpp
+Unchanged  Conditionals/inline_code_2.cpp
+Unchanged  File I-O/example_1.cpp
+Unchanged  File I-O/example_2.cpp
+Unchanged  File I-O/inline_code_1.cpp
+Unchanged  File I-O/inline_code_2.cpp
+Formatted  File I-O/inline_code_3.cpp
+Unchanged  Functions/example_1.cpp
+Unchanged  Functions/inline_code_1.cpp
+Unchanged  Functions/inline_code_2.cpp
+Unchanged  Functions/inline_code_3.cpp
+Unchanged  Input/inline_code_1.cpp
+Formatted  Input/inline_code_2.cpp
+Unchanged  Input/inline_code_3.cpp
+Unchanged  Input/inline_code_4.cpp
+Unchanged  Input/review_question_1.cpp
+Unchanged  Loops/inline_code_1.cpp
+Unchanged  Loops/inline_code_2.cpp
+Unchanged  Loops/inline_code_3.cpp
+Unchanged  Loops/inline_code_4.cpp
+Formatted  Loops/inline_code_5.cpp
+Unchanged  Loops/inline_code_6.cpp
+Unchanged  Loops/review_question_4.cpp
+Unchanged  Output/inline_code_1.cpp
+Unchanged  Output/inline_code_2.cpp
+Unchanged  Output/inline_code_3.cpp
+Unchanged  Output/inline_code_4.cpp
+Unchanged  Output/inline_code_5.cpp
+Unchanged  Output/inline_code_6.cpp
+Unchanged  Output/inline_code_7.cpp
+Unchanged  ReferencesandPointers/review_question_1.cpp
+Unchanged  ReferencesandPointers/review_question_2.cpp
+Unchanged  Sample Programs/basicprogram.cpp
+Unchanged  Sample Programs/calculator.cpp
+Unchanged  Sample Programs/savepercentage.cpp
+Unchanged  Scope-lifetime - local, global, static/inline_code_1.cpp
+Unchanged  Scope-lifetime - local, global, static/inline_code_2.cpp
+Unchanged  Scope-lifetime - local, global, static/inline_code_3.cpp
+Unchanged  Scope-lifetime - local, global, static/review_question_1.cpp
+Unchanged  Seperate Compilation/inline_code_1.cpp
+Unchanged  Strings/codeexample_1.cpp
+Unchanged  Strings/codeexample_2.cpp
+Unchanged  Strings/codeexample_3.cpp
+Unchanged  User Defined Types/inline_code_1.cpp
+Unchanged  User Defined Types/inline_code_2.cpp
+Unchanged  User Defined Types/inline_code_3.cpp
+Unchanged  User Defined Types/inline_code_4.cpp
+Unchanged  Variables & Declarations/homework_question_1.cpp

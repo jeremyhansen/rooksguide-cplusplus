@@ -6,7 +6,7 @@ int main ()
 {
 
     char Letter = 'A';
-                  ofstream outFile;
+    ofstream outFile;
 
     outFile.open("OutputTextFile.txt");
 
