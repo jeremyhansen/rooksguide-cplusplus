@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <ctype.h>
 #include <dirent.h> // Note: this is not standard on Windows, but it's available
 
 // Change to match OS
@@ -15,6 +16,14 @@ bool convertToTeX_file(const char* srcfilename, const char* destfilename);
 bool convertToTeX_parse(FILE* infile, FILE* outfile);
 char *buildFilePath(const char* dir, const char* entryname, const char* addExt);
 
+/* These are "directives" (used in a src file) to indicate that a block should be
+ * ignored in the TeX output/conversion. An example are code fragments that are meant
+ * to be inline in the final document but for testing (and/or compiling) the code extra
+ * code was added (e.g. a main() function, include files etc
+ */
+const char *ignoreStartStr = "//##ignore-start";
+const char *ignoreEndStr = "//##ignore-end";
+    
 int main(void)
 {
     int filesProcessed;
@@ -140,6 +149,48 @@ bool convertToTeX_file(const char* srcfilename, const char* destfilename)
 
 bool convertToTeX_parse(FILE* infile, FILE* outfile)
 {
+    char buffer[512];
+    int inIgnore = 0;
+
+    fprintf(outfile, "\\begin{lstlisting}\n");
+    
+    while (fgets(buffer, sizeof buffer, infile)) {
+        const char *pos = buffer;
+        size_t len = strlen(buffer);
+        bool ignoreLine = false;
+        
+        if (len == 0) continue;
+        if (*(buffer +  len - 1) != '\n' && !feof(infile)) {
+            printf("[Src line exceeded %d chars. Aborting]", sizeof buffer);
+            return false;
+        }
+                
+        while (isspace(*pos)) pos++;    // skip leading whitespace
+        
+        if (strncmp(ignoreStartStr, pos, strlen(ignoreStartStr)) == 0) {
+            inIgnore++;
+        } else if (strncmp(ignoreEndStr, pos, strlen(ignoreEndStr)) == 0) {
+            inIgnore--;
+            ignoreLine = true;
+        }
+        
+        if (inIgnore < 0) {
+            printf("[Too many %s directives. Aborting]", ignoreEndStr);
+            return false;
+        }
+        
+        if (inIgnore == 0 && !ignoreLine) {
+            fprintf(outfile, buffer);
+        }
+    }
+    
+    if (inIgnore != 0) {
+        printf("[Unclosed %s directive]", ignoreStartStr);
+        return false;
+    }
+    
+    fprintf(outfile, "\\end{lstlisting}\n");
+    
     return true;
 }
 
