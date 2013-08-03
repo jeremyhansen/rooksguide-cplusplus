@@ -14,6 +14,9 @@ int main()
 
 void test()
 {
+    
+// **** INLINE-TEXT CODE START **************************************
+    
     int x;
     cin >> x;
 
@@ -30,4 +33,7 @@ void test()
     }
 
     cout << x; // Outputs either: x - z; x - y; or 5
+
+// **** INLINE-TEXT CODE END ****************************************
+    
 }
