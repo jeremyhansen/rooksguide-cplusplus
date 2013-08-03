@@ -1,4 +1,4 @@
-// *** EXCLUDE START
+//##ignore-start ******************************************************
 #include <iostream>
 
 using namespace std;
@@ -10,13 +10,10 @@ int main()
     test();
     return 0;
 }
-// **** EXCLUDE END
 
 void test()
 {
-
-// **** INLINE-TEXT CODE START **************************************
-
+//##ignore-end *******************************************************
     int x;
     cin >> x;
 
@@ -34,7 +31,6 @@ void test()
     }
 
     cout << x; // Outputs either: x - z; x - y; or 5
-
-// **** INLINE-TEXT CODE END ****************************************
-
+//##ignore-start ******************************************************
 }
+//##ignore-end ********************************************************
