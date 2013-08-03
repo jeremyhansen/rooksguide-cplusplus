@@ -39,6 +39,5 @@ int main()
 
     } while (cont == 'Y');
 
-    system("PAUSE");
     return 0;
 }
