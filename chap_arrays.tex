@@ -33,7 +33,7 @@ The diagram below depicts how the computer interprets this.
 
 You can also store values inside the array ahead of time when you declare the array. 
 To do so, you need to enclose the values of the appropriate type in brackets and separate the values with a comma. 
-Below are two examples, one of type \Code{char} and one of type \Code{int}.
+Below are two examples, one an array where each element is of type \Code{char} and another where each element is of type \Code{int}.
 
 \begin{lstlisting}
 char Scott[5] = {'S', 'c', 'o', 't', 't'};	
@@ -43,11 +43,9 @@ char Scott[5] = {'S', 'c', 'o', 't', 't'};
 int John[5] = {99, 5, 1, 22, 7};
 \end{lstlisting}
 	
-Note that in the C and C++ language, arrays of characters intended to be printed must contain a special character called the \Keyword{null character} or \Keyword{null terminator}. 
-In the C++ language, this character is represented by \Code{'\textbackslash0'}. 
-The null character marks the end of the array and may be put in the last slot in the array, after any printable characters. 
-Because the null character takes up one slot on its own, any character array should be declared as at least one space larger than the longest string that you expect to store. 
-Initializing the above character array should really be done as the following (notice that we make the array one slot larger!):
+% TODO: Elements in the preceding text are not referred to as "slots" like the paragraph below
+	
+Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the \Keyword{null character}\footnote{Abbreviated NUL; Note that this is not the same as the NULL pointer described in Chapter \ref{chap_pointers}} or \Keyword{null terminator}. The NUL character marks the end of the string. In C++ the null character is \Code{'\textbackslash0'}. Because the null character takes up one ``slot'' of the array, any character array that is intended to be used as a string must be declared having a size one more than the longest string that you expect to store. Initializing the above character array should really be done as the following (notice that we make the array one slot larger!):
 
 \begin{lstlisting}
 char Scott[6] = {'S', 'c', 'o', 't', 't', '\0'};	
@@ -103,7 +101,7 @@ int main()
 \end{lstlisting}
 
 
-	The same logic is applied for 3 dimensional and 4 dimensional arrays, but when filling them, be mindful of the order of the input so that when you want to view certain elements in the array you are able to correctly access them.
+The same logic is applied for 3-dimensional and 4-dimensional arrays, but when filling them be mindful of the order of the input so that when you want to view certain elements in the array you are able to correctly access them. 
 
 \LevelD{Review Questions}
 
