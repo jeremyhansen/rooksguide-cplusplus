@@ -2,6 +2,8 @@
 
 %Analogy
 
+
+%\Comment{
 Imagine for a second you're behind the wheel of an automobile. 
 You're driving along, but do you know your engine is working right if it's not making any horrendous screeching sounds? 
 Do you have any idea how your steering actually works when you turn the wheel? 
@@ -80,34 +82,39 @@ class Rectangle
 };
 \end{lstlisting}
 
-Notice the similar syntax to the struct. Like struct, first the class keyword is used, followed by the name of the class, and after the closing brace, a (;) semicolon is used. Now, notice the public and private sections of the block. To indicate that a set of member variables or functions is private, we use the private keyword followed by a colon. Everything after the keyword will be considered private. 
+Notice the similar syntax to the \Code{struct}. 
+Like a \Code{struct}, the declaration starts with the \Code{class} keyword, followed by the name of the \Code{class}, and after the closing right brace, a semicolon. 
+Notice the \Code{public:} and \Code{private:} sections of the definition. 
+To indicate that a set of member variables or functions is private, we use the \Code{private} keyword followed by a colon. 
+Everything after the keyword will be considered private.
+We will discuss what this means in the next section.
 
-\begin{lstlisting}
-private:
-\end{lstlisting}
+On the other hand, if we want to indicate that a set a member variables or functions is public, we use the keyword \Code{public} followed by a colon. 
+Everything after this keyword will be considered public. 
 
-If we want to indicate that a set a member variables or functions is public, we use the keyword followed by a colon. Everything after this keyword will be considered public. 
+\LevelD{\Code{public} and \Code{private} variables and functions}
 
-\begin{lstlisting}
-public:
-\end{lstlisting}
+The biggest difference between \Code{class}es and \Code{struct}s is the ability to determine how accessible the data within the class is. 
+A general rule of thumb is to put variables in the \Code{private:} section, where they would be referred to as private member variables, and related functions in the \Code{public:} section, where they would be referred to as public member functions. 
+Private members can only be accessed by the \Code{class}'s member functions and nowhere else, while public members can be used anywhere, in the same way that the members of a \Code{struct} can be used.
 
-Public and Private Variables and Functions
+Within the above \Code{class} definition, we have seven member functions that we need to define. 
+Each function has a specific purpose to set the values of private member variables, return the values of private member variables, or perform some other operation using those member variables.
 
-	The biggest difference between classes and structs is the ability to determine how accessible the data within the class is. A general rule of thumb is to put variables in the private section, where they would be referred to as private member variables, and related functions in the public section, where they would be referred to as public member functions. Private member variables can only be accessed by the member functions, but nowhere else, and public member functions can be used anywhere in the program. 
+Functions that are declared in the above code with names starting with the word \Code{get} will be used to access the variables; these functions are called \Keyword{accessors}. 
+Functions that are declared in the above code that have names starting with the word \Code{set} will be used to change the variables' values; these functions are called \Keyword{mutators}. 
+Accessors and mutators can be named whatever you like, but it is a common convention to name them \Code{get} and \Code{set} plus the name of the variable you are accessing or mutating. 
 
-
-
-	Within the above class definition we have seven member functions that we need to define since the variables are private. Each function has a specific purpose to either return or set the variables contained \textit{within the class}, perform an operation using those variables, or initialize the class.
-
-Functions that are declared in the above code that have names starting with the word \Code{get} will be used to access the variables; these functions are called accessors. Functions that are declared in the above code that have names starting with the word \Code{set} will be used to change the variables' values; these functions are called mutators. Accessors and mutators can be named whatever you like, but it is common convention to name them \Code{get} and \Code{set} plus the name of the variable you are accessing or mutating. 
-
-The functions whose names start with \Code{find} all perform operations using the variables. The function named \Code{Rectangle()} is known as a constructor. When a \Code{Rectangle} object is created, it will be initialized according to the rules set in this constructor. By the end of this section, you'll understand how useful these are in object-oriented programming.
+The functions whose names start with \Code{find} perform operations using the variables, but do not change them or return their values directly.
+The function named \Code{Rectangle()} is known as a \Keyword{constructor}. 
+When a \Code{Rectangle} object is created, it will be initialized according to the code in this constructor. 
+By the end of this chapter, you'll understand how useful these are in object-oriented programming.
 	
+\LevelD{Defining member functions}
 
-Defining Member Functions
-
-	First we will describe how to use member functions and private member variables. When we define a member function, all the member variables within the class are also available in the function definition. For example if we define the member function \Code{void setBase(float length);} we would define it like this:
+We now describe how to use member functions with \Code{private} member variables. 
+When we define a member function, all the member variables within the class are accessible to the function. 
+For example, we can define the member function \Code{setBase()} from \Code{Rectangle} above like this:
 
 \begin{lstlisting}
 void Rectangle::setBase(float length)
@@ -116,56 +123,63 @@ void Rectangle::setBase(float length)
 }
 \end{lstlisting}
 
-	In this code we are able to directly access the member variable \Code{Base} because both the function \Code{setBase()} and the member variable \Code{Base} are a part of the class. Since we are not returning anything to the user, the function is defined as a \Code{void} function. In order to define a member function we have to use a special operator called the \Keyword{scope resolution operator} (\Code{::}). The function is defined by using the return type, the class name, scope resolution operator, then the member function name with any parameters listed just like any other non-class function: 
+In this code, we are able to directly access the member variable \Code{Base} because both the function \Code{setBase()} and the member variable \Code{Base} are a part of the \Code{class}. 
+Since we are not returning anything to the user, the function is defined as a \Code{void} function. 
+In order to define a member function, we have to use a special operator called the \Keyword{scope resolution operator} (\Code{::}). 
+The function is defined by using the return type, the class name, scope resolution operator, then the member function name with any parameters listed just like any other non-class function.	
+
+\LevelD{Using member functions}
+
+All member functions have direct access to member variables even if the variable is private. 
+The reason we use mutators is because we do not want the user to have direct access to any variables within the class---we give them indirect access instead. 
+We do this by requiring them to pass a value to the mutator member function which sets the member variable. 
+That might look like this: 
+
+\begin{lstlisting}
+int main()
+{
+  Rectangle r;
+  float b;
+  cout << "Please input the length of the base: ";
+  cin >> b;
+  r.setBase(b);
+  return 0;
+}
+\end{lstlisting}
+
+In the above code, we start by creating a \Code{Rectangle} variable named \Code{r}. 
+After the user is prompted for the length of the base, which is stored in the variable \Code{b}, we call the \Code{setBase()} member function with the dot operator and pass \Code{b} as a parameter to the function. 
+The \Code{setBase()} function has the following definition:
 
 \begin{lstlisting}
 void Rectangle::setBase(float length)
+{
+  Base = length;
+}
 \end{lstlisting}
-	
 
-Using Member Functions with Variables
+We are able to pass the value of the variable entered by the user to the \Code{setBase()} function which then sets the member variable \Code{Base} to the passed value. 
+This is how we ``mutate'' private member variables in a \Code{class} using a public member function. 
 
-	All member functions have direct access to member variables even if the variable is private. The reason we use mutators is because we do not want the user to have direct access to any variables within the class---we give them indirect access instead. We do this by requiring them to somehow enter a value and then pass that value to the mutator member function in order to set the member variable. That might look like this: 
+To retrieve the value of a member variable, we need to create accessor functions. 
+These are defined like this: 
 
 \begin{lstlisting}
-	main()
-	{
-		Rectangle input;
-		float length;
-		
-		cout << “Please input the length of the base: “;
-		cin >> length;
-		
-		input.setBase(length);
-	}
+float Rectangle::getBase()
+{
+  return Base;
+}
 \end{lstlisting}
 
-	In the above code, we create a Rectangle variable and use the dot operator to call a member function, just like we would to access a variable in a struct. After the user is prompted for the length of the base, which is stored in the variable length, we call the function with the dot operator and pass length as a parameter to the function. Using the following function definition:
+When it comes to using accessors, it is very simple. 
+Just match the data type that you want to access, in this case it was a \Code{float}, and define the member function with that return type. 
+Then, in order to access the variable, all we need to do is use the keyword \Code{return} followed by the identifier. 
+This enables us to access the private variable when we need to. 
 
-\begin{lstlisting}
-	void Rectangle::setBase(float length)
-	{
-		Base = length;
-	}
-\end{lstlisting}
+\LevelD{\Code{class}es and \Code{struct}s together}
 
-\noindent we are able to pass the value of the variable entered by the user to the \Code{setBase} function which then sets the member variable Base to the entered value. This is how we ``mutate'' member variables in a class using a public member function. 
-
-	In order to retrieve the value of a member variable, we need to create accessor functions. These are defined like this: 
-
-\begin{lstlisting}
-	float Rectangle::getBase()
-	{
-		return Base;
-	}
-\end{lstlisting}
-
-	When it comes to using accessors, it is very simple. Just match the data type that you want to access, in this case it was a float, and define the member function with that return type. Then, in order to access the variable, all we need to do is use the keyword \Code{return} followed by the identifier. This enables us to access the private variable when we need to. 
-
-
-Classes and Structs Together
-
-	We can also combine \Code{struct}s and \Code{class}es if need be. For example, if we wanted to take in three points we could create a Triangle class with these points which are individually of type \Code{Point}, a \Code{struct} that contains \Code{x} and \Code{y} variables:
+We can also combine \Code{struct}s and \Code{class}es if need be. 
+For example, if we wanted to take in three points we could create a \Code{Triangle} class with these points which are individually of type \Code{Point}, a \Code{struct} that contains \Code{x} and \Code{y} variables:
 
 \begin{lstlisting}
 	struct Point
@@ -177,8 +191,8 @@ Classes and Structs Together
 	class Triangle
 	{
 	public:
-		//accessors for points a, b, and c
-		//mutators for points a, b, and c
+		// accessors for points a, b, and c
+		// mutators for points a, b, and c
 	private:
 		Point a;
 		Point b;
@@ -186,7 +200,10 @@ Classes and Structs Together
 	};
 \end{lstlisting}
 
-Here we have the ability to combine a \Code{struct} with a \Code{class} in order to have all three points, \Code{a}, \Code{b}, and \Code{c} that each contain their own variables \Code{x} and \Code{y}. Despite the fact that the variables in the \Code{struct} are public, we cannot access those specific values outside the \Code{Triangle} unless we use a member function. This is because they're still private members of the class \Code{Triangle}, so their scope is limited to functions within the class. If we had a mutator function for \Code{Point a}, it might look like this:
+Here we have the ability to combine a \Code{struct} with a \Code{class} in order to have all three points, \Code{a}, \Code{b}, and \Code{c} that each contain their own variables \Code{x} and \Code{y}.
+Despite the fact that the variables in the \Code{struct} are public, we cannot access those specific values outside the \Code{Triangle} unless we use a member function. 
+This is because they're still private members of the class \Code{Triangle}, so their scope is limited to functions within the class. 
+If we had a mutator function for \Code{Point a}, it might look like this:
 
 \begin{lstlisting}
 	void Triangle::setA(double userX, double userY)
@@ -196,18 +213,23 @@ Here we have the ability to combine a \Code{struct} with a \Code{class} in order
 	}
 \end{lstlisting}
 
-The values of \Code{userX} and \Code{userY} would have been set elsewhere. In order to access the \Code{x} and \Code{y} coordinates, we must use the dot operator with any of the \Code{Point} objects \Code{a}, \Code{b}, or \Code{c}.
+The values of \Code{userX} and \Code{userY} are passed in by the calling function. 
+Notice again that in order to access the \Code{x} and \Code{y} coordinates, we must use the dot operator with any of the \Code{Point} objects \Code{a}, \Code{b}, or \Code{c}.
 
+\LevelD{Constructors}
 
-Constructors and Destructors
+% This section was initially named ``Constructors and Destructors'' -- we should probably include destructors at some point
 
-	Another way to set the values of the variables in a class is through constructors. A constructor is a member function with the same name as the class and cannot be called directly. Constructors are what we use to initialize the variables of the class when it's first created. For example, if we wanted to set default values for a class named \Code{student} defined as: 
+Another way to set the values of the variables in a class is through constructors. 
+A \Keyword{constructor} is a member function with the same name as the class and cannot be called directly. 
+Constructors are what we use to initialize the variables of the class when it's first created. 
+For example, if we wanted to set default values for a class named \Code{student} defined as: 
 
 \begin{lstlisting}
 class student
 	{
 	public:
-		student();
+		student(); // constructor
 		//accessors
 		//mutators
 	private:
@@ -218,7 +240,8 @@ class student
 	};
 \end{lstlisting}
 
-\noindent we would have a default constructor with the name \Code{student()} without any return type. To initialize the variables in the class through the constructor, we use syntax similar to a function definition:
+\noindent we would have a default constructor with the name \Code{student()} without any return type. 
+To initialize the variables in the class through the constructor, we use syntax similar to a function definition:
 
 \begin{lstlisting}
 	student::student()
@@ -230,9 +253,10 @@ class student
 	}
 \end{lstlisting}
 
-Overloading Member Functions
+\LevelD{Overloading Member Functions}
 
-	Note that, like other functionS, you can overload any of the functions in a class. Going back to the \Code{Rectangle} example used earlier, take a look at the code below:
+Note that, like other functions, you can overload any of the functions in a class. 
+Going back to the \Code{Rectangle} example used earlier, take a look at the code below:
 
 \begin{lstlisting}
 class Rectangle
@@ -252,7 +276,8 @@ class Rectangle
 		};
 \end{lstlisting}
 
-	Notice the second constructor, \Code{Rectangle(float userBase, float userHeight)}. We define it very similarly to the default constructor:
+Notice the second constructor, \Code{Rectangle(float userBase, float userHeight)}. 
+We define it very similarly to the default constructor:
 
 \begin{lstlisting}
 Rectangle::Rectangle(float userBase, float userHeight)
@@ -265,8 +290,8 @@ Rectangle::Rectangle(float userBase, float userHeight)
 
 
 \LevelD{Review Questions}
-
-1. Given the following struct and structure variable:
+\begin{enumerate}
+\item Given the following \Code{struct} definition and global variable:
 
 \begin{lstlisting}
 	struct personInfo
@@ -278,18 +303,19 @@ Rectangle::Rectangle(float userBase, float userHeight)
 		int age;
 	};
 
-	personInfo info;
+	personInfo pinfo;
 \end{lstlisting}
 
-Which of the following are not correct ways to use the dot operator?
+\noindent which of the following are incorrect ways to use the dot operator?
+  \begin{enumerate}
+	\item \Code{pinfo.age}
+	\item \Code{personInfo.birth\_year}
+	\item \Code{information.name}
+  \item \Code{pinfo.(string name)}
+	\item \Code{birth\_year.pinfo}
+  \end{enumerate}
 
-	a. info.name
-	b. info.age
-	c. personInfo.birth_year
-	d. information.name
-	e. personInfo.birth_year;
-
-2. Consider the following code of the struct:
+\item Consider the following \Code{struct}:
 
 \begin{lstlisting}
 	struct personInfo
@@ -302,22 +328,22 @@ Which of the following are not correct ways to use the dot operator?
 	};
 \end{lstlisting}
 
-
 Which of the following is the correct way to initialize the variables from the \Code{struct} above?
 
-	a. personInfo info = {"Michael", 1996, 3, 24, "sixteen"};
-	b. personInfo info = {"Michael", 1996, March, 24, 16};
-	c. personInfo info = {"Michael", 1996, "March", 24, 16};
-	d. struct info = {"Michael", 1996, "March", 24, 16};
-
-
+  \begin{enumerate}
+	\item \Code{personInfo info = \{"Michael", 1996, 3, 24, "sixteen"\};}
+	\item \Code{personInfo info = \{"Michael", 1996, March, 24, 16\};}
+	\item \Code{personInfo info = \{"Michael", 1996, "March", 24, 16\};}
+	\item \Code{struct info = \{"Michael", 1996, "March", 24, 16\};}
+  \end{enumerate}
+\end{enumerate}
 
 \LevelD{Homework Questions}
 
+\begin{enumerate}
+\item Write a program that can store information about animals in a zoo.
 
-1.  Write a program that can store information about animals in a zoo.
-
-You should have a class called Animal and the following private variables.
+You should have a \Code{class} called \Code{Animal} and the following private variables:
 
 \begin{lstlisting}
 string name; // the name of the animal
@@ -327,25 +353,24 @@ char animalType; // the type of animal: 'h' for herbivore, 'c' for carnivore
 
 You should have public member functions that get and set each variable, and a function called \texttt{print()} that prints all the information about the animal.
 
-2. This program will require a struct and a class.
+\item This program will require a \Code{struct} and a \Code{class}.
 
 Write a program that can calculate the slope of a line.
 
-You will have a struct called Point with the following variables
+You will have a \Code{struct} called \Code{Point} which contain the following variables:
 
 \begin{lstlisting}
 double x, y;
 \end{lstlisting}
 
-You will then have a class called Line, and it will have the following private variables
+You will then have a class called \Code{Line}, and it will have the following private variables:
 
 \begin{lstlisting}
 Point a, b;
 \end{lstlisting}
 
-Your class should have accessor and mutator functions (set and get), a function that calculates and returns the slope of a line between the two \texttt{Point}s as a \texttt{double}, and a function that outputs the data to the user called \texttt{print()}.
-
-
+Your class should have accessor and mutator functions, a function that calculates and returns the slope of a line between the two \Code{Point}s as a \Code{double}, and a function that outputs the data to the user called \Code{print()}.
+\end{enumerate}
 
 \LevelD{Review Answers}
 
@@ -358,3 +383,4 @@ Your class should have accessor and mutator functions (set and get), a function 
 \item \url{http://www.tutorialspoint.com/cplusplus/cpp_classes_objects.htm}
 \item \url{http://www.cprogramming.com/tutorial/lesson7.html}
 \end{itemize}	
+%}
