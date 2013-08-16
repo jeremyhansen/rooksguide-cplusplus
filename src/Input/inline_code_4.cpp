@@ -1,15 +1,15 @@
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
+    int x;
 
-    int x = 0;
-    int y = 0;
-
-    cout << "please enter a value for x: " << endl;
+    cout << "Please enter an integer value for x: ";
     cin >> x;
 
     if (cin.fail()) {
-        cout << "That is not a valid data type!";
+        cout << "Error: invalid data type!" << endl;
     }
 }
