@@ -1,6 +1,8 @@
 \LevelD{Blocks}
 
-Since we've covered \texttt{if} statements and loops, let's go into more detail about the code that's contained within them. When you need to contain multiple lines of code, we've shown how to use braces. These braces will create a new layer in the code, and the lines within would be grouped into what is known as a compound statement, sometimes called a block.
+Since we've covered \Code{if} statements and loops, let's go into more detail about the code that's contained within them. 
+When you need to contain multiple lines of code, we've shown how to use braces. 
+These braces will create a new layer in the code, and the lines within would be grouped into what is known as a compound statement, sometimes called a block.
 
 \begin{lstlisting}
   int x;
@@ -24,14 +26,309 @@ Since we've covered \texttt{if} statements and loops, let's go into more detail 
   //outputs either x-z, x-y, or 5
 \end{lstlisting}
 
-Take a look at the example above. There are two blocks here: the one for if \texttt{x} is less than 5, and the one for if \texttt{x} is greater in 5. Notice the variables declared in each, \texttt{y} and \texttt{z}. When these are declared, they are only usable within the blocks that they were declared. When that block reaches its end, they are lost to the rest of the program. This is because the scope of the variables within the blocks is limited to those blocks.
+Take a look at the example above. 
+There are two blocks here: the one for if \Code{x} is less than 5, and the one for if \Code{x} is greater than 5. 
+Notice the variables declared in each, \Code{y} and \Code{z}. 
+When these are declared, they are only usable within the blocks that they were declared. 
+When that block reaches its end, they are lost to the rest of the program. 
+This is because the scope of the variables within the blocks is limited to those blocks.
+We discuss scope further at the end of this chapter.
 
-Scope is a topic we'll cover in more depth in the next chapter. For now, think of it as the difference between local and federal government. Local governments can freely request to utilize federal resources, but federal governments have a harder time accessing local government resources, and may forget the local government even exists.
+\LevelD{Basic Functions in C++ }
+ 
+\LevelE{What are Functions and why do we use them?}
+ 
+Functions are an important part of C++ programming. 
+Without them, programs would be confusing and difficult to troubleshoot. 
+When programs are written, they tend to be written in logical chunks which we call subprograms. 
+These subprograms are known as functions in C++ which, when called in a program, may execute whatever the programmer wants. 
+Simply put, functions are like miniature programs that when pieced together form the actual program that you are trying to write.
+ 
+\LevelE{The parts of a basic function}
+ 
+A \Keyword{function declaration} (sometimes known as the \Keyword{prototype}) is normally placed before the \Code{main()} function in your code. 
+This lets the compiler know that there is a function that will be defined in more detail further on in your program. 
+With basic functions, your declarations should start with a \Keyword{return type} such as \Code{double}, \Code{int}, and so on; this is the data type your function will return. 
+
+After the return type, the next item that needs to be written is the function's name, which can be almost anything you want. 
+Remember that you will be using it again later in your code, so it makes sense to make it something short and logical that you can remember! 
+Now that you have your data type and your function name, it's time for zero or more function \Keyword{parameters}. 
+These will be written inside parentheses immediately following your function's name. 
+Each parameter is in turn made up of a data type and a name like a variable declaration. 
+A comma separates function parameters and your declaration must end with a semicolon after the closing right parenthesis.
+
+Here is an example of a function declaration:
+
+\begin{lstlisting}
+double profit (int cost, double price); //cost and price are parameters.
+\end{lstlisting}
+        	
+Using function looks much like an abbreviated version of the function declaration. 
+A \Keyword{function call} is responsible for telling the compiler when and how to execute a function.
+Function calls are found in another function like \Code{main()}. 
+Often the user is prompted to enter necessary data with \Code{cout} statements and his or her response is collected with \Code{cin}. 
+Once this data is collected, the program holds it until a function call is made somewhere in the code.
+Once the function call is made, the compiler takes the entered data and then uses the code in the \Keyword{function definition} (which we will go over shortly) to operate on the parameters and return a value. 
+For your function call, write your function name followed by the variables or values you want to pass in.
+In a functiton call, it is not necessary to specifty the data types, as they are already understood.
+ 
+Here is an example of a function call:
+
+\begin{lstlisting}
+#include <iostream>
+ 
+using namespace std;
+ 
+double profit (int cost, double price); // function declaration (prototype)
+int main ()
+{
+ 
+  double a, b;
+  int c;
+  cout << "Enter the manufacturing cost of the item: ";
+  cin >> c;
+  cout << "Enter the retail price of the item: ";
+  cin >> b;
+ 
+  a = profit (c, b); // function call profit with cost = c and price = b
+  cout << a << endl;
+  return 0;
+}
+\end{lstlisting}
+  
+You have a declaration and a function call now. 
+The only thing left is the code inside the function definition---the \Keyword{function body} is the most important part because it contains the code needed by the compiler to execute the function.
+
+The function definition will usually have a lot more code than both the declaration and the function call.
+As a result, the definition and body are also more difficult to write than the declaration or call. 
+The function definition and body is often placed after your \Code{main()} function. 
+Multiple function definitions and bodies can be placed after your \Code{main()} in no particular order, though it makes it less confusing if you use the same order as when they were declared.  
+Start your function definition with your \emph{function heading}, which looks exactly like your function declaration but without a semicolon. 
+Following your heading, you need your function body. 
+Start your function body by placing an opening left brace (\\Code{\}}) on the line following your heading. 
+The code that makes up the function body follows the brace.
+After the code in the body is finished, you end the body with a closing right brace (\\Code{\{}). 
+Notice that the semicolon is not necessary either after your heading or after your closing brace. 
+The standard rules for semicolons apply within the body of the function, though.  
+What goes inside the function body depends completely on what you want the function to do. 
+You may declare variables to be used just in your function and can leave the function using \Code{return} statements at any time. 
+Below is an example of a function definition:
+
+\begin{lstlisting} 
+double profit (int cost, double price) // function definition
+{
+  double p; // temporary variable
+  p = price – cost; // calculate the profit
+  return p; // return the result to the calling function
+}
+\end{lstlisting}
+ 
+Great, now that you have a grasp of the three major parts of basic functions we can move on to other related material!
+ 
+The functions we just described are known as \Keyword{programmer defined functions} since the programmer defines these functions. 
+There are also \Keyword{predefined functions} which are available for your convenience. 
+Predefined functions are functions that are already written and defined. 
+In order to use predefined functions, the programmer needs to include the necessary library and then call the function wherever they need it.
+
+In the following example we will use the \Code{sqrt()} function to calculate the square root of the user's input. The \Code{sqrt()} function is described in more detail in Chapter \ref{chap_advancedarith}.
+ 
+\begin{lstlisting}
+#include <iostream>
+#include <cmath>
+ 
+using namespace std;
+ 
+int main()
+{
+  double num;
+  cout  << "Please enter a number: ";
+  cin >> num;
+  cout << sqrt(num) << endl;
+  return 0;
+}
+\end{lstlisting}
+ 
+\LevelD{\Code{void} Functions}
+ 
+\Keyword{\Code{void} functions} are functions that do not return a value. 
+Notice that other function declarations that do return a value start with their return type such as \Code{double}, \Code{int}, or the like. 
+\Code{void} functions behave the same except no value is returned. 
+A common application where a \Code{void} function is used is printing the result of calculations to the screen.
+The calculations might be performed elsewhere, but the results would be printed using the \Code{void} function.
+Syntax for \Code{void} functions works in the same way as normal functions, but the keyword \Code{void} is written where the return data type would normally go. 
+The declaration, function call and definition for \Code{void} functions will follow the same format as other functions. 
+Note that, like other functions, there does not necessarily need to be parameters in a \Code{void} function.
+
+Here is an example of a simple void function declaration:
+
+\begin{lstlisting}
+void displayMessage();
+\end{lstlisting}
+
+Remember the definition and calling of \Code{displayMessage()} would be the same as any other function with the exception of the \Code{void} return type and that no value is returned! 
+Here is an example of a definition, declaration, and how this function would be called:
+
+\begin{lstlisting}
+#include <iostream>
+
+using namespace std;
+
+void displayMessage();
+
+int main()
+{
+  int x = 2, y;
+  y = x + 1;
+  displayMessage(); // This doesn't return anything
+  
+  return 0;
+}
+
+void displayMessage()
+{
+  cout << "Calculations are done!" << endl;
+}
+\end{lstlisting}
+
+\LevelD{Overloading Function Names}
+
+Overloading function names allows the same name to be used in multiple function definitions but with different parameter listings. 
+Function names can be reused using this feature. 
+Function name overloading eliminates problems associated with having multiple names for functions with similar purposes and can make the code both more understandable and more convenient for the programmer to write.
+
+Below is an example of an overloaded function name. 
+Notice that both functions have the same name, but different parameter types.
+
+\begin{lstlisting}
+int plus(int num, int numr);
+float plus(float num, float numr);
+\end{lstlisting}
+
+Here is an example of improper function overloading. 
+Simply changing the return type does not work, the parameters must be different!
+
+\begin{lstlisting}
+int plus(int num, int numr);
+float plus(int num, int numr);  
+\end{lstlisting}
 
 
+\LevelD{Scope}
+
+As we dive into more complex programs there is a need for a wide variety of variables in different locations in the code. 
+Some of these variables are declared within individual blocks of code, such as within loops or conditionals. 
+Others are declared completely outside functions. 
+The two primary types of variables we are going to look at here are local and global. 
+The location of the declaration of a variable within the code changes how that variable may be used.
+	
+Local variables are declared within a block of code. 
+A local variable is available to code from the point of its declaration through the end of that block of code. 
+A simple example is a variable declared in \Code{main()}:
+
+\begin{lstlisting}
+int main()
+{
+  int games;
+  // Other code here
+  return 0;
+}
+\end{lstlisting}
+
+The variable \Code{games} is a \Keyword{local variable} because it exists only within the local function, \Code{main()}. 
+It cannot be used anywhere outside \Code{main()} without some additional work (such as passing it by reference to a function). 
+Similarly, variables declared in other functions are not available to code in \Code{main()}. 
+Here is an example:
+
+\begin{lstlisting}
+#include <iostream>
+
+using namespace std;
+	
+void my_games();
+
+int main()
+{
+  my_games();
+  // More code here
+  cout << games; // ERROR! No such variable here!
+  return 0;
+}
+
+void my_games()
+{
+  int games = 10;
+  cout << games;
+}
+\end{lstlisting}
+
+In the previous example function, \Code{my\_games()} is called by \Code{main()} and outputs \Code{10}.
+The variable \Code{games} is local to that function. 
+If \Code{games} is referenced anywhere else outside that function, the program will not compile.
+
+An easy way to understand local variables is to compare them to your neighbors. 
+Everyone that lives on your street and around you are variables, and since you all share the same street, they are local. 
+The neighbors on an adjacent street might be close to where you live, but since they do not share the same street, they might not be considered neighbors. 
+You can think of these neighbors on the adjacent street as other functions. 
+While they might be close by, they do not share the same street.
+
+Global variables are quite different from local variables. 
+Global variables can be used by code anywhere within the program. 
+A global variable is declared outside of any function. 
+Using similar code as in the example above, we make the \Code{games} variable global:
+
+\begin{lstlisting}
+#include <iostream>
+
+using namespace std;
+
+void my_games();
+void their_games();
+
+int main()
+{
+  games = 5;
+  my_games();
+  their_games();
+  return 0;
+}
+
+void my_games()
+{
+  cout << games << endl;
+}
+
+void their_games()
+{
+	cout << games << endl;
+}
+\end{lstlisting}
+
+Both functions print the same variable, causing the program to produce the following output: 
+
+\begin{lstlisting}
+5
+5
+\end{lstlisting}
+
+To sum it up, local variables work only within the block of code that it is declared. 
+Global variables are declared outside functions, and can be used at any point in the program.
 
 
+\LevelD{Review Questions}
 
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item ~
+\item ~
+\item ~
+\end{itemize}	
 
 
 

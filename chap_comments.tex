@@ -1,0 +1,61 @@
+%Comments
+
+As a C++ programmer, comments will make your life easier. 
+They are meant to serve as notes, not just for you, but for anyone that may attempt to read your code. 
+To this end, comments are a quick explanation of the code. 
+There are two kinds of comments, \Keyword{single-line comments} and \Keyword{multi-line comments}.
+
+Single-line comments typically come after a line of code. 
+For a single-line comment, simply type a double slash \Code{//} at the end of the line, and write whatever notes you want after, preferably to explain what that line of code does.
+Alternatively, the comment can start on a line of its own.
+Here are some examples:
+
+\begin{lstlisting}
+	int count; // This variable was declared 
+	           // to count something
+
+	count = count + 1; //Increments count by 1
+
+  //Variable declared, and initialized to pi
+	float length=3.14159; 
+\end{lstlisting}
+
+Multi-line comments, sometimes called \Keyword{block comments}, are used when you have a lot to say. 
+They begin with a slash star (\Code{/*}) and are ended by a star slash (\Code{*/}). 
+Here is an example:
+
+\begin{lstlisting}
+/* 
+ *This is a
+ *multi-line 
+ *comment
+ */
+ 
+/* This is also a comment */ 
+\end{lstlisting}
+
+Block comments do not need a star at the beginning of every line, but many programmers write it anyways, because it makes it easier to see and understand that ``this is still a comment, don't write code here.'' 
+Some development environments will automatically color-code certain pieces of code, so comments might be gray, for example, and the \Code{*} at the beginning of each line might be unnecessary in that case. 
+However, someone else may use a different development environment that does not use colors, so the stars can still improve readability.
+
+Keep in mind when commenting, the point is to be clear and concise. 
+Try to explain what's happening as accurately as possible, but try to keep it short. 
+As you learn C++, use comments to explain what you're doing and why. 
+You have to assume that the person reading your code needs an explanation for each non-trivial line. 
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item ~
+\item ~
+\item ~
+\end{itemize}	
+

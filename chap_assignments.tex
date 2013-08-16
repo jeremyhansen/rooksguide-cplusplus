@@ -1,50 +1,103 @@
 %Assignments
 
-	Assignments are a way for a user or a programmer to assign a value to a variable. The way we assign a value to a variable in C++ is different from how we would might do it in math. In mathematics we are allowed to say that \texttt{x = 3} or \texttt{3 = x}, but in C++ the only acceptable way to assign the value of 3 to \texttt{x} is to type \texttt{x = 3}. 
-The \texttt{=} in the expression \texttt{x = 3} is known as an \emph{assignment operator}. This allows the program to set a variable’s value depending on its type. Here are some examples on setting a value to different types of variables:
+Assignments are a way for a user or a programmer to assign a value to a variable. 
+The way we assign a value to a variable in C++ is different from how we might do it in math. 
+In mathematics we are allowed to say that \Code{x = 3} or \Code{3 = x}, but in C++ the only acceptable way to assign the value of \Code{3} to \Code{x} is to type \Code{x = 3}. 
 
+The \Code{=} in the expression \Code{x = 3} is known as an \Keyword{assignment operator}. 
+This allows the program to set a variable's value depending on its type. 
+Here are some examples of setting a value to different types of variables:
+
+\begin{lstlisting}
 		int x = 4;
-
+\end{lstlisting}
+\begin{lstlisting}
 		char alpha = 'A';
-
-		string word = \"Alpha\";
-
+\end{lstlisting}
+\begin{lstlisting}
+		string word = "Alpha";
+\end{lstlisting}
+\begin{lstlisting}
 		float y = 3.14;
+\end{lstlisting}
 
+We are able to declare variables and assign a value to those variables immediately by using the assignment operator. 
+When we assign literal values to variables of type char, the value must be surrounded by single quotes (for example, \Code{'A'}). 
+When we assign values to variables of type \Code{string}, the literal value must be surrounded by double quotes (for example, \Code{"Alpha"}). 
+We do not have to initialize the values of the variables, however. 
+We can set them later in the code like this:
 
-	We are able to declare variables and assign a value to those variables immediately by using the assignment operator. When we assign literal values to variables of type char, the value must be surrounded by single quotes (example: \texttt{'A'}). When we assign values of type string, the literal value must be surrounded by double quotes (example: \texttt{\"Alpha\"}). We do not have to initialize the values of the variables, however. We can set them with a value later in the code like this:
+\begin{lstlisting}
 		int myVal;
 		//some code
 		myVal = 0; 
+\end{lstlisting}
 
-	In all of the lines of code in this section where a variable is set using the assignment operator, the “thing that is being given a value” is known as an \emph{lvalue}, and the expression on the right that is being stored in the variable is known as the \emph{rvalue}. Literals such as \texttt{'A'} or 3 can never be an lvalue. Aside from literals, the rvalue can consist of other variables as well, like this:
+In all of the lines of code in this section where a variable is set using the assignment operator, the ``thing that is being given a value'' is known as an \Keyword{lvalue}, and the expression on the right that is being stored in the variable is known as the \Keyword{rvalue}. 
+Literals such as \Code{'A'} or \Code{3} can never be an lvalue. 
+Aside from literals, the rvalue can consist of other variables, like this:
 
+\begin{lstlisting}
 		myVal = myVal2;
+\end{lstlisting}
 
-Even though \texttt{myVal2} is a variable, we are only passing the \emph{value stored in the variable}, not the variable itself. For example if \texttt{myVal2} had a value of 6, \texttt{myVal} would then have a value of 6 with the above code. 
+Even though \Code{myVal2} is a variable, we are only using the \textit{value stored in the variable}, not the variable itself. 
+For example, if \Code{myVal2} had a value of \Code{6}, \Code{myVal} would then be assigned to the value \Code{6} with the above code. 
 
-We can also store an arithmetic expression in a variable like this: 
-	
-		myVal = 5 + 6; //assigns myVal a value of 11 because 5 plus (+) 6 is 11
+We can also store the results of an arithmetic expression in a variable like this: 
 
-	But we can't write
+\begin{lstlisting}
+  myVal = 5 + 6; //assigns myVal a value of 11
+\end{lstlisting}
 
-		5 + 6 = myVal; // ERROR!
+But we can't write
+\begin{lstlisting}
+  5 + 6 = myVal; // ERROR!
+\end{lstlisting}
 
-	since 5 + 6 doesn't refer to a place where we can store a value. We can also combine arithmetic expressions with other variables to be stored in a variable like this:
-	
-		myVal2 = 6;
-		myVal = 4 + myVal2;
+\noindent since \Code{5 + 6} doesn't refer to a place where we can store a value. 
+We can also combine arithmetic expressions with variables as an rvalue like this:
 
-In this case, the variable \texttt{myVal} would be given a value of 10 because the variable \texttt{myVal2} was initialized with a value of 6 before the assignment was executed. The value of \texttt{myVal2} remains unchanged. Make sure that the variable \texttt{myVal}, the variable \texttt{myVal2}, and the value 4 are the same type. For example, the following code will result in an error:
+\begin{lstlisting}
+  myVal2 = 6;
+  myVal = 4 + myVal2;
+\end{lstlisting}
 
-		int myValue = 4;
-		int yourVal;
-		string myString = \"word\";
+In this case, the variable \Code{myVal} would be assigned a value of \Code{10} because the variable \Code{myVal2} was initialized to a value of \Code{6}, and \Code{4 + 6} is \Code{10}.
+The value of \Code{myVal2} remains unchanged. 
+Make sure that the variable \Code{myVal}, the variable \Code{myVal2}, and the literal \Code{4} are of the same type. 
+For example, the following code will result in an error:
+
+\begin{lstlisting}
+  int myValue = 4;
+  int yourVal;
+  string myString = "word";
 		
-		yourVal = myValue + myString; // Adding an int to a string is
-						// probably not what you meant!
+  yourVal = myValue + myString; 
+  // Adding string to an int is
+  // probably not what you meant!
+\end{lstlisting}
 
-When we try to combine different variable types, the compiler will get very mad at us. Some exceptions to this rule are if we try to combine \texttt{float}s, \texttt{int}s, and \texttt{double}s. These types have the ability to be combined because they are all numeric values. Both \texttt{double}s and \texttt{float}s can hold values with a decimal point such as -3.14, 0.003, or 5.167289 whereas an \texttt{int} can only hold round values such as 2, -18, or 100. Refer to Chapter \ref{Data types, conversion} for more information on converting between data types.
+When we try to combine different variable types, the compiler will get very mad at us. 
+Some exceptions to this rule are if we try to combine \Code{float}s, \Code{int}s, and \Code{double}s.
+These types have the ability to be combined (to a certain extent) because they are all numeric values.
+Both \Code{double}s and \Code{float}s can hold values with a decimal point such as \Code{-3.14}, \Code{0.003}, or \Code{5.167289} whereas an \Code{int} can only hold round values such as \Code{2}, \Code{-18}, or \Code{100}. Refer to Chapter \ref{chap_datatypes} for more information on converting between data types.
 
+
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item ~
+\item ~
+\item ~
+\end{itemize}	
 

@@ -1,75 +1,120 @@
-Array 
+An array is a series of variables that are the same of the same type (\Code{int}, \Code{float}, \Code{double}, \Code{char}, and so on).
+Arrays are held in a computer's memory in a strict linear sequence.
+An array does not hold anything other than the elements of the specified type, so there is no assigning an array of type \Code{float} and hoping to store a \Code{string} there. 
+Doing so would cause a ``type mismatch error'' and the program wouldn't compile. 
+To create an array, the programmer types something like this:
 
-% Add std::array in a future version
-
-\Comment {
-
-What is it, how they work?
-	An array is a series of variables that are the same of the same type (int, float, double, char etc\ldots). Arrays are held in a computer's memory in a strict linear sequence. An array does not hold anything other than the elements of the specified type. Therefore there is no assigning an array of type float and hoping to store a string there. Doing so would cause a "type mismatch error" and the program wouldn't compile. To create an array, the syntax is:
-
-(data type) (array name)[(length of array)];
-
-A concrete example looks like: 
-
+\begin{lstlisting}
 	char Scott[5];
+\end{lstlisting}
 
-The char is the data type for all elements in the array; Scott is the name of the array (you can be as creative as you want with the name) and the 5 inside the square brackets represents the size of the array. So char Scott[5] can hold 5 pieces of data that are of type char. Look at the diagram below for assistance.
-When trying to visualize an array, think of a rectangle split up into as many open slots as the user defines. In the case of the above example, think of a rectangle with 5 open slots, each of type char that are waiting for some form of input. 
+The \Code{char} is the data type for all elements in the array, \Code{Scott} is the name of the array (you can be as creative as you want with the name), and the 5 inside the square brackets represents the size of the array. 
+So \Code{char Scott[5]} can hold 5 pieces of data that are of type \Code{char}. 
+Look at the diagram below for assistance.
 
-In order to refer to the individual elements in an array, we start with the number 0 and count upwards. We use [0] to access the first element in the array, [1] for the second, [2] for the third, and so on.  In other words, arrays in C++ are indexed starting at 0. In order to read or write certain locations of the array, we state the name of the array and the element we want to access. It should look like this (refer to the diagram to visualize how the computer interprets this).
+% Insert diagram here
 
-Scott[3] = 'Q';     // Assign the character 'Q' to the 4th element of Scott[]
-cout << Scott[3];   // Retrieve the value of the 4th element of Scott[] and print it
+When trying to visualize an array, think of a rectangle split up into as many pieces as the array has places to hold data.
+In the above example, think of a rectangle with 5 open slots, each of type \Code{char} that are waiting for some form of input. 
 
-You can also store values inside the array ahead of time when you are declaring the array. To do so, you need to enclose the values of the appropriate type in brackets and separate the values with a comma. Below are two examples, one an array where each element is of type char and one and another where each element is of type int.
+In order to refer to the individual elements in an array, we start with the number 0 and count upwards. 
+We use \Code{[0]} to access the first element in the array, \Code{[1]} for the second, \Code{[2]} for the third, and so on. 
+In order to read or write certain locations of the array, we state the name of the array and the element we want to access. 
+It should look like this:
 
-char Scott [5] = {' S', 'c', 'o', 't', 't'};	
+\begin{lstlisting}
+Scott[3] = 'Q';
+cout << Scott[3];
+\end{lstlisting}
 
-int John [5] = {99, 5, 1, 22, 7};
+The diagram below depicts how the computer interprets this.
 
+% Insert diagram here
+
+You can also store values inside the array ahead of time when you declare the array. 
+To do so, you need to enclose the values of the appropriate type in brackets and separate the values with a comma. 
+Below are two examples, one an array where each element is of type \Code{char} and another where each element is of type \Code{int}.
+
+\begin{lstlisting}
+char Scott[5] = {'S', 'c', 'o', 't', 't'};	
+\end{lstlisting}
+
+\begin{lstlisting}
+int John[5] = {99, 5, 1, 22, 7};
+\end{lstlisting}
+	
 % TODO: Elements in the preceding text are not referred to as "slots" like the paragraph below
+	
+Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the \Keyword{null character}\footnote{Abbreviated NUL; Note that this is not the same as the NULL pointer described in Chapter \ref{chap_pointers}} or \Keyword{null terminator}. The NUL character marks the end of the string. In C++ the null character is \Code{'\textbackslash0'}. Because the null character takes up one ``slot'' of the array, any character array that is intended to be used as a string must be declared having a size one more than the longest string that you expect to store. Initializing the above character array should really be done as the following (notice that we make the array one slot larger!):
 
-	Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the null character (abbreviated NUL; Note that this is not the same as the NULL pointer) or null-terminator. The NUL character marks the end of the string. In C++ the null character is '\0'. Because the null character takes up one "slot" of the array, any character array that is intended to be used as a string must be declared having a size one more than the longest string that you expect to store.
+\begin{lstlisting}
+char Scott[6] = {'S', 'c', 'o', 't', 't', '\0'};	
+\end{lstlisting}
 
-	char witch_doctor[10] = {'v', 'o', 'o', 'd', 'o', 'o', 'b', 'a', 'd'};
-	cout << witch_doctor[7];
+Alternatively, you can initialize a character array with a string literal, as below. 
+We discuss string literals in more detail in Chapter \ref{chap_constants}.
 
-% note: The above example implicity appends a 0 to all elements not initalized by the initializer list (assuming it's a local object). In the example, only 9 elements are explicitly initialized however the C++ standard states that when an initializer list is supplied then elements not given a value in the list are assigned the value 0 as if the aggregate object (in this case an array) was a static or global object. For readability it would be better to include the '\0' in the initializer list: char witch_doctor[10] = {'v', 'o', 'o', 'd', 'o', 'o', 'b', 'a', 'd', '\0'};
+\begin{lstlisting}
+char Scott[6] = "Scott";	
+\end{lstlisting}
 
-Multi-dimensional Arrays
-A two-dimensional array (nearly always semantically equivalent to a "matrix") is the same thing as an array, but is an "array of arrays." Here's a two-dimensional array, with each dimension having three elements; i.e. it's a three-by-three array of integers.
+It is also possible to let the computer figure out the appropriate length for an array when the array is being initialized at the same time as when it is declared. 
+The below code produces an identical array as the previous example:
 
-int Rich [3][3] // 2D
+\begin{lstlisting}
+char Scott[] = "Scott";	
+\end{lstlisting}
 
-Declaring arrays with more dimensions are possible with similar syntax. Here's a three-dimensional 10x10x10 example:
+\LevelD{Multi-dimensional Arrays}
 
-int Sam [10][10][10] // 3D
+A two-dimensional array (some might call it a ``matrix'') is the same thing as an array, but is an ``array of arrays''.
+Here's a two-dimensional three-by-three array:
 
-And a four-dimensional 10x10x10x10 array. This is possible, even though it's hard to visualize.
+\begin{lstlisting}
+int Rich[3][3]; // 2D
+\end{lstlisting}
 
-int Rich [10][10][10][10] // 4D
+Declaring arrays with more dimensions are possible with similar syntax. 
+Here's a three-dimensional 10x10x10 example:
 
-A programmer can initalize values in a multi-dimensional array in a similar way as for a single-dimensional array.
+\begin{lstlisting}
+int Sam[10][10][10]; // 3D
+\end{lstlisting}
 
+And here is a four-dimensional 10x10x10x10 array. 
+This is possible, even though it's hard to visualize.
+
+\begin{lstlisting}
+int Travis[10][10][10][10]; // 4D
+\end{lstlisting}
+
+A user can input values into a multi-dimensional array in a similar way as a single-dimensional array. 
+
+\begin{lstlisting}
 int main()
 {
-    int neo[3][3] = { {1,2,3}, {4,5,6}, {7,8,9} }; // filling matrix with set numbers
-    cout << neo[0][0] << endl; // first number, 1
-    cout << "  " << neo[2][2] << endl; // last number, 9
+    int neo[3][3] = { {1,2,3}, {4,5,6}, {7,8,9} }; // filling matrix
+    cout << neo[0][0] << endl << endl; // first number, 1
+    cout << "  " << neo[2][2]; // last number, 9
     return 0;
 }
+\end{lstlisting}
 
-	The same logic is applied for 3-dimensional and 4-dimensional arrays, but when filling them be mindful of the order of the input so that when you want to view certain elements in the array you are able to correctly access them.
 
+The same logic is applied for 3-dimensional and 4-dimensional arrays, but when filling them be mindful of the order of the input so that when you want to view certain elements in the array you are able to correctly access them. 
 
-References: 
-Other examples on filling array/matrix
-1) http://www.cplusplus.com/forum/beginner/43663/
-2) VIDEO https://www.youtube.com/watch?v=SFGOAKYXfOo
-3) http://visualcplus.blogspot.com/2006/03/lesson-15-matrixes-and-2d-arrays.html
+\LevelD{Review Questions}
 
-Making a array/matrix inside a pointer
-1) http://stackoverflow.com/questions/256297/best-way-to-represent-a-2-d-array-in-c-with-size-determined-at-run-time
-2) http://forums.devarticles.com/c-c-help-52/c-pointer-to-multidimensional-array-11075.html
+\LevelD{Homework Questions}
 
-}
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{http://www.cplusplus.com/forum/beginner/43663/}
+\item \url{https://www.youtube.com/watch?v=SFGOAKYXfOo}
+\item \url{http://visualcplus.blogspot.com/2006/03/lesson-15-matrixes-and-2d-arrays.html}
+\end{itemize}	
