@@ -465,7 +465,7 @@ void right()
     while (b == 'Y');
 }
 
-void displayCircles()
+void displayCirclesMenu()
 {
     cout << "\t\tCircles\n\n";
     cout << "<1>\tArea of circle\n";
