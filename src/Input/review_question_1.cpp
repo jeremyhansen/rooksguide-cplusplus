@@ -4,12 +4,11 @@ using namespace std;
 
 int main()
 {
+    int x;
 
-    int x = 0;
+    int y;
 
-    int y = 0;
-
-    cout << "please enter a value for x  " << endl;
+    cout << "Please enter a value for x: ";
 //1.
     cin << x;
 //2.
@@ -17,10 +16,11 @@ int main()
 //3.
     cin >> x
 //4.
-        cin x;
+    cin x;
 //5.
     cin > < x;
 //6.
     x >> cin;
+    
     return 0;
 }
