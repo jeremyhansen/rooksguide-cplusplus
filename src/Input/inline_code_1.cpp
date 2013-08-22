@@ -1,11 +1,13 @@
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
-    int x = 0;
+    int x;
 
-    cout << "please enter a value for x:" << endl;
-
+    cout << "Please enter a value for x: ";
     cin >> x;
+    
     return 0;
 }

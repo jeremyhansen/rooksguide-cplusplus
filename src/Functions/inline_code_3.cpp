@@ -7,13 +7,12 @@ int main()
 {
     double sq, num;
 
-    cout  << "please enter a number:";
+    cout  << "Please enter a number: ";
     cin >> num;
 
-    sq = sqrt(num);
+    sq = sqrt(num); // Calculate the square root
 
-    cout << sq << endl;
+    cout << "The square root of " << num << " is: " << sq << endl;
 
     return 0;
-
 }

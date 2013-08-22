@@ -1,16 +1,20 @@
 #include <iostream>
+
 using namespace std;
+
 int main()
 {
 
-    int x = 0;
-    int y = 0;
+    int x;
+    int y;
 
-    cout << "please enter a value for x: " << endl;
+    cout << "Please enter a value for x: ";
     cin >> x;
-    cout << "please enter a value for y: " << endl;
+    cout << "Please enter a value for y: ";
     cin >> y;
-    cout << "the value of x is: " << x << endl;
-    cout << "the value of y is: " << y << endl;
+
+    cout << "The value of x is: " << x << endl;
+    cout << "The value of y is: " << y << endl;
+
     return 0;
 }
