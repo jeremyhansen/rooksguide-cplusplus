@@ -1,10 +1,9 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
 
 int main ()
 {
-
     enum {
         Morgan, Oldenburg, Arab, Quarter, Fjord
     } horse;
@@ -12,14 +11,8 @@ int main ()
     horse = Morgan;
 
     if (horse == Morgan) {
-        cout << "You have the Massachusetts State horse";
-
-
-
-        system ("pause");
-
-        return 0;
-
-
-
+        cout << "You have the Massachusetts State horse." << endl;
     }
+
+    return 0;
+}

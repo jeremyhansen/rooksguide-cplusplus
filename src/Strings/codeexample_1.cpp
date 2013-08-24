@@ -1,10 +1,9 @@
-#include<iostream>
-#include <cstring>
+#include <iostream>
+#include <string>
 
 using namespace std;
 
 int main()
-
 {
     string First_Name, Last_Name;
     cout << "What is your first name?" << endl;
@@ -13,8 +12,5 @@ int main()
     cin >> Last_Name;
     cout << endl << First_Name << " " << Last_Name << endl;
 
-
-    system("pause");
     return 0;
-
 }
