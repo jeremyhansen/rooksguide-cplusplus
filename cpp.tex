@@ -116,12 +116,12 @@
 %\usepackage{xltxtra}
 
 % Packages loaded by todonotes.  Included here so that needed options may be specified.
- \usepackage{ifthen}
+\usepackage{ifthen}
 %\usepackage{xkeyval}
 \usepackage{xcolor}
 %\usepackage{tikz}
 %\usepackage{calc}
- \usepackage{graphicx}         % Loaded via the tikz package.
+\usepackage{graphicx}         % Loaded via the tikz package.
 %\usepackage{todonotes}        % http://www.tex.ac.uk/tex-archive/macros/latex/contrib/todonotes/todonotes.pdf
 
  %\definecolor{MainFont}        {rgb}{0.000000, 0.180000, 0.180000}
@@ -259,7 +259,8 @@
 
  \lstset{
    backgroundcolor=\color{ListingBgColor},     % choose the listing background color.
-   basicstyle=\footnotesize,                   % the size of the fonts that are used for the code
+%   basicstyle=\footnotesize,                   % the size of the fonts that are used for the code
+   basicstyle=\scriptsize,                   % the size of the fonts that are used for the code
    breakatwhitespace=false,                    % sets if automatic breaks should only happen at whitespace
    breaklines=true,                            % sets automatic line breaking
    captionpos=b,                               % sets the caption-position to bottom
@@ -339,6 +340,7 @@
  
  Theodore M. Rolle, Jr.
  
+ Levi Schuck
 
  \item[Media \& Outreach:] ~
  
@@ -579,7 +581,6 @@ Jy Yaworski.
  \end{description}
 % } % End Frontmatter Comment.
 
-
 % \LevelA{Section 1}
    %\LevelB{Chapters:}
       \LevelC{History}
@@ -621,7 +622,9 @@ Jy Yaworski.
      \LevelC{Loops}
       \label{chap_loops}
       \input{chap_loops.tex}
-     \LevelC{Functions, Scope, and Blocks}
+     \LevelC{Arrays}
+      \input{chap_arrays.tex}
+     \LevelC{Blocks, Functions, and Scope}
       \input{chap_functions.tex}
      \LevelC{Problem Solving}
       \input{chap_problems.tex}
@@ -636,8 +639,6 @@ Jy Yaworski.
       \input{chap_advancedarith.tex}
      \LevelC{File I/O}
       \input{chap_file_io.tex}
-     \LevelC{Arrays}
-      \input{chap_arrays.tex}
      \LevelC{Pointers}
       \input{chap_pointers.tex}
      \LevelC{Dynamic Data}
