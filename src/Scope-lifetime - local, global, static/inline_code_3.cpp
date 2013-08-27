@@ -1,15 +1,14 @@
 #include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
 void my_games();
 void their_games();
 
+int games = 5;  // Global variable
+    
 int main()
-
 {
-    games = 5;
     my_games();
     their_games();
 
@@ -18,10 +17,8 @@ int main()
 
 void my_games()
 {
-
     cout << games << endl;
 }
-
 
 void their_games()
 {

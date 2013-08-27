@@ -1,18 +1,21 @@
-# include<iostream>
+#include <iostream>
+
 using namespace std;
 
-struct {
-    int example;
-    double test;
-} testing;
-main()
+struct Testing {
+    int i;
+    double d;
+};
+
+int main()
 {
-    cout << "Input an integer ";
-    cin >> testing.example;
+    Testing testing;
+    
+    cout << "Input an integer: ";
+    cin >> testing.i;
 
-    cout << endl << "Input a number with a decimal";
-    cin >> testing.test;
-
-    system("pause");
+    cout << endl << "Input a number with a decimal: ";
+    cin >> testing.d;
+    
     return 0;
 }

@@ -30,6 +30,11 @@ void circumCirc();
 
 //global variables used by program, regardless of which function
 const double pi = 3.14159265359; //sets the value of pi used by the caluculator
+
+/************** gcflora: Why does this have to be global? I'm also not sure why
+ * it's called 'b'
+ ****************************************************************************/
+
 char b = 'Y'; //used in do-while loops throughout program
 
 int main()
@@ -158,8 +163,7 @@ int main()
 
         if (a != 'M') //if input is not M
             cout << "Goodbye!\n\n"; //outputs text in "" to screen
-    }
-    while (a == 'M');   //starts loop over again if input is M
+    } while (a == 'M');   //starts loop over again if input is M
 
     system("PAUSE"); //pauses program until user hits a key
     return 0; //ends program
@@ -208,8 +212,7 @@ void add() //function header
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void subtract()
@@ -239,8 +242,7 @@ void subtract()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void multipy()
@@ -267,8 +269,7 @@ void multipy()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void division()
@@ -298,8 +299,7 @@ void division()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void square()
@@ -317,8 +317,7 @@ void square()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void squareRoot()
@@ -338,8 +337,7 @@ void squareRoot()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void power()
@@ -361,8 +359,7 @@ void power()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void displayTrianglesMenu()
@@ -394,8 +391,7 @@ void triArea()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void triPerim()
@@ -421,8 +417,7 @@ void triPerim()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void right()
@@ -461,11 +456,10 @@ void right()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
-void displayCircles()
+void displayCirclesMenu()
 {
     cout << "\t\tCircles\n\n";
     cout << "<1>\tArea of circle\n";
@@ -509,8 +503,7 @@ void areaCirc()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
 
 void circumCirc()
@@ -547,6 +540,5 @@ void circumCirc()
         b = toupper(b);
         cout << endl;
 
-    }
-    while (b == 'Y');
+    } while (b == 'Y');
 }
