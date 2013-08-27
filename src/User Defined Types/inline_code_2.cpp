@@ -1,20 +1,23 @@
-# include<iostream>
+#include <iostream>
+
 using namespace std;
 
 class Weaver {
-    public
-    double test(int example);
-    private
+public:
+    double test(double number);
+private:
+    double example;
 };
-main()
+
+int main()
 {
     Weaver R;
-    R.test(R.example);
-    system("pause");
+    cout << R.test(1.34) << endl;
     return 0;
 }
-double Weaver::test(int example)
+
+double Weaver::test(double number)
 {
-    example = 1.34;
+    example = number;
     return example;
 }
