@@ -6,33 +6,33 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * Each topic has its own .tex file - for right now they're all organized as digestible mini-chapters, though I expect them to merge and evolve later on.
 
-* The cpp.tex file is the core of the project, and the place where all the chapters are inserted via \input{}
+* The cpp.tex file is the core of the project, and the place where all the chapters are inserted via `\input{}`
 
 * chap_advancedarith.tex is a decent place to see a fairly well-developed 
 
-* Chapter \sections should be designated with \LevelD{My section} and \subsections with \LevelE{My subsection}
+* Chapter `\sections` should be designated with `\LevelD{My section}` and `\subsections` with `\LevelE{My subsection}`
 
-* Bits of code and symbols within a sentence should be placed within a \Code{...}. (Note that this has changed from \texttt!) So should program output, which should appear on its own line.
+* Bits of code and symbols within a sentence should be placed within a `\Code{…}`. (Note that this has changed from `\texttt`!) So should program output, which should appear on its own line.
 
-* Code listings that stand on their own (and pseudocode) should be put in \begin{lstlisting}/* Code */ \end{lstlisting}
+* Code listings that stand on their own (and pseudocode) should be put in `\begin{lstlisting}/* Code */ \end{lstlisting}`
 
-* Important terms should be placed within \Keyword{...}
+* Important terms should be placed within `\Keyword{...}`
 
 * Each chapter has the following sections, in this order:
 
-** \LevelD{Review Questions}
+	+ `\LevelD{Review Questions}`
 
-** \LevelD{Homework Questions}
+	+ `\LevelD{Homework Questions}`
 
-** \LevelD{Review Answers}
+	+ `\LevelD{Review Answers}`
 
-** \LevelD{Homework Answers}
+	+ `\LevelD{Homework Answers}`
 
-** \LevelD{Further Reading}
+	+ `\LevelD{Further Reading}`
 
 * Write each sentence on a separate line. This helps with managing versions. It's harder to look at but easier to maintain.
 
-* Wrap URLs in \url{...}
+* Wrap URLs in `\url{...}`
 
 * Fork your own branch, and we'll pull your changes gradually into the master branch
 
