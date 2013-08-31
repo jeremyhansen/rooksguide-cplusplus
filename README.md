@@ -14,7 +14,11 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * Bits of code and symbols within a sentence should be placed within a `\Code{…}`. (Note that this has changed from `\texttt`!) So should program output, which should appear on its own line.
 
-* Code listings that stand on their own (and pseudocode) should be put in `\begin{lstlisting}/* Code */ \end{lstlisting}`
+* Code listings that stand on their own (and pseudocode) should be put in
+
+	    \begin{lstlisting}
+	    /* Code */
+	    \end{lstlisting}
 
 * Important terms should be placed within `\Keyword{...}`
 
