@@ -1,2 +1,4 @@
 #The KDE dolphin file manager creates these files; ignore them
 .directory
+.texpadtmp
+# ^ Mac Texpad application uses this directory for temporary files.
