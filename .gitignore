@@ -3,6 +3,9 @@
 .texpadtmp
 # ^ Mac Texpad application uses this directory for temporary files.
 
+*.~lock.*
+# ^ Making sure that Libre / Open Office doesn't let locks creep into the repository
+
 # Latex files
  
 *.aux
