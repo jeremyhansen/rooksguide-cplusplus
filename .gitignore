@@ -2,3 +2,39 @@
 .directory
 .texpadtmp
 # ^ Mac Texpad application uses this directory for temporary files.
+
+# Latex files
+ 
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.tui
+*.top
+*.tmp
+*.mp
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.synctex.gz
+cpp.pdf
+# Since we may include PDF inserts that we generate elsewhere, if there are any other temporary pdfs
+# PLEASE add them here.
+
+# Any more platform things
+.DS_Store
