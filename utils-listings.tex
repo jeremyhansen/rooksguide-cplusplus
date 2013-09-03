@@ -1,0 +1,58 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                   %%
+%%   Here are the listing package's parameters used in the creation  %%
+%% of this book.                                                     %%
+%%                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\definecolor{CommentColor}                    {rgb}{0.000000, 0.600000, 0.000000}
+ \definecolor{KeywordStyleColor}               {rgb}{0.000000, 0.000000, 1.000000}
+ \definecolor{ListingBgColor}                  {rgb}{1.000000, 1.000000, 1.000000}
+ \definecolor{ListingFrameColor}               {rgb}{1.000000, 1.000000, 0.920000}
+ \definecolor{LiteralStringColor}              {rgb}{0.500000, 0.000000, 0.820000}
+ \definecolor{NumStyleColor}                   {rgb}{0.500000, 0.500000, 0.500000}
+ \definecolor{RuleColor}                       {rgb}{0.000000, 0.000000, 0.000000}
+ \definecolor{RuleSepColor}                    {rgb}{0.840000, 0.840000, 0.840000}
+ \definecolor{ShadowBoxFrameColor}             {rgb}{0.920000, 0.920000, 0.920000}
+ \definecolor{ShadowBoxColor}                  {rgb}{0.920000, 1.000000, 1.000000}
+
+ \lstset{
+   backgroundcolor=\color{ListingBgColor},     % choose the listing background color.
+%   basicstyle=\footnotesize,                   % the size of the fonts that are used for the code
+   basicstyle=\scriptsize,                   % the size of the fonts that are used for the code
+   breakatwhitespace=false,                    % sets if automatic breaks should only happen at whitespace
+   breaklines=true,                            % sets automatic line breaking
+   captionpos=b,                               % sets the caption-position to bottom
+   commentstyle=\color{CommentColor},          % comment style
+   deletekeywords={...},                       % if you want to delete keywords from the given language
+   extendedchars=true,                         % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+   frame=shadowbox,
+   framexleftmargin=2.0mm,                     % Extend left frame margin to put line numbers inside the frame.
+   keywordstyle=\color{KeywordStyleColor},     % keyword style
+   language=C++,                               % the language of the code
+   morecomment=[l]{/}                          % displays comments in italics (language-dependent)
+   morekeywords={*,...},                       % if you want to add more keywords to the set
+   numbers=none,                               % where to put the line-numbers; possible values are (none, left, right)
+   numbersep=0.0mm,                            % how far the line-numbers are from the code. Can't be < 10pt?
+   numberstyle=\tiny\color{NumStyleColor},     % determines the font and size of the numbers.
+   rulecolor=\color{RuleColor},                % if not set, the frame-color may be changed on line-breaks within not-black text.
+   rulesepcolor=\color{RuleSepColor},  
+   showspaces=false,                           % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+   showstringspaces=false,                     % underline spaces within strings only
+   showtabs=false,                             % show tabs within strings adding particular underscores
+   stepnumber=1,                               % the step between two line-numbers. If it's 1, each line will be numbered
+   stringstyle=\color{LiteralStringColor},     % string literal style
+   tabsize=2,                                  % sets default tabsize to 2 spaces
+   title=\lstname,                             % show the filename of files included with \lstinputlisting; also try caption instead of title
+   xleftmargin=4.0mm
+ } % End of big lstset.
+
+ \lstset{                      % This lstset must be in the preamble.
+   numberbychapter=true
+ }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                   %%
+%%   End of listings package parameters.                             %%
+%%                                                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

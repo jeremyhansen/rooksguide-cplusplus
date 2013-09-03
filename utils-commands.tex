@@ -1,0 +1,50 @@
+\newcommand{\Comment}[1]      {}
+
+ \newcommand{\LevelA}[1]         {\part{#1}}
+ \newcommand{\LevelB}[1]         {\chapter{#1}}
+ \newcommand{\LevelC}[1]         {\chapter{#1}}
+ \newcommand{\LevelD}[1]         {\section{#1}}
+ \newcommand{\LevelE}[1]         {\subsection{#1}}
+
+
+ \Comment { %LevelX
+ \newcommand{\LevelA}[1]         {\chapter{#1}}
+ \newcommand{\LevelB}[1]         {\section{#1}}
+ \newcommand{\LevelC}[1]         {\subsection{#1}}
+ \newcommand{\LevelD}[1]         {\subsubsection{#1}}
+ } % End LevelX Comment.
+
+ \newcommand{\ToCComment}[1]   {\subsubsection{#1}}
+
+ \newcommand{\Picture}[3] {
+ \begin{center}
+   \ToCComment{#1}
+
+   \includegraphics#2{#3}
+
+   \textbf{#1}
+ \end{center}
+ }
+
+ \newcommand{\Code}[1]         {\texttt{#1}}
+ \newcommand{\Keyword}[1]      {\textbf{#1}}
+ \newcommand{\ceol}            {\\}                % Code end-of-line.
+
+ \newcommand{\book}[1]         {\emph{#1}}
+ \newcommand{\Cry}             {(':}
+ \newcommand{\Fr}[1]           {\textbf{#1}}
+
+ \newcommand{\Frownie}         {\frownie}
+%\newcommand{\Heart}           {$\varheart$ }      % From arev package
+ \newcommand{\Heart}           {♥}                 % Heisted from a graphic.
+ \newcommand{\RTLKissie}       {*-:}
+ \newcommand{\Kissie}          {:-*}
+ \newcommand{\Laughie}         {:-D}
+ \newcommand{\leol}            {\\}
+ \newcommand{\lparen}          {)}
+ \newcommand{\rparen}          {(}
+ \newcommand{\seol}            {\\}
+ \newcommand{\Smiley}          {\smiley}
+ \newcommand{\teol}            {\\ \hline}
+%\newcommand{\ThumbsUp}        {\HandLeftUp}       % bbding  package Fists
+ \newcommand{\ThumbsUp}        {\rightthumbsup}    % dingbat package Fists (better)
