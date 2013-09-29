@@ -1,0 +1,103 @@
+Up to this point, we have only discussed variables that are set up at compile time. 
+Allocating space for variables at compile time is adequate in many cases, but occasionally a program will need to allocate space for data in memory while it is running. 
+Consider the following code:
+
+\begin{lstlisting}
+	int arraySize;
+	cout << "Enter the number of elements you want in the array: ";
+	cin >> arraySize;
+	int myArray[arraySize]; // We want to create an array with arraySize elements
+	// SYNTAX ERROR!
+\end{lstlisting}
+
+In order to allocate the space for \Code{myArray}, the compiler needs to know how many elements make up the array so that there is enough room in memory to accommodate the array. 
+Unfortunately, the value of \Code{arraySize} is not known until the user enters something on the keyboard \emph{after the program has started running} and as a result, the compiler returns a syntax error. 
+
+In C++, pointers are used to keep track of dynamically-allocated data:
+
+\begin{lstlisting}
+	float *fPtr = NULL; // (1) Declare a pointer to a float, which currently points nowhere
+\end{lstlisting}
+
+In order to dynamically allocate an object of type \Code{float}, we use the \Code{new} operator:
+
+\begin{lstlisting}
+	fPtr = new float; // (2)
+\end{lstlisting}
+
+%TODO: [new_operator_diagram_1]
+
+The created object of type \Code{float} does not have a name, so the \Code{new} operator returns a \Code{float*} that can be used to access the object. 
+This pointer is stored in \Code{fPtr}. 
+We use the dereference operator (\Code{*}, that is) to access the data:
+
+\begin{lstlisting}
+	*fPtr = 2.2; // (3) Goes to the address at fPtr and stores 2.2 there
+	cout << "Data at " << fPtr << ": " << *fPtr << endl;
+	// This outputs: Data at 0x200102b0: 2.2
+	// Note that the address listed may differ
+	// Also note the difference between printing fPtr and *fPtr
+\end{lstlisting}
+
+Notice that when a value is assigned to \Code{fPtr}, the pointer is being changed. 
+When a value is assigned to \Code{*fPtr} (notice the dereference operator), the floating-point value at the address stored in \Code{fPtr is changed}. 
+
+%TODO: [new_operator_diagram_2]	
+
+\begin{lstlisting}
+	float *fPtr;
+	fPtr = new float;
+	*fPtr = 2.2; // Goes to the address at fPtr and stores 2.2 there
+	cout << "Data at " << fPtr << ": " << *fPtr << endl;
+	fPtr = new float; // (4) fPtr now holds the address of a new float object
+	*fPtr = 3.3; // (5)
+	cout << "Data now at " << fPtr << ": " << *fPtr << endl;
+	// This outputs: 
+	// Data at 0x200102b0: 2.2
+	// Data now at 0x200483c0: 3.3
+\end{lstlisting}
+
+In this example, the \Code{float} containing the value $2.2$ still resides in memory, but is no longer reachable. 
+This condition is called a \Keyword{memory leak}, and results in programs that consume more memory than they require. 
+In order to free up the memory properly, we use the \Code{delete} operator:
+
+\begin{lstlisting}
+	float *fPtr;
+	fPtr = new float;
+	*fPtr = 2.2; // (6) Goes to the address at fPtr and stores 2.2 there
+	cout << "Data at " << fPtr << ": " << *fPtr << endl;
+	delete fPtr; // (7) Frees up the dynamically-allocated memory 
+	// at the address stored in fPtr
+\end{lstlisting}
+
+At this point in the code, \Code{fPtr} can be referred to as a \Keyword{dangling pointer}, since the memory location it refers to is no longer valid, and the pointer just ``dangles'' there, pointing to nothing useful. 
+
+%TODO: [new_operator_diagram_3]
+
+Arrays can be dynamically allocated, too:
+
+\begin{lstlisting}
+float *fPtr = new float[10]; // Allocate an array of ten floats and store their location in fPtr
+\end{lstlisting}
+
+Arrays must be deleted in a similar fashion, but the syntax changes slightly:
+
+\begin{lstlisting}
+delete [] fPtr; // Free up the entire array
+\end{lstlisting}
+
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{http://www.cplusplus.com/doc/tutorial/dynamic/}
+\end{itemize}	
+
