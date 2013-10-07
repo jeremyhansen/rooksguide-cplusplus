@@ -1,0 +1,214 @@
+Output in C++ is done with the object \Code{cout} (``\textbf{c}onsole \textbf{out}put''). 
+The object \Code{cout} prints useful information to the screen for the user. 
+For example, if we wanted to prompt the user with 
+
+\noindent \Code{Type in your name:}
+
+\noindent we would use \Code{cout}. 
+\Code{cout} is extremely important when you are starting to learn C++ as it gives you the ability to display the current state of any variable and provide user feedback at any point in your program. 
+Let's make a program that outputs something to the screen:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "Go Cadets!";
+	return 0;
+}
+\end{lstlisting}
+
+%Don't mind the grayed out code, that's necessary, but we'll get to it later. 
+%Your development environment may provide much of that code anyways; if not, type it in, but don't worry about that material just yet. 
+
+The symbol \Code{<<} is called the \emph{redirect operator} and is needed between \Code{cout} and what you want to display to the screen. 
+In this case, we are displaying a string literal \Code{"Go Cadets!"}. 
+As you know, every statement in C++ ends with a semicolon, and this one is no exception.
+
+What if we want to print more, though?
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "Go Cadets!";
+	cout << "You can do it!";
+	return 0;
+}
+\end{lstlisting}
+
+Try to compile and run that. 
+It works, but it's not really the desired output. 
+You should get:
+
+\noindent \Code{Go Cadets!You can do it!}
+
+How do we get those on a different line? 
+One of the ways we can do it is to use the object \Code{endl}. 
+\Code{endl} means ``\textbf{end} \textbf{l}ine'', and is used when you want to end one line and start over on the next---it's like hitting enter on your keyboard. 
+You will also need another redirect operator between the string literal and the \Code{endl}. 
+Putting all of this together looks like this:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "Go Cadets!" << endl;
+	cout << "You can do it!";
+	return 0;
+}
+\end{lstlisting}
+
+\noindent \Code{Go Cadets!}
+
+\noindent \Code{You can do it!}
+
+That works a bit more as intended. 
+Alternatively, we can combine the two lines that use \Code{cout} into a single one like this:
+
+\begin{lstlisting}
+cout << "Go Cadets!" << endl << "You can do it!";
+\end{lstlisting}
+
+Another way we can accomplish this, without needing another redirect operator, is with the special character \Code{'\\n'}.
+\Code{'\\n'} is a newline character, it prints a new line just like the \Code{endl} object. 
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "Go Cadets!\\nYou can do it!";
+	return 0;
+}
+\end{lstlisting}
+
+\noindent \Code{Go Cadets!}
+
+\noindent \Code{You can do it!}
+
+Another thing we can use with the console output object is the \Code{'\t'} character. 
+Printing this character is the same as pressing the tab key on your keyboard, and is used for indentation and formatting. 
+Let's look at an example that uses the newline character, the tab character, and some text:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "\\tGo Cadets!\\nYou can do it!";
+	return 0;
+}
+\end{lstlisting}
+
+\Code{Go Cadets!}
+
+\noindent \Code{You can do it!}
+
+We don't always have to output words the screen using \Code{cout}. 
+We can also print variables of type \Code{int}, \Code{double}, and \Code{float} and can control the number of digits that appear after the decimal point. 
+For example, if we had a variable that contained the value 3.14159265 we might only care about the first two numbers after the decimal point and just want to output 3.14 to the screen. 
+We do that with the \Code{precision()} member function. 
+This function call will result in subsequent \Code{float} or \Code{double} variables being printed with the specified number of decimal places. 
+In the following code, the number of digits is set to 2:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+  double num = 3.14159265;
+  cout.precision(2);
+  cout << num << endl;
+}
+\end{lstlisting}
+
+\noindent \Code{3.14}
+
+To display data in a similar way as a spreadsheet, we can create a field of characters and set the number of characters in each field using the \Code{width()} and \Code{fill()} member functions. 
+Notice the use of the \Code{left} flag in the following code, which positions the output on the left side of the field; the default is for the output to be on the right side:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	cout << "Norwich" << endl;
+	cout.width(15);
+	cout << "University" << endl;
+	cout.fill('*');
+	cout.width(20);
+	cout << left << "Corps of Cadets" << endl;
+}
+\end{lstlisting}
+
+\noindent \Code{Norwich}
+\noindent \Code{~~~~~University}
+\noindent \Code{Corps of Cadets*****}
+
+\LevelD{Review Questions}
+\begin{enumerate}
+	\item Which of the following is a correct way to output "Hello World" to the screen?
+	  \begin{enumerate}
+	  \item \Code{output: "Hello World";}
+	  \item \Code{cout >> "Hello World";}
+	  \item \Code{cout << "Hello World";}
+	  \item \Code{console.output << "Hello World";}
+	  \end{enumerate}
+  \item Which of the following is a correct way to output "Hello!" to the screen on one line and "Goodbye!" to the screen on another?
+		\begin{enumerate}
+		\item \Code{cout >> "Hello!" >> "Goodbye!";}
+		\item \Code{output: "Hello!\\nGoodbye!";}
+		\item \Code{cout << "Hello!" << \\n << "Goodbye!";}
+		\item \Code{cout << "Hello!" << \\n << "Goodbye!";}
+		\end{enumerate}
+  \item Aside from the answer in the previous question, write two alternative ways of printing "Hello!" and "Goodbye!" to the screen on two different lines.
+	\item Write several lines of code using the \Code{width()} and \Code{fill()} functions in a \Code{main()} that prints "Programming!" to the screen with 4 \Code{'x'} characters printed after it.
+	\item Write code to output the values 124, 12.376, 'z' , 1000000, and "string" as distinct values, separated by spaces.
+	\item What is the output of the following program?
+	\begin{lstlisting}
+	#include <iostream>
+	#include <string>
+	using namespace std;
+	int main()
+	{
+		string shirt = "maroon", pants = "blue";
+	 
+		cout << shirt << " " << pants << endl;
+		return 0;
+	}
+	\end{lstlisting}
+
+\end{enumerate}
+
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+\begin{enumerate}
+	\item c.
+	\item d.
+	\item \Code{cout << "Hello!" << endl << "Goodbye!";} or \Code{cout << "Hello!\\nGoodbye!";} (other similar answers are possible)
+	\item
+	\begin{lstlisting}
+	cout.fill('x');
+	cout.width(16);
+	cout << left << "Programming!";
+	\end{lstlisting}
+	\item \Code{cout << 124 << " " << 12.376 << " z " << 1000000 <<  " string";}
+	\item \Code{maroon blue}
+\end{enumerate}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{http://www.java-samples.com/showtutorial.php?tutorialid=245}
+\item \url{http://www.cplusplus.com/doc/tutorial/basic_io}
+\item \url{http://www.cplusplus.com/reference/ostream/ostream/}
+\item \url{http://www.cplusplus.com/doc/tutorial/functions/}
+\end{itemize}	
+

@@ -1,0 +1,109 @@
+When a programmer wants a user to enter data, such as the price of an item, he or she will use the \Code{cin} object, pronounced ``see-in'', in conjunction with \Code{>>}, the \Keyword{redirect operator} in the program. 
+Let us look at the following code:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x = 0;   				      
+	cout << "Please enter a value for x: " << endl; 
+	cin >> x;
+	return 0;
+}
+\end{lstlisting}
+
+When you compile and run this code, here's what the output will look like:
+
+\noindent \Code{please enter a value for x: }
+
+As a user you may want to check the value that was entered. 
+To do this, simply add an additional \Code{cout} statement like this:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x = 0;   				      
+	cout << "Please enter a value for x: " << endl; 
+	cin >> x;
+	cout << "The value of x is: " << x;
+	return 0;
+}
+\end{lstlisting}
+
+The output of this code is:
+
+\noindent \texttt{please enter a value for x: }
+
+Suppose the user enters a value of 1 for x.
+
+\noindent \texttt{The value of x is: 1}
+
+As you can see, the value displayed is the one entered. 
+This can be a very useful technique in troubleshooting the values of variables throughout a program. 
+Do not be afraid to insert additional \Code{cout} statements throughout a program to check the values of variables when debugging. 
+This can help in the debugging process and speed up catching errors. 
+
+If you want to have a user input more than one value, just repeat the code for each individual variable:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x = 0;
+	int y = 0;
+	
+	cout << "Please enter a value for x: " << endl;
+	cin >> x;
+	cout << "Please enter a value for y: " << endl;
+	cin >> y;
+	cout << "The value of x is: " << x << endl;
+	cout << "The value of y is: " << y << endl;
+	return 0;
+}
+\end{lstlisting}
+
+We can't always trust that the user will input the correct data into a variable. 
+For example, if a user was prompted to input an age into a variable of type \Code{int} but typed the character \Code{z}, the program would not behave properly because the user entered the wrong data type. 
+We can check for improper input like this by using the \Code{cin.fail()} function in a conditional statement.
+Look at the following code:
+
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+int main()
+{
+	int x = 0;
+	int y = 0;
+	
+	cout << "Please enter a value for x: " << endl;
+	cin >> x;
+	if (cin.fail())
+	{
+		cout << "That is not a valid data type!";
+	}
+}
+\end{lstlisting}
+
+This introduction to \Code{cin} statements is only the beginning. 
+They will get slightly more complicated after we introduce strings, arrays, and overloaded operators.
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{http://www.cplusplus.com/reference/iolibrary}
+\item \url{http://www.cplusplus.com/doc/tutorial/basic_io}
+\item ~
+\end{itemize}	
+
