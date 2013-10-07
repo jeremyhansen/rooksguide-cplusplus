@@ -5,13 +5,13 @@ Version=2
 [SessionInfo]
 ActiveTab=2
 FrameCount=3
-ActiveFrame=0
+ActiveFrame=2
 
 [Frame0]
 Columns=1
 Rows=1
-Flags=2
-ShowCmd=3
+Flags=0
+ShowCmd=1
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
@@ -24,17 +24,17 @@ Class=CLatexEdit
 Document=cpp.tex
 
 [Frame0_Row0]
-cyCur=345
+cyCur=365
 cyMin=10
 
 [Frame0_Col0]
-cxCur=1031
+cxCur=895
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=326
-Cursor.column=14
-TopSubLine=328
+Cursor.row=0
+Cursor.column=0
+TopSubLine=330
 
 [Frame1]
 Columns=1
@@ -45,52 +45,52 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
 MaxPos.y=-23
-NormalPos.left=198
-NormalPos.top=198
-NormalPos.right=899
-NormalPos.bottom=782
+NormalPos.left=110
+NormalPos.top=110
+NormalPos.right=1068
+NormalPos.bottom=526
 Class=CLatexEdit
-Document=chap_functions.tex
+Document=chap_datatypes.tex
 
 [Frame1_Row0]
-cyCur=537
+cyCur=369
 cyMin=10
 
 [Frame1_Col0]
-cxCur=673
+cxCur=930
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=24
+Cursor.row=89
 Cursor.column=0
-TopSubLine=3
+TopSubLine=108
 
 [Frame2]
 Columns=1
 Rows=1
-Flags=0
-ShowCmd=1
+Flags=2
+ShowCmd=3
 MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-4
 MaxPos.y=-23
-NormalPos.left=88
-NormalPos.top=88
-NormalPos.right=855
-NormalPos.bottom=511
+NormalPos.left=132
+NormalPos.top=132
+NormalPos.right=1090
+NormalPos.bottom=548
 Class=CLatexEdit
-Document=chap_advancedarith.tex
+Document=chap_file_io.tex
 
 [Frame2_Row0]
-cyCur=376
+cyCur=435
 cyMin=10
 
 [Frame2_Col0]
-cxCur=739
+cxCur=1114
 cxMin=10
 
 [Frame2_View0,0]
 Cursor.row=0
-Cursor.column=0
+Cursor.column=15
 TopSubLine=0
 
