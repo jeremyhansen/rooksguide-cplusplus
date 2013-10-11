@@ -1,0 +1,59 @@
+Preprocessor directives are lines of code that are executed before the compilation of the code begins. 
+These directives are like getting everyone in a room before starting a project or doing warmups before running a race. 
+One of the most frequently-used preprocessor directives is \Code{\#include}.
+
+When we want to include in our code a system library or some other file, we use the keyword \Code{\#include} followed by the library name or the file name. 
+The way we distinguish between including libraries and including files is with angle brackets and quotes, respectively. 
+For example, when we want to use objects like \Code{cout} or \Code{cin}, we need to include the \Code{iostream} library like so: 
+
+\begin{lstlisting}
+#include <iostream> 
+\end{lstlisting}
+
+If we want to include a file, such as a file named \Code{myFile.h}, we can write: 
+
+\begin{lstlisting}
+#include "myFile.h"
+\end{lstlisting}
+
+However, when we include files, they must be in the same directory as the file where the \Code{\#include} appears. 
+We discuss the Standard Template Library in Chapter \ref{chap_stl}, and include a short sample of other libraries below:
+
+\begin{table}[tb]
+	\centering
+		\begin{tabular}{| l | p{0.8in} | p{2in} |}
+		\hline
+			\textbf{Library} & \textbf{Provides} & \textbf{Some common uses} \\ \hline
+			
+			\Code{<iostream>} & Input/output stream objects & \Code{cout}, \Code{cin}: see Chapters~\ref{chap_input}~and~\ref{chap_output} \\ \hline
+			\Code{<cstdlib>} & The C standard library & \Code{rand()}, \Code{abs()}, \Code{NULL} \\ \hline
+			\Code{<math>} & Mathematical functions & \Code{pow()}, \Code{sqrt()}, \Code{cos()}, \Code{tan()}, \Code{sin()}: see Chapter~\ref{chap_advancedarith} \\ \hline
+			\Code{<iomanip>} & Input/output manipulation & \Code{get\_money()}, \Code{get\_time()}, \Code{put\_time()} \\ \hline
+			\Code{<ctime>} & Time-related functions & \Code{clock()}, \Code{time()}, \Code{ctime()} \\ \hline
+			\Code{<string>} & The \Code{string} class & See Chapter~\ref{chap_string} \\ \hline
+			\Code{<fstream>} & File input and output streams & See Chapter~\ref{chap_file_io} \\ \hline
+				
+		\end{tabular}
+\end{table}
+
+%TODO: #if, #ifdef, #ifndef, #define, etc.
+
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{~}
+\item \url{~}
+\item \url{~}
+\end{itemize}	
+
+
+

@@ -1,0 +1,113 @@
+Separate compilation is the process of breaking a C++ program into separate files to improve organization. 
+Parts of the program can be spread out over a number of different files that are later compiled individually, then \Keyword{linked} using a linker to produce the final, working program. 
+When changes are made, only those files with changes need to be recompiled, the result of which can then be relinked with the previously-compiled files. 
+This process is nearly invisible in most development environments, which recompile and relink these files automatically.
+When the development environment takes care of these details, the user is left with the sole task of making changes where they are needed. 
+
+One of the most basic applications of separate compilation is used when writing abstract data types. 
+Recall from Chapter \ref{chap_classes} that there are declaration and definition sections in a \Code{class}. 
+The declaration contains class functions and variables, both public and private, while the definition section is where the function definitions and most actual code can be found. 
+The process of separate compilation requires the two sections to be split into separate files, each of which is written and maintained separately and later used together to create a working program. 
+
+Declarations will be put into the \Keyword{interface} file or the \Keyword{header file} which typically has a \Code{.h} suffix.
+In most code written by novice programmers, there will be only one \Code{class} declaration in each header file. 
+To use the \Code{class} in your code elsewhere, you should use \Code{\#include} followed by the file name in double quotes. 
+Here is an example of the contents of an interface file called \Code{student.h}:
+
+\begin{lstlisting}
+#include <string>
+
+using namespace std;
+
+class student
+{
+public:
+	student();
+	int getAge();
+	void setAge(int update);
+	int getID();
+	void setID(int update);
+	string getName();
+	void setName(string update);
+private:
+	int age;
+	int ID;
+	string name;
+};
+\end{lstlisting}
+
+To use the \Code{student} class in some other source code file, that file should include the following line:
+
+\begin{lstlisting}
+#include "student.h" 
+\end{lstlisting}
+
+The quotes around \Code{student.h} tell the compiler to find the header file in the same directory as the current file.
+
+The \Keyword{implementation} file will include all the function definitions for the \Code{student} class. 
+The implementation file can be called anything the programmer wants, but typically ends with a \Code{.cpp} suffix. 
+For example, the implementation file for \Code{student} will probably be \Code{student.cpp}.
+
+To ensure that a new implementation file is compiled into your program, you do not need to \Code{\#include} anything. 
+However, the development environment will automatically compile and link the implementation file if it has been added to your project.
+The only files that you should \Code{\#include} are header files. 
+
+To avoid linker errors, your files should have safeguards to ensure that classes and functions are not declared more than once within the same program. 
+These safeguards are simple, and should be included in each header file. 
+For example, we place the following two lines at the top of the file \Code{student.h}:
+
+\begin{lstlisting}
+#ifndef STUDENT_H // STUDENT_H could be anything 
+#define STUDENT_H // as long as it is unique to this file
+\end{lstlisting}
+
+The following line should go at the end of the same file:
+
+\begin{lstlisting}
+#endif //STUDENT_H – a reminder about the #ifndef above 
+\end{lstlisting}
+
+These three lines do the following:
+
+\begin{enumerate}
+\item Test if \Code{STUDENT\_H} has been previously \Code{\#define}d, usually because this header file has been \Code{\#include}d elsewhere.
+\item If it has not been \Code{\#define}d, \Code{\#define} it now and proceed with compiling the code between the \Code{\#ifndef} and \Code{\#endif}.
+\item Close the \Code{\#ifndef} block. If \Code{STUDENT\_H} was previously defined, skip to the line after this one.
+\end{enumerate}
+
+Here is an example of what these lines look like alongside some actual code:
+
+\begin{lstlisting}
+#ifndef STUDENT_H
+#define STUDENT_H
+
+class student
+{
+//class declaration because this is an interface file
+};
+
+#endif//STUDENT_H
+\end{lstlisting}
+
+Following this example will ensure that the \Code{student} class is only defined once.
+
+
+
+
+
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{~}
+\item \url{~}
+\item \url{~}
+\end{itemize}	

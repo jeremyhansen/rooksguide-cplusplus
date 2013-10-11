@@ -1,53 +1,262 @@
-The Standard Template Library (STL) provides a set of tools beyond those that are provided by the ``base'' C++ language. In fact, you have already become familiar with some of them [back in Chapter X], such as input and output streams, Y, and Z. While a comprehensive discussion of the features of the STL is far beyond the scope of this text, there are several libraries that offer extremely important features with which you should become comfortable. [footnote: A reasonable place to start for a wider view of the STL is here:
- \href{http://en.wikipedia.org/wiki/Standard_Template_Library}
-      {Wikipedia Standard Template Library}
+The Standard Template Library (STL) provides a set of tools beyond those that are provided by the ``base'' C++ language. 
+While a comprehensive discussion of the features of the STL is far beyond the scope of this text, there are several libraries that offer extremely important features with which you should become comfortable. 
 
+Note: rather than assuming that 
 
- \Keyword{\#include <cstdlib>}
+\begin{lstlisting}
+using namespace std;
+\end{lstlisting}
 
- \Keyword{\#include <vector>}
+\noindent is at the top of every code example, each data type, function, or variable derived from the STL will be shown with the prefix \Code{std::}. 
+This highlights which parts of the examples below come from the STL, and which are part of the language.
 
- \Keyword{\#include <map>}
+\LevelD{\Code{\#include <utility>} \\ \Code{\#include <tuple>} (C++11)}
 
-This library provides one of the STL's associative container object classes. An associative container differs from an array in that items in an array are referenced with a number which indicates the item’s position in memory:
+The \Code{pair} class, found in \Code{<utility>}, links two values which may be of different types. 
+The \Code{tuple} class, introduced in C++11, links any number of values which may be of different types. 
+For example, to link a student's identification number (an integer) and their grade point average (a \Code{float}), we can write:
 
- \begin{lstlisting}
+\begin{lstlisting}
+std::pair<int,float> grades = { 112233, 3.81 };
+\end{lstlisting}
+
+We can assign different values to the \Code{pair} later with the \Code{make\_pair} function:
+
+\begin{lstlisting}
+grades = std::make_pair(123450, 2.79);
+\end{lstlisting}
+
+The \Code{first} and \Code{second} members are used to extract the individual components of the \Code{pair}:
+
+\begin{lstlisting}
+std::cout << "ID: " << grades.first << " (GPA " 
+  << grades.second << ")" << std::endl;
+// This prints:
+// ID: 123450 (GPA 2.79)
+\end{lstlisting}
+
+If we wanted a more complicated set of values linked together, such as a student's name, identification number, grade point average, and major, we could construct the following:
+
+\begin{lstlisting}
+tuple<std::string, int, float, std::string> ethan = { "Ethan Allen", 802802, 3.15, "Engineering"};
+\end{lstlisting}
+
+Unfortunately, the \Code{tuple} class does not have \Code{first} or \Code{second} members. 
+The first and second elements can be retrieved in a slightly more complicated way than with \Code{pair} objects:
+
+\begin{lstlisting}
+std::cout << std::get<0>(ethan) << "'s major is " 
+  << std::get<3>(ethan) << std::endl;
+// This prints:
+// Ethan Allen's major is Engineering
+\begin{lstlisting}
+
+In the code below, the \Code{get} function returns a reference to the third element (the GPA) of the \Code{tuple ethan}, and sets that value to 3.99:
+
+\begin{lstlisting}
+std::get<2>(ethan) = 3.99;
+\end{lstlisting}
+
+These types may not be all that useful by themselves, but are often used in conjunction with container classes like \Code{vector} and \Code{map}, described below.
+
+\LevelD{\#include <iterator>}
+
+Iterators are objects that refer to elements within a container object (like \Code{std::vector}, \Code{std::map}, and \Code{std::array}) and allow for traversal through those elements. 
+The list of features in iterators vary depending on the container class. 
+While the specifics of the iterators vary, most iterators belong to one of the following categories, based on the operations that may be performed on them:
+
+\LevelE{Forward iterators}
+
+\begin{itemize}
+	\item Can be incremented to move forward in the container to the next item
+	\item Can be dereferenced like a pointer variable
+\end{itemize}
+
+\begin{lstlisting}
+std::array<int> myArray = { 5, 10, 15, 20, 25 };
+std::array::iterator myIterator, arrayEnd;
+arrayEnd = myArray.end();
+
+// Demonstrating forward iteration
+for (myIterator = myArray.begin(); myIterator != arrayEnd; ++myIterator)
+  std::cout << *myIterator << " ";
+
+std::cout << std::endl << "The end!" << std::endl;
+
+// This prints:
+// 5 10 15 20 25
+// The end!
+\end{lstlisting}
+
+\LevelE{Bidirectional iterators}
+
+\begin{itemize}
+	\item Everything a forward iterator can do and:
+	\item Can be decremented to move backward in the container to the previous item
+\end{itemize}
+
+\begin{lstlisting}
+std::array<int> myArray = { 5, 10, 15, 20, 25 };
+std::array::iterator myIterator, arrayBegin;
+arrayBegin = myArray.begin();
+
+// Demonstrating backward iteration
+for (myIterator = myArray.end(); myIterator != arrayBegin; --myIterator)
+  std::cout << *myIterator << " ";
+
+std::cout << std::endl << "The beginning!" << std::endl;
+
+// This prints:
+// 25 20 15 10 5
+// The beginning!
+\end{lstlisting}
+
+\LevelE{Random access iterators}
+
+\begin{itemize}
+	\item Everything a bidirectional iterator can do and:
+	\item Can use arithmetic operators to move forward and backward a certain number of items at once
+	\item Allows comparisons between iterators to determine relative positions in the container
+	\item Can use array-style access to elements in the container
+\end{itemize}
+
+\begin{lstlisting}
+std::array<int> myArray = { 5, 10, 15, 20, 25 };
+std::array::iterator myIterator, arrayEnd;
+arrayEnd = myArray.end();
+myIterator = myArray.begin();
+
+// Demonstrating random access
+std::cout << myIterator[1] << " " << myIterator[3] << std::endl;
+
+// Demonstrating iterator comparisons
+if (myIterator < arrayEnd)
+  std::cout << "The iterator is not at the end of the array yet";
+
+// Demonstrating arithmetic operations on an iterator
+for (myIterator = myArray.begin(); myIterator != arrayEnd; myIterator += 2)
+  std::cout << *myIterator << " ";
+
+std::cout << std::endl << "The end!" << std::endl;
+
+// This prints:
+// 10 20
+// 5 15 25
+// The end!
+\end{lstlisting}
+
+\LevelD{\#include <vector>}
+
+Vectors are containers similar to arrays that are flexible in size and quite fast. 
+While we can use iterators as above, we can also treat the \Code{vector} much like an array.
+
+\begin{lstlisting}
+// Start with 10 elements, all with the value 98.6
+std::vector<float> temperatures(10, 98.6); 
+
+// The last element has a fever of 103.1 degrees!
+temperatures[9] = 103.1; 
+
+for (int i = 0; i < temperatures.size(); i++)
+{
+  std::cout << "Patient " << i << "'s temperature is " 
+    << temperatures[i] << std::endl;
+}
+\end{lstlisting}
+
+The \Code{vector} class also provides member functions \Code{front()} and \Code{back()} which return references to the first element and the last element in the vector, respectively.
+For example:
+
+\begin{lstlisting}
+std::cout << "The last patient's temperature is " 
+  << temperatures.back() << std::endl;
+std::cout << "The first patient's temperature is " 
+  << temperatures.front() << std::endl;
+\end{lstlisting}
+
+Don't confuse the \Code{back()} and \Code{front()} functions with the \Code{end()} and \Code{begin()} functions. 
+The \Code{back()} and \Code{front()} functions return references to the elements, while \Code{end()} and \Code{begin()} return \emph{iterators} pointing to those elements.
+
+\LevelD{\#include <map>}
+
+This library provides one of the STL's associative container object classes. 
+An associative container differs from an array in that items in an array are referenced with a number which indicates the item's position in memory:
+
+\begin{lstlisting}
 int myArray[10]; // An array of ten integers
 myArray[0] = -5; // Set the first integer in the array to -5
- \end{lstlisting}
+\end{lstlisting}
 
+An associative container, on the other hand, can use any data type to reference the items in the container. 
+For example, you might choose to use a \Code{string} to reference a collection of \Code{int} items to store a list of students' ages according to their names.
 
-An associative container, on the other hand, can use any data type to reference the items in the container. For example, you might choose to use a string to reference a collection of int items.
-
-
- \begin{lstlisting}
- std::map<std::string,int> myMap;}
+\begin{lstlisting}
+std::map<std::string,int> students;
 \end{lstlisting}
 
 Perhaps you want to create the object with some initial values:
 
- \begin{lstlisting}
-   std::map<std::string,int> myMa=p;
+\begin{lstlisting}
+std::map<std::string,int> students = 
+  { {"John", 19}, 
+    {"Max", 19}, 
+    {"Christine", 20}, 
+    {"Maria", 18} };
+\end{lstlisting}
 
-   // map::at
+This code produces a structure like in Figure \ref{fig_studentsmap}. 
+With these names and ages paired, we can now retrieve the ages using the names.
 
-   int main ()
-   {
-    std::map<std::string,int> mymap = {
-               { "alpha", 0 },
-               { "beta", 0 },
-               { "gamma", 0 } };
+%TODO: diagram \label{fig_studentsmap}
 
-   mymap.at("alpha") = 10;
-   mymap.at("beta") = 20;
-   mymap.at("gamma") = 30;
+\begin{lstlisting}
+string name = "Christine";
+std::cout << name << " is " << students[name] 
+  << " years old." << std::endl;
 
-   for (auto\& x: mymap) {
-     std::cout << x.first << ": " << x.second << '\\n';
-   }
+//This code prints:
+//Christine is 20 years old.
+\end{lstlisting}
 
-   return 0;
-   }
- \end{lstlisting}
+New students may also be added in the following way:
 
-The container can only hold one instance of each key, and attempts to add a duplicate item will not overwrite the existing item. The multimap object is a similar structure to map that allows for duplicate items to be added.
+\begin{lstlisting}
+students["June"] = 18;
+students["Omar"] = 19;
+\end{lstlisting}
+
+Objects of type \Code{map} may be iterated, and in C++11, their contents can be printed in a range-based \Code{for} loop as we briefly demonstrate here. 
+Each item in the \Code{std::map<std::string, int>} is of type \Code{std::pair<std::string,int>}.
+
+\begin{lstlisting}
+for (auto& item : students)
+{
+  std::cout << item.first << " is " << item.second << " years old." << std::endl;
+}
+
+// This code prints:
+// John is 19 years old
+// Max is 19 years old
+// Christine is 20 years old
+// Maria is 18 years old
+// June is 18 years old
+// Omar is 19 years old
+\end{lstlisting}
+
+
+
+\LevelD{Review Questions}
+
+\LevelD{Homework Questions}
+
+\LevelD{Review Answers}
+
+\LevelD{Homework Answers}
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{http://en.wikipedia.org/wiki/Standard_Template_Library}
+\item \url{http://www.cplusplus.com/reference/stl/}
+\item \url{~}
+\end{itemize}	
