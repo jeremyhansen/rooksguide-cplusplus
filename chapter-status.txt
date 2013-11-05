@@ -1,6 +1,6 @@
 Advanced arithmetic - semi-final
 Arithmetic - semi-final
-Arrays
+Arrays - need diagrams
 Assignments
 Classes
 Comments
