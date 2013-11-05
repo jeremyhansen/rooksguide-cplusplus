@@ -22,7 +22,7 @@ string myString;
 
 \noindent If you choose not to have \Code{using namespace std;} in your code, the variable \Code{myString} must be declared as follows:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
 
 std::string myString;
@@ -31,7 +31,7 @@ std::string myString;
 \noindent We can then store anything we want in that string as long as it is made up of characters.
 When a literal value is assigned to a string, it should be surrounded by double quotes such as in the case of \Code{"Hello"}:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
 
 string myString = "Hello";
@@ -40,7 +40,7 @@ string myString = "Hello";
 If we are storing the value of a string entered by a user, the user does not have to use quotes.
 We can store \Code{"Hello"} in the string by doing the following:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString;
 cin >> myString; // User types: Hello
                  // myString is now "Hello"
@@ -49,7 +49,7 @@ cin >> myString; // User types: Hello
 \noindent It is also possible to use the arithmetic operator \Code{+} with strings to concatenate (combine) the two strings.
 If we combined one string that contained \Code{"Hello"} and another string that contained \Code{"World"} the connected string would then read \Code{"HelloWorld"}.
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello",
        v2 = "World";
 cout << v1 + v2 << endl;
@@ -61,7 +61,7 @@ cout << v1 + v2 << endl;
 
 In order to have a space between the two words, one of the strings would need to contain a space such as this:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello", v2 = " World";
 //-------------------------^-------
 cout << v1 + v2 << endl;
@@ -71,7 +71,7 @@ cout << v1 + v2 << endl;
 
 \noindent Or it can be represented as: 
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello ", v2 = "World";
 //----------------^----------------
 cout << v1 + v2 << endl;
@@ -81,7 +81,7 @@ cout << v1 + v2 << endl;
 
 \noindent Alternatively, a space can be added like so:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello", v2 = "World";
 cout << v1 + " " + v2 << endl;
 //------------^-------------------
@@ -96,7 +96,7 @@ For example, if the user inputs ``Hello World'' in the following code, \Code{std
 If we want to read the entire line of text, we need to use the \Code{getline()} function, which reads until the first newline character.
 This is how you use the \Code{getline()} function:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString;
 getline(cin, myString);
 \end{lstlisting}\end{minipage}
@@ -106,7 +106,7 @@ getline(cin, myString);
 We can also find out the length of the string by using the member function \Code{length()} with any \Code{string} object.
 For example, if we wanted to find the length of a string entered by a user and store it in a variable named \Code{stringLength}, we might do this:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString;
 int stringLength;
 getline(cin, myString);
@@ -120,7 +120,7 @@ cout << "The string you entered was "
 \noindent Aside from finding the length of a string, we can search for certain characters in the string by using the \Code{find()} and \Code{rfind()} member functions.
 For example, if we wanted to find a single space in a string variable named \Code{myString} that contains ``Hello World'', we would do this:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString = "Hello World";
 int spot = myString.find(" ");
 \end{lstlisting}\end{minipage}
@@ -132,7 +132,7 @@ When a line of text is stored in a string, think of it as being stored in memory
 For example, the string ``Hello World'' can be contained in an array with 11 slots, therefore the space character would be found in \Code{myString[5]}.
 The \Code{find()} function can also search within a string from some arbitrary starting point, instead of from the beginning:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString = "Hello World";
 int spot, spot2;
 spot = myString.find(" "); // found at index 5
@@ -144,7 +144,7 @@ spot2 = myString.find("o", spot); // starting from index 5, found at index 7
 We can also use the \Code{rfind()} function to find a character in reverse direction from the end of the string, or from some starting point, as above.
 If we wanted to find the single character string \Code{"o"} before the space we might do something like this:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString = "Hello World";
 int spot, spot2;
 spot = myString.rfind(" "); // found at index 5
@@ -155,7 +155,7 @@ spot2 = myString.rfind("o", spot); // starting from index 5, found at index 4
 This stores the position of the first \Code{"o"} it comes across after going in reverse from the index stored in \Code{spot} (which contains 5).
 This would be equivalent to the last line:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 spot2 = myString.rfind("o", 5); // starting from index 5, found at index 4
 \end{lstlisting}\end{minipage}
 
@@ -163,7 +163,7 @@ spot2 = myString.rfind("o", 5); // starting from index 5, found at index 4
 
 Sometimes the string you search for cannot be found, as in this example:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 	string myString = "Hello World";
 	int spot = myString.find("Q"); // No Q in this string!
 \end{lstlisting}\end{minipage}
@@ -171,7 +171,7 @@ Sometimes the string you search for cannot be found, as in this example:
 \noindent In this case, the \Code{find()} (or \Code{rfind()}, for that matter) returns a special value named \Code{string::npos}.
 When we use \Code{find()} or \Code{rfind()} and believe that they could fail, we should verify that the string was found, as below:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string userInput;
 int spot;
 cin >> userInput;

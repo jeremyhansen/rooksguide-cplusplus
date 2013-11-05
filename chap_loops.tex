@@ -126,7 +126,7 @@ Loops can be organized into two categories based on how you use them.
 These two categories are defined by if you want to do a certain number of iterations of the loop (a \Keyword{count-controlled} loop) or continue until some event occurs, such as a particular user input (an \Keyword{event-controlled} loop).
 Let's look at code examples to differentiate the two. The first example shows an event-controlled \Code{while} loop.
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int sum=0, temp; //declares sum and temp. Initializes sum to 0.
 
 cout << "Please give a number to add: ";
@@ -163,7 +163,7 @@ Finally, we needed a way of modifying that variable to meet that end condition.
 After that, it's whatever we've felt like putting in. With the \Code{for} loop, we put those three elements into the loop header, separated by semicolons (\Code{;}).
 A \Code{for} loop would would look something like this:
 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 for(IntializationExpression; TestExpression; UpdateExpression)
 {
 	something;
@@ -295,7 +295,7 @@ for (int j = 10, j > 0, j--)
 \begin{enumerate}
 
 \item
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x = 0;
 while (x < 10)
 {
@@ -304,7 +304,7 @@ while (x < 10)
 \end{lstlisting}\end{minipage}
 
 \item
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x = 0;
 int totalVal = 0;
 do
@@ -317,7 +317,7 @@ while (totalVal < 20);
 \end{lstlisting}\end{minipage}
 
 \item 
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 for(int i = 0; i < 10; i++)
 {
 	cout << "Your name here\n";
@@ -325,7 +325,7 @@ for(int i = 0; i < 10; i++)
 \end{lstlisting}\end{minipage}
 
 \item
-\noindent\begin{minipage}{\textwidth}\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 for (int j = 10; j > 0; j--)
 {
 	cout << j << endl;
