@@ -1,0 +1,152 @@
+
+Variables are extremely important to every programmer - they will be a critical part of your programming toolkit regardless of the language you use. 
+Very simply put, a variable is a space in memory that can store some range of values. 
+Some of the basic data types are:
+
+\begin{table}[tb]
+	\centering
+		\begin{tabular}{| l | p{3in} |}
+		\hline
+			\Code{int} & Short for integer; stores whole numbers \\ \hline
+			\Code{char} & Short for character; stores a single letter, digit, or symbol \\ \hline
+			\Code{bool} & Short for Boolean; stores \Code{true} or \Code{false} \\ \hline
+			\Code{float} & Short for floating point number; stores numbers with fractional parts \\ \hline
+			\Code{double} & Short for double precision floating point number; stores bigger numbers with bigger fractional parts than \Code{float} \\ \hline
+		\end{tabular}
+\end{table}
+
+For a deeper discussion of data types, refer to Chapter \ref{chap_datatypes}.
+
+\LevelD{How do I decide which data type I need?}
+
+What you can do with a variable depends on the type of data they contain.
+For instance, you can't store the number $100000$ in a \Code{char} because a \Code{char} stores only character data.
+To store $100000$ the programmer should use an $int$. 
+If you think you are dealing with numbers that have fractional parts, you need at least a \Code{float}. 
+You generally want to use the smallest variable type that will get your job done. 
+Simply put, if it is a round number, \Code{int} works fine; if it's a \Code{true} or \Code{false}, use \Code{bool}; for a letter, use \Code{char}; for fractional numbers, use \Code{float}; for a really big number or a number with many digits after the decimal point, use \Code{double}.
+
+\LevelD{Identifiers}
+
+Now we have an idea of what types of variables we will use in the program. 
+How do we have the program differentiate between multiple \Code{int}s, \Code{char}s, or \Code{double}s? 
+We have to name them! 
+The name we use will give the variable an identity, so it's known as an \Keyword{identifier}. 
+An identifier can be almost anything you'd like.\footnote{There are a few exceptions, including those words that describe data types (as in the table above) and other keywords such as \Code{if} and \Code{while}, which you'll learn about in later chapters.} 
+Remember that the variable name can only be one word long. 
+You may use a an underscore to replace a space if you so desire, and note that C++ is case sensitive. 
+That is, \Code{testresults}, \Code{TestResults}, and \Code{Test\_Results} are all different identifiers.
+
+\LevelD{Declaring a Variable}
+
+The line of code that creates a variable is called a \Keyword{declaration}. 
+A declaration is the program telling the computer ``save a place in memory for me with this name.'' 
+%Maybe irrelevant/too advanced for this chapter
+%Behind the scenes, the compiler gives the variable an address, which is like a map saying ``this is where your memory is.''
+
+A declaration for an integer variable named \Code{myVariable} looks like this:
+
+\begin{lstlisting}
+int myVariable;
+\end{lstlisting}
+
+The specific \Keyword{syntax}---the set of grammatical rules for the language---is important to follow when declaring variables.
+Notice that the first part (\Code{int}) is the data type of the variable.
+The second part is the identifier (\Code{myVariable}), or variable name. 
+The last part is the semicolon (\Code{;}) which signifies the end of a line. 
+You can think of the semicolon in C++ as equivalent to a period at the end of a sentence; it is the end of a complete thought. 
+Note that you may declare several variables of the same data type together.  Consider this example:
+
+\begin{lstlisting}
+int x, y, z;
+double a;
+\end{lstlisting}
+
+The above example creates three variables of type \Code{int} named \Code{x}, \Code{y}, and \Code{z} and one variable of type \Code{double} named \Code{a}.  
+
+
+\LevelD{Initializing Variables}
+
+Values can be immediately assigned to a variable at the time of its declaration.  
+This is known as \Keyword{initializing} a variable.  
+To do this, the variable's name is followed by an equals sign (\Code{=}, the \Keyword{assignment operator}), the value, and a semicolon.  Consider this example:
+
+\begin{lstlisting}
+int x = 20;
+double a = 2.2;
+\end{lstlisting}
+ 
+Note that uninitialized variables can cause problems if they are used anywhere before they are assigned a value. 
+When a variable is declared, it contains whatever was already in that space of memory, which can give them unpredictable values. 
+This means that is is often a good idea to initialize variables to some sensible initial value when they are declared.
+  
+\LevelD{Assignment Statements}
+
+An assignment statement is a method of assigning a value to a variable after it has been declared.
+All assignment statements have the variable being assigned the value on the left side of an equals sign and the value to assign on the right side.
+Note that the expression on the right side of the assignment may contain arithmetic operations such as multiplication, division, addition, and subtraction, or even other variables.
+Consider the following example:
+
+\begin{lstlisting}
+int a = 1, b = 2, x = 0, y = 0;
+x = a + b;
+y = x;
+\begin{lstlisting}
+
+% TODO: character values
+
+
+\LevelD{Review Questions}
+
+\begin{enumerate}
+	\item Declare two variables of type \Code{int} and initialize them to an appropriate value.
+	\item Declare three integer variables: \Code{sum}, \Code{a}, \Code{b}. Initialize the variables \Code{a} and \Code{b} to an appropriate integer and use an assignment statement to assign \Code{sum} the result of \Code{a} plus \Code{b}.
+	\item Declare a \Code{double} variable called \Code{number} and initialize it to $13.6$.
+	%\item Declare a variable of type \Code{char}, then give the char a character.
+\end{enumerate}
+
+\LevelD{Homework Questions}
+
+Create a program in which 3 variables are declared.
+Create one \Code{float} named \Code{myFloat}, one \Code{int} named \Code{myInt}, and one \Code{double} named \Code{myDouble}.
+Initialize them to $3.14$, $3$, and $3.14159$, respectively. 
+%Then declare a variable of type \Code{char} named \Code{myChar}, and initialize it to the character B. 
+
+\LevelD{Review Answers}
+
+
+\begin{enumerate}
+	\item \Code{int a = 6;}
+				\Code{int b = 0;}
+
+	\item	\Code{int sum, a = 6, b = 0;}
+				\Code{sum = a + b;}
+ 
+  \item \Code{double number = 13.6;}
+\end{enumerate}
+%4. 
+%	char myAlpha;
+%	myAlpha = 'A';
+	
+\LevelD{Homework Answers}
+
+\begin{lstlisting}
+int main()
+{
+	float myFloat = 3.14;
+	int myInt = 3;
+	double myDouble = 3.14159;
+
+	return 0;
+}
+\end{lstlisting}
+
+% 	char myChar = 'B';
+
+\LevelD{Further Reading}
+
+\begin{itemize}
+\item \url{http://www.cplusplus.com/doc/tutorial/variables/}
+\item \url{http://www.tutorialspoint.com/cplusplus/cpp_variable_types.htm}
+\item \url{~}
+\end{itemize}	

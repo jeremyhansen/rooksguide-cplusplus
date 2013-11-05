@@ -1,33 +1,33 @@
 %Arithmetic
 
 One of the most important things provided by C++ is the ability to do math. 
-Everything a computer sees is a number. \
+Everything a computer sees is a number.
 To a computer, its ability to do math and manipulate numbers is as essential to it as breathing is to us. 
 (My apologies to anything not living that may be reading this).
 
 The operators (\Code{+}, \Code{-}, \Code{*}, \Code{/}) in C++ are slightly different from what you may be used to from your second-grade math class. 
 Addition is still a plus sign ( \Code{+} ) and subtraction is still a minus sign ( \Code{-} ). 
 On the other hand, multiplication becomes an asterisk ( \Code{*} ) and division becomes a forward slash ( \Code{/} ). 
-Think of it as \textit{over} as in ``5 over 9'' is the same as the fraction $5/9$.
+Think of it as \textit{over} as in ``5 over 9'' is the same as the fraction $5/9$ or $\frac{5}{9}$.
 
 To do math in C++, you will either want a variable to store the answer, or output the answer to the user. 
 
 The following code directly outputs the answer to the user:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 cout << 9 + 2;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 This code shows how to use a variable to store the answer:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int sum = 9 + 2;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Note that when you use a variable to store an answer, the variable must come first in the equation (before the equal sign) and must be the only thing on the left side of the equation. 
 There are some other things to note.
 When you use more complicated equations, you can use parentheses to help. 
-C++ uses a familiar order of operations (Parentheses, Exponents, Multiply, Divide, Add, and Subtract, or PEMDAS), but without the exponent operation (this topic is covered in Chapter \ref{Advanced Arithmetic}). 
+C++ uses a familiar order of operations (Parentheses, Exponents, Multiply, Divide, Add, and Subtract, or PEMDAS), but without the exponent operation (this topic is covered in Chapter~\ref{chap_advancedarith}). 
 However, unlike in normal arithmetic, parentheses do not imply multiplication. 
 \Code{(4)(3)} does not mean the same as \Code{4~*~3}. 
 \Code{(4)(3)} results in a syntax error and does not compile. 
@@ -43,44 +43,44 @@ They can be used as either prefixes or suffixes, but where you put the operator 
 Starting with similarities, \Code{C++} and \Code{++C} both increase value of \Code{C} by one. 
 The difference lies in when another variable is being set to that incremented value, such as \Code{B = C++}. 
 \Code{B} will be set to \Code{C} before \Code{C} is incremented. 
-\Code{B = ++C} will cause \Code{B} to be set to \Code{C+1}, in a similar way to \Code{B = 1 + C}.
+\Code{B = ++C} will cause \Code{B} to be set to \Code{C+1}, in a similar way to \Code{B~=~1~+~C}.
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int A;
 A = 4;
 A++;
 //A contains 5
-\end{lstlisting}
-\begin{lstlisting}
+\end{lstlisting}\end{minipage}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int A;
 A = 9;
 A--;
 //A contains 8
-\end{lstlisting}
-\begin{lstlisting}
+\end{lstlisting}\end{minipage}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int A, B;
 B = 7;
 A = B++;
 //A contains 7, B contains 8
-\end{lstlisting}
-\begin{lstlisting}
+\end{lstlisting}\end{minipage}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int A, B;
 B = 7;
 A = ++B;
 //A contains 8, B contains 8
-\end{lstlisting}
-\begin{lstlisting}
+\end{lstlisting}\end{minipage}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int A, B;
 B = 3;
 A = B--;
 //A contains 3, B contains 2
-\end{lstlisting}
-\begin{lstlisting}
+\end{lstlisting}\end{minipage}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int A, B;
 B = 3;
 A = --B;
 //A contains 2, B contains 2
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Compound assignment operators can decrease the amount you type and can make your code more readable.
 These are the operators \Code{+=}, \Code{-=}, \Code{*=}, and \Code{/=}. 
@@ -105,110 +105,115 @@ This is impossible with this method, as \texttt{X /= Y} is equivalent to \texttt
 
 Here is some sample code using the concepts we presented in this chapter:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-	int a = 5, b = 10, c = 15, d = 20;
+  int a = 5, b = 10, c = 15, d = 20;
 
-	cout << "a + b = " << a + b << endl;
-	cout << "d - c = " << d - c << endl;
-	cout << "a * b = " << a * b << endl;
-	cout << "d / a = " << d / a << endl;
+  cout << "a + b = " << a + b << endl;
+  cout << "d - c = " << d - c << endl;
+  cout << "a * b = " << a * b << endl;
+  cout << "d / a = " << d / a << endl;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The output of this code is:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 a + b = 15
 d - c = 5
 a * b = 50
 d / a = 4
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 
 \LevelD{Review Questions}
 \begin{enumerate}
 \item Write a statement declaring two integer variables \Code{a} and \Code{b} and initialize them to 6 and 3, respectively. 
 \item Without changing the last line, fix the following code so there will be an output of 12.
-\begin{lstlisting}
-	int a = 4, b= 2;
-	a = a + 2 * b;
-	cout << a;
-\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a = 4, b= 2;
+a = a + 2 * b;
+cout << a;
+\end{lstlisting}\end{minipage}
 
 \item What is the output of the following code?
-\begin{lstlisting}
-  int a=2, b=5, c=6;
-  a++;
-  b = b*a;
-  c = (c-a) + 3;
-  cout << a << endl;
-	cout << b << endl;
-	cout << c << endl;
-\end{lstlisting}	
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a=2, b=5, c=6;
+a++;
+b = b*a;
+c = (c-a) + 3;
+cout << a << endl;
+cout << b << endl;
+cout << c << endl;
+\end{lstlisting}\end{minipage}	
 	
 \item What is the output of the following code?
-\begin{lstlisting}
-  int a, b, c;
-  a = 2;
-  b = 8;
-  c = 1;
-  c = b - b;
-  c = a + a;
-  c = b * 8;
-  b = b + b;
-  c = a + c;
-  b = a + b;
-  a = a * c;
-  b = a - c;
-  c = b + a;
-  cout << a << endl;
-  cout << b << endl;
-  cout << c << endl;
-\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a, b, c;
+a = 2;
+b = 8;
+c = 1;
+c = b - b;
+c = a + a;
+c = b * 8;
+b = b + b;
+c = a + c;
+b = a + b;
+a = a * c;
+b = a - c;
+c = b + a;
+cout << a << endl;
+cout << b << endl;
+cout << c << endl;
+\end{lstlisting}\end{minipage}
 \end{enumerate}
 
 \LevelD{Homework Exercises}
 \begin{enumerate}
 \item What is the output of the following code?
-\begin{lstlisting}
-  int a=4, b=2, c, d;
-  a = b + 3;
-  b++;
-  c = (b + 4) * 2;
-  c = c + 2;
-  d = a + b - 3;
-  a++;
-  a = a + 2 - b;
-  b = b * 2;
-  cout << "a=" << a << endl;  
-  cout << "b=" << b << endl;  
-  cout << "c=" << c << endl;  
-  cout << "d=" << d << endl; 
-\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a = 4, b = 2, c, d;
+a = b + 3;
+b++;
+c = (b + 4) * 2;
+c = c + 2;
+d = a + b - 3;
+a++;
+a = a + 2 - b;
+b = b * 2;
+cout << "a=" << a << endl;  
+cout << "b=" << b << endl;  
+cout << "c=" << c << endl;  
+cout << "d=" << d << endl; 
+\end{lstlisting}\end{minipage}
 
 \item What is the output of the following code?
-\begin{lstlisting}
-  int m=3, n=2, x, y;
-  x = m + 5;
-  m--;
-  y = (m+4) / 3;
-  n = n + 2;
-  m = m + n / 2;
-  m++;
-  x = x * 2 - 3;
-  y = y * 2;
-  n = n + y * 3
-  cout << "m=" << m << endl; 
-  cout << "n=" << n << endl;  
-  cout << "x=" << x << endl;   
-  cout << "y=" << y << endl; 
-\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int m=3, n=2, x, y;
+x = m + 5;
+m--;
+y = (m+4) / 3;
+n = n + 2;
+m = m + n / 2;
+m++;
+x = x * 2 - 3;
+y = y * 2;
+n = n + y * 3
+cout << "m=" << m << endl; 
+cout << "n=" << n << endl;  
+cout << "x=" << x << endl;   
+cout << "y=" << y << endl; 
+\end{lstlisting}\end{minipage}
 \end{enumerate}
 
 \LevelD{Review Answers}
@@ -216,45 +221,50 @@ d / a = 4
 \item \Code{int a = 6, b = 3;}
 
 \item
-\begin{lstlisting}
-  int a = 4, b = 2;
-	a = (a + 2) * b;
-	cout << a;
-\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a = 4, b = 2;
+a = (a + 2) * b;
+cout << a;
+\end{lstlisting}\end{minipage}
 
 \item 
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 3
 15
 5
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \item
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 132
 66
 198
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \end{enumerate}
 
 \LevelD{Homework Answers}
 \begin{enumerate}
 \item
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 a=5
 b=6
 c=16
 d=5
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \item
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 m=5
 n=16
 x=13
 y=4
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 \end{enumerate}
 
 \LevelD{Further Reading}

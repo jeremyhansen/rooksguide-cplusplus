@@ -1,153 +1,127 @@
-Advanced arithmetic in C++ includes mathematics that can't be used in code 
-without the use of the \texttt{<cmath>} library. 
-This is mathematics that goes above and beyond the primitive operations: 
-addition (\texttt{+}), subtraction (\texttt{-}), multiplication (\texttt{*}), 
-and division (\texttt{/}). 
+Advanced arithmetic in C++ includes mathematics that can't be used in code without the use of the \Code{<cmath>} library. 
+This is mathematics that goes above and beyond the primitive operations: addition (\Code{+}), subtraction (\Code{-}), multiplication (\Code{*}), and division (\Code{/}). 
 As we have seen before, some simple arithmetic might look like:
 	
-\begin{lstlisting}
-	int x;
-	x = 1;
-	x += 5;
-	return x;
-\end{lstlisting}
-	The variable \texttt{x} is declared as an integer. 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x;
+x = 1;
+x += 5;
+\end{lstlisting}\end{minipage}
+	The variable \Code{x} is declared as an integer. 
 	The next line sets it to one. 
-	The \texttt{+=} operator adds five to \texttt{x}, which makes \texttt{x} contain six.
+	The \Code{+=} operator adds five to \Code{x}, which makes \Code{x} contain six.
 	
-% --------------------------------------------------------------------------
-% TODO: NOTE: FIXME: Is the return statement in the above snippet necessary?
-% --------------------------------------------------------------------------
-
-Doing simple operations like these does not require any special libraries or 
-unusual commands. Any compiler can look at a \texttt{+}, \texttt{-}, 
-\texttt{*}, or \texttt{/} in a line of code and know exactly what the programmer 
-expects to happen. Some math requires a little extra help, though. In this case, 
-help is the \texttt{<cmath>} library.
+Doing simple operations like these does not require any special libraries or unusual commands. 
+Any compiler can look at a \Code{+}, \Code{-}, \Code{*}, or \Code{/} in a line of code and know exactly what the programmer 
+expects to happen. 
+Some math requires a little extra help, though. 
+In this case, help is the \Code{<cmath>} library.
  
-\texttt{<cmath>} is a library that is needed for trigonometric, hyperbolic, 
-exponential, logarithmic, rounding, and absolute value functions. 
-	The \texttt{<cmath>} library is designed to make your life simple and to 
-make complicated mathematics easier in C++. 
-	Using the \texttt{<cmath>} library in code is as simple as including it at 
-the top of your source code file with the rest of your libraries. For example:
+\Code{<cmath>} is a library that is needed for trigonometric, hyperbolic, exponential, logarithmic, rounding, and absolute value functions. 
+The \Code{<cmath>} library is designed to make your life simple and to make complicated mathematics easier in C++. 
+Using the \Code{<cmath>} library in code is as simple as including it at the top of your source code file with the rest of your libraries. 
+For example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>	
 #include <cmath>
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
-	After the inclusion of the \texttt{<cmath>} library, you can use certain 
-mathematical functions in your code such as \texttt{pow(x, y)}, which raises 
-the parameter \texttt{x} to the power of parameter \texttt{y}, and 
-\texttt{sqrt(z)}, which returns the square root of \texttt{z}. 
-	In your first few C++ programs you will probably not use the more advanced 
-mathematical functions included in the \texttt{<cmath>} library, but for a full 
-list of the functions provided in \texttt{<cmath>}, refer to ``Further Reading'' 
-at the end of this chapter. 
+After the inclusion of the \Code{<cmath>} library, you can use certain mathematical functions in your code such as \Code{pow(x, y)}, which raises the parameter \Code{x} to the power of parameter \Code{y}, and \Code{sqrt(z)}, which returns the square root of \Code{z}. 
+In your first few C++ programs you will probably not use the more advanced mathematical functions included in the \Code{<cmath>} library, but for a full list of the functions provided in \Code{<cmath>}, refer to ``Further Reading'' at the end of this chapter. 
 
 \LevelD{Examples}
 
-\LevelE{\texttt{pow()}}
-	\texttt{pow} is the function called when you want to raise a value or 
-variable to a certain power. Take a look at the code below and 
-we'll break it down line by line.
+\LevelE{\Code{pow()}}
+\Code{pow} is the function called when you want to raise a value or variable to a certain power. 
+Take a look at the code below and we'll break it down line by line.
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x, y;
 x = 4;
 y = pow(x + 1, 3) + 6;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
-	First, we are declaring two variables: \texttt{x} and \texttt{y}. 
-	After that we set \texttt{x} to 4. 
+	First, we are declaring two variables: \Code{x} and \Code{y}. 
+	After that we set \Code{x} to 4. 
 	Now we get to a more interesting section of code. 
-	We are asking the compiler to raise the value of \texttt{x} plus 1 to the power of 3, add 6, and then place the result in \texttt{y}. 
+	We are asking the compiler to raise the value of \Code{x} plus 1 to the power of 3, add 6, and then place the result in \Code{y}. 
 	
-	To use the \texttt{pow} function, you must understand its syntax. 
+	To use the \Code{pow} function, you must understand its syntax. 
 	Here is the breakdown:
 
-\begin{lstlisting}
-	pow (starting value, power being raised)
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+pow (starting value, power being raised)
+\end{lstlisting}\end{minipage}
 
- 	So for \texttt{pow (x + 1, 3) + 6}, we are raising the starting value 
-\texttt{x}~+~1 to the power of 3. 
- 	Before the power of 3 is applied, 1 is added to \texttt{x}. 
+ 	So, for \Code{pow(x + 1, 3) + 6}, we are raising the starting value \Code{x}~+~1 to the power of 3. 
+ 	Before the power of 3 is applied, 1 is added to \Code{x}. 
  	In this case it is the simple operation of 4+1, which yields 5. 
  	After we get 5, we raise it to the 3\textsuperscript{rd} power to get a value of 125. 
- 	After we reach the value of 125 we are finished with the \texttt{pow} 
-function and resume using normal operators when we add 6 to 125 resulting in 
-the final value of 131.  
+ 	After we reach the value of 125 we are finished with the \Code{pow} function and resume using normal operators when we add 6 to 125 resulting in the final value of 131.  
 	
-
-	Undoubtedly there are more complicated uses of the \texttt{pow} function, such as multiple uses of \texttt{pow} in the same line of code. 
-	You might use multiple \texttt{pow} operations in code that calculates the length of one side of a triangle using the Pythagorean Theorem. 
+	Undoubtedly there are more complicated uses of the \Code{pow} function, such as multiple uses of \Code{pow} in the same line of code. 
+	You might use multiple \Code{pow} operations in code that calculates the length of one side of a triangle using the Pythagorean Theorem. 
 	Look at the following code and see if you can figure out what the output value would be:
 
-\begin{lstlisting}
-  int x, y, z;
-  x = 3;
-  y = x + 1;
-  z = pow(x, 2) + pow(y, 2);
-  cout << z;
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x, y, z;
+x = 3;
+y = x + 1;
+z = pow(x, 2) + pow(y, 2);
+cout << z;
+\end{lstlisting}\end{minipage}
 
 	If you got 25, then you have the right answer! 
-	A breakdown reveals that after initializing the variables \texttt{x} and \texttt{y} and setting their values (3 for \texttt{x} and \texttt{x}+1 for \texttt{y}), we raise each value to the power of 2. 
+	After initializing the variables \Code{x} and \Code{y} and setting their values (3 for \Code{x} and \Code{x}+1 for \Code{y}), we raise each value to the power of 2. 
 	For visual reference,
 
-\begin{lstlisting}
-	z = pow (3, 2) + pow (x+1, 2);
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+z = pow (3, 2) + pow (x+1, 2);
+\end{lstlisting}\end{minipage}
 results in
-\begin{lstlisting}
-	z = 9 + 16;
-\end{lstlisting}	
-	
-	\texttt{z}'s value is set to 25. 
-	The \texttt{pow} function is simple to use and can make operations used in 
-a program simpler from both a computing and visual standpoint.
 
-\LevelE{\texttt{sqrt()}}
-	Square roots are calculated using the \texttt{sqrt} function. 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+z = 9 + 16;
+\end{lstlisting}\end{minipage}	
+	
+	\Code{z}'s value is set to 25. 
+	The \Code{pow} function is simple to use and can make the program simpler from a readability standpoint.
+
+\LevelE{\Code{sqrt()}}
+	Square roots are calculated using the \Code{sqrt} function. 
 	Take a look at the example below to see how it is called in a program:
 
-\begin{lstlisting}
-  int a, b;
-  a = 25;
-  b = sqrt(a);
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a, b;
+a = 25;
+b = sqrt(a);
+\end{lstlisting}\end{minipage}
 
-%*************************** NOTE. The text below is misleading.
-%sqrt() only ever returns a double; its prototype is double sqrt(double x);
-%**************************************************************************
-
-	\texttt{sqrt} is simpler than \texttt{pow} in that it only requires one parameter. 
-	Since \texttt{sqrt} returns a \texttt{float} or \texttt{double}, you should usually assign the result to a \texttt{float} or \texttt{double} variable, but in this example, \texttt{sqrt} returns exactly 5, so it can be converted to an \texttt{int} without any issues. 
+	\Code{sqrt} is simpler than \Code{pow} in that it only requires one parameter. 
+	Since \Code{sqrt} returns a \Code{double}, you should usually assign the result to a \Code{double} variable, but in this example, \Code{sqrt} returns exactly 5, so it is implicitly converted to an \Code{int} without any issues. 
 	
-	There are cases where both \texttt{sqrt} and \texttt{pow} are used in the same formula, such as when calculating the distance between two points. 
+	There are cases where both \Code{sqrt} and \Code{pow} are used in the same formula, such as when calculating the distance between two points. 
 	When writing such code, it is very important to keep track of the parentheses and to use correct syntax. 
 	One such syntax mistake is made when programmers think that C++ syntax is the same as algebraic syntax. 
 	This is \emph{not} the case in C++!
 
-\begin{lstlisting}
-  int x = (5)(pow (3, 3));
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x = (5)(pow(3, 3)); // Incorrect syntax!
+\end{lstlisting}\end{minipage}
 
-is NOT correct syntax. 
 When the compiler sees this, it doesn't view it as multiplication, but instead as (according to a professional), ``function shenanigans.'' 
 It is important to be explicit with mathematical symbols in C++. 
 So instead of the incorrect code above, use:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x = 5 * (pow (3, 3));
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
-	Now, as an example, we will use code to compute the distance between two points on a plane.
-	 Refer to the code and the diagrams if you do not understand or get lost.
+As an example, we will use code to compute the distance between the two points $(4,4)$ and $(6, 10)$ on a plane.
+Refer to the code and the diagrams if you do not understand or get lost.
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x1, x2, y1, y2;
 float dist;
 x1 = 4;
@@ -157,58 +131,61 @@ y2 = 10;
 
 dist = sqrt(pow (x2 - x1, 2) + pow (y2 - y1, 2));
 cout << dist;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 	
-	So your final answer after the calculation is executed is roughly 6.342555. 
+	Your final answer after the calculation is executed is roughly $6.342555$. 
 	Without the help of the advanced arithmetic operations, getting to this result would be a difficult, long, drawn-out process. 
-	\texttt{pow} and \texttt{sqrt} are handy little functions that make life easier, all with the help of the \texttt{<cmath>} library.
+	\Code{pow} and \Code{sqrt} are handy functions that make life easier, all with the help of the \Code{<cmath>} library.
 
 \LevelE{Modulo}
-The modulo operator (the percent sign: \texttt{\%}) finds the remainder, or what was left over from division. 
-This program uses the modulo operator to find all prime numbers (all the numbers that never have a remainder of 0 when divided by every number except 1 and itself) that can be held by an \texttt{int}.
+The modulo operator (the percent sign: \Code{\%}) finds the remainder, or what was left over from division. 
+This program uses the modulo operator to find all prime numbers (all the numbers that never have a remainder of 0 when divided by every number except 1 and itself) that can be held by an \Code{int}.
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	int testprime = 0, divby = 0, remainder = 0;
-	bool isprime;
-	cout << "Prime Number Finder" << endl;
-	while(testprime < 2147483647)//The Maximum for int
-	{
-    	isprime=true;
-    	testprime++;
-    	for(divby=2; divby < testprime; divby++)
-    	{
-        	remainder = testprime % divby; // store the remainder of the current number when divided by divby
-        	if (remainder == 0)//If the number is not prime
-        	{
-            	isprime = false;
-		break;
-        	}
-    	}
-    	if (isprime)//If it passes the test, it is prime.
-    	{
-        	cout << " " << testprime; // tell us what the prime number is.
-    	}
-	}
+  int testprime = 0, divby = 0, remainder = 0;
+  bool isprime;
+  cout << "Prime Number Finder" << endl;
+  while(testprime < 2147483647) //The maximum for int
+  {
+    isprime = true;
+    testprime++;
+    for(divby = 2; divby < testprime; divby++)
+    {
+      // store the remainder of the current number when divided by divby
+      remainder = testprime % divby; 
+      if (remainder == 0) //If the number is not prime
+      {
+        isprime = false;
+        break;
+      }
+    }
+    if (isprime) //If it passes the test, it is prime.
+    {
+      // tell us what the prime number is.
+      cout << " " << testprime; 
+    }
+  }
 	return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \LevelD{Review Questions}
 \begin{enumerate}
-\item Which \texttt{\#include} library is needed to use advance arithmetic operators?
+\item Which \Code{\#include} library is needed to use advance arithmetic operators?
 
 \item Write C++ code to calculate $2^9$.
 
-\item Write a statement to set the value of a variable of type \texttt{double} to the square root of 10001.
+\item Write a statement to set the value of a variable of type \Code{double} to the square root of 10001.
 \end{enumerate}
-\LevelD{Homework Questions}
-Complete the code below to find the length of the hypotenuse of a right triangle (remember that $a^2 + b^2 = c^2$) given the lengths of the other two sides. What will be the final output of the code?
 
-\begin{lstlisting}
+\LevelD{Homework Questions}
+Complete the code below to find the length of the hypotenuse of a right triangle (remember that $a^2 + b^2 = c^2$) given the lengths of the other two sides. What is the final output of your code?
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 // Add necessary libraries here
 
@@ -216,27 +193,27 @@ using namespace std;
 
 int main()
 {
-	float a = 3.0, b = 4.0;
-	float c;
-	
+  double a = 3.0, b = 4.0;
+  double c;
 	//
 	// Finish the program...
 	//
-	cout << "The hypotenuse of the right triangle is " <<  c << endl;
+  cout << "The hypotenuse of the right triangle is "
+       << c << endl;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 
 \LevelD{Review Answers}
-\begin{itemize}
-\item \texttt{\#include <cmath>} must be included to include advanced operators.
-\item \texttt{pow(2, 9)}
-\item \texttt{double b = sqrt(10001);}
-\end{itemize}
+\begin{enumerate}
+\item \Code{\#include <cmath>} must be included to include advanced operators.
+\item \Code{pow(2, 9)}
+\item \Code{double b = sqrt(10001);}
+\end{enumerate}
 
 \LevelD{Homework Answers}
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 #include <cmath>
 
@@ -244,20 +221,21 @@ using namespace std;
 
 int main()
 {
-	float a=3.0, b=4.0;
-	double c;
+  float a = 3.0, b = 4.0;
+  double c;
 	
-	a=pow(a,2);
-	b=pow(b,2);
-	c=sqrt(a+b);
+  a = pow(a, 2);
+  b = pow(b, 2);
+  c = sqrt(a+b);
 
-	cout << "The hypotenuse of the right triangle is " << c << endl;
+  cout << "The hypotenuse of the right triangle is "
+       << c << endl;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The final output of the code is: 
 
-\texttt{The hypotenuse of the right triangle is 5}
+\Code{The hypotenuse of the right triangle is 5.0}
 
 
 \LevelD{Further Reading}
