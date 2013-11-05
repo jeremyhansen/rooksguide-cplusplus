@@ -19,13 +19,13 @@ In the following sections we will show you how to use and define two types of AD
 A common example of a \Code{struct} is a \Code{Point}. \Code{Point}s store \Code{int}, \Code{float}, or \Code{double} variables \Code{x} and \Code{y}, which represent the position of the \Code{Point} on the the X and Y axes on a coordinate plane. 
 Such a \Code{struct} might look like this:
 
-\begin{lstlisting}
-		struct Point
-		{
-			double x;
-			double y;
-		};
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+struct Point
+{
+  double x;
+  double y;
+};
+\end{lstlisting}\end{minipage}
 
 In the example, the keyword \Code{struct} is used to declare the structure definition while the identifier, the word directly to the right of struct (\Code{Point}), is the structure name and the name of a new data type.
 The braces are used just like when we define a function.
@@ -34,9 +34,9 @@ However, directly after the closing brace, there must be a semicolon!
 Once a structure is defined, it can be used just like the data types \Code{int}, \Code{char}, \Code{string}, and so on. 
 For example, we might declare a \Code{Point} structure named \Code{input} like this:
 
-\begin{lstlisting}
-		Point input;
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+Point input;
+\end{lstlisting}\end{minipage}
 
 \LevelD{Assigning values to member variables}
 
@@ -44,17 +44,17 @@ Any variable of type \Code{Point} such as the one above is a collection of two v
 Any variables contained in the \Code{struct} can be accessed by combining the structure name---\Code{input} in our example---followed by a symbol called the \Keyword{dot operator} (the period, \Code{.}) and the member variable's name. 
 For example, if we wanted to set \Code{x} in \Code{input}, we would use the dot operator as follows:
 
-\begin{lstlisting}
-  input.x = 5;
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+input.x = 5;
+\end{lstlisting}\end{minipage}
 
 \LevelD{Initializing member variables}
 
 % TODO: Add more here
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 Point input(3, 6); 
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \LevelD{\Code{class}es}
 
@@ -63,22 +63,25 @@ Also, in a \Code{struct}, member variables are public by default while all membe
 We'll discuss the distinction more in a minute. 
 First, let's take a look at an actual \Code{class} definition.
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 class Rectangle
 {
-  public: 
-    Rectangle();	//A default constructor
-    void setBase(float length); //These two lines are mutators
-    void setHeight(float length);
-    float getHeight();	//These two lines are accessors
-    float getBase();	
-    float findArea();	//These two lines perform operations
-    float findPerimeter();
-  private:
-    float Base;
-    float Height;
+public: 
+  Rectangle();	//A default constructor
+  //The following two lines are mutators
+  void setBase(float length); 
+  void setHeight(float length);
+  //The following two lines are accessors
+  float getHeight();	
+  float getBase();
+  //The following two lines perform operations	
+  float findArea();	
+  float findPerimeter();
+private:
+  float Base;
+  float Height;
 };
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Notice the similar syntax to the \Code{struct}. 
 Like a \Code{struct}, the declaration starts with the \Code{class} keyword, followed by the name of the \Code{class}, and after the closing right brace, a semicolon. 
@@ -114,12 +117,12 @@ We now describe how to use member functions with \Code{private} member variables
 When we define a member function, all the member variables within the class are accessible to the function. 
 For example, we can define the member function \Code{setBase()} from \Code{Rectangle} above like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 void Rectangle::setBase(float length)
 {
   Base = length;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 In this code, we are able to directly access the member variable \Code{Base} because both the function \Code{setBase()} and the member variable \Code{Base} are a part of the \Code{class}. 
 Since we are not returning anything to the user, the function is defined as a \Code{void} function. 
@@ -133,7 +136,7 @@ The reason we use mutators is because we do not want the user to have direct acc
 We do this by requiring them to pass a value to the mutator member function which sets the member variable. 
 That might look like this: 
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int main()
 {
   Rectangle r;
@@ -143,18 +146,18 @@ int main()
   r.setBase(b);
   return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 In the above code, we start by creating a \Code{Rectangle} variable named \Code{r}. 
 After the user is prompted for the length of the base, which is stored in the variable \Code{b}, we call the \Code{setBase()} member function with the dot operator and pass \Code{b} as a parameter to the function. 
 The \Code{setBase()} function has the following definition:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 void Rectangle::setBase(float length)
 {
   Base = length;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 We are able to pass the value of the variable entered by the user to the \Code{setBase()} function which then sets the member variable \Code{Base} to the passed value. 
 This is how we ``mutate'' private member variables in a \Code{class} using a public member function. 
@@ -162,12 +165,12 @@ This is how we ``mutate'' private member variables in a \Code{class} using a pub
 To retrieve the value of a member variable, we need to create accessor functions. 
 These are defined like this: 
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float Rectangle::getBase()
 {
   return Base;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 When it comes to using accessors, it is very simple. 
 Just match the data type that you want to access, in this case it was a \Code{float}, and define the member function with that return type. 
@@ -179,130 +182,129 @@ This enables us to access the private variable when we need to.
 We can also combine \Code{struct}s and \Code{class}es if need be. 
 For example, if we wanted to take in three points we could create a \Code{Triangle} class with these points which are individually of type \Code{Point}, a \Code{struct} that contains \Code{x} and \Code{y} variables:
 
-\begin{lstlisting}
-	struct Point
-	{
-		double x;
-		double y;
-	};
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+struct Point
+{
+  double x;
+  double y;
+};
 	
-	class Triangle
-	{
-	public:
-		// accessors for points a, b, and c
-		// mutators for points a, b, and c
-	private:
-		Point a;
-		Point b;
-		Point c;
-	};
-\end{lstlisting}
+class Triangle
+{
+public:
+// accessors for points a, b, and c
+// mutators for points a, b, and c
+private:
+  Point a;
+  Point b;
+  Point c;
+};
+\end{lstlisting}\end{minipage}
 
 Here we have the ability to combine a \Code{struct} with a \Code{class} in order to have all three points, \Code{a}, \Code{b}, and \Code{c} that each contain their own variables \Code{x} and \Code{y}.
 Despite the fact that the variables in the \Code{struct} are public, we cannot access those specific values outside the \Code{Triangle} unless we use a member function. 
 This is because they're still private members of the class \Code{Triangle}, so their scope is limited to functions within the class. 
 If we had a mutator function for \Code{Point a}, it might look like this:
 
-\begin{lstlisting}
-	void Triangle::setA(double userX, double userY)
-	{
-		a.x = userX;
-		a.y = userY;
-	}
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+void Triangle::setA(double userX, double userY)
+{
+  a.x = userX;
+  a.y = userY;
+}
+\end{lstlisting}\end{minipage}
 
 The values of \Code{userX} and \Code{userY} are passed in by the calling function. 
 Notice again that in order to access the \Code{x} and \Code{y} coordinates, we must use the dot operator with any of the \Code{Point} objects \Code{a}, \Code{b}, or \Code{c}.
 
 \LevelD{Constructors}
 
-% This section was initially named ``Constructors and Destructors'' -- we should probably include destructors at some point
+% TODO: This section was initially named ``Constructors and Destructors'' -- we should probably include destructors at some point
 
 Another way to set the values of the variables in a class is through constructors. 
 A \Keyword{constructor} is a member function with the same name as the class and cannot be called directly. 
 Constructors are what we use to initialize the variables of the class when it's first created. 
 For example, if we wanted to set default values for a class named \Code{student} defined as: 
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 class student
-	{
-	public:
-		student(); // constructor
-		//accessors
-		//mutators
-	private:
-		string name;
-		int age;
-		int grad_year;
-		string id;
-	};
-\end{lstlisting}
+{
+public:
+  student(); // constructor
+  //accessors
+  //mutators
+private:
+  string name;
+  int age;
+  int grad_year;
+  string id;
+};
+\end{lstlisting}\end{minipage}
 
 \noindent we would have a default constructor with the name \Code{student()} without any return type. 
 To initialize the variables in the class through the constructor, we use syntax similar to a function definition:
 
-\begin{lstlisting}
-	student::student()
-	{
-		name = "N/A";
-		age = 0;
-		grad_year = 0;
-		id = "A00000000";
-	}
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+student::student()
+{
+  name = "N/A";
+  age = 0;
+  grad_year = 0;
+  id = "A00000000";
+}
+\end{lstlisting}\end{minipage}
 
 \LevelD{Overloading Member Functions}
 
 Note that, like other functions, you can overload any of the functions in a class. 
 Going back to the \Code{Rectangle} example used earlier, take a look at the code below:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 class Rectangle
-		{
-		public: 
-			Rectangle();	//A default constructor
-			Rectangle(float userBase, float userHeight);	//Overloaded constructor
-			void setBase(float length); //These two lines are mutators
-			void setHeight(float length);
-			float getHeight();	//These two lines are accessors
-			float getBase();	
-			float findArea();	//These two lines perform operations
-			float findPerimeter();
-		private:
-			float Base;
-			float Height;
-		};
-\end{lstlisting}
+{
+public: 
+  Rectangle();	//A default constructor
+  Rectangle(float userBase, float userHeight);	//Overloaded constructor
+  void setBase(float length); //These two lines are mutators
+  void setHeight(float length);
+  float getHeight();	//These two lines are accessors
+  float getBase();	
+  float findArea();	//These two lines perform operations
+	float findPerimeter();
+private:
+  float Base;
+  float Height;
+};
+\end{lstlisting}\end{minipage}
 
 Notice the second constructor, \Code{Rectangle(float userBase, float userHeight)}. 
 We define it very similarly to the default constructor:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 Rectangle::Rectangle(float userBase, float userHeight)
 {
-	Base = userBase;
-	Height = userHeight;
+  Base = userBase;
+  Height = userHeight;
 }
-\end{lstlisting}
-
+\end{lstlisting}\end{minipage}
 
 
 \LevelD{Review Questions}
 \begin{enumerate}
 \item Given the following \Code{struct} definition and global variable:
 
-\begin{lstlisting}
-	struct personInfo
-	{
-		string name;
-		int birth_year;
-		int birth_month;
-		int birth_day;
-		int age;
-	};
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+struct personInfo
+{
+  string name;
+  int birth_year;
+  int birth_month;
+  int birth_day;
+  int age;
+};
 
-	personInfo pinfo;
-\end{lstlisting}
+personInfo pinfo;
+\end{lstlisting}\end{minipage}
 
 \noindent which of the following are incorrect ways to use the dot operator?
   \begin{enumerate}
@@ -315,16 +317,16 @@ Rectangle::Rectangle(float userBase, float userHeight)
 
 \item Consider the following \Code{struct}:
 
-\begin{lstlisting}
-	struct personInfo
-	{
-		string name;
-		int birth_year;
-		string birth_month;
-		int birth_day;
-		int age;
-	};
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+struct personInfo
+{
+  string name;
+  int birth_year;
+  string birth_month;
+  int birth_day;
+  int age;
+};
+\end{lstlisting}\end{minipage}
 
 Which of the following is the correct way to initialize the variables from the \Code{struct} above?
 
@@ -334,20 +336,16 @@ Which of the following is the correct way to initialize the variables from the \
 	\item \Code{personInfo info = \{"Michael", 1996, "March", 24, 16\};}
 	\item \Code{struct info = \{"Michael", 1996, "March", 24, 16\};}
   \end{enumerate}
-\end{enumerate}
 
-\LevelD{Homework Questions}
-
-\begin{enumerate}
 \item Write a program that can store information about animals in a zoo.
 
 You should have a \Code{class} called \Code{Animal} and the following private variables:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string name; // the name of the animal
 int pounds; // the number of pounds of food the animal eats
 char animalType; // the type of animal: 'h' for herbivore, 'c' for carnivore
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 You should have public member functions that get and set each variable, and a function called \texttt{print()} that prints all the information about the animal.
 
@@ -357,22 +355,22 @@ Write a program that can calculate the slope of a line.
 
 You will have a \Code{struct} called \Code{Point} which contain the following variables:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 double x, y;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 You will then have a class called \Code{Line}, and it will have the following private variables:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 Point a, b;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Your class should have accessor and mutator functions, a function that calculates and returns the slope of a line between the two \Code{Point}s as a \Code{double}, and a function that outputs the data to the user called \Code{print()}.
 \end{enumerate}
 
-\LevelD{Review Answers}
+%\LevelD{Review Answers}
 
-\LevelD{Homework Answers}
+
 
 \LevelD{Further Reading}
 

@@ -1,8 +1,8 @@
 Advanced arithmetic - semi-final
 Arithmetic - semi-final
 Arrays - need diagrams
-Assignments
-Classes
+Assignments - need references
+Classes - need more in Initializing member variables, review answers
 Comments
 Conditionals
 Constants

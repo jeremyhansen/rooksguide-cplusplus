@@ -8,7 +8,7 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * The cpp.tex file is the core of the project, and the place where all the chapters are inserted via `\input{}`
 
-* chap_advancedarith.tex is a decent place to see a fairly well-developed 
+* chap_advancedarith.tex is a decent place to see a fairly well-developed chapter
 
 * Chapter `\sections` should be designated with `\LevelD{My section}` and `\subsections` with `\LevelE{My subsection}`
 
@@ -16,9 +16,9 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * Code listings that stand on their own (and pseudocode) should be put in
 
-	    \begin{lstlisting}
+	    \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 	    /* Code */
-	    \end{lstlisting}
+	    \end{lstlisting}\end{minipage}
 
 * Important terms should be placed within `\Keyword{...}`
 
@@ -26,11 +26,7 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 	+ `\LevelD{Review Questions}`
 
-	+ `\LevelD{Homework Questions}`
-
 	+ `\LevelD{Review Answers}`
-
-	+ `\LevelD{Homework Answers}`
 
 	+ `\LevelD{Further Reading}`
 

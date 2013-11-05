@@ -8,91 +8,130 @@ The \Code{=} in the expression \Code{x = 3} is known as an \Keyword{assignment o
 This allows the program to set a variable's value depending on its type. 
 Here are some examples of setting a value to different types of variables:
 
-\begin{lstlisting}
-		int x = 4;
-\end{lstlisting}
-\begin{lstlisting}
-		char alpha = 'A';
-\end{lstlisting}
-\begin{lstlisting}
-		string word = "Alpha";
-\end{lstlisting}
-\begin{lstlisting}
-		float y = 3.14;
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x = 4;
+\end{lstlisting}\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+char alpha = 'A';
+\end{lstlisting}\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+string word = "Alpha";
+\end{lstlisting}\end{minipage}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+float y = 3.14;
+\end{lstlisting}\end{minipage}
 
 We are able to declare variables and assign a value to those variables immediately by using the assignment operator. 
-When we assign literal values to variables of type char, the value must be surrounded by single quotes (for example, \Code{'A'}). 
+When we assign literal values to variables of type \Code{char}, the value must be surrounded by single quotes (for example, \Code{'A'}). 
 When we assign values to variables of type \Code{string}, the literal value must be surrounded by double quotes (for example, \Code{"Alpha"}). 
 We do not have to initialize the values of the variables, however. 
 We can set them later in the code like this:
 
-\begin{lstlisting}
-		int myVal;
-		//some code
-		myVal = 0; 
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int myVal;
+//some code
+myVal = 0; 
+\end{lstlisting}\end{minipage}
 
 In all of the lines of code in this section where a variable is set using the assignment operator, the ``thing that is being given a value'' is known as an \Keyword{lvalue}, and the expression on the right that is being stored in the variable is known as the \Keyword{rvalue}. 
 Literals such as \Code{'A'} or \Code{3} can never be an lvalue. 
 Aside from literals, the rvalue can consist of other variables, like this:
 
-\begin{lstlisting}
-		myVal = myVal2;
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+myVal = myVal2;
+\end{lstlisting}\end{minipage}
 
 Even though \Code{myVal2} is a variable, we are only using the \textit{value stored in the variable}, not the variable itself. 
 For example, if \Code{myVal2} had a value of \Code{6}, \Code{myVal} would then be assigned to the value \Code{6} with the above code. 
 
 We can also store the results of an arithmetic expression in a variable like this: 
 
-\begin{lstlisting}
-  myVal = 5 + 6; //assigns myVal a value of 11
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+myVal = 5 + 6; //assigns myVal a value of 11
+\end{lstlisting}\end{minipage}
 
 But we can't write
-\begin{lstlisting}
-  5 + 6 = myVal; // ERROR!
-\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+5 + 6 = myVal; // ERROR!
+\end{lstlisting}\end{minipage}
 
 \noindent since \Code{5 + 6} doesn't refer to a place where we can store a value. 
 We can also combine arithmetic expressions with variables as an rvalue like this:
 
-\begin{lstlisting}
-  myVal2 = 6;
-  myVal = 4 + myVal2;
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+myVal2 = 6;
+myVal = 4 + myVal2;
+\end{lstlisting}\end{minipage}
 
 In this case, the variable \Code{myVal} would be assigned a value of \Code{10} because the variable \Code{myVal2} was initialized to a value of \Code{6}, and \Code{4 + 6} is \Code{10}.
 The value of \Code{myVal2} remains unchanged. 
 Make sure that the variable \Code{myVal}, the variable \Code{myVal2}, and the literal \Code{4} are of the same type. 
 For example, the following code will result in an error:
 
-\begin{lstlisting}
-  int myValue = 4;
-  int yourVal;
-  string myString = "word";
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int myValue = 4;
+int yourVal;
+string myString = "word";
 		
-  yourVal = myValue + myString; 
-  // Adding string to an int is
-  // probably not what you meant!
-\end{lstlisting}
+yourVal = myValue + myString; 
+// Adding string to an int is
+// probably not what you meant!
+\end{lstlisting}\end{minipage}
 
 When we try to combine different variable types, the compiler will get very mad at us. 
 Some exceptions to this rule are if we try to combine \Code{float}s, \Code{int}s, and \Code{double}s.
 These types have the ability to be combined (to a certain extent) because they are all numeric values.
-Both \Code{double}s and \Code{float}s can hold values with a decimal point such as \Code{-3.14}, \Code{0.003}, or \Code{5.167289} whereas an \Code{int} can only hold round values such as \Code{2}, \Code{-18}, or \Code{100}. Refer to Chapter \ref{chap_datatypes} for more information on converting between data types.
-
-
+Both \Code{double}s and \Code{float}s can hold values with a decimal point such as $-3.14$, $0.003$, or $5.167289$ whereas an \Code{int} can only hold round values such as $2$, $-18$, or $100$. 
+Refer to Chapter \ref{chap_datatypes} for more information on converting between data types.
 
 \LevelD{Review Questions}
 
-\LevelD{Homework Questions}
+\begin{enumerate}
+	\item Which of the following is an incorrect way to assign a value to a variable \Code{x} of type \Code{int}?
+	\begin{enumerate}
+	  \item \Code{7 = x;}
+		\item \Code{int x = 7;}
+		\item \Code{int x(7);}
+		\item \Code{x = 7;}
+	\end{enumerate}
+
+	\item Which of the following is an incorrect way to assign a value to a variable of type \Code{string}?
+	\begin{enumerate}
+		\item \Code{string myString = "word";}
+		\item \Code{string myString = 'word';}
+		\item \Code{myString = "word";}
+	\end{enumerate}
+
+ \item Is the following code incorrect? If so, why? If it is correct, why?
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x = 6, y;
+char myChar = 'x';
+y = myChar + x;
+\end{lstlisting}\end{minipage}
+
+  \item Write a program that declares two \Code{int} variables and two \Code{double} variables. 
+  Add and subtract five from each of your declared integer variables. 
+  Then add and subtract 7.32 your \Code{double} variables by $7.32$. 
+  Then output each of your results to the screen. 
+\end{enumerate}
 
 \LevelD{Review Answers}
 
-\LevelD{Homework Answers}
+\begin{enumerate}
+	\item \textbf{a.} When we store a value in a variable, the variable goes on the left of the assignment operator, and the value being stored in that variable goes to the right of the assignment operator.
 
+  \item \textbf{b.} String literals must be surrounded by double quotes, not single quotes; single quotes are used for single characters like \Code{'b'}.
+
+  \item The code is incorrect. This will probably not produce the expected result it tries to add an \Code{int} and a \Code{char} and store that value in a variable of type \Code{int}.
+
+\end{enumerate}
+
+\begin{comment}
 \LevelD{Further Reading}
 
 \begin{itemize}
@@ -100,4 +139,4 @@ Both \Code{double}s and \Code{float}s can hold values with a decimal point such 
 \item ~
 \item ~
 \end{itemize}	
-
+\end{comment}
