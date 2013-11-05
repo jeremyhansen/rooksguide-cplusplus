@@ -13,7 +13,7 @@ These types, their sizes (which may vary depending on the operating system), and
 
 \begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | l | p{3in} |}
+		\begin{tabular}{| l | l | p{2in} |}
 		\hline
 			\Code{bool} & 1 byte & \Code{true} or \Code{false} \\ \hline
 			\Code{char} & 1 byte & $-128$ to $127$ \\ \hline
@@ -30,7 +30,7 @@ These types, their sizes (which may vary depending on the operating system), and
 
 \begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | l | p{3in} |}
+		\begin{tabular}{| p{1in} | l | p{2in} |}
 		\hline
 			\textbf{Type} & \textbf{Size} & \textbf{Range of Values} \\ \hline
 			\Code{long long int} (\Code{long long}) & 8 bytes & $-9,223,372,036,854,775,808$ to $9,223,372,036,854,775,807$ \\ \hline
@@ -42,7 +42,7 @@ The \Keyword{floating-point types} do not have unsigned versions, as the sign is
 
 \begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | l | p{3in} |}
+		\begin{tabular}{| l | l | p{2in} |}
 		\hline
 			\textbf{Type} & \textbf{Size} & \textbf{Range of Values} \\ \hline
 			\Code{unsigned char} & 1 byte & $0$ to $255$ \\ \hline
@@ -68,7 +68,7 @@ The types can represent different ranges of significand and exponents, as shown 
 
 \begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | l | p{3in} |}
+		\begin{tabular}{| l | l | p{2in} |}
 		\hline
 			\textbf{Type} & \textbf{Exponent Range} & \textbf{Significand Range} \\ \hline
 			\Code{float} & $0$ to $255$ & $2^23$: $8,388,608$ possible values \\ \hline
@@ -101,7 +101,7 @@ C++11 provides the \Code{cstdint} library, which defines several additional type
 
 \begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | p{3in} | l |}
+		\begin{tabular}{| l | p{2in} | l |}
 		\hline
 			\textbf{Type} & \textbf{Purpose} & \textbf{Unsigned version} \\ \hline
 			\Code{intmax\_t} & The integer of maximum size supported on the platform & \Code{uintmax\_t} \\ \hline

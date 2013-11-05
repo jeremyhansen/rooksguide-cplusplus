@@ -26,13 +26,13 @@ Several common comparison operators used in C++ are:
 The most popular conditional is the \Code{if} statement. 
 An \Code{if} statement looks like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if(variable == variable2)
 {
 	// Code here executes only when
 	// the value of variable is the same as variable2
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The keyword \Code{if} is used to start the statement. 
 Parentheses are used to contain the conditional expression. 
@@ -41,12 +41,12 @@ If the expression inside the parentheses is true, then the code inside the curly
 If only a single line of code is inside the braces, the braces may be left out. 
 For example,
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == variable2)
 {
 	cout << "Yes!";
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \noindent is the same as
 
@@ -174,9 +174,25 @@ In \Code{switch} statements, only one \Code{case}'s code executes, provided that
 Otherwise, the program continues execution until it reaches a \Code{break} statement or the end of the \Code{switch} block. 
 With an \Code{if} and \Code{else if}, only one branch may be executed, but the conditions in each \Code{if} are evaluated.
 
+\begin{table}[tb]
+	\centering
+	    Compiling and running the following code results in the this output: \\
+		\begin{tabular}{| p{1.5in} | p{2.5in} |}
+		\hline
+			\textbf{User enters} & \textbf{Output} \\ \hline
+			\Code{//Program start} &	<1> Addition \newline				<2> Subtraction\newline				             <3> Compare\newline							Type the number of your desired option: \\ \hline
+			\Code{1} & The result of this addition is 9.3 \\ \hline
+			\Code{2} & The result of this subtraction is 0.9 \\ \hline
+			\Code{3} & A is greater than B \\ \hline
+			\Code{//anything other than 1, 2, or 3} &	Not an option \\ \hline
+		\end{tabular}
+\end{table}
+
+
 Here is some code that uses both \Code{switch} and \Code{if} statements:
 
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 
 using namespace std;
@@ -219,25 +235,7 @@ int main()
 
     return 0;
 }
-\end{lstlisting}
-
-Compiling and running this code results in the following output:
-
-\begin{table}[tb]
-	\centering
-		\begin{tabular}{| p{1.5in} | p{3in} |}
-		\hline
-			\textbf{User enters} & \textbf{Output} \\ \hline
-			\Code{//Program start} &	<1> Addition \newline
-																<2> Subtraction\newline
-																<3> Compare\newline
-																Type the number of your desired option: \\ \hline
-			\Code{1} & The result of this addition is 9.3 \\ \hline
-			\Code{2} & The result of this subtraction is 0.9 \\ \hline
-			\Code{3} & A is greater than B \\ \hline
-			\Code{//anything other than 1, 2, or 3} &	Not an option \\ \hline
-		\end{tabular}
-\end{table}
+\end{lstlisting}\end{minipage}
 
 
 
