@@ -10,21 +10,20 @@ For a single-line comment, simply type a double slash \Code{//} at the end of th
 Alternatively, the comment can start on a line of its own.
 Here are some examples:
 
-\begin{lstlisting}
-	int count; // This variable was declared 
-	           // to count something
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int count; // This variable was declared 
+           // to count something
+count = count + 1; //Increments count by 1
 
-	count = count + 1; //Increments count by 1
-
-  //Variable declared, and initialized to pi
-	float length=3.14159; 
-\end{lstlisting}
+//Variable declared, and initialized to pi
+float length = 3.14159; 
+\end{lstlisting}\end{minipage}
 
 Multi-line comments, sometimes called \Keyword{block comments}, are used when you have a lot to say. 
 They begin with a slash star (\Code{/*}) and are ended by a star slash (\Code{*/}). 
 Here is an example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 /* 
  *This is a
  *multi-line 
@@ -32,7 +31,7 @@ Here is an example:
  */
  
 /* This is also a comment */ 
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Block comments do not need a star at the beginning of every line, but many programmers write it anyways, because it makes it easier to see and understand that ``this is still a comment, don't write code here.'' 
 Some development environments will automatically color-code certain pieces of code, so comments might be gray, for example, and the \Code{*} at the beginning of each line might be unnecessary in that case. 
@@ -43,13 +42,127 @@ Try to explain what's happening as accurately as possible, but try to keep it sh
 As you learn C++, use comments to explain what you're doing and why. 
 You have to assume that the person reading your code needs an explanation for each non-trivial line. 
 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+//Commenting at the beginning of the file
+//Allows you to give a summary of your program
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  cout << "Hello world" << endl; 	//this cout statement outputs to the screen
+  cout << "What's the date?" << endl;
+
+  //comments should be used to explain things that may not be 
+  //obvious to someone other than programmer
+  cin >> date; //takes the date from the user
+  /* you can also use comments to remind yourself of changes you want to make
+  *ie. output date to screen
+  *or debug code passed this point */
+  return 0;
+}
+\end{lstlisting}\end{minipage}
+
 \LevelD{Review Questions}
 
-\LevelD{Homework Questions}
+\begin{enumerate}
+\item Comment each line of this code:
 
-\LevelD{Review Answers}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
 
-\LevelD{Homework Answers}
+using namespace std;
+
+int main()
+{
+  int time;
+  cout << "Enter time \n";
+  cin >> time;
+  int answer = (32 * time * time) / 2;
+  cout << "The distance is ";
+  cout << answer;
+  cout << " seconds\n";
+  return 0;
+}
+\end{lstlisting}\end{minipage}
+
+\item Fix this code by removing or modifying comments so that it runs and compiles as it should.
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+/* #include <iostream> includes the iostream*
+
+using namespace std;
+
+int main()
+{
+  int time;				//initiates the time 
+  cout << "Enter time \n"; 		//asks the user to enter the time
+  cin >> time; 				//Takes the user's time
+  int answer = (32 * time * time) / 2;	//calculates it;
+  cout << "The distance is "; 		/*Outputs
+  cout << answer;			the distance
+  cout << " seconds\n";			in seconds */
+  return 0;
+}
+\end{lstlisting}\end{minipage}
+
+\item Explain the purpose of commenting. How does it help you? Why would someone else need to be able to understand your code?
+
+\item Write, and properly comment, your own simple program.
+
+\item Go back to the program you wrote from the previous question. Add further comments that explain what's happening and share the commented code with a classmate or friend. Ask them if they understand what's happening from just the comments.
+
+\item Add comments to the following code.
+
+Note: Save percentages in hockey are shown to three decimal places and not multiplied by 100; .900 instead of 90%
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+int main()
+{
+  double shots, goals, saves, save_perc;
+  char cont;
+
+  do {
+    cout.unsetf(ios::fixed);
+    cout.unsetf(ios::showpoint);
+
+    cout << "Enter the number of shots on goal:\t";
+    cin >> shots;
+    cout << "Enter the number of goals scored:\t";
+    cin >> goals;
+    cout << endl;
+
+    saves = shots - goals;
+
+    save_perc = (saves / shots);
+
+    cout << "If there were " << shots << " shots and " 
+      << goals << " goals\n";
+    cout << "then the goalie's save percentage was ";
+
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(3);
+
+    cout << save_perc << endl << endl;
+
+    cout << "Run again? Y/N\t";
+    cin >> cont;
+    cont = toupper(cont);
+    cout << endl;
+
+  } while (cont == 'Y');
+
+    return 0;
+}
+\end{lstlisting}\end{minipage}
+
+\end{enumerate}
 
 \LevelD{Further Reading}
 
