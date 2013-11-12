@@ -1,0 +1,33 @@
+digraph ifelse {
+// Created by Levi Schuck
+	node [shape=circle];
+	subgraph {
+		rank=same;
+		start [shape=doublecircle];
+		if [label="if (a == b)"];
+		if2 [label="if (a > b)"];
+		
+	}
+	
+	subgraph {
+		rank=same;
+		else [label="else"];
+		else2 [label="else"];
+	}
+	subgraph {
+		rank=same;
+		node [shape=box];
+		code [label="puts \"They are the same!\""];
+		code2 [label="puts \"a is bigger\""];
+		code3 [label="puts \"a is smaller\""];
+	}
+	
+
+	start -> if;
+	if -> code [label=" true"];
+	if -> else [label=" false"];
+	else -> if2;
+	if2 -> code2 [label=" true"];
+	if2 -> else2 [label=" false"];
+	else2 -> code3;
+}
