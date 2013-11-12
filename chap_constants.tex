@@ -4,31 +4,69 @@ There are two types of constants: literal and declared constants (\Code{const}).
 
 \LevelD{Literals}
 
-A literal is a value outside of a variable such as $5$, $9$, $103$, and $-21$. Each of those is an \Code{int}, but a literal constant can be of any data type. The point is, these are values that the C++ compiler already recognizes, and cant be changed. In other words, you cant convince the compiler to give the literal 3 the value of 4, because 3 is constant. The table below contains a few examples.
+A literal is a value outside of a variable such as $5$, $9$, $103$, and $-21$. 
+Each of those is an \Code{int}, but a literal constant can be of any data type. 
+The point is, these are values that the C++ compiler already recognizes, and can't be changed. 
+In other words, you can't convince the compiler to give the literal 3 the value of 4, because 3 is constant. 
+Table \ref{table-literal-examples} contains a few examples.
 
-13.8903
-94.2321
--389283220.342423
-float
-x
-R
-%
-char
-Be aware, that C++ interprets the difference between a char and a single-character variable name by the enclosure of () single quotation marks.
-true
-false
-bool
-Notice that a bool only has two literal values, true or false.
+\begin{table}[tbh]
+	\centering
+		\begin{tabular}{| c | l |}
+		\hline
+			\textbf{Literal value} & \textbf{Data Type} \\ \hline
+			13.8903 & \Code{double} \\ \hline
+			94.2321 & \Code{double} \\ \hline
+			-389283220.342423 & \Code{double} \\ \hline 
+			\Code{'x'} & \Code{char} \\ \hline
+			\Code{'R'} & \Code{char} \\ \hline
+			\Code{'\%'} & \Code{char} \\ \hline
+			\Code{true} & \Code{bool} \\ \hline
+			\Code{false} & \Code{bool} \\ \hline
 
+		\end{tabular}
+  \caption{Examples of a few literals}
+  \label{table-literal-examples}
+\end{table}
 
-Declared Constant
+\LevelD{Declared Constants}
 
-So whats the difference between declaring a normal variable and a constant? When we declare a constant, we simply place the keyword const before the data type in the declaration. This indicates that whatever declaration follows the const will be a constant and cannot be changed. Since its a constant, you will also need to initialize the value at the same time you declare the variable. Here is an example:
+The difference between declaring a normal variable and a constant is that we simply place the keyword \Code{const} before the data type in the declaration. 
+This indicates whatever variable and type that follows the \Code{const} will be a constant and cannot be changed. 
+Since it is a constant, we will also need to initialize the value at the time we declare the variable. 
+Here is an example:
 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 const float pi = 3.14;
 float radius = 5, area;
 
 area = radius * radius * pi;
-cout << area;
+cout << area; // outputs 78.5
+\end{lstlisting}\end{minipage}
 
-//program outputs 78.5 to the screen
+\LevelD{Review Questions}
+
+\begin{enumerate}
+	\item Describe the difference between literal and declared constants. When would a declared constant be more useful than a literal constant?
+	\item What is the difference between a normal variable and a constant?
+	\item Write a code that uses a \Code{const} to add 3\% interest to a bank account every year. Print out the balance for the next ten years.
+	\item Build a program in C++ that does the following:
+	
+	\begin{enumerate}
+		\item Declare a \Code{double} variable named \Code{Feet}. Initialize it to your height.
+		\item Declare a \Code{double} constant named \Code{MetersPerFoot}, with the value of $0.3048$.
+		\item Declare a \Code{double} variable named \Code{Meters}. Set it to \Code{Feet} multiplied by \Code{MetersPerFoot}.
+		\item	Display \Code{Meters} to the screen.
+	\end{enumerate}
+
+	\item Create a program that displays the diameter and area of a circle for any given radius. Use a \Code{const float} to represent $\pi$. 
+
+\end{enumerate}
+
+%\LevelD{Review Answers}
+
+\LevelD{Further Reading}
+\begin{itemize}
+\item \url{~}
+\item \url{~}
+\end{itemize}

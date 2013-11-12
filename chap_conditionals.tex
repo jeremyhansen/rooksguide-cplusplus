@@ -5,7 +5,7 @@ In plain English, we might have a statement ``If X is greater than Y, do this...
 
 Several common comparison operators used in C++ are:
 
-\begin{table}[tb]
+\begin{table}[bh]
 	\centering
 		\begin{tabular}{| c | p{3in} |}
 		\hline
@@ -19,6 +19,7 @@ Several common comparison operators used in C++ are:
 			\Code{\&\&}, \Code{and} &	Logical AND: The condition on the left \emph{AND} the condition on the right must be true \\ \hline
 			\Code{||}, \Code{or} &	Logical OR: The condition on the left \emph{OR} the condition on the right must be true \\ \hline
 		\end{tabular}
+  \caption{Common comparison operators}
 \end{table}
 
 \LevelD{\Code{if}, \Code{else}, and \Code{else if}}
@@ -29,8 +30,8 @@ An \Code{if} statement looks like this:
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if(variable == variable2)
 {
-	// Code here executes only when
-	// the value of variable is the same as variable2
+  // Code here executes only when
+  // the value of variable is the same as variable2
 }
 \end{lstlisting}\end{minipage}
 
@@ -44,16 +45,16 @@ For example,
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == variable2)
 {
-	cout << "Yes!";
+  cout << "Yes!";
 }
 \end{lstlisting}\end{minipage}
 
 \noindent is the same as
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == variable2)
-	cout << "Yes!";
-\end{lstlisting}
+  cout << "Yes!";
+\end{lstlisting}\end{minipage}
 
 A demonstration of an if statement is shown in Figure \ref{fig-if-flowchart}.
 
@@ -63,17 +64,17 @@ A demonstration of an if statement is shown in Figure \ref{fig-if-flowchart}.
 An \Code{else} statement may be placed after an if statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
 For example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if(variable == variable2)
 {
-	// Code here executes only when
-	// the value of variable is the same as variable2
+  // Code here executes only when
+  // the value of variable is the same as variable2
 }
 else
 {
-	// Code here executes if they are not the same
+  // Code here executes if they are not the same
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 An \Code{else} statement is used when you want some code to execute in any other case where the \Code{if} statement is not true. 
 An example of how this works is shown in Figure \ref{fig-else-flowchart}.
@@ -90,19 +91,19 @@ Take a look at Figure \ref{fig-else-if-flowchart} for a flowchart example.
 
 Here's what the three statements would look like all together:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if(variable == variable2)
 {
-	cout << "They are the same!" << endl;
+  cout << "They are the same!" << endl;
 }
 else if(variable > variable2)
 {
-	cout << "variable is bigger!" << endl;}
+  cout << "variable is bigger!" << endl;}
 else
 {
-	cout << "variable is smaller!" << endl;}
+  cout << "variable is smaller!" << endl;}
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Note that every conditional expression is in parentheses. 
 Conditional expressions also appear in loops (discussed in Chapter \ref{chap_loops}) and \Code{switch} statements.
@@ -113,59 +114,60 @@ Conditional expressions also appear in loops (discussed in Chapter \ref{chap_loo
 It does the same job as many \Code{if} statements, but can simplify the job when used correctly. 
 Here is an example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 switch(variable):
 {
-	case 1:
-		//code to execute when variable is equal to 1
-		break;
-	case 2:
-		//code to execute when variable is equal to 2
-		break;
-	default:
-		//code to execute when variable is neither 1 nor 2
-		break;
+  case 1:
+    //code to execute when variable is equal to 1
+    break;
+  case 2:
+    //code to execute when variable is equal to 2
+    break;
+  default:
+    //code to execute when variable is neither 1 nor 2
+    break;
 }
 // Resume here after a break
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 If \Code{variable} is equal to 1 then the code following \Code{case 1:} will be executed, if it is equal to 2, then the code following \Code{case 2:} will be executed, and if it is equal to neither, then the code following \Code{default:} will be executed. 
 The cases are separated by \Code{break;}, which forces the code to leave the \Code{switch} statement's block of code.
 
 This code:
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 switch(variable)
 {
-    case 1:
-         cout << "You picked case 1. Lame.";
+  case 1:
+    cout << "You picked case 1. Lame.";
     break;
 
-    case 2:
-         cout << "Case two is way better.";
+  case 2:
+    cout << "Case two is way better.";
     break;
 
-    default:
-        cout << "WRONG!";
+  default:
+    cout << "WRONG!";
     break;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \noindent is equivalent to this code:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == 1)
 {
-     cout <<  "You picked  case 1. Lame.";
+  cout <<  "You picked  case 1. Lame.";
 }
 else if (variable == 2)
 {
-     cout << "Case two is way better.";
+  cout << "Case two is way better.";
 }
 else
 {
-     cout << "WRONG!";
+  cout << "WRONG!";
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 When there are only a few cases, \Code{if}, \Code{else if}, and \Code{else} statements are often easier. 
 However, when you get to a greater number of cases, \Code{switch} statements become easier.
@@ -174,9 +176,7 @@ In \Code{switch} statements, only one \Code{case}'s code executes, provided that
 Otherwise, the program continues execution until it reaches a \Code{break} statement or the end of the \Code{switch} block. 
 With an \Code{if} and \Code{else if}, only one branch may be executed, but the conditions in each \Code{if} are evaluated.
 
-\begin{table}[tb]
-	\centering
-	    Compiling and running the following code results in the this output: \\
+\begin{table}[bh]
 		\begin{tabular}{| p{1.5in} | p{2.5in} |}
 		\hline
 			\textbf{User enters} & \textbf{Output} \\ \hline
@@ -186,54 +186,55 @@ With an \Code{if} and \Code{else if}, only one branch may be executed, but the c
 			\Code{3} & A is greater than B \\ \hline
 			\Code{//anything other than 1, 2, or 3} &	Not an option \\ \hline
 		\end{tabular}
+  \caption{The sample program's output}
+  \label{table-conditional-program}
 \end{table}
 
 
-Here is some code that uses both \Code{switch} and \Code{if} statements:
-
+Here is some code that uses both \Code{switch} and \Code{if} statements.
+Compiling and running the following code results in the output in Table \ref{table-conditional-program}.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
-
 using namespace std;
 
 int main()
 {
-    int choice;
-    double a = 5.1, b = 4.2;
+  int choice;
+  double a = 5.1, b = 4.2;
 
-    cout << "<1> Addition\n";
-    cout << "<2> Subtraction\n";
-    cout << "<3> Compare\n";
+  cout << "<1> Addition\n";
+  cout << "<2> Subtraction\n";
+  cout << "<3> Compare\n";
 
-    cout << "Type the number of your desired option:\t";
-    cin >> choice;
+  cout << "Type the number of your desired option:\t";
+  cin >> choice;
 
-    switch(choice)
-    {
-        case 1:
-	cout << "The result of this addition is " << a + b << endl << endl;
-	break;
+  switch(choice)
+  {
+    case 1:
+	    cout << "The result of this addition is " << a + b << endl << endl;
+	    break;
 
-        case 2:
-	cout << "The result of this subtraction is " << a - b << endl << endl;
-	break;
+    case 2:
+	    cout << "The result of this subtraction is " << a - b << endl << endl;
+	    break;
 
-        case 3:
-            if (a > b)
-		cout << "A is greater than B";
-            else if (a < b)
-		cout << "A is less than B";
-	else //a == b
-		cout << "A equals B";
-	break;
+    case 3:
+      if (a > b)
+		    cout << "A is greater than B";
+      else if (a < b)
+		    cout << "A is less than B";
+	    else //a == b
+		    cout << "A equals B";
+	    break;
 
-        default:
-            cout << "Not an option";
-        break;
-    }
+    default:
+      cout << "Not an option";
+      break;
+  }
 
-    return 0;
+  return 0;
 }
 \end{lstlisting}\end{minipage}
 
@@ -247,22 +248,24 @@ int main()
 \LevelD{Review Questions}
 \begin{enumerate}
 \item What is the output of the following code?
-\begin{lstlisting}
-	int a = 5;
-	int b = 10;
 
-	if(a > b)
-		cout << "a is greater than b.";
-	else
-		cout << "b is greater than a.";
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int a = 5;
+int b = 10;
+
+if(a > b)
+  cout << "a is greater than b.";
+else
+  cout << "b is greater than a.";
+\end{lstlisting}\end{minipage}
 
 \item Why are \Code{switch} statements useful?
 
 \item When are braces (\Code{\{\}}) needed in an \Code{if} statement?
-\end{enumerate}
 
-\LevelD{Homework Questions}
+\item Write a program that checks which number is higher than another and prints out an appropriate message. This program should use 2 variables, an \Code{if} statement and an \Code{else} statement. Bonus: Rewrite it to also check if the numbers are equal.
+
+\end{enumerate}
 
 \LevelD{Review Answers}
 
@@ -270,9 +273,25 @@ int main()
 \item \Code{b is greater than a.}
 \item \Code{switch} statements are useful for making menus for the user. (Other answers are also possible)
 \item Braces are needed for any code longer than 2 lines following an \Code{if}.
-\end{enumerate}
+\item \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
+using namespace std;
 
-\LevelD{Homework Answers}
+int main()
+{
+  int input1, input2;
+  cout << "enter a number: ";
+  cin >> input1;
+  cout << "enter a number to compare to the first: ";
+  cin >> input2;
+  if(input1 > input2)
+    cout << input1 << " is greater than " << input2;
+  else
+    cout << input2 << " is greater than " << input1;
+}
+\end{lstlisting}\end{minipage}
+
+\end{enumerate}
 
 \LevelD{Further Reading}
 

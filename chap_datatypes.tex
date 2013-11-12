@@ -9,9 +9,10 @@ In a similar way, we choose data types to describe the type of data we would lik
 
 Every variable has a \Keyword{data type} which describes the range of possible values that may be stored in the variable. 
 The C++ language defines a handful of basic types, some of which were discussed in Chapter \ref{chap_assignments}. 
-These types, their sizes (which may vary depending on the operating system), and the range of possible values are:
+These types, their sizes (which may vary depending on the operating system), and the range of possible values can be found in Table \ref{table-data-types}.
+Additionally, the C++11 standard provides for the \Code{long long int} data type as described in Table \ref{table-long-long-int}.
 
-\begin{table}[tb]
+\begin{table}[tbh]
 	\centering
 		\begin{tabular}{| l | l | p{2in} |}
 		\hline
@@ -24,23 +25,25 @@ These types, their sizes (which may vary depending on the operating system), and
 			\Code{double} & 8 bytes & See ``Floating-point Types'' below \\ \hline
 			\Code{long double} & 8 bytes & See ``Floating-point Types'' below \\ \hline
 		\end{tabular}
+		\caption{Common data types and their ranges of values}
+    \label{table-data-types}
 \end{table}
-	
-\noindent Additionally, the C++11 standard provides for the following type:
 
-\begin{table}[tb]
+\begin{table}[tbh]
 	\centering
-		\begin{tabular}{| p{1in} | l | p{2in} |}
+		\begin{tabular}{| p{1.5in} | l | p{2in} |}
 		\hline
 			\textbf{Type} & \textbf{Size} & \textbf{Range of Values} \\ \hline
 			\Code{long long int} (\Code{long long}) & 8 bytes & $-9,223,372,036,854,775,808$ to $9,223,372,036,854,775,807$ \\ \hline
 		\end{tabular}
+		\caption{C++11's \Code{long long int} data type}
+    \label{table-long-long-int}
 \end{table}
 
 Several of the integer types have unsigned versions, which may only contain values greater than or equal to zero. 
 The \Keyword{floating-point types} do not have unsigned versions, as the sign is part of the standard that defines how these variables are represented in memory. 
 
-\begin{table}[tb]
+\begin{table}[tbh]
 	\centering
 		\begin{tabular}{| l | l | p{2in} |}
 		\hline
@@ -51,6 +54,8 @@ The \Keyword{floating-point types} do not have unsigned versions, as the sign is
 			\Code{unsigned long} & 4 bytes & $0$ to $4,294,967,295$ \\ \hline
 			\Code{unsigned long long}\footnote{This data type is found in the C++11 standard.} & 8 bytes & $0$ to $18,446,744,073,709,551,615$ \\ \hline
 		\end{tabular}
+		\caption{Unsigned types}
+    \label{table-unsigned-types}
 \end{table}
 
 \LevelD{Floating-point types}
@@ -58,15 +63,15 @@ The \Keyword{floating-point types} do not have unsigned versions, as the sign is
 Floating-point types are used to represent numbers that are not whole integers. 
 For example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float f = 3.35;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335 \times 10^{-2}$. 
 The first part, $335$, (sometimes called the \Keyword{coefficient} or \Keyword{significand}) is stored separately from the second part, $-2$, (called the \Keyword{exponent}). 
-The types can represent different ranges of significand and exponents, as shown in the following table:
+The types can represent different ranges of significand and exponents, as shown in Table \ref{table-floating-point-types}.
 
-\begin{table}[tb]
+\begin{table}[tbh]
 	\centering
 		\begin{tabular}{| l | l | p{2in} |}
 		\hline
@@ -75,31 +80,35 @@ The types can represent different ranges of significand and exponents, as shown 
 			\Code{double} & $0$ to $2,048$ & $2^52$: $4,503,599,627,370,496$ possible values \\ \hline
 			\Code{long double} & $0$ to $2,048$	& $2^52$: $4,503,599,627,370,496$ possible values \\ \hline
 		\end{tabular}
+		\caption{Floating point types}
+    \label{table-floating-point-types}
 \end{table}
 
 In fact, we can use scientific notation in conjunction with floating-point variables. 
 The previous code that assigned a value to \Code{f} can also be written as:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float f = 335e-2; // Sets f to 3.35
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Refer to Chapter \ref{chap_output} for a discussion on displaying \Code{float}s and \Code{double}s.
 
 Both \Code{float} and \Code{double} include a few special values that represent non-numeric results, such as infinity, negative infinity, and \Code{NaN} (Not a Number).
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float g = 10.0 / 0.0; // g is set to infinity
 float h = g * -1.0; // h is set to negative infinity
-float i = g / h; // Since infinity divided by negative infinity is undefined,
-// the result of the division is not a number, and i is set to NaN
-\end{lstlisting}
+float i = g / h; 
+// Since infinity divided by negative infinity is 
+// undefined, the result of the division is not a 
+// number, and i is set to NaN
+\end{lstlisting}\end{minipage}
 
 \LevelD{Other types introduced by C++11}
 
-C++11 provides the \Code{cstdint} library, which defines several additional types that may be convenient:
+C++11 provides the \Code{cstdint} library, which defines several additional types that may be convenient. These types are listed in Table \ref{table-cstdint-types}.
 
-\begin{table}[tb]
+\begin{table}[tbh]
 	\centering
 		\begin{tabular}{| l | p{2in} | l |}
 		\hline
@@ -110,6 +119,8 @@ C++11 provides the \Code{cstdint} library, which defines several additional type
 			\Code{int32\_t} & An integer of exactly 32 bits & \Code{uint32\_t} \\ \hline
 			\Code{int64\_t} & An integer of exactly 64 bits & \Code{uint64\_t} \\ \hline
 		\end{tabular}
+		\caption{Data types found in C++11's \Code{cstdint} library}
+    \label{table-cstdint-types}
 \end{table}
 
 These types are provided in part because the basic types like \Code{int} and \Code{short} are not guaranteed to be of any particular size, which can cause problems when compiling the same code on different platforms.
@@ -119,67 +130,71 @@ These types are provided in part because the basic types like \Code{int} and \Co
 It is sometimes necessary to convert a variable of one type to another, perhaps in order to pass the variable to a function that doesn't support the variable's original type. 
 Here is an example of a variable of type \Code{int} being converted (automatically) to a \Code{double}:
 
-\begin{lstlisting}
-  int x = 2;
-  double y;
-  y = x; // Type conversion: the integer 2 is converted to the double 2.0
-  cout << "y = " << y << endl; // This prints y = 2
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x = 2;
+double y;
+y = x; // Type conversion: the integer 2 is converted 
+       // to the double 2.0
+cout << "y = " << y << endl; // This prints y = 2
+\end{lstlisting}\end{minipage}
 
 This example demonstrates a \Keyword{widening conversion}, since any possible value of \Code{x} can be represented in \Code{y}. 
 On the other hand, we can do the reverse conversion:
 
-\begin{lstlisting}
-  int x;
-  double y = 2.0;
-  x = y; // Type conversion: the double 2.0 is converted to the int 2
-  cout << "x = " << x << endl; // This prints x = 2
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x;
+double y = 2.0;
+x = y; // Type conversion: the double 2.0 is converted 
+       // to the int 2
+cout << "x = " << x << endl; // This prints x = 2
+\end{lstlisting}\end{minipage}
 
 This code compiles and runs, but the compiler produces the following warning:
 
-\begin{lstlisting}
-warning: converting to 'int' from 'double'
-\end{lstlisting}
+\noindent \Code{warning: converting to 'int' from 'double'}
 
 The compiler has a good reason for this warning: not all possible values that can be represented in a \Code{double} can be represented in an \Code{int}. 
 We refer to this as a \Keyword{narrowing conversion}. 
 If we change the code slightly, we can see where problems can occur:
 
-\begin{lstlisting}
-  int x;
-  double y = 2.9;
-  x = y; // Type conversion: the double 2.9 is converted to the int 2
-  cout << "x = " << x << endl; // This prints x = 2
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x;
+double y = 2.9;
+x = y; // Type conversion: the double 2.9 is converted 
+       // to the int 2
+cout << "x = " << x << endl; // This prints x = 2
+\end{lstlisting}\end{minipage}
 
 Because integers cannot represent the numbers after the decimal point, they are simply dropped. 
 This might seem counterintuitive, as we might expect the values to be rounded up from \Code{2.9} to \Code{3}. 
 Fortunately, C++11 provides a \Code{round()} function in the \Code{<cmath>} library that returns the integer closest to the passed parameter:
 
-\begin{lstlisting}
-  int x;
-  double y = 2.9;
-  x = round(y); // round(y) returns the double 3.0 (the closest integer to the passed parameter)
-  // This double is then converted to the int 3
-  cout << "x = " << x << endl; // This prints x = 2
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int x;
+double y = 2.9;
+x = round(y); 
+// round(y) returns the double 3.0 (the closest integer 
+// to the passed parameter) This double is then 
+// converted to the int 3
+cout << "x = " << x << endl; // This prints x = 2
+\end{lstlisting}\end{minipage}
 
 \LevelD{Coercion \& Casting}
 
 The examples in the previous section relied on the compiler to perform the conversions from \Code{int} to \Code{double} and \Code{double} to \Code{int}. 
 This implicit, automatic conversion is often referred to as \Keyword{coercion}, and can be found in the following example:
 
-\begin{lstlisting}
-  int z = 3.3 + 4.8; // z is set to the integer 8 (coerced from the double 8.1)
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int z = 3.3 + 4.8; // z is set to the integer 8 
+                   // (coerced from the double 8.1)
+\end{lstlisting}\end{minipage}
 
 The compiler still warns us that it is converting the \Code{double} to an \Code{int}. 
 In this case, we know that we want an integer value, so we can tell the compiler to explicitly convert the \Code{double}s to \Code{int}s using explicit \Keyword{casts}, as follows:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int z = (int)3.3 + (int)4.8; // z is set to 7
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 We enclose the ``target'' type in parentheses (in this case, \Code{int}) and place it before the value or expression we want to convert. 
 Doing this removes the warning that the compiler produces when it coerces the \Code{double} to \Code{int}. 
@@ -187,47 +202,43 @@ The above still isn't quite what we want, though, since the individual \Code{dou
 (Remember that converting from a \Code{double} to an \Code{int} drops the part after the decimal point rather than rounding!) 
 It would be better to convert the result of the addition, rather than the individual values, like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int z = (int)(3.3 + 4.8); // z is set to 8
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \LevelD{Automatic Types in C++11}
 
 C++11 introduces the \Code{auto} data type, which leaves the determination of a variable's type up to the compiler. 
 At compile time, the data type of the value that is assigned determines the data type that replaces the \Code{auto} type.
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 auto myVar = 3; // myVar is an int
 auto myVar2 = &myVar; // myVar2 is an int*
 auto myVar3 = 't'; // myVar3 is a char
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The \Code{decltype} operator is another new feature, which extracts types from objects and is used in a similar way as \Code{auto}:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 auto myVar = 3; // myVar is an int
 decltype(myVar) myVar4; // myVar4 is an int
 decltype(myVar < 1) myVar5; // myVar5 is a bool
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 In these examples, it is easy to determine the types assigned to the variable, but the power of \Code{auto} is in conjunction with complicated types like iterators of container objects as discussed more in Chapter \ref{chap_stl}. Here is an example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 std::vector<int> v; // Create a vector of integers
 v.push_back(2); // Add 2 to the vector
 v.push_back(8); // Add 8 to the vector
 auto myIterator = v.begin();
 // The above is equivalent to:
 // std::vector<int>::iterator myIterator = v.begin();
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \LevelD{Review Questions}
 
-\LevelD{Homework Questions}
-
 \LevelD{Review Answers}
-
-\LevelD{Homework Answers}
 
 \LevelD{Further Reading}
 
@@ -235,6 +246,6 @@ auto myIterator = v.begin();
 \item \url{http://www.cplusplus.com/reference/cstdint/}
 \item \url{http://en.wikipedia.org/wiki/Floating_point}
 \item \url{http://en.wikipedia.org/wiki/IEEE_floating_point}
-\item \url{http://www.learncpp.com/cpp-tutorial/25-floating-point-numbers/}
+\item \url{http://learncpp.com/cpp-tutorial/25-floating-point-numbers/}
 \end{itemize}	
 

@@ -4,9 +4,9 @@ Arrays - need diagrams
 Assignments - need references
 Classes - need more in Initializing member variables, review answers
 Comments - add references, correct awful formatting of code examples
-Conditionals
-Constants
-Data types
+Conditionals - add references, need diagrams
+Constants - Add review answers
+Data types - fix long URLs
 Dynamic
 File IO
 Functions
