@@ -60,6 +60,12 @@ A demonstration of an if statement is shown in Figure \ref{fig-if-flowchart}.
 
 %Figure X.1 If-statement flowchart
 % \label{fig-if-flowchart}
+\begin{figure}[h]
+\label{fig-if-flowchart}
+\includegraphics[width=\linewidth]{diagrams/if-flow.pdf}\\
+\caption{General if and else statement flow of execution}
+\end{figure}
+
 
 An \Code{else} statement may be placed after an if statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
 For example:
@@ -77,31 +83,41 @@ else
 \end{lstlisting}\end{minipage}
 
 An \Code{else} statement is used when you want some code to execute in any other case where the \Code{if} statement is not true. 
-An example of how this works is shown in Figure \ref{fig-else-flowchart}.
+An example of how this works is also shown in Figure \ref{fig-if-flowchart}.
 
 % \label{fig-else-flowchart}
 
 An \Code{else if} could also be placed after the \Code{if} statement. 
 An \Code{else if} is an additional \Code{if} statement checked only when the previous \Code{if} statement is false. 
-While \Code{else} is a catch-all, \Code{else if} tests for other conditions. 
-Multiple \Code{else if} statements can be used, and they are all checked sequentially, and if necessary, an \Code{else} statement can be included at the end. 
+While \Code{else} is a catch-all, \Code{else if} chains an \Code{if} to test for other conditions. 
+Multiple \Code{else if} statements can be used, and they are all checked sequentially, and if necessary, an \Code{else} statement can be included at the end as a final catch-all. 
 Take a look at Figure \ref{fig-else-if-flowchart} for a flowchart example.
 
+% ^ I (Levi) personally think this is being taught wrong.
+
+
 % \label{fig-else-if-flowchart}
+\begin{figure}[h]
+\label{fig-else-if-flowchart}
+\includegraphics[width=\linewidth]{diagrams/if-else.pdf}\\
+\caption{How if-else chaining works}
+%TODO: Get this figure to be consistent with the style.
+\end{figure}
 
 Here's what the three statements would look like all together:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-if(variable == variable2)
+if(a == b)
 {
   cout << "They are the same!" << endl;
 }
-else if(variable > variable2)
+else if(a > b)
 {
-  cout << "variable is bigger!" << endl;}
+  cout << "a is bigger!" << endl;
+}
 else
 {
-  cout << "variable is smaller!" << endl;}
+  cout << "a is smaller!" << endl;
 }
 \end{lstlisting}\end{minipage}
 
