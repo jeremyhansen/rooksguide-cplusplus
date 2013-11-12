@@ -1,45 +1,49 @@
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+
 When a programmer wants a user to enter data, such as the price of an item, he or she will use the \Code{cin} object, pronounced ``see-in'', in conjunction with \Code{>>}, the \Keyword{redirect operator} in the program. 
 Let us look at the following code:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	int x = 0;   				      
-	cout << "Please enter a value for x: " << endl; 
-	cin >> x;
-	return 0;
+  int x = 0;   				      
+  cout << "Please enter a value for x: " << endl; 
+  cin >> x;
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 When you compile and run this code, here's what the output will look like:
 
-\noindent \Code{please enter a value for x: }
+\noindent \Code{Please enter a value for x: }
 
 As a user you may want to check the value that was entered. 
 To do this, simply add an additional \Code{cout} statement like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	int x = 0;   				      
-	cout << "Please enter a value for x: " << endl; 
-	cin >> x;
-	cout << "The value of x is: " << x;
-	return 0;
+  int x = 0;   				      
+  cout << "Please enter a value for x: " << endl; 
+  cin >> x;
+  cout << "The value of x is: " << x;
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The output of this code is:
 
-\noindent \texttt{please enter a value for x: }
+\noindent \Code{Please enter a value for x: }
 
 Suppose the user enters a value of 1 for x.
 
-\noindent \texttt{The value of x is: 1}
+\noindent \Code{The value of x is: 1}
 
 As you can see, the value displayed is the one entered. 
 This can be a very useful technique in troubleshooting the values of variables throughout a program. 
@@ -48,62 +52,95 @@ This can help in the debugging process and speed up catching errors.
 
 If you want to have a user input more than one value, just repeat the code for each individual variable:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	int x = 0;
-	int y = 0;
+  int x = 0;
+  int y = 0;
 	
-	cout << "Please enter a value for x: " << endl;
-	cin >> x;
-	cout << "Please enter a value for y: " << endl;
-	cin >> y;
-	cout << "The value of x is: " << x << endl;
-	cout << "The value of y is: " << y << endl;
-	return 0;
+  cout << "Please enter a value for x: " << endl;
+  cin >> x;
+  cout << "Please enter a value for y: " << endl;
+  cin >> y;
+  cout << "The value of x is: " << x << endl;
+  cout << "The value of y is: " << y << endl;
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 We can't always trust that the user will input the correct data into a variable. 
 For example, if a user was prompted to input an age into a variable of type \Code{int} but typed the character \Code{z}, the program would not behave properly because the user entered the wrong data type. 
 We can check for improper input like this by using the \Code{cin.fail()} function in a conditional statement.
 Look at the following code:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	int x = 0;
-	int y = 0;
+  int x = 0;
+  int y = 0;
 	
-	cout << "Please enter a value for x: " << endl;
-	cin >> x;
-	if (cin.fail())
-	{
-		cout << "That is not a valid data type!";
-	}
+  cout << "Please enter a value for x: " << endl;
+  cin >> x;
+  if (cin.fail())
+  {
+    cout << "That is not a valid data type!";
+  }
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 This introduction to \Code{cin} statements is only the beginning. 
 They will get slightly more complicated after we introduce strings, arrays, and overloaded operators.
 
 \LevelD{Review Questions}
+\begin{enumerate}
+	\item Which of the following numbered lines of code are proper \Code{cin} statements?
 
-\LevelD{Homework Questions}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int x = 0;
+  int y = 0;
+  cout << "Please enter a value for x: " ;
+  cin << x; // #1
+  cin >> x; // #2
+  cin >> x  // #3
+  cin x;    // #4
+  cin >< x; // #5
+  x >> cin; // #6
+  return 0;
+}
+\end{lstlisting}\end{minipage}
+
+  \item Must you always use \Code{cin} with \Code{cout}? Why or why not?
+  \item What is the redirect operator, and how is it used to process user input?
+  \item Can you use \Code{cin} to store a value in a variable that already has a value?
+
+  \item Write code that allows the user to enter an integer value and store it in a variable. Your code should prompt the user, receive their input, and then print their input value back to them.
+  \item Add some functionality to the code you wrote for the previous exercise. Add two new variables, one \Code{char} and one \Code{float} or \Code{double}. Prompt the user properly for each value. The program should print out the values of the variables, clearly labeled, on separate lines.
+
+\end{enumerate}
 
 \LevelD{Review Answers}
 
-\LevelD{Homework Answers}
+\begin{enumerate}
+	\item Only \#2 (\Code{cin >> x;}) is correct.
+	\item You do not need to to use \Code{cin} statements exclusively with \Code{cout} statements, though it is good practice to provide adequate feedback to users.
+	\item The redirect operator is \Code{>>}, and it is used in conjunction with \Code{cin} on the left and a variable on the right that receives the value entered by the user.
+	\item Yes, and the previous value is overwritten.
+\end{enumerate}
 
 \LevelD{Further Reading}
 
 \begin{itemize}
 \item \url{http://www.cplusplus.com/reference/iolibrary}
 \item \url{http://www.cplusplus.com/doc/tutorial/basic_io}
-\item ~
+%\item ~
 \end{itemize}	
 

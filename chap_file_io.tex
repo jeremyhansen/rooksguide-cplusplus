@@ -1,3 +1,6 @@
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
 \Keyword{File I/O} refers to the input and output (I/O) from and to files. 
 So far we have been using \Code{cin} to get input from the keyboard and \Code{cout} to output to the screen. 
@@ -27,9 +30,9 @@ When the program opens a file for output, the program is writing to the file.
 C++ provides us with the \Code{ifstream}, \Code{ofstream}, and \Code{fstream} classes for reading from and writing to files. 
 All of these classes are available through the \Code{fstream} library, which means we must \Code{\#include} it in our code in order to use them:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <fstream>
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The \Code{ofstream} type (read that as ``\textbf{o}utput \textbf{f}ile \textbf{stream}'') is used to write data to files. 
 The \Code{ifstream} type (``\textbf{i}nput \textbf{f}ile \textbf{stream}'') is used to read data from files. 
@@ -39,15 +42,17 @@ The \Code{cin} and \Code{cout} objects are already declared for you.
 However, in order to use \Code{ifstream}, \Code{ofstream} and \Code{fstream} objects, you must declare one like you would any other variable. 
 Declaring these objects looks like this:
 
-\begin{lstlisting}
-	ifstream inFile; //Declares a variable of type ifstream named input
-  ofstream outFile; //Declares a variable of type ofstream named output
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+//Declares a variable of type ifstream named input
+ifstream inFile; 
+//Declares a variable of type ofstream named output
+ofstream outFile; 
+\end{lstlisting}\end{minipage}
 
 The variable \Code{inFile} will deal with getting input from a file, while the variable \Code{outFile} will deal with outputting data to a file. 
 
 Every file on a computer has its own name and a location (or \Keyword{path}).
-An example of a text file name is \Code{TextFile.txt} and its location in a Windows operating system might be \Code{c:\\storage\\TextFile.txt}. 
+An example of a text file name is \Code{TextFile.txt} and its location in a Windows operating system might be \Code{c:\textbackslash storage\textbackslash TextFile.txt}. 
 In a UNIX-based operating system, the same file might be in \Code{/home/user1/TextFile.txt}. 
 Regardless of the operating system, we need to know the file's path in order to tell the program where to find the file. 
 
@@ -60,23 +65,27 @@ The \Code{ofstream} object will create a file for you if the file you're opening
 Otherwise, if the file already exists, the \Code{open} function will erase existing data in the file by default. 
 The following example demonstrates how to open files for both input and output:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream> //For cin and cout 
-#include <fstream> // For file I/O such as ifstream and ofstream
+#include <fstream> // For ifstream and ofstream
 		
 using namespace std;
 		
 int main ()
 {
-	ifstream inFile; //Declares a variable of type ifstream called inFile
-	ofstream outFile; //Declares a variable of type ofstream called outFile
+  //Declares a variable of type ifstream called inFile
+  ifstream inFile; 
+  //Declares a variable of type ofstream called outFile
+  ofstream outFile; 
 	
-	inFile.open("TextFile.txt"); //Opens text file for input
-	outFile.open("OutputTextFile.txt"); /Creates text file for output
+	//Opens text file for input
+  inFile.open("TextFile.txt"); 
+  //Creates text file for output
+  outFile.open("OutputTextFile.txt"); 
 	
-	return 0;
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 %TODO: Add an example of appending data to an ofstream
 
@@ -87,10 +96,10 @@ Closing files is even simpler than opening them.
 All you need to do is use the \Code{close} function with empty parentheses. 
 For example, to close both \Code{inFile} and \Code{outFile}:
 
-\begin{lstlisting}		
-  inFile.close();
-  outFile.close();
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
+inFile.close();
+outFile.close();
+\end{lstlisting}\end{minipage}
 	
 \LevelD{Reading from a File}
 
@@ -102,7 +111,7 @@ Once we have declared our variable of type \Code{ifstream} and opened a file, we
 Using this is very similar to \Code{cin} except we replace \Code{cin} with the name of our variable.
 For example:
 
-\begin{lstlisting}		
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
 #include <iostream> 
 #include <fstream>
 	
@@ -121,7 +130,7 @@ int main()
 
   return 0;
 }
-\end{lstlisting}		
+\end{lstlisting}\end{minipage}		
 
 This will read in one integer from the file and store it into the variable \Code{number}. 
 You can input all different types of data including characters, \Code{double}s, and \Code{float}s. 
@@ -135,7 +144,7 @@ Just like \Code{cout}, \Code{ofstream} objects use \Code{<<}, the \Keyword{inser
 Using this is very similar to \Code{cout} except we replace the \Code{cout} with the name of our variable. 
 For example:
 
-\begin{lstlisting}		
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
 #include <iostream> 
 #include <fstream>
 		
@@ -151,15 +160,15 @@ int main ()
 
   return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 This example would write the letter \Code{'A'} to the text file we created named \Code{OutputTextFile.txt}. 
 You can also create numeric variables and output them to the file just like:
 			
-\begin{lstlisting}
-  int num = 10;
-  outFile << num << endl;
-\end{lstlisting}		
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int num = 10;
+outFile << num << endl;
+\end{lstlisting}\end{minipage}		
 
 This example would output the number 10 and create a new line in the text file we created. 
 
@@ -185,13 +194,13 @@ We use this function to determine whether the file was opened successfully or no
 We usually use \Code{if} statements with the function so that if the file does not open correctly we can warn the user. 
 For example:
 
-\begin{lstlisting}
-	inFile.open("TextFile.txt");
-	if (inFile.fail())
-	{ 
-		cout << "Failed to open!";
-	}
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+inFile.open("TextFile.txt");
+if (inFile.fail())
+{ 
+  cout << "Failed to open!";
+}
+\end{lstlisting}\end{minipage}
 
 This will warn the user if the file did not open correctly. 
 If the file did open correctly the program would continue without printing the error message.
@@ -201,14 +210,14 @@ This function tests to see if the stream has reached the end of the file.
 This function is very useful in order to know when to stop reading from the file. 
 For example:
 
-\begin{lstlisting}
-	int number;
-	inFile.open("TextFile.txt");
-  while (!inFile.eof())
-  {
-    inFile >> number
-  }
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+int number;
+inFile.open("TextFile.txt");
+while (!inFile.eof())
+{
+  inFile >> number
+}
+\end{lstlisting}\end{minipage}
 
 This example shows how the \Code{eof()} function can be used in a \Code{while} loop. 
 The \Code{while} loop will read integers from the file until the program reaches the end of the file. 
@@ -221,14 +230,14 @@ However with \Code{get()}, nothing is done automatically, so the whitespace char
 The member function \Code{get()} takes one argument in parentheses that must be a \Code{char} variable. 
 For example:
 
-\begin{lstlisting}
-	char Character;
-	ifstream inFile;
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+char Character;
+ifstream inFile;
 
-	cin.get(Character);
-	//or
-	inFile.get(Character);
-\end{lstlisting}
+cin.get(Character);
+//or
+inFile.get(Character);
+\end{lstlisting}\end{minipage}
 
 This will read in the next character typed on the keyboard or from the file. 
 Even if the next character is a space, tab, or newline, the program will store that character in the variable. 
@@ -237,28 +246,54 @@ The \Code{put()} function is used to output one character.
 This function takes one argument of type \Code{char} in the parentheses. 
 For example:
 
-\begin{lstlisting}
-	char Character = '\n'; // newline character
-	ofstream outFile;
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+char Character = '\n'; // newline character
+ofstream outFile;
 
-	cout.put(Character);
-	// or
-	outFile.put(Character);
-\end{lstlisting}
+cout.put(Character);
+// or
+outFile.put(Character);
+\end{lstlisting}\end{minipage}
 
 \LevelD{Review Questions}
 
-\LevelD{Homework Questions}
+\begin{enumerate}
+\item What do we call the type of object used to control data flowing into your program?
+\item What do we call the type of object used to control data flowing out of your program?
+\item What header file must you \Code{\#include} in order to use \Code{ifstream} and \Code{ofstream}?
+\item What are \Code{ifstream} and \Code{ofstream} used for?
+\item How do you declare an \Code{ifstream} object named \Code{input} and an \Code{ofstream} object named \Code{output}?
+\item How would you open a file named \Code{TextFile.txt} with an \Code{ifstream} object called \Code{input}?
+\item How would you close a file named \Code{TextFile.txt} with an \Code{ofstream} object called \Code{output}?
+\item What kind of function is the \Code{eof()} function and what does it do?
+\item What are the benefits of using files for input and output?
+\item What is the difference between \Code{cin~>>~c;} and \Code{cin.get(c);} if \Code{c} is of type \Code{char}?
+\item Write a program that outputs the contents of some file to the screen.
+\item Write a program that reads in a text file and prints to the screen the number of times the character \Code{'e'} shows up.
+\end{enumerate}
 
 \LevelD{Review Answers}
 
-\LevelD{Homework Answers}
+\begin{enumerate}
+\item An input stream
+\item An output stream
+\item You need to \Code{\#include <fstream>}
+\item \Code{ifstream} is used to read data from a file. \Code{ofstream} is used to write data to a file.
+\item \Code{ifstream input;}
+
+			\Code{ofstream output;}
+\item \Code{input.open("TextFile.txt");}
+\item \Code{output.close();}
+\item The \Code{eof()} function is a member function. It returns \Code{true} if the program has reached the end of the file.
+\item File input and output are useful because files provide a way to store data permanently. With keyboard input and screen output, the data is temporary and disappears once the program is finished. The data stored in files on the other hand remains the same until another program changes it. Also, an input file can be used by many programs at the same time without having to store multiple copies or re-enter the data over and over again.
+\item The first \Code{cin} statement the next non-whitespace character into \Code{c}, but the call to \Code{cin.get()} stores the next character in \Code{c} whether it is whitespace or not.
+\end{enumerate}
 
 \LevelD{Further Reading}
 
 \begin{itemize}
-\item ~
-\item ~
-\item ~
+\item \url{http://www.cprogramming.com/tutorial/lesson10.html}
+\item \url{http://www.cplusplus.com/doc/tutorial/files/}
+\item \url{http://www.tutorialspoint.com/cplusplus/cpp_files_streams.htm}
 \end{itemize}	
 

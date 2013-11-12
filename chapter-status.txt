@@ -6,13 +6,13 @@ Classes - need more in Initializing member variables, review answers
 Comments - add references, correct awful formatting of code examples
 Conditionals - add references, need diagrams
 Constants - Add review answers
-Data types - fix long URLs
-Dynamic
-File IO
-Functions
-History
-Input
-Loops
+Data types - fix long URLs, text formatting inside tables, review answers
+Dynamic - semi-final
+File IO - semi-final
+Functions - review answers
+History - semi-final
+Input - review answers
+Loops - fix awkward linebreaking
 Output
 Pointers
 Preproc
