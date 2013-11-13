@@ -1,3 +1,6 @@
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 Output in C++ is done with the object \Code{cout} (``\textbf{c}onsole \textbf{out}put''). 
 The object \Code{cout} prints useful information to the screen for the user. 
 For example, if we wanted to prompt the user with 
@@ -8,15 +11,15 @@ For example, if we wanted to prompt the user with
 \Code{cout} is extremely important when you are starting to learn C++ as it gives you the ability to display the current state of any variable and provide user feedback at any point in your program. 
 Let's make a program that outputs something to the screen:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	cout << "Go Cadets!";
-	return 0;
+  cout << "Go Cadets!";
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 %Don't mind the grayed out code, that's necessary, but we'll get to it later. 
 %Your development environment may provide much of that code anyways; if not, type it in, but don't worry about that material just yet. 
@@ -27,16 +30,16 @@ As you know, every statement in C++ ends with a semicolon, and this one is no ex
 
 What if we want to print more, though?
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	cout << "Go Cadets!";
-	cout << "You can do it!";
-	return 0;
+  cout << "Go Cadets!";
+  cout << "You can do it!";
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Try to compile and run that. 
 It works, but it's not really the desired output. 
@@ -50,16 +53,18 @@ One of the ways we can do it is to use the object \Code{endl}.
 You will also need another redirect operator between the string literal and the \Code{endl}. 
 Putting all of this together looks like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	cout << "Go Cadets!" << endl;
-	cout << "You can do it!";
-	return 0;
+  cout << "Go Cadets!" << endl;
+  cout << "You can do it!";
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
+
+\noindent This prints:
 
 \noindent \Code{Go Cadets!}
 
@@ -68,40 +73,44 @@ int main()
 That works a bit more as intended. 
 Alternatively, we can combine the two lines that use \Code{cout} into a single one like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 cout << "Go Cadets!" << endl << "You can do it!";
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
-Another way we can accomplish this, without needing another redirect operator, is with the special character \Code{'\\n'}.
-\Code{'\\n'} is a newline character, it prints a new line just like the \Code{endl} object. 
+Another way we can accomplish this, without needing another redirect operator, is with the special character \Code{'\textbackslash n'}.
+\Code{'\textbackslash n'} is a newline character, it prints a new line just like the \Code{endl} object. 
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	cout << "Go Cadets!\\nYou can do it!";
-	return 0;
+  cout << "Go Cadets!\nYou can do it!";
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
+
+\noindent This prints:
 
 \noindent \Code{Go Cadets!}
 
 \noindent \Code{You can do it!}
 
-Another thing we can use with the console output object is the \Code{'\t'} character. 
+Another thing we can use with the console output object is the \Code{'\textbackslash t'} character. 
 Printing this character is the same as pressing the tab key on your keyboard, and is used for indentation and formatting. 
 Let's look at an example that uses the newline character, the tab character, and some text:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	cout << "\\tGo Cadets!\\nYou can do it!";
-	return 0;
+  cout << "\tGo Cadets!\nYou can do it!";
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
+
+\noindent This code prints: 
 
 \Code{Go Cadets!}
 
@@ -114,7 +123,7 @@ We do that with the \Code{precision()} member function.
 This function call will result in subsequent \Code{float} or \Code{double} variables being printed with the specified number of decimal places. 
 In the following code, the number of digits is set to 2:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
@@ -123,85 +132,91 @@ int main()
   cout.precision(2);
   cout << num << endl;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
+
+\noindent This code prints:
 
 \noindent \Code{3.14}
 
 To display data in a similar way as a spreadsheet, we can create a field of characters and set the number of characters in each field using the \Code{width()} and \Code{fill()} member functions. 
 Notice the use of the \Code{left} flag in the following code, which positions the output on the left side of the field; the default is for the output to be on the right side:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
 int main()
 {
-	cout << "Norwich" << endl;
-	cout.width(15);
-	cout << "University" << endl;
-	cout.fill('*');
-	cout.width(20);
-	cout << left << "Corps of Cadets" << endl;
+  cout << "Norwich" << endl;
+  cout.width(15);
+  cout << "University" << endl;
+  cout.fill('*');
+  cout.width(20);
+  cout << left << "Corps of Cadets" << endl;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
+
+\noindent The above code prints:
 
 \noindent \Code{Norwich}
+
 \noindent \Code{~~~~~University}
+
 \noindent \Code{Corps of Cadets*****}
 
 \LevelD{Review Questions}
 \begin{enumerate}
-	\item Which of the following is a correct way to output "Hello World" to the screen?
+	\item Which of the following is a correct way to output \Code{Hello World} to the screen?
 	  \begin{enumerate}
 	  \item \Code{output: "Hello World";}
 	  \item \Code{cout >> "Hello World";}
 	  \item \Code{cout << "Hello World";}
 	  \item \Code{console.output << "Hello World";}
 	  \end{enumerate}
-  \item Which of the following is a correct way to output "Hello!" to the screen on one line and "Goodbye!" to the screen on another?
+  \item Which of the following is a correct way to output \Code{Hello!} to the screen on one line and \Code{Goodbye!} to the screen on the next line?
 		\begin{enumerate}
 		\item \Code{cout >> "Hello!" >> "Goodbye!";}
-		\item \Code{output: "Hello!\\nGoodbye!";}
-		\item \Code{cout << "Hello!" << \\n << "Goodbye!";}
-		\item \Code{cout << "Hello!" << \\n << "Goodbye!";}
+		\item \Code{output: "Hello!\textbackslash nGoodbye!";}
+		\item \Code{cout << "Hello!" << \textbackslash n << "Goodbye!";}
+		\item \Code{cout << "Hello!" << '\textbackslash n' << "Goodbye!";}
 		\end{enumerate}
-  \item Aside from the answer in the previous question, write two alternative ways of printing "Hello!" and "Goodbye!" to the screen on two different lines.
-	\item Write several lines of code using the \Code{width()} and \Code{fill()} functions in a \Code{main()} that prints "Programming!" to the screen with 4 \Code{'x'} characters printed after it.
-	\item Write code to output the values 124, 12.376, 'z' , 1000000, and "string" as distinct values, separated by spaces.
+  \item Aside from the answer in the previous question, write two alternative ways of printing \Code{Hello!} and \Code{Goodbye!} to the screen on two different lines.
+	\item Write several lines of code using the \Code{width()} and \Code{fill()} functions in a \Code{main()} that prints \Code{Programming!} to the screen with 4 \Code{'x'} characters printed after it.
+	\item Write code to output the values 124, 12.376, \Code{z}, 1000000, and \Code{strings!} as distinct values, separated by spaces.
 	\item What is the output of the following program?
-	\begin{lstlisting}
-	#include <iostream>
-	#include <string>
-	using namespace std;
-	int main()
-	{
-		string shirt = "maroon", pants = "blue";
-	 
-		cout << shirt << " " << pants << endl;
-		return 0;
-	}
-	\end{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+  string shirt = "maroon", pants = "blue";
+
+  cout << shirt << " " << pants << endl;
+  return 0;
+}
+\end{lstlisting}\end{minipage}
 
 \end{enumerate}
-
-
-\LevelD{Homework Questions}
 
 \LevelD{Review Answers}
 \begin{enumerate}
 	\item c.
 	\item d.
-	\item \Code{cout << "Hello!" << endl << "Goodbye!";} or \Code{cout << "Hello!\\nGoodbye!";} (other similar answers are possible)
+	\item \Code{cout << "Hello!" << endl << "Goodbye!";} or
+	
+	\Code{cout << "Hello!\textbackslash nGoodbye!";} 
+	
+	(other similar answers are possible)
 	\item
-	\begin{lstlisting}
-	cout.fill('x');
-	cout.width(16);
-	cout << left << "Programming!";
-	\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+cout.fill('x');
+cout.width(16);
+cout << left << "Programming!";
+\end{lstlisting}\end{minipage}
 	\item \Code{cout << 124 << " " << 12.376 << " z " << 1000000 <<  " string";}
 	\item \Code{maroon blue}
 \end{enumerate}
-
-\LevelD{Homework Answers}
 
 \LevelD{Further Reading}
 
