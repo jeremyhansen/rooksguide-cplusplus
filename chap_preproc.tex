@@ -1,3 +1,7 @@
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+
 Preprocessor directives are lines of code that are executed before the compilation of the code begins. 
 These directives are like getting everyone in a room before starting a project or doing warmups before running a race. 
 One of the most frequently-used preprocessor directives is \Code{\#include}.
@@ -6,30 +10,30 @@ When we want to include in our code a system library or some other file, we use 
 The way we distinguish between including libraries and including files is with angle brackets and quotes, respectively. 
 For example, when we want to use objects like \Code{cout} or \Code{cin}, we need to include the \Code{iostream} library like so: 
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream> 
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 If we want to include a file, such as a file named \Code{myFile.h}, we can write: 
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include "myFile.h"
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 However, when we include files, they must be in the same directory as the file where the \Code{\#include} appears. 
 We discuss the Standard Template Library in Chapter \ref{chap_stl}, and include a short sample of other libraries below:
 
 \begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | p{0.8in} | p{2in} |}
+		\begin{tabular}{| l | p{1in} | p{1.8in} |}
 		\hline
 			\textbf{Library} & \textbf{Provides} & \textbf{Some common uses} \\ \hline
 			
-			\Code{<iostream>} & Input/output stream objects & \Code{cout}, \Code{cin}: see Chapters~\ref{chap_input}~and~\ref{chap_output} \\ \hline
+			\Code{<iostream>} & Input/output stream objects & \Code{cout}, \Code{cin} \newline \mbox{see Chapters~\ref{chap_input}~and~\ref{chap_output}} \\ \hline
 			\Code{<cstdlib>} & The C standard library & \Code{rand()}, \Code{abs()}, \Code{NULL} \\ \hline
-			\Code{<math>} & Mathematical functions & \Code{pow()}, \Code{sqrt()}, \Code{cos()}, \Code{tan()}, \Code{sin()}: see Chapter~\ref{chap_advancedarith} \\ \hline
-			\Code{<iomanip>} & Input/output manipulation & \Code{get\_money()}, \Code{get\_time()}, \Code{put\_time()} \\ \hline
-			\Code{<ctime>} & Time-related functions & \Code{clock()}, \Code{time()}, \Code{ctime()} \\ \hline
+			\Code{<cmath>} & Mathematical functions & \Code{pow()}, \Code{sqrt()}, \newline \Code{cos()}, \Code{tan()}, \Code{sin()}: \newline \mbox{see Chapter~\ref{chap_advancedarith}} \\ \hline
+			\Code{<iomanip>} & Input/output manipulation & \Code{set\_iosflags()}, \newline \Code{setfill()}, \newline \Code{setprecision()} \\ \hline
+			\Code{<ctime>} & Time-related functions & \Code{clock()}, \Code{time()} \\ \hline
 			\Code{<string>} & The \Code{string} class & See Chapter~\ref{chap_strings} \\ \hline
 			\Code{<fstream>} & File input and output streams & See Chapter~\ref{chap_file_io} \\ \hline
 				
@@ -41,11 +45,53 @@ We discuss the Standard Template Library in Chapter \ref{chap_stl}, and include 
 
 \LevelD{Review Questions}
 
-\LevelD{Homework Questions}
+\begin{enumerate}
+	\item 1. Which of the following demonstrate correct syntax for \Code{\#include} statements? (Note: some of these may be syntactically correct but not do what you would expect!)
+	
+	\begin{enumerate}
+		\item \Code{\#include <aFile.txt>}
+		\item \Code{\#include <iostream>;}
+		\item \Code{include <iostream>}
+		\item \Code{\#include myFile.txt;}
+		\item \Code{\#include "myFile.txt"}
+		\item \Code{\#include <cmath>;}
+		\item \Code{include <cmath>}
+		\item \Code{include "cmath"}
+		\item \Code{\#include <cmath>}
+		\item \Code{\#include (iostream);}
+		\item \Code{\#include <iostream>}
+	\end{enumerate}
+ 
+	\item Identify the the preprocessor statements in the following code:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <cstdlib>
+#include <iostream>
+using namespace std;
+int main(int argc, char *argv[])
+{
+  cout << "Included!" << endl;
+	return 0;
+}
+\end{lstlisting}\end{minipage}
+
+  \item Which library is required to use the \Code{cout} object?
+ 
+	\item Is \Code{using namespace std;} a preprocessor directive?
+ 
+	\item If you want to be able to use the funtion \Code{pow()}, which library do you need?
+
+\end{enumerate}
 
 \LevelD{Review Answers}
 
-\LevelD{Homework Answers}
+\begin{enumerate}
+	\item \textbf{a}, \textbf{e}, \textbf{i}, and \textbf{k}.
+	\item The first two lines are preprocessor directives.
+	\item The \Code{iostream} library.
+	\item No.
+	\item The \Code{cmath} library.
+\end{enumerate}
 
 \LevelD{Further Reading}
 
