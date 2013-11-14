@@ -13,8 +13,8 @@ Functions - review answers
 History - semi-final
 Input - review answers
 Loops - fix awkward linebreaking
-Output
-Pointers
+Output - semi-final
+Pointers - Add references
 Preproc
 Problems
 Separate
