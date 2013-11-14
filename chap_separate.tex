@@ -1,3 +1,7 @@
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+
 Separate compilation is the process of breaking a C++ program into separate files to improve organization. 
 Parts of the program can be spread out over a number of different files that are later compiled individually, then \Keyword{linked} using a linker to produce the final, working program. 
 When changes are made, only those files with changes need to be recompiled, the result of which can then be relinked with the previously-compiled files. 
@@ -14,33 +18,32 @@ In most code written by novice programmers, there will be only one \Code{class} 
 To use the \Code{class} in your code elsewhere, you should use \Code{\#include} followed by the file name in double quotes. 
 Here is an example of the contents of an interface file called \Code{student.h}:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
-
 using namespace std;
 
 class student
 {
 public:
-	student();
-	int getAge();
-	void setAge(int update);
-	int getID();
-	void setID(int update);
-	string getName();
-	void setName(string update);
+  student();
+  int getAge();
+  void setAge(int update);
+  int getID();
+  void setID(int update);
+  string getName();
+  void setName(string update);
 private:
-	int age;
-	int ID;
-	string name;
+  int age;
+  int ID;
+  string name;
 };
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 To use the \Code{student} class in some other source code file, that file should include the following line:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include "student.h" 
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The quotes around \Code{student.h} tell the compiler to find the header file in the same directory as the current file.
 
@@ -56,18 +59,18 @@ To avoid linker errors, your files should have safeguards to ensure that classes
 These safeguards are simple, and should be included in each header file. 
 For example, we place the following two lines at the top of the file \Code{student.h}:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #ifndef STUDENT_H // STUDENT_H could be anything 
 #define STUDENT_H // as long as it is unique to this file
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The following line should go at the end of the same file:
 
-\begin{lstlisting}
-#endif //STUDENT_H  a reminder about the #ifndef above 
-\end{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#endif //STUDENT_H - a reminder about the #ifndef above 
+\end{lstlisting}\end{minipage}
 
-These three lines do the following:
+The above three lines do the following:
 
 \begin{enumerate}
 \item Test if \Code{STUDENT\_H} has been previously \Code{\#define}d, usually because this header file has been \Code{\#include}d elsewhere.
@@ -77,7 +80,7 @@ These three lines do the following:
 
 Here is an example of what these lines look like alongside some actual code:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #ifndef STUDENT_H
 #define STUDENT_H
 
@@ -87,27 +90,62 @@ class student
 };
 
 #endif//STUDENT_H
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 Following this example will ensure that the \Code{student} class is only defined once.
 
 
-
-
-
-
 \LevelD{Review Questions}
 
-\LevelD{Homework Questions}
+\begin{enumerate}
+	\item What is a header file?
+
+	\item What file extension do we typically use for a C++ header file?
+
+	\item What file extension do we typically use for a C++ implementation file?
+
+  \item In which file would would you typically store an abstract data type's (ADT's) declaration?
+
+	\item How do you incorporate a header file named \Code{something.h} into a file named \Code{main.cpp}?
+
+	\item Do you incorporate an implementation file into your project the same way?
+
+	\item How do you prevent redeclaration of ADTs and functions in header files?
+\end{enumerate}
 
 \LevelD{Review Answers}
 
-\LevelD{Homework Answers}
+\begin{enumerate}
+	\item A header file stores the interface of an ADT
+
+	\item A header file ends in \Code{.h}
+
+	\item An implementation file ends in \Code{.cpp}
+
+	\item In the interface file
+
+	\item Add \Code{\#include "something.h"} alongside the other \Code{\#include} statements in \Code{main.cpp}.
+
+	\item No, the implementation file will automatically be compiled and linked by your development environment as long as the implementation file is in your project.
+
+	\item You prevent redeclaration by adding lines similar to the following to the top of your header file:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#ifndef SOMETHING_H
+#define SOMETHING_H
+\end{lstlisting}\end{minipage}
+
+\noindent Then add the following to the end of the header file:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#endif // SOMETHING_H
+\end{lstlisting}\end{minipage}
+
+\end{enumerate}
 
 \LevelD{Further Reading}
 
 \begin{itemize}
-\item \url{~}
-\item \url{~}
-\item \url{~}
+\item \url{http://elm.eeng.dcu.ie/~ee402/ee402notes/html/ch03s14.html}
+\item \url{http://web-ext.u-aizu.ac.jp/~fayolle/teaching/2012/C++/pdf/1-separate_compilation.pdf}
 \end{itemize}	
