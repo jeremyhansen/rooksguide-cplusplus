@@ -1,3 +1,7 @@
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
+
 
 Variables are extremely important to every programmer - they will be a critical part of your programming toolkit regardless of the language you use. 
 Very simply put, a variable is a space in memory that can store some range of values. 
@@ -46,9 +50,9 @@ A declaration is the program telling the computer ``save a place in memory for m
 
 A declaration for an integer variable named \Code{myVariable} looks like this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int myVariable;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The specific \Keyword{syntax}---the set of grammatical rules for the language---is important to follow when declaring variables.
 Notice that the first part (\Code{int}) is the data type of the variable.
@@ -57,10 +61,10 @@ The last part is the semicolon (\Code{;}) which signifies the end of a line.
 You can think of the semicolon in C++ as equivalent to a period at the end of a sentence; it is the end of a complete thought. 
 Note that you may declare several variables of the same data type together.  Consider this example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x, y, z;
 double a;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 The above example creates three variables of type \Code{int} named \Code{x}, \Code{y}, and \Code{z} and one variable of type \Code{double} named \Code{a}.  
 
@@ -71,10 +75,10 @@ Values can be immediately assigned to a variable at the time of its declaration.
 This is known as \Keyword{initializing} a variable.  
 To do this, the variable's name is followed by an equals sign (\Code{=}, the \Keyword{assignment operator}), the value, and a semicolon.  Consider this example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int x = 20;
 double a = 2.2;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
  
 Note that uninitialized variables can cause problems if they are used anywhere before they are assigned a value. 
 When a variable is declared, it contains whatever was already in that space of memory, which can give them unpredictable values. 
@@ -87,11 +91,11 @@ All assignment statements have the variable being assigned the value on the left
 Note that the expression on the right side of the assignment may contain arithmetic operations such as multiplication, division, addition, and subtraction, or even other variables.
 Consider the following example:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int a = 1, b = 2, x = 0, y = 0;
 x = a + b;
 y = x;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 % TODO: character values
 
@@ -103,50 +107,45 @@ y = x;
 	\item Declare three integer variables: \Code{sum}, \Code{a}, \Code{b}. Initialize the variables \Code{a} and \Code{b} to an appropriate integer and use an assignment statement to assign \Code{sum} the result of \Code{a} plus \Code{b}.
 	\item Declare a \Code{double} variable called \Code{number} and initialize it to $13.6$.
 	%\item Declare a variable of type \Code{char}, then give the char a character.
-\end{enumerate}
 
-\LevelD{Homework Questions}
-
-Create a program in which 3 variables are declared.
+\item Create a program in which 3 variables are declared.
 Create one \Code{float} named \Code{myFloat}, one \Code{int} named \Code{myInt}, and one \Code{double} named \Code{myDouble}.
 Initialize them to $3.14$, $3$, and $3.14159$, respectively. 
 %Then declare a variable of type \Code{char} named \Code{myChar}, and initialize it to the character B. 
+
+\end{enumerate}
 
 \LevelD{Review Answers}
 
 
 \begin{enumerate}
 	\item \Code{int a = 6;}
+	
 				\Code{int b = 0;}
 
 	\item	\Code{int sum, a = 6, b = 0;}
+	
 				\Code{sum = a + b;}
  
   \item \Code{double number = 13.6;}
-\end{enumerate}
-%4. 
-%	char myAlpha;
-%	myAlpha = 'A';
-	
-\LevelD{Homework Answers}
-
-\begin{lstlisting}
+  \item
+  
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int main()
 {
-	float myFloat = 3.14;
-	int myInt = 3;
-	double myDouble = 3.14159;
+  float myFloat = 3.14;
+  int myInt = 3;
+  double myDouble = 3.14159;
 
-	return 0;
+  return 0;
 }
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
-% 	char myChar = 'B';
+\end{enumerate}
 
 \LevelD{Further Reading}
 
 \begin{itemize}
 \item \url{http://www.cplusplus.com/doc/tutorial/variables/}
 \item \url{http://www.tutorialspoint.com/cplusplus/cpp_variable_types.htm}
-\item \url{~}
 \end{itemize}	
