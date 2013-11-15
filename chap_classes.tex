@@ -19,7 +19,7 @@ In the following sections we will show you how to use and define two types of AD
 \LevelD{\Code{struct}s}
 
 A common example of a \Code{struct} is a \Code{Point}. \Code{Point}s store \Code{int}, \Code{float}, or \Code{double} variables \Code{x} and \Code{y}, which represent the position of the \Code{Point} on the the X and Y axes on a coordinate plane. 
-Such a \Code{struct} might look like this:
+Such a \Code{struct} might look like this: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 struct Point
@@ -266,7 +266,8 @@ class Rectangle
 {
 public: 
   Rectangle();	//A default constructor
-  Rectangle(float userBase, float userHeight);	//Overloaded constructor
+  //Overloaded constructor
+  Rectangle(float userBase, float userHeight);	
   void setBase(float length); //These two lines are mutators
   void setHeight(float length);
   float getHeight();	//These two lines are accessors
@@ -333,10 +334,10 @@ struct personInfo
 Which of the following is the correct way to initialize the variables from the \Code{struct} above?
 
   \begin{enumerate}
-	\item \Code{personInfo info = \{"Michael", 1996, 3, 24, "sixteen"\};}
-	\item \Code{personInfo info = \{"Michael", 1996, March, 24, 16\};}
-	\item \Code{personInfo info = \{"Michael", 1996, "March", 24, 16\};}
-	\item \Code{struct info = \{"Michael", 1996, "March", 24, 16\};}
+	\item {\tiny \Code{personInfo info = \{"Michael", 1996, 3, 24, "sixteen"\};}}
+	\item {\tiny \Code{personInfo info = \{"Michael", 1996, March, 24, 16\};} }
+	\item {\tiny \Code{personInfo info = \{"Michael", 1996, "March", 24, 16\};}}
+	\item {\tiny \Code{struct info = \{"Michael", 1996, "March", 24, 16\};} }
   \end{enumerate}
 
 \item Write a program that can store information about animals in a zoo.
@@ -345,8 +346,10 @@ You should have a \Code{class} called \Code{Animal} and the following private va
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string name; // the name of the animal
-int pounds; // the number of pounds of food the animal eats
-char animalType; // the type of animal: 'h' for herbivore, 'c' for carnivore
+int pounds;  // number of pounds of food eaten
+char animalType; // the type of animal: 
+                 // 'h' for herbivore
+                 // 'c' for carnivore
 \end{lstlisting}\end{minipage}
 
 You should have public member functions that get and set each variable, and a function called \texttt{print()} that prints all the information about the animal.

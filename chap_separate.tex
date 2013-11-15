@@ -64,13 +64,13 @@ For example, we place the following two lines at the top of the file \Code{stude
 #define STUDENT_H // as long as it is unique to this file
 \end{lstlisting}\end{minipage}
 
-The following line should go at the end of the same file:
+The following line should go at the end of the same file: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #endif //STUDENT_H - a reminder about the #ifndef above 
 \end{lstlisting}\end{minipage}
 
-The above three lines do the following:
+\noindent The above three lines do the following:
 
 \begin{enumerate}
 \item Test if \Code{STUDENT\_H} has been previously \Code{\#define}d, usually because this header file has been \Code{\#include}d elsewhere.
@@ -78,7 +78,7 @@ The above three lines do the following:
 \item Close the \Code{\#ifndef} block. If \Code{STUDENT\_H} was previously defined, skip to the line after this one.
 \end{enumerate}
 
-Here is an example of what these lines look like alongside some actual code:
+\noindent Here is an example of what these lines look like alongside some actual code:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #ifndef STUDENT_H
@@ -92,7 +92,7 @@ class student
 #endif//STUDENT_H
 \end{lstlisting}\end{minipage}
 
-Following this example will ensure that the \Code{student} class is only defined once.
+This combination of preprocessor directives will ensure that the \Code{student} class is only defined once.
 
 
 \LevelD{Review Questions}

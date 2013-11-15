@@ -109,7 +109,7 @@ As you recall from earlier in the book, we used \Code{cin} with \Code{>>}, the \
 This is the operator we use when we would like get input from the keyboard and it is also used with \Code{ifstream} objects. 
 Once we have declared our variable of type \Code{ifstream} and opened a file, we can use it to input data. 
 Using this is very similar to \Code{cin} except we replace \Code{cin} with the name of our variable.
-For example:
+For example: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
 #include <iostream> 
@@ -142,7 +142,7 @@ We use the \Code{ofstream} class to output data to files.
 \Code{cout} outputs data to our screen whereas \Code{ofstream} stores data in files. 
 Just like \Code{cout}, \Code{ofstream} objects use \Code{<<}, the \Keyword{insertion operator}. 
 Using this is very similar to \Code{cout} except we replace the \Code{cout} with the name of our variable. 
-For example:
+For example: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
 #include <iostream> 
@@ -203,7 +203,7 @@ if (inFile.fail())
 \end{lstlisting}\end{minipage}
 
 This will warn the user if the file did not open correctly. 
-If the file did open correctly the program would continue without printing the error message.
+If the file \emph{did} open correctly, the program would continue without printing the error message.
 
 The next function is the \Code{eof()} (\textbf{e}nd \textbf{o}f \textbf{f}ile) function. 
 This function tests to see if the stream has reached the end of the file. 

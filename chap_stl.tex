@@ -24,7 +24,7 @@ For example, to link a student's identification number (an integer) and their gr
 std::pair<int,float> grades = { 112233, 3.81 };
 \end{lstlisting}\end{minipage}
 
-We can assign different values to the \Code{pair} later with the \Code{make\_pair} function:
+We can assign different values to the \Code{pair} later with the \Code{make\_pair} function: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 grades = std::make_pair(123450, 2.79);
@@ -137,7 +137,8 @@ arrayEnd = myArray.end();
 myIterator = myArray.begin();
 
 // Demonstrating random access
-std::cout << myIterator[1] << " " << myIterator[3] << std::endl;
+std::cout << myIterator[1] << " " 
+  << myIterator[3] << std::endl;
 
 // Demonstrating iterator comparisons
 if (myIterator < arrayEnd)
@@ -208,7 +209,7 @@ For example, you might choose to use a \Code{string} to reference a collection o
 std::map<std::string,int> students;
 \end{lstlisting}\end{minipage}
 
-Perhaps you want to create the object with some initial values:
+Perhaps you want to create the object with some initial values: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 std::map<std::string,int> students = 
@@ -236,7 +237,7 @@ std::cout << name << " is " << students[name]
 //Christine is 20 years old.
 \end{lstlisting}\end{minipage}
 
-New students may also be added in the following way:
+\noindent New students may also be added in the following way:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 students["June"] = 18;
@@ -272,5 +273,4 @@ for (auto& item : students)
 \begin{itemize}
 \item \url{http://en.wikipedia.org/wiki/Standard_Template_Library}
 \item \url{http://www.cplusplus.com/reference/stl/}
-\item \url{~}
 \end{itemize}	
