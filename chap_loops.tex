@@ -52,7 +52,7 @@ Do you have to?
 No, but some organization's coding standards might say otherwise, because it makes the code easier to read and edit.
 So remember, it's best to start with good habits early.
 
-Now, let's look at an actual example of a \Code{while} loop.
+Now, let's look at an actual example of a \Code{while} loop. \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int i = 10;	//initializes i at 10
@@ -72,20 +72,27 @@ cout << "Lift Off!";
 
 This code prints a countdown:
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-10
-9
-8
-7
-6
-5
-4
-3
-2
-1
-Lift Off!
-\end{lstlisting}\end{minipage}
+\noindent\Code{10}
 
+\noindent\Code{9}
+
+\noindent\Code{8}
+
+\noindent\Code{7}
+
+\noindent\Code{6}
+
+\noindent\Code{5}
+
+\noindent\Code{4}
+
+\noindent\Code{3}
+
+\noindent\Code{2}
+
+\noindent\Code{1}
+
+\noindent\Code{Lift Off!}
 
 \LevelD{\Code{do}-\Code{while} Loops}
 
@@ -119,7 +126,8 @@ In a \Code{do}-\Code{while} loop, the program checks the end condition after eac
 There's not a whole lot more to add then hasn't been stated in the while loop section, so here's an example.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-char cont; //short for continue; continue is a key word and can't be used
+char cont; // Short for continue; 
+           // continue is a key word and can't be used
 
 do {
   cout << "Go Cadets!\n";
@@ -148,8 +156,8 @@ while (temp != 0)
 	sum += temp;	
 	cout << endl << "total: " << sum << endl;	
   //asks user to input temp variable again
-	cout << "Add another number? If yes, input a nonzero integer. "
-    << "If no, input 0." << endl;	
+	cout << "Add another number? If yes, input "
+    << "a nonzero integer. If no, input 0." << endl;	
   cin >> temp;
 }
 \end{lstlisting}\end{minipage}
@@ -176,7 +184,7 @@ After that, it's whatever we've felt like putting in. With the \Code{for} loop, 
 A \Code{for} loop would would look something like this:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-for(IntializationExpression; TestExpression; UpdateExpression)
+for(Intialization; Test; Update)
 {
   something;
   something;
@@ -187,7 +195,7 @@ for(IntializationExpression; TestExpression; UpdateExpression)
 The \Code{for} loop by its nature lends itself to being a count-controlled loop.
 You use this kind of loop to count up (or down) each iteration until you get to the specified value. 
 
-Let's run through how a \Code{for} loop should run, following Figure \ref{fig-for-logic}.
+Let's run through how a \Code{for} loop should run, following the code below.
 Assuming everything is correct, you would initialize the first value to something such as an \Code{int counter} that is set to 1.
 The \Code{TestExpression} will include the same Boolean logic you would use in \Code{while} and \Code{do}-\Code{while} loops, so let's just say when \Code{counter} is less than or equal to 5, the loop will terminate.
 Finally, let's say  \Code{counter++} is the update expression.
@@ -202,7 +210,7 @@ In each iteration (unless you also decide to change \Code{counter} from the body
 \noindent This code corresponds to the logic in Figure \ref{fig-for-logic}:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-for(int counter = 1; i <= 5; i++)
+for(int counter = 1; counter <= 5; i++)
 {
   cout << i << endl;
 }
@@ -210,13 +218,15 @@ for(int counter = 1; i <= 5; i++)
 
 \noindent ...which produces the following output:
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-1
-2
-3
-4
-5
-\end{lstlisting}\end{minipage}
+\noindent\Code{1}
+
+\noindent\Code{2}
+
+\noindent\Code{3}
+
+\noindent\Code{4}
+
+\noindent\Code{5}
 
 \LevelD{Picking a Loop}
 
@@ -230,8 +240,8 @@ When choosing between a \Code{do}-\Code{while} and a \Code{while} loop, you shou
 
 Much like \Code{if} statements, loops can be nested within each other.
 Just remember to practice good formatting habits to keep the code from being too confusing.
-Take a look at the example below, then let's talk our way through it.
-
+Take a look at the example below, then let's talk our way through it. \nopagebreak[4]
+ 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 //a single day
 for(int hours = 0; hours < 24; hours++)	

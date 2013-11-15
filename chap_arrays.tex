@@ -14,12 +14,15 @@ char Scott[5];
 
 The \Code{char} is the data type for all elements in the array, \Code{Scott} is the name of the array (you can be as creative as you want with the name), and the 5 inside the square brackets represents the size of the array. 
 So \Code{char Scott[5]} can hold 5 pieces of data that are of type \Code{char}. 
-Look at the diagram below for assistance.
 
-% Insert diagram here
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.6\textwidth]{diagrams/array-diagram-1.pdf}
+  \caption{The array named \Code{Scott} has five spaces for \Code{char} data} \label{fig:array-diagram-1}
+\end{figure}
 
 When trying to visualize an array, think of a rectangle split up into as many pieces as the array has places to hold data.
-In the above diagram, the rectangle has five spaces, each of type \Code{char} awaiting some values. 
+In Figure \ref{fig:array-diagram-1}, the rectangle has five spaces, each of type \Code{char} awaiting some values. 
 
 In order to refer to the individual elements in an array, we start with the number 0 and count upwards. 
 We use \Code{[0]} to access the first element in the array, \Code{[1]} for the second, \Code{[2]} for the third, and so on. 
@@ -31,9 +34,14 @@ Scott[3] = 'Q';
 cout << Scott[3];
 \end{lstlisting}\end{minipage}
 
-The diagram below depicts how the computer interprets this.
+The diagram below depicts how the computer interprets this. \nopagebreak[4]
 
-% Insert diagram here
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.6\textwidth]{diagrams/array-diagram-2.pdf}
+  \caption{The fourth element of \Code{Scott} now contains \Code{'Q'}} \label{fig:array-diagram-2}
+\end{figure}
+
 
 You can also store values inside the array ahead of time when you declare the array. 
 To do so, you need to enclose the values of the appropriate type in brackets and separate the values with a comma. 
@@ -41,13 +49,10 @@ Below are two examples, one an array where each element is of type \Code{char} a
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 char Scott[5] = {'S', 'c', 'o', 't', 't'};	
-\end{lstlisting}\end{minipage}
-
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int John[5] = {99, 5, 1, 22, 7};
 \end{lstlisting}\end{minipage}
 	
-Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the \Keyword{null character}\footnote{Abbreviated NUL; Note that this is not the same as the NULL pointer described in Chapter \ref{chap_pointers}} or \Keyword{null terminator}. 
+Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the \Keyword{null character}\footnote{Abbreviated NUL; Note that this is not the same as the NULL pointer described in Chapter \ref{chap_pointers}.} or \Keyword{null terminator}. 
 The NUL character marks the end of the string. 
 In C++ the null character is \Code{'\textbackslash0'}. 
 Because the null character takes up one element in the array, any character array that is intended to be used as a string must be declared having a size one more than the longest string that you expect to store. 

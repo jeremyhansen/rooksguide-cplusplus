@@ -21,11 +21,11 @@ Additionally, the C++11 standard provides for the \Code{long long int} data type
 			\Code{bool} & 1 byte & \Code{true} or \Code{false} \\ \hline
 			\Code{char} & 1 byte & $-128$ to $127$ \\ \hline
 			\Code{short int} (\Code{short}) & 2 bytes & $-32,768$ to $32,767$ \\ \hline
-			\Code{int} & 4 bytes & $-2,147,483,648$ to $2,147,483,647$ \\ \hline
-			\Code{long int} (\Code{long} & 4 bytes & $-2,147,483,648$ to $2,147,483,647$ \\ \hline
-			\Code{float} & 4 bytes & See ``Floating-point Types'' below \\ \hline
-			\Code{double} & 8 bytes & See ``Floating-point Types'' below \\ \hline
-			\Code{long double} & 8 bytes & See ``Floating-point Types'' below \\ \hline
+			\Code{int} & 4 bytes & $-2,147,483,648$ to \newline $2,147,483,647$ \\ \hline
+			\Code{long int} (\Code{long}) & 4 bytes & $-2,147,483,648$ to \newline $2,147,483,647$ \\ \hline
+			\Code{float} & 4 bytes & See ``Floating-point Types'' \newline below \\ \hline
+			\Code{double} & 8 bytes & See ``Floating-point Types'' \newline below \\ \hline
+			\Code{long double} & 8 bytes & See ``Floating-point Types'' \newline below \\ \hline
 		\end{tabular}
 		\caption{Common data types and their ranges of values}
     \label{table-data-types}
@@ -63,13 +63,13 @@ The \Keyword{floating-point types} do not have unsigned versions, as the sign is
 \LevelD{Floating-point types}
 
 Floating-point types are used to represent numbers that are not whole integers. 
-For example:
+For example: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float f = 3.35;
 \end{lstlisting}\end{minipage}
 
-Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335 \times 10^{-2}$. 
+Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335~\times~10^{-2}$. 
 The first part, $335$, (sometimes called the \Keyword{coefficient} or \Keyword{significand}) is stored separately from the second part, $-2$, (called the \Keyword{exponent}). 
 The types can represent different ranges of significand and exponents, as shown in Table \ref{table-floating-point-types}.
 
@@ -93,7 +93,7 @@ The previous code that assigned a value to \Code{f} can also be written as:
 float f = 335e-2; // Sets f to 3.35
 \end{lstlisting}\end{minipage}
 
-Refer to Chapter \ref{chap_output} for a discussion on displaying \Code{float}s and \Code{double}s.
+%Refer to Chapter \ref{chap_output} for a discussion on displaying \Code{float}s and \Code{double}s.
 
 Both \Code{float} and \Code{double} include a few special values that represent non-numeric results, such as infinity, negative infinity, and \Code{NaN} (Not a Number).
 
@@ -202,7 +202,7 @@ We enclose the ``target'' type in parentheses (in this case, \Code{int}) and pla
 Doing this removes the warning that the compiler produces when it coerces the \Code{double} to \Code{int}. 
 The above still isn't quite what we want, though, since the individual \Code{double}s are converted to $3$ and $4$, respectively. 
 (Remember that converting from a \Code{double} to an \Code{int} drops the part after the decimal point rather than rounding!) 
-It would be better to convert the result of the addition, rather than the individual values, like this:
+It would be better to convert the result of the addition, rather than the individual values, like this: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int z = (int)(3.3 + 4.8); // z is set to 8
@@ -214,16 +214,16 @@ C++11 introduces the \Code{auto} data type, which leaves the determination of a 
 At compile time, the data type of the value that is assigned determines the data type that replaces the \Code{auto} type.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-auto myVar = 3; // myVar is an int
+auto myVar = 3;       // myVar is an int
 auto myVar2 = &myVar; // myVar2 is an int*
-auto myVar3 = 't'; // myVar3 is a char
+auto myVar3 = 't';    // myVar3 is a char
 \end{lstlisting}\end{minipage}
 
 The \Code{decltype} operator is another new feature, which extracts types from objects and is used in a similar way as \Code{auto}:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-auto myVar = 3; // myVar is an int
-decltype(myVar) myVar4; // myVar4 is an int
+auto myVar = 3;             // myVar is an int
+decltype(myVar) myVar4;     // myVar4 is an int
 decltype(myVar < 1) myVar5; // myVar5 is a bool
 \end{lstlisting}\end{minipage}
 
@@ -231,8 +231,8 @@ In these examples, it is easy to determine the types assigned to the variable, b
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 std::vector<int> v; // Create a vector of integers
-v.push_back(2); // Add 2 to the vector
-v.push_back(8); // Add 8 to the vector
+v.push_back(2); // Add an element containing 2 to the vector
+v.push_back(8); // Add an element containing 8 to the vector
 auto myIterator = v.begin();
 // The above is equivalent to:
 // std::vector<int>::iterator myIterator = v.begin();

@@ -65,7 +65,7 @@ These will be written inside parentheses immediately following your function's n
 Each parameter is in turn made up of a data type and a name like a variable declaration. 
 A comma separates function parameters and your declaration must end with a semicolon after the closing right parenthesis.
 
-Here is an example of a function declaration:
+\noindent Here is an example of a function declaration:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 //cost and price are parameters
@@ -81,16 +81,17 @@ Once the function call is made, the compiler takes the entered data and then use
 For your function call, write your function name followed by the variables or values you want to pass in.
 In a functiton call, it is not necessary to specifty the data types, as they are already understood.
  
-Here is an example of a function call:
+Here is an example of a function call: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
  
-double profit (int cost, double price); // function declaration (prototype)
+// function declaration (prototype)
+double profit (int cost, double price); 
+
 int main ()
 {
- 
   double a, b;
   int c;
   cout << "Enter the manufacturing cost of the item: ";
@@ -121,7 +122,7 @@ Notice that the semicolon is not necessary either after your heading or after yo
 The standard rules for semicolons apply within the body of the function, though.  
 What goes inside the function body depends completely on what you want the function to do. 
 You may declare variables to be used just in your function and can leave the function using \Code{return} statements at any time. 
-Below is an example of a function definition:
+Below is an example of a function definition:\nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting} 
 // function definition
@@ -167,8 +168,7 @@ The calculations might be performed elsewhere, but the results would be printed 
 Syntax for \Code{void} functions works in the same way as normal functions, but the keyword \Code{void} is written where the return data type would normally go. 
 The declaration, function call and definition for \Code{void} functions will follow the same format as other functions. 
 Note that, like other functions, there does not necessarily need to be parameters in a \Code{void} function.
-
-Here is an example of a simple void function declaration:
+Here is an example of a simple \Code{void} function declaration:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 void displayMessage();
@@ -208,7 +208,7 @@ Function names can be reused using this feature.
 Function name overloading eliminates problems associated with having multiple names for functions with similar purposes and can make the code both more understandable and more convenient for the programmer to write.
 
 Below is an example of an overloaded function name. 
-Notice that both functions have the same name, but different parameter types.
+Notice that both functions have the same name, but different parameter types. \nopagebreak[1]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int plus(int num, int numr);
@@ -216,7 +216,7 @@ float plus(float num, float numr);
 \end{lstlisting}\end{minipage}
 
 Here is an example of improper function overloading. 
-Simply changing the return type does not work, the parameters must be different!
+Simply changing the return type does not work---the parameters must be different!
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int plus(int num, int numr);
@@ -248,7 +248,7 @@ int main()
 The variable \Code{games} is a \Keyword{local variable} because it exists only within the local function, \Code{main()}. 
 It cannot be used anywhere outside \Code{main()} without some additional work (such as passing it by reference to a function). 
 Similarly, variables declared in other functions are not available to code in \Code{main()}. 
-Here is an example:
+Here is an example: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
@@ -285,13 +285,13 @@ While they might be close by, they do not share the same street.
 Global variables are quite different from local variables. 
 Global variables can be used by code anywhere within the program. 
 A global variable is declared outside of any function. 
-Using similar code as in the example above, we make the \Code{games} variable global:
+Using similar code as in the example above, we make the \Code{games} variable global: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
-
 using namespace std;
 
+int games;
 void my_games();
 void their_games();
 
@@ -316,10 +316,9 @@ void their_games()
 
 Both functions print the same variable, causing the program to produce the following output: 
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-5
-5
-\end{lstlisting}\end{minipage}
+\noindent\Code{5}
+
+\noindent\Code{5}
 
 To sum it up, local variables work only within the block of code that it is declared. 
 Global variables are declared outside functions, and can be used at any point in the program.
@@ -331,7 +330,7 @@ Global variables are declared outside functions, and can be used at any point in
 	\item What are the three parts of a function?
 	\item Can a \Code{void} function return a value?
 	\item How many functions can one program have?
-	\item What is the output of the following code snippet?
+	\item What is the output of the following code snippet? \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include<iostream>

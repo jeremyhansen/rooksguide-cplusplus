@@ -82,7 +82,7 @@ cout << v1 + v2 << endl;
 // Hello World
 \end{lstlisting}\end{minipage}
 
-\noindent Alternatively, a space can be added like so:
+\noindent Alternatively, a space can be added like so: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello", v2 = "World";
@@ -130,7 +130,7 @@ int spot = myString.find(" ");
 
 This code results in the value 5 being stored in the variable named \Code{spot} because the space character is stored at index 5 if you treat the string as an array, as shown in Figure \ref{fig:string-diagram}.
 
-\begin{figure}[tbh]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.7\textwidth]{diagrams/string-diagram.pdf}
   \caption{A \Code{string} viewed as an array} \label{fig:string-diagram} 
@@ -144,8 +144,9 @@ The \Code{find()} function can also search within a string from some arbitrary s
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString = "Hello World";
 int spot, spot2;
-spot = myString.find(" "); // found at index 5
-spot2 = myString.find("o", spot); // starting from index 5, found at index 7
+spot = myString.find(" "); // Found at index 5
+// Starting from index 5, found at index 7
+spot2 = myString.find("o", spot); 
 \end{lstlisting}\end{minipage}
 
 \noindent The second argument that is passed to the function (in this case, \Code{spot}) is the index at which you want to start your search.
@@ -163,7 +164,7 @@ spot2 = myString.rfind("o", spot);
 
 \noindent This function call to \Code{rfind()} uses the arguments \Code{"o"} and \Code{spot}.
 This stores the position of the first \Code{"o"} it comes across after going in reverse from the index stored in \Code{spot} (which contains 5).
-The last line would be equivalent to:
+The last line would be equivalent to: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 // starting from index 5, found at index 4
@@ -209,7 +210,7 @@ It must output the original data in the original order, and output the data once
 \item Write a game program where the user inputs 4 different words, then the user gets 4 guesses to guess all of the words they originally Entered. This program should run as many times as the user wants.
 \end{enumerate}
 
-\LevelD{Review Answers}
+%\LevelD{Review Answers}
 
 \LevelD{Further Reading}
 \begin{itemize}

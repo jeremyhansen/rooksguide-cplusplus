@@ -11,7 +11,7 @@ Several common comparison operators used in C++ are:
 
 \begin{table}[bh]
 	\centering
-		\begin{tabular}{| c | p{3in} |}
+		\begin{tabular}{| c | p{3.5in} |}
 		\hline
 			\textbf{Symbol} & \textbf{Meaning} \\ \hline
 			\Code{==} & Is equal to \\ \hline
@@ -29,7 +29,7 @@ Several common comparison operators used in C++ are:
 \LevelD{\Code{if}, \Code{else}, and \Code{else if}}
 
 The most popular conditional is the \Code{if} statement. 
-An \Code{if} statement looks like this:
+An \Code{if} statement looks like this: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if(variable == variable2)
@@ -62,12 +62,11 @@ if (variable == variable2)
 
 A demonstration of an if statement is shown in Figure \ref{fig-if-flowchart}.
 
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{diagrams/if-flow.pdf}\\
-\caption{General \Code{if} and \Code{else} statement flow of execution}
-\label{fig-if-flowchart}
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.7\textwidth]{diagrams/if-flow.pdf}
+  \caption{General \Code{if} and \Code{else} statement flow of execution} \label{fig-if-flowchart}
 \end{figure}
-
 
 An \Code{else} statement may be placed after an if statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
 For example:
@@ -98,15 +97,15 @@ Take a look at Figure \ref{fig-else-if-flowchart} for a flowchart example.
 % ^ I (Levi) personally think this is being taught wrong.
 
 
-% \label{fig-else-if-flowchart}
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{diagrams/if-else.pdf}\\
-\caption{How \Code{if}-\Code{else} chaining works}
-\label{fig-else-if-flowchart}
-%TODO: Get this figure to be consistent with the style.
-\end{figure}
 
-Here's what the three statements would look like all together:
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.7\textwidth]{diagrams/if-else.pdf}
+  \caption{How \Code{if}-\Code{else} chaining works} \label{fig-else-if-flowchart}
+\end{figure}
+%TODO: Get this figure to be consistent with the style.
+
+Here's what the three statements would look like all together: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if(a == b)
@@ -128,7 +127,7 @@ Conditional expressions also appear in loops (discussed in Chapter \ref{chap_loo
 
 \LevelD{\Code{switch} statements}
 
-\Code{switch} statements (also sometimes called switch-case statements) make a menu-like set of blocks. 
+\Code{switch} statements (also sometimes called \Code{switch}-\Code{case} statements) make a menu-like set of blocks. 
 It does the same job as many \Code{if} statements, but can simplify the job when used correctly. 
 Here is an example:
 
@@ -148,10 +147,11 @@ switch(variable):
 // Resume here after a break
 \end{lstlisting}\end{minipage}
 
-If \Code{variable} is equal to 1 then the code following \Code{case 1:} will be executed, if it is equal to 2, then the code following \Code{case 2:} will be executed, and if it is equal to neither, then the code following \Code{default:} will be executed. 
-The cases are separated by \Code{break;}, which forces the code to leave the \Code{switch} statement's block of code.
+If \Code{variable} is equal to 1 then the code following \Code{case 1:} will be executed.
+If it is equal to 2, then the code following \Code{case 2:} will be executed, and if it is equal to neither, then the code following \Code{default:} will be executed. 
+The cases are separated by the \Code{break} statement, which forces the code to leave the \Code{switch} statement's block of code.
 
-This code:
+This code: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 switch(variable)
@@ -170,7 +170,7 @@ switch(variable)
 }
 \end{lstlisting}\end{minipage}
 
-\noindent is equivalent to this code:
+\noindent is equivalent to this code: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == 1)
@@ -231,11 +231,13 @@ int main()
   switch(choice)
   {
     case 1:
-	    cout << "The result of this addition is " << a + b << endl << endl;
+	    cout << "The result of this addition is " 
+	      << a + b << endl << endl;
 	    break;
 
     case 2:
-	    cout << "The result of this subtraction is " << a - b << endl << endl;
+	    cout << "The result of this subtraction is "
+	      << a - b << endl << endl;
 	    break;
 
     case 3:
@@ -285,7 +287,7 @@ else
 
 \end{enumerate}
 
-%\LevelD{Review Answers}
+\LevelD{Review Answers}
 
 \begin{enumerate}
 \item \Code{b is greater than a.}
@@ -311,11 +313,11 @@ int main()
 
 \end{enumerate}
 
-\LevelD{Further Reading}
-
-\begin{itemize}
-\item ~
-\item ~
-\item ~
-\end{itemize}	
+%\LevelD{Further Reading}
+%
+%\begin{itemize}
+%\item ~
+%\item ~
+%\item ~
+%\end{itemize}	
 
