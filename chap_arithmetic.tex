@@ -12,20 +12,20 @@ To a computer, its ability to do math and manipulate numbers is as essential to 
 The operators (\Code{+}, \Code{-}, \Code{*}, \Code{/}) in C++ are slightly different from what you may be used to from your second-grade math class. 
 Addition is still a plus sign ( \Code{+} ) and subtraction is still a minus sign ( \Code{-} ). 
 On the other hand, multiplication becomes an asterisk ( \Code{*} ) and division becomes a forward slash ( \Code{/} ). 
-Think of it as \textit{over} as in ``5 over 9'' is the same as the fraction $5/9$ or $\frac{5}{9}$.
+Think of the forward slash as \textit{over} as in ``5 over 9'' is the same as the fraction $5/9$ or $\frac{5}{9}$.
 
 To do math in C++, you will either want a variable to store the answer, or output the answer to the user. 
 
 The following code directly outputs the answer to the user: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-cout << 9 + 2;
+cout << 9 + 2; // Prints 11
 \end{lstlisting}\end{minipage}
 
 This code shows how to use a variable to store the answer: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-int sum = 9 + 2;
+int sum = 9 + 2; // sum now holds 11
 \end{lstlisting}\end{minipage}
 
 Note that when you use a variable to store an answer, the variable must come first in the equation (before the equal sign) and must be the only thing on the left side of the equation. 
@@ -33,9 +33,11 @@ There are some other things to note.
 When you use more complicated equations, you can use parentheses to help. 
 C++ uses a familiar order of operations (Parentheses, Exponents, Multiply, Divide, Add, and Subtract, or PEMDAS), but without the exponent operation (this topic is covered in Chapter~\ref{chap_advancedarith}). 
 However, unlike in normal arithmetic, parentheses do not imply multiplication. 
-\Code{(4)(3)} does not mean the same as \Code{4~*~3}. 
-\Code{(4)(3)} results in a syntax error and does not compile. 
-The compiler returns an error message like this: \Code{'error: '4' cannot be used as a function.'}
+For example, \Code{(4)(3)}, which we might expect to mean ``4 times 3'' does not mean the same as \Code{4~*~3}, the correct syntax. 
+The expression \Code{(4)(3)} results in a syntax error and will not compile. 
+The compiler returns an error message like this: 
+
+\Code{'error: '4' cannot be used as a function.'}
 
 In C++, there are several methods of shortening and simplifying the code you're creating. 
 The first is the increment operator ( \Code{++} ), which is found in the name of the language, C++.
@@ -105,6 +107,7 @@ This is impossible with this method, as \texttt{X /= Y} is equivalent to \texttt
 			\Code{B -= 5;} & \Code{B = B - 5;} \\ \hline
 			\Code{C /= 10;} &	\Code{C = C / 10;} \\ \hline
 		\end{tabular}
+		\caption{Examples of compound assignment updates}
 \end{table}
 
 Here is some sample code using the concepts we presented in this chapter: \nopagebreak[4]
@@ -203,10 +206,10 @@ cout << "d=" << d << endl;
 \item What is the output of the following code? \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-int m=3, n=2, x, y;
+int m = 3, n = 2, x, y;
 x = m + 5;
 m--;
-y = (m+4) / 3;
+y = (m + 4) / 3;
 n = n + 2;
 m = m + n / 2;
 m++;
@@ -233,38 +236,40 @@ cout << a;
 \end{lstlisting}\end{minipage}
 
 \item 
+\noindent\Code{3}
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-3
-15
-5
-\end{lstlisting}\end{minipage}
+\noindent\Code{15}
 
-\item
+\noindent\Code{5}
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-132
-66
-198
-\end{lstlisting}\end{minipage}
 
 \item
+\noindent\Code{132}
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-a=5
-b=6
-c=16
-d=5
-\end{lstlisting}\end{minipage}
+\noindent\Code{66}
+
+\noindent\Code{198}
 
 \item
+\noindent\Code{a=5}
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-m=5
-n=16
-x=13
-y=4
-\end{lstlisting}\end{minipage}
+\noindent\Code{b=6}
+
+\noindent\Code{c=16}
+
+\noindent\Code{d=5}
+
+
+\item
+\noindent\Code{m=5}
+
+\noindent\Code{n=16}
+
+\noindent\Code{x=13}
+
+\noindent\Code{y=4}
+
+
 \end{enumerate}
 
 \LevelD{Further Reading}
