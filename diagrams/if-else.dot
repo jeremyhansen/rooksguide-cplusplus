@@ -17,9 +17,9 @@ digraph ifelse {
 	subgraph {
 		rank=same;
 		node [shape=box];
-		code [label="puts \"They are the same!\""];
-		code2 [label="puts \"a is bigger\""];
-		code3 [label="puts \"a is smaller\""];
+		code [label="Outputs \"They are the same!\""];
+		code2 [label="Outputs \"a is bigger\""];
+		code3 [label="Outputs \"a is smaller\""];
 	}
 	
 
