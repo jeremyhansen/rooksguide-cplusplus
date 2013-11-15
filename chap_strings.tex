@@ -1,24 +1,27 @@
-% Strings
+% This work by Jeremy A. Hansen is licensed under a Creative Commons 
+% Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
+% as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
 Let's discuss strings.
 Strings are a data type typically used to hold a collection of printable characters such as words, sentences, or longer sequences.
 In order to use strings in your program you must first include the string library:
-\begin{lstlisting}
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
 using namespace std;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \noindent Also note that a string, for convenience, can be treated like an array of individual characters.
 
 When we declare variables of type \Code{string}, we declare them just like we would an \Code{int}, \Code{float}, or \Code{double}.
 We can create a variable named \Code{myString} of type string by doing this:
 
-\begin{lstlisting}
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
 using namespace std;
 
 string myString;
-\end{lstlisting}
+\end{lstlisting}\end{minipage}
 
 \noindent If you choose not to have \Code{using namespace std;} in your code, the variable \Code{myString} must be declared as follows:
 
@@ -121,15 +124,21 @@ cout << "The string you entered was "
 For example, if we wanted to find a single space in a string variable named \Code{myString} that contains ``Hello World'', we would do this:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-string myString = "Hello World";
+string myString = ;
 int spot = myString.find(" ");
 \end{lstlisting}\end{minipage}
 
-This code results in the value 5 being stored in the variable named \Code{spot} because the space character at index 5 if you treat the string as an array, as shown in Figure \ref{fig-stringfind}.
-% TODO: Where did this figure come from? It was referenced in the text, but no such graphics or figures were presented.
+This code results in the value 5 being stored in the variable named \Code{spot} because the space character is stored at index 5 if you treat the string as an array, as shown in Figure \ref{fig:string-diagram}.
+
+\begin{figure}[tbh]
+  \centering
+  \includegraphics[width=0.7\textwidth]{diagrams/string-diagram.pdf}
+  \caption{A \Code{string} viewed as an array} \label{fig:string-diagram} 
+\end{figure}
+
 Remember that we start at index 0, so even though the space is in the sixth position, it is at index 5 in the string.
 When a line of text is stored in a string, think of it as being stored in memory in an array of the same length as there are characters in the string.
-For example, the string ``Hello World'' can be contained in an array with 11 slots, therefore the space character would be found in \Code{myString[5]}.
+For example, the string \Code{"Hello World"} can be contained in an array with 11 slots, therefore the space character would be found in \Code{myString[5]}.
 The \Code{find()} function can also search within a string from some arbitrary starting point, instead of from the beginning:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -148,15 +157,17 @@ If we wanted to find the single character string \Code{"o"} before the space we 
 string myString = "Hello World";
 int spot, spot2;
 spot = myString.rfind(" "); // found at index 5
-spot2 = myString.rfind("o", spot); // starting from index 5, found at index 4
+// starting from index 5, found at index 4
+spot2 = myString.rfind("o", spot); 
 \end{lstlisting}\end{minipage}
 
 \noindent This function call to \Code{rfind()} uses the arguments \Code{"o"} and \Code{spot}.
 This stores the position of the first \Code{"o"} it comes across after going in reverse from the index stored in \Code{spot} (which contains 5).
-This would be equivalent to the last line:
+The last line would be equivalent to:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-spot2 = myString.rfind("o", 5); // starting from index 5, found at index 4
+// starting from index 5, found at index 4
+spot2 = myString.rfind("o", 5); 
 \end{lstlisting}\end{minipage}
 
 \noindent Both of these function calls will start searching for the string \Code{"o"} backwards from the same spot in the string, at index 5. 
@@ -164,8 +175,8 @@ spot2 = myString.rfind("o", 5); // starting from index 5, found at index 4
 Sometimes the string you search for cannot be found, as in this example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-	string myString = "Hello World";
-	int spot = myString.find("Q"); // No Q in this string!
+string myString = "Hello World";
+int spot = myString.find("Q"); // No Q in this string!
 \end{lstlisting}\end{minipage}
 
 \noindent In this case, the \Code{find()} (or \Code{rfind()}, for that matter) returns a special value named \Code{string::npos}.
@@ -178,9 +189,9 @@ cin >> userInput;
 spot = userInput.find("Z");
 
 if (spot == string::npos)
-	cout << "There was no Z in what you typed!" << endl;
+  cout << "There was no Z in what you typed!" << endl;
 else
-	cout << "The first Z was in position " << spot << endl;
+  cout << "The first Z was in position " << spot << endl;
 \end{lstlisting}\end{minipage}
 \LevelD{Review Questions}
 \begin{enumerate}
@@ -189,23 +200,16 @@ else
 \item When do you use a \Code{string}?
 \item What is the \Code{\#include} needed to use \Code{string}s?
 \item What function do you have to use to take an input with a space?
-\end{enumerate}
-
-\LevelD{Homework Questions}
-\begin{enumerate}
 \item Write code that takes in 5 words and outputs each of them 4 times.
 
 \item Write a program that takes in the following words: King, Queen, Knight, Bishop, Rook, Pawn. 
 Then it has to switch the King with the Pawn, the Rook with the Queen, and the Bishop with the Knight.
 It must output the original data in the original order, and output the data once it is all finished.
 
-\item Write a game program where the user inputs 4 different words, then the user gets 4 guesses to guess all of the words they originally inputted.
-This program should run as many times as the user wants.
+\item Write a game program where the user inputs 4 different words, then the user gets 4 guesses to guess all of the words they originally Entered. This program should run as many times as the user wants.
 \end{enumerate}
 
 \LevelD{Review Answers}
-
-\LevelD{Homework Answers}
 
 \LevelD{Further Reading}
 \begin{itemize}

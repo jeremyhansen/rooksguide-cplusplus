@@ -17,7 +17,7 @@ Output - semi-final
 Pointers - Add references
 Preproc - add references
 Problems - add review answers
-Separate
-STL
-Strings
+Separate - semi-final
+STL - Review questions
+Strings - review answers
 Variables
