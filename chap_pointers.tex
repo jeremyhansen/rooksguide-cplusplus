@@ -33,9 +33,7 @@ It ``follows'' the address stored in the pointer and returns whatever is in that
 
 The \Code{\&} operator is the \Keyword{reference operator}. 
 The dereference operator returns the memory address of the variable it precedes. 
-You will use this to produce a pointer to the indicated variable.
-
-Let's declare pointer \Code{p} and use it:
+You will use this to produce a pointer to the indicated variable. Let's declare pointer \Code{p} and use it:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int *p;       // Declare an int pointer
@@ -59,7 +57,7 @@ p = &var1; // Take the address of var1 and store it in p
 *p = var2; // Go to the address stored in p; 
            // assign it the value stored in var2
 
-// The preceding two lines equivalent are to var1 = var2
+// The preceding two lines are equivalent to var1 = var2
 cout << *p << endl;
 cout << var1 << endl;
 cout << var2 << endl;

@@ -63,9 +63,7 @@ Remember that you will be using it again later in your code, so it makes sense t
 Now that you have your data type and your function name, it's time for zero or more function \Keyword{parameters}. 
 These will be written inside parentheses immediately following your function's name. 
 Each parameter is in turn made up of a data type and a name like a variable declaration. 
-A comma separates function parameters and your declaration must end with a semicolon after the closing right parenthesis.
-
-\noindent Here is an example of a function declaration:
+A comma separates function parameters and your declaration must end with a semicolon after the closing right parenthesis. Here is an example of a function declaration:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 //cost and price are parameters
@@ -81,12 +79,12 @@ Once the function call is made, the compiler takes the entered data and then use
 For your function call, write your function name followed by the variables or values you want to pass in.
 In a functiton call, it is not necessary to specifty the data types, as they are already understood.
  
-Here is an example of a function call: \nopagebreak[4]
+\noindent Here is an example of a function call: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
- 
+
 // function declaration (prototype)
 double profit (int cost, double price); 
 
@@ -147,7 +145,6 @@ In the following example we will use the \Code{sqrt()} function to calculate the
 #include <iostream>
 #include <cmath>
 using namespace std;
- 
 int main()
 {
   double num;
@@ -179,7 +176,6 @@ Here is an example of a definition, declaration, and how this function would be 
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
-
 using namespace std;
 
 void displayMessage();
@@ -240,7 +236,6 @@ A simple example is a variable declared in \Code{main()}:
 int main()
 {
   int games;
-  // Other code here
   return 0;
 }
 \end{lstlisting}\end{minipage}
@@ -252,7 +247,6 @@ Here is an example: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
-
 using namespace std;
 	
 void my_games();
@@ -260,7 +254,6 @@ void my_games();
 int main()
 {
   my_games();
-  // More code here
   cout << games; // ERROR! No such variable here!
   return 0;
 }

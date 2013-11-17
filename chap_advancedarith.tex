@@ -12,10 +12,9 @@ x = 1;
 x += 5;
 \end{lstlisting}\end{minipage}
 
-	The variable \Code{x} is declared as an integer. 
-	The next line sets it to one. 
-	The \Code{+=} operator adds five to \Code{x}, which makes \Code{x} contain six.
-	
+The variable \Code{x} is declared as an integer. 
+The next line sets it to one. 
+The \Code{+=} operator adds five to \Code{x}, which makes \Code{x} contain six.	
 Doing simple operations like these does not require any special libraries or unusual commands. 
 Any compiler can look at a \Code{+}, \Code{-}, \Code{*}, or \Code{/} in a line of code and know exactly what the programmer 
 expects to happen. 
@@ -149,29 +148,21 @@ This program uses the modulo operator to find all prime numbers (all the numbers
 using namespace std;
 int main()
 {
-  int testprime = 0, divby = 0, remainder = 0;
-  bool isprime;
-  cout << "Prime Number Finder" << endl;
-  while(testprime < 2147483647) // The maximum for int
+  int divby, remainder;
+  for (int test = 1; test < 2147483647; test++)
   {
-    isprime = true;
-    testprime++;
-    for(divby = 2; divby < testprime; divby++)
-    {
-      // Store the remainder of the current number 
-      // when divided by divby
-      remainder = testprime % divby; 
+    bool isprime = true;
+    for(divby = 2; divby < test; divby++)
+    { // Store the remainder of testprime/divby
+      remainder = test % divby; 
       if (remainder == 0) // If the number is not prime
       {
         isprime = false;
-        break;
+        break; // Leave the for loop
       }
     }
     if (isprime) // If it passes the test, it is prime.
-    {
-      // Tell us what the prime number is.
-      cout << " " << testprime; 
-    }
+      cout << " " << testprime; // Print the prime
   }
 	return 0;
 }

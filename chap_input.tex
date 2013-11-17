@@ -2,7 +2,7 @@
 % Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
 % as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
-When a programmer wants a user to enter data, such as the price of an item, he or she will use the \Code{cin} object, pronounced ``see-in'', in conjunction with \Code{>>}, the \Keyword{redirect operator} in the program. 
+When a programmer wants a user to enter data, such as the price of an item, he or she will use the \Code{cin} object, pronounced ``see-in'', in conjunction with \Code{>>}, the \Keyword{extraction operator} in the program. 
 Let us look at the following code:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -41,7 +41,7 @@ int main()
 
 \noindent \Code{Please enter a value for x: }
 
-\noindent Suppose the user enters a value of 1 for x.
+\noindent Suppose the user enters a value of 1 for x. The output that follows is:
 
 \noindent \Code{The value of x is: 1}
 
@@ -102,7 +102,6 @@ They will get slightly more complicated after we introduce \Code{string}s, array
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
-
 int main()
 {
   int x = 0;

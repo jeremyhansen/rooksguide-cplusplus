@@ -43,16 +43,16 @@ while (BooleanExpression)
 \end{lstlisting}\end{minipage}
 
 The important thing to remember here is to be sure you have some statement to eventually allow the loop to exit.
-When the Boolean expression is false, remember, the loop is finished.
+When the Boolean expression is \Code{false}, remember, the loop is finished.
 
 Also, note that, like an \Code{if} statement, the braces are not necessary if there is only one statement following the line with the \Code{while} keyword and Boolean expression.
 Is it recommended to use the braces with only one statement?
 For your own sanity, and that of others reading your code, yes.
 Do you have to?
-No, but some organization's coding standards might say otherwise, because it makes the code easier to read and edit.
+No, but some organizations' coding standards might say otherwise, because it makes the code easier to read and edit.
 So remember, it's best to start with good habits early.
 
-Now, let's look at an actual example of a \Code{while} loop. \nopagebreak[4]
+\noindent Let's look at an actual example of a \Code{while} loop. \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int i = 10;	//initializes i at 10
@@ -70,7 +70,7 @@ while(i>=0)
 cout << "Lift Off!";
 \end{lstlisting}\end{minipage}
 
-This code prints a countdown:
+\noindent The above code prints a countdown:
 
 \noindent\Code{10}
 
@@ -98,7 +98,7 @@ This code prints a countdown:
 
 Remember how the \Code{while} loop is known as a pretest loop?
 Well, a \Code{do}-\Code{while} loop is known as a \Keyword{post-test loop} for a similar reason.
-Let's take a look at the flowchart in Figure \ref{fig-do-while-logic} and take a guess.
+Let's take a look at the flowchart in Figure \ref{fig-do-while-logic} and take a guess as to why.
 
 \begin{figure}[tbh]
   \centering
@@ -107,7 +107,7 @@ Let's take a look at the flowchart in Figure \ref{fig-do-while-logic} and take a
 \end{figure}
 
 Post-test loops perform the statements in the body of the loop \emph{before} it tests the end condition.
-Let's look how this will affect the syntax you will use when implementing the loop.
+Let's look at how this will affect the syntax you will use when implementing the loop.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 do
@@ -210,9 +210,9 @@ In each iteration (unless you also decide to change \Code{counter} from the body
 \noindent This code corresponds to the logic in Figure \ref{fig-for-logic}:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-for(int counter = 1; counter <= 5; i++)
+for(int counter = 1; counter <= 5; counter++)
 {
-  cout << i << endl;
+  cout << counter << endl;
 }
 \end{lstlisting}\end{minipage}
 
@@ -261,7 +261,7 @@ for(int hours = 0; hours < 24; hours++)
 \end{lstlisting}\end{minipage}
 
 For those readers who concluded that this is a clock simulation, you are correct!
-Our system of time is set up that we have 24 hours in a day, and each hour needs to go through a 60 minute cycle, and each minute has a 60 second cycle.
+Our system of time is set up that we have 24 hours in a day, and each hour is a 60 minute cycle, and each minute is a 60 second cycle.
 The code mimics this by advancing the seconds 60 times before advancing each minute.
 After 60 minutes, the hour counter loop is incremented. Each time an outer loop starts another iteration, variables inside the inner loops are reset.
 
@@ -269,9 +269,8 @@ After 60 minutes, the hour counter loop is incremented. Each time an outer loop 
 
 Remember to have some way of advancing towards the end condition.
 What will happen if you can't reach that end condition from within the loop?
-Most likely an infinite loop will occur. And what exactly is an infinite loop?
-If you said it's a loop that can't stop itself, then you would be right.
-Depending on the operation of the loop, you may not know what is happening, and this could potentially cause disastrous results.
+Most likely an infinite loop will occur, which is a loop that can't stop itself.
+Depending on the operation of the loop, you may not know what is happening, and the loop could potentially cause disastrous results.
 Let's look at an example of a \Code{while} loop that suffers from an infinite loop.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -311,7 +310,6 @@ for(int j = 10, j > 0, j--)
 
 \item In the last question, was the loop an event-controlled loop or count-controlled loop?
 \end{enumerate}
-
 
 \LevelD{Review Answers}
 \begin{enumerate}
@@ -364,14 +362,9 @@ for (int j = 10; j > 0; j--)
 
 
 \LevelD{Further Reading}
-Basic Loops:
 \begin{itemize}
 \item \url{http://www.cplusplus.com/doc/tutorial/control/}
 \item \url{http://www.cprogramming.com/tutorial/lesson3.html}
-\end{itemize}
-
-\noindent Ranged-Based Loops
-\begin{itemize}
 \item \url{http://www.cprogramming.com/c++11/c++11-ranged-for-loop.html}
 \end{itemize}
 

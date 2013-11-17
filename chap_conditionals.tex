@@ -5,9 +5,7 @@
 %Conditionals
 
 Conditionals are used to direct the program to different sections of code. 
-In plain English, we might have a statement ``If X is greater than Y, do this...''
-
-Several common comparison operators used in C++ are:
+In plain English, we might have a statement ``If X is greater than Y, do this...'' Conditionals direct the program to behave differently depending on the results of a comparison. Several common comparison operators used in C++ are:
 
 \begin{table}[bh]
 	\centering
@@ -60,15 +58,13 @@ if (variable == variable2)
   cout << "Yes!";
 \end{lstlisting}\end{minipage}
 
-A demonstration of an if statement is shown in Figure \ref{fig-if-flowchart}.
-
 \begin{figure}[tbh]
   \centering
   \includegraphics[width=0.7\textwidth]{diagrams/if-flow.pdf}
   \caption{General \Code{if} and \Code{else} statement flow of execution} \label{fig-if-flowchart}
 \end{figure}
 
-An \Code{else} statement may be placed after an if statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
+An \Code{else} statement may be placed after an \Code{if} statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
 For example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -149,9 +145,7 @@ switch(variable):
 
 If \Code{variable} is equal to 1 then the code following \Code{case 1:} will be executed.
 If it is equal to 2, then the code following \Code{case 2:} will be executed, and if it is equal to neither, then the code following \Code{default:} will be executed. 
-The cases are separated by the \Code{break} statement, which forces the code to leave the \Code{switch} statement's block of code.
-
-This code: \nopagebreak[4]
+The cases are separated by the \Code{break} statement, which forces the code to leave the \Code{switch} statement's block of code. This code: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 switch(variable)
@@ -175,7 +169,7 @@ switch(variable)
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == 1)
 {
-  cout <<  "You picked  case 1. Lame.";
+  cout <<  "You picked case 1. Lame.";
 }
 else if (variable == 2)
 {
@@ -215,7 +209,6 @@ Compiling and running the following code results in the output in Table \ref{tab
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
-
 int main()
 {
   int choice;
@@ -296,7 +289,6 @@ else
 \item \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
-
 int main()
 {
   int input1, input2;

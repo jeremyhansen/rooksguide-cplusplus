@@ -16,7 +16,7 @@ The process of separate compilation requires the two sections to be split into s
 Declarations will be put into the \Keyword{interface} file or the \Keyword{header file} which typically has a \Code{.h} suffix.
 In most code written by novice programmers, there will be only one \Code{class} declaration in each header file. 
 To use the \Code{class} in your code elsewhere, you should use \Code{\#include} followed by the file name in double quotes. 
-Here is an example of the contents of an interface file called \Code{student.h}:
+Below is an example of the contents of an interface file called \Code{student.h}.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
@@ -64,7 +64,7 @@ For example, we place the following two lines at the top of the file \Code{stude
 #define STUDENT_H // as long as it is unique to this file
 \end{lstlisting}\end{minipage}
 
-The following line should go at the end of the same file: \nopagebreak[4]
+\noindent The following line should go at the end of the same file: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #endif //STUDENT_H - a reminder about the #ifndef above 

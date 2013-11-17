@@ -80,8 +80,8 @@ float *fPtr;
 fPtr = new float;
 *fPtr = 2.2; // (6) Goes to the address at fPtr and stores 2.2 there
 cout << "Data at " << fPtr << ": " << *fPtr << endl;
-delete fPtr; // (7) Frees up the dynamically-allocated memory 
-// at the address stored in fPtr
+delete fPtr; // (7) Frees up the dynamically-allocated
+             // memory at the address stored in fPtr
 \end{lstlisting}\end{minipage}
 
 At this point in the code, \Code{fPtr} can be referred to as a \Keyword{dangling pointer}, since the memory location it refers to is no longer valid, and the pointer just ``dangles'' there, pointing to nothing useful. 
@@ -94,7 +94,8 @@ At this point in the code, \Code{fPtr} can be referred to as a \Keyword{dangling
 \noindent Arrays can be dynamically allocated, too:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-float *fPtr = new float[10]; // Allocate an array of ten floats and store their location in fPtr
+float *fPtr = new float[10]; // Allocate an array of ten
+              // floats and store their location in fPtr
 \end{lstlisting}\end{minipage}
 
 \noindent Arrays must be deleted in a similar fashion, but the syntax changes slightly:

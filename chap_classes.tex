@@ -50,15 +50,15 @@ For example, if we wanted to set \Code{x} in \Code{input}, we would use the dot 
 input.x = 5;
 \end{lstlisting}\end{minipage}
 
-\LevelD{Initializing member variables}
+%\LevelD{Initializing member variables}
 
 % TODO: Add more here
 
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-Point input(3, 6); 
-\end{lstlisting}\end{minipage}
+%\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+%Point input(3, 6); 
+%\end{lstlisting}\end{minipage}
 
-\LevelD{\Code{class}es}
+\LevelD{Classes}
 
 \Code{class}es are like \Code{struct}s except \Code{class}es contain both variables and functions, whereas \Code{struct}s only contain variables.\footnote{This has been the conventional way to think about \Code{class}es and \Code{struct}s, but in reality the \emph{only} difference between the two is that members of a \Code{struct} are public by default and members of a \Code{class} are private by default.} 
 Also, in a \Code{struct}, member variables are public by default while all members of a \Code{class} are private by default. 
@@ -152,14 +152,6 @@ int main()
 
 In the above code, we start by creating a \Code{Rectangle} variable named \Code{r}. 
 After the user is prompted for the length of the base, which is stored in the variable \Code{b}, we call the \Code{setBase()} member function with the dot operator and pass \Code{b} as a parameter to the function. 
-The \Code{setBase()} function has the following definition:
-
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-void Rectangle::setBase(float length)
-{
-  Base = length;
-}
-\end{lstlisting}\end{minipage}
 
 We are able to pass the value of the variable entered by the user to the \Code{setBase()} function which then sets the member variable \Code{Base} to the passed value. 
 This is how we ``mutate'' private member variables in a \Code{class} using a public member function. 
@@ -259,7 +251,7 @@ student::student()
 \LevelD{Overloading Member Functions}
 
 Note that, like other functions, you can overload any of the functions in a class. 
-Going back to the \Code{Rectangle} example used earlier, take a look at the code below:
+Going back to the \Code{Rectangle} example used earlier, take a look at the code below: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 class Rectangle
@@ -318,6 +310,9 @@ personInfo pinfo;
 	\item \Code{birth\_year.pinfo}
   \end{enumerate}
 
+\begin{comment}
+
+% TODO: We don't cover initialization yet.
 \item Consider the following \Code{struct}:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -339,10 +334,12 @@ Which of the following is the correct way to initialize the variables from the \
 	\item {\tiny \Code{personInfo info = \{"Michael", 1996, "March", 24, 16\};}}
 	\item {\tiny \Code{struct info = \{"Michael", 1996, "March", 24, 16\};} }
   \end{enumerate}
+\end{comment}
+
 
 \item Write a program that can store information about animals in a zoo.
 
-You should have a \Code{class} called \Code{Animal} and the following private variables:
+You should have a \Code{class} called \Code{Animal} and the following private variables: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string name; // the name of the animal

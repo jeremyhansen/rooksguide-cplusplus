@@ -52,10 +52,10 @@ char Scott[5] = {'S', 'c', 'o', 't', 't'};
 int John[5] = {99, 5, 1, 22, 7};
 \end{lstlisting}\end{minipage}
 	
-Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the \Keyword{null character}\footnote{Abbreviated NUL; Note that this is not the same as the NULL pointer described in Chapter \ref{chap_pointers}.} or \Keyword{null terminator}. 
-The NUL character marks the end of the string. 
-In C++ the null character is \Code{'\textbackslash0'}. 
-Because the null character takes up one element in the array, any character array that is intended to be used as a string must be declared having a size one more than the longest string that you expect to store. 
+Note that, in the C and C++ language, arrays of characters intended to be treated as a string must contain a special character called the \Keyword{null character}\footnote{Often abbreviated NUL; Note that this is not the same as the NULL pointer described in Chapter \ref{chap_pointers}.} or \Keyword{null terminator}. 
+The null terminator marks the end of the string. 
+In C++, this is represented by the special character \Code{'\textbackslash0'}. 
+Because the null temrinator takes up one element in the array, any character array that is intended to be used as a printable string must be declared having a size one larger than the longest string that you expect to store. 
 Initializing the above character array should really be done as the following (notice that we make the array one element larger!):
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -86,14 +86,14 @@ int Rich[3][3]; // 2D
 \end{lstlisting}\end{minipage}
 
 Declaring arrays with more dimensions are possible with similar syntax. 
-Here's a three-dimensional 10x10x10 example:
+Here's a three-dimensional $10\times10\times10$ example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int Sam[10][10][10]; // 3D
 \end{lstlisting}\end{minipage}
 
-And here is a four-dimensional 10x10x10x10 array. 
-This is possible, even though it's hard to visualize.
+And here is a four-dimensional $10\times10\times10\times10$ array. 
+This is possible even though it's hard to visualize.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int Travis[10][10][10][10]; // 4D
@@ -133,7 +133,6 @@ The same logic is applied for 3-dimensional and 4-dimensional arrays, but when f
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
-
 int main()
 {
   int myArray[10];
@@ -151,7 +150,6 @@ int main()
 }
 \end{lstlisting}\end{minipage}
 \end{enumerate}
-
 
 \LevelD{Further Reading}
 

@@ -2,8 +2,8 @@
 % Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
 % as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
-Let's discuss strings.
-Strings are a data type typically used to hold a collection of printable characters such as words, sentences, or longer sequences.
+Let's discuss \Keyword{strings}.
+A \Code{string} is a data type typically used to hold a collection of printable characters such as words, sentences, or longer sequences.
 In order to use strings in your program you must first include the string library:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -11,7 +11,7 @@ In order to use strings in your program you must first include the string librar
 using namespace std;
 \end{lstlisting}\end{minipage}
 
-\noindent Also note that a string, for convenience, can be treated like an array of individual characters.
+\noindent Also note that a \Code{string}, for convenience, can be treated like an array of individual characters.
 
 When we declare variables of type \Code{string}, we declare them just like we would an \Code{int}, \Code{float}, or \Code{double}.
 We can create a variable named \Code{myString} of type string by doing this:
@@ -31,8 +31,8 @@ string myString;
 std::string myString;
 \end{lstlisting}\end{minipage}
 
-\noindent We can then store anything we want in that string as long as it is made up of characters.
-When a literal value is assigned to a string, it should be surrounded by double quotes such as in the case of \Code{"Hello"}:
+\noindent We can then store anything we want in that \Code{string} as long as it is made up of characters.
+When a literal value is assigned to a \Code{string}, it should be surrounded by double quotes such as in the case of \Code{"Hello"}:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <string>
@@ -40,8 +40,8 @@ When a literal value is assigned to a string, it should be surrounded by double 
 string myString = "Hello";
 \end{lstlisting}\end{minipage}
 
-If we are storing the value of a string entered by a user, the user does not have to use quotes.
-We can store \Code{"Hello"} in the string by doing the following:
+If we are storing the value of a \Code{string} entered by a user, the user does not have to use quotes.
+We can store \Code{"Hello"} in the \Code{string} by doing the following:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString;
@@ -50,7 +50,7 @@ cin >> myString; // User types: Hello
 \end{lstlisting}\end{minipage}
 
 \noindent It is also possible to use the arithmetic operator \Code{+} with strings to concatenate (combine) the two strings.
-If we combined one string that contained \Code{"Hello"} and another string that contained \Code{"World"} the connected string would then read \Code{"HelloWorld"}.
+If we combined one \Code{string} that contained \Code{"Hello"} and another \Code{string} that contained \Code{"World"} the connected string would then read \Code{"HelloWorld"}.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello",
@@ -60,9 +60,7 @@ cout << v1 + v2 << endl;
 // HelloWorld
 \end{lstlisting}\end{minipage}
 
-
-
-In order to have a space between the two words, one of the strings would need to contain a space such as this:
+\noindent In order to have a space between the two words, one of the strings would need to contain a space such as this:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string v1 = "Hello", v2 = " World";
@@ -106,8 +104,8 @@ getline(cin, myString);
 
 \noindent This function call will take the entire line of input, including all whitespace characters, and store it in the variable \Code{myString}. 
 		
-We can also find out the length of the string by using the member function \Code{length()} with any \Code{string} object.
-For example, if we wanted to find the length of a string entered by a user and store it in a variable named \Code{stringLength}, we might do this:
+We can also find out the length of the \Code{string} by using the member function \Code{length()} with any \Code{string} object.
+For example, if we wanted to find the length of a \Code{string} entered by a user and store it in a variable named \Code{stringLength}, we might do this:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString;
@@ -124,7 +122,7 @@ cout << "The string you entered was "
 For example, if we wanted to find a single space in a string variable named \Code{myString} that contains ``Hello World'', we would do this:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-string myString = ;
+string myString = "Hello World";
 int spot = myString.find(" ");
 \end{lstlisting}\end{minipage}
 
@@ -152,7 +150,7 @@ spot2 = myString.find("o", spot);
 \noindent The second argument that is passed to the function (in this case, \Code{spot}) is the index at which you want to start your search.
 
 We can also use the \Code{rfind()} function to find a character in reverse direction from the end of the string, or from some starting point, as above.
-If we wanted to find the single character string \Code{"o"} before the space we might do something like this:
+If we wanted to find the single character string \Code{"o"} \emph{before} the space we might do something like this:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string myString = "Hello World";

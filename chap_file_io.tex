@@ -68,9 +68,7 @@ The following example demonstrates how to open files for both input and output:
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream> //For cin and cout 
 #include <fstream> // For ifstream and ofstream
-		
 using namespace std;
-		
 int main ()
 {
   //Declares a variable of type ifstream called inFile
@@ -114,12 +112,10 @@ For example: \nopagebreak[4]
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
 #include <iostream> 
 #include <fstream>
-	
 using namespace std;
-
 int main()
 {
-  int number=5;
+  int number = 5;
   ifstream inFile;
 
   inFile.open("TextFile.txt");
@@ -147,7 +143,6 @@ For example: \nopagebreak[4]
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}		
 #include <iostream> 
 #include <fstream>
-		
 using namespace std;
 int main ()
 {
@@ -180,7 +175,7 @@ An \Keyword{object} is a variable that has functions built in and may have multi
 \Code{ifstream} and \Code{ofstream} are object types that define which operations may be performed on and which data are stored in the objects. 
 For example, the function \Code{open()} (along with \Code{close()} and many others) is considered a \Keyword{member function} of \Code{ifstream} and \Code{ofstream}, which means it is a function that is associated with object of those two types. 
 Getting a little more into detail, these object types are defined as part of a \Keyword{class}. 
-A class is a blueprint for complex data types. 
+A \Code{class} is a blueprint for complex data types. 
 We already know data types such as integers, \Code{double}s, and \Code{char}s, but using classes, you will be able to design your own data type.
 
 When calling the functions \Code{open} or \Code{close}, you will notice we use a period between the object name and the function. 

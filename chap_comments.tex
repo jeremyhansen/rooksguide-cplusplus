@@ -127,9 +127,7 @@ Note: Save percentages in hockey are shown to three decimal places and not multi
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 #include <cstdlib>
-
 using namespace std;
-
 int main()
 {
   double shots, goals, saves, save_perc;
@@ -146,7 +144,6 @@ int main()
     cout << endl;
 
     saves = shots - goals;
-
     save_perc = (saves / shots);
 
     cout << "If there were " << shots << " shots and " 
@@ -162,11 +159,8 @@ int main()
     cout << "Run again? Y/N\t";
     cin >> cont;
     cont = toupper(cont);
-    cout << endl;
-
   } while (cont == 'Y');
-
-    return 0;
+  return 0;
 }
 \end{lstlisting}\end{minipage}
 

@@ -36,7 +36,7 @@ Additionally, the C++11 standard provides for the \Code{long long int} data type
 		\begin{tabular}{| p{1.5in} | l | p{2in} |}
 		\hline
 			\textbf{Type} & \textbf{Size} & \textbf{Range of Values} \\ \hline
-			\Code{long long int} (\Code{long long}) & 8 bytes & $-9,223,372,036,854,775,808$ to $9,223,372,036,854,775,807$ \\ \hline
+			\Code{long long int}\newline (\Code{long long}) & 8 bytes & $-9,223,372,036,854,775,808$ to $9,223,372,036,854,775,807$ \\ \hline
 		\end{tabular}
 		\caption{C++11's \Code{long long int} data type}
     \label{table-long-long-int}
@@ -54,7 +54,7 @@ The \Keyword{floating-point types} do not have unsigned versions, as the sign is
 			\Code{unsigned short} & 2 bytes & $0$ to $65,535$ \\ \hline
 			\Code{unsigned int} & 4 bytes & $0$ to $4,294,967,295$ \\ \hline
 			\Code{unsigned long} & 4 bytes & $0$ to $4,294,967,295$ \\ \hline
-			\Code{unsigned long long}\footnote{This data type is found in the C++11 standard.} & 8 bytes & $0$ to $18,446,744,073,709,551,615$ \\ \hline
+			\Code{unsigned long long}\footnote{This data type is found in the C++11 standard.} & 8 bytes & $0$ to \newline $18,446,744,073,709,551,615$ \\ \hline
 		\end{tabular}
 		\caption{Unsigned types}
     \label{table-unsigned-types}
@@ -69,7 +69,7 @@ For example: \nopagebreak[4]
 float f = 3.35;
 \end{lstlisting}\end{minipage}
 
-Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335~\times~10^{-2}$. 
+Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335 \times 10^{-2}$. 
 The first part, $335$, (sometimes called the \Keyword{coefficient} or \Keyword{significand}) is stored separately from the second part, $-2$, (called the \Keyword{exponent}). 
 The types can represent different ranges of significand and exponents, as shown in Table \ref{table-floating-point-types}.
 
@@ -78,16 +78,16 @@ The types can represent different ranges of significand and exponents, as shown 
 		\begin{tabular}{| l | l | p{2in} |}
 		\hline
 			\textbf{Type} & \textbf{Exponent Range} & \textbf{Significand Range} \\ \hline
-			\Code{float} & $0$ to $255$ & $2^23$: $8,388,608$ possible values \\ \hline
-			\Code{double} & $0$ to $2,048$ & $2^52$: $4,503,599,627,370,496$ possible values \\ \hline
-			\Code{long double} & $0$ to $2,048$	& $2^52$: $4,503,599,627,370,496$ possible values \\ \hline
+			\Code{float} & $0$ to $255$ & $2^{23}$: $8,388,608$ possible values \\ \hline
+			\Code{double} & $0$ to $2,048$ & $2^{52}$: $4,503,599,627,370,496$ \newline possible values \\ \hline
+			\Code{long double} & $0$ to $2,048$	& $2^{52}$: $4,503,599,627,370,496$ \newline possible values \\ \hline
 		\end{tabular}
 		\caption{Floating point types}
     \label{table-floating-point-types}
 \end{table}
 
 In fact, we can use scientific notation in conjunction with floating-point variables. 
-The previous code that assigned a value to \Code{f} can also be written as:
+The previous code that assigned a value to \Code{f} can also be written as: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float f = 335e-2; // Sets f to 3.35
@@ -99,7 +99,7 @@ Both \Code{float} and \Code{double} include a few special values that represent 
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 float g = 10.0 / 0.0; // g is set to infinity
-float h = g * -1.0; // h is set to negative infinity
+float h = g * -1.0;   // h is set to negative infinity
 float i = g / h; 
 // Since infinity divided by negative infinity is 
 // undefined, the result of the division is not a 
@@ -151,7 +151,7 @@ x = y; // Type conversion: the double 2.0 is converted
 cout << "x = " << x << endl; // This prints x = 2
 \end{lstlisting}\end{minipage}
 
-This code compiles and runs, but the compiler produces the following warning:
+\noindent This code compiles and runs, but the compiler produces the following warning:
 
 \noindent \Code{warning: converting to 'int' from 'double'}
 
