@@ -1,28 +1,40 @@
 digraph ifflow {
 // Created by Levi Schuck
-
-	node [shape=circle];
-	if [shape=doublecircle];
-	done [shape=doublecircle];
-	code2 [label="block"];
-	
-	st2 [label="statement"];
-
+	rankdir=LR;
+	prev[label="int a = 0;"];
+	cond[label="var1 == var2"];
 	subgraph {
 		rank=same;
-		code [label="block"];
-		st [label="statement"];
+		trueexp [label="a = 1;"];
+		falseexp [label="a = 2;"]
 	}
+	node [shape=circle];
+	subgraph {
+		rank=same;
+		if [shape=doublecircle];
+	}
+	subgraph {
+		rank=same;
+		true[label="True"];
+		false[label="False"];
+	}
+	subgraph {
+		rank=same;
+		else [label="Else"];
+		noelse [label="No Else"];
+	}
+	done [shape=doublecircle];
+	prev -> if;
 
-	if -> code [xlabel=" True and {"];
-	if -> st [rotate=90,headlabel=" True but\n no { found  "];
-	else -> code2 [xlabel=" {"];
-	else -> st2 [label=" no { found"];
-	if -> else [label=" False and has else"];
-	if -> done [label=" False but no else found"];
-	code2 -> done;
-	st2 -> done;
-	code -> done [xlabel=" no else found"];
-	st -> done [xlabel=" no else found"];
-	code -> st [style=invis];
+	
+	if -> cond;
+	cond -> true;
+	cond -> false;
+	false -> else;
+	false -> noelse;
+	noelse -> done;
+	true -> trueexp;
+	else -> falseexp;
+	trueexp -> done;
+	falseexp -> done;
 }

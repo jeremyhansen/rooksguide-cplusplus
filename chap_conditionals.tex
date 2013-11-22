@@ -39,10 +39,13 @@ if(variable == variable2)
 
 The keyword \Code{if} is used to start the statement. 
 Parentheses are used to contain the conditional expression. 
-If the expression inside the parentheses is true, then the code inside the curly braces is executed. 
+If the expression inside the parentheses is true, then the following expression will be executed.
 
-If only a single line of code is inside the braces, the braces may be left out. 
-For example,
+\LevelE{A small digression on expressions}
+
+Note that curly braces merely surround expressions to become a single expression.
+The act of surrounding expressions creates a code block.
+However, having only one expression within a code block is the same as not having it in a code block.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (variable == variable2)
@@ -58,24 +61,80 @@ if (variable == variable2)
   cout << "Yes!";
 \end{lstlisting}\end{minipage}
 
+It is not recommended to go without braces for mere brevity at the cost of making mistakes later on.
+
+For example, suppose you have some code for baking bread, like the following.
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+if (breadType == 10)
+  ovenFanOn = true;
+\end{lstlisting}\end{minipage}
+
+But then later you are told that bread type 10 needs to be cooked at $350^{\circ}F$.
+So you make the following change:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+if (breadType == 10)
+  ovenFanOn = true;
+  ovenTemp = 350;
+\end{lstlisting}\end{minipage}
+
+Except.. that is really the same as.. 
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+if (breadType == 10)
+  ovenFanOn = true;
+
+ovenTemp = 350;
+\end{lstlisting}\end{minipage}
+
+So now the baker is mad because every bread is being cooked wrong except bread type 10!
+What you really meant was: 
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+if (breadType == 10)
+{
+  ovenFanOn = true;
+  ovenTemp = 350;
+}
+\end{lstlisting}\end{minipage}
+
+Here's another bear trap that you'll likely hit:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+if (breadType == 9);
+  ovenFanOn = true;
+\end{lstlisting}\end{minipage}
+
+It is still valid syntax, but the expression after the \Code{if} statement is an empty expression.
+An empty expression does nothing, and so now every bread type will have the fan on, which is not what the baker wanted.
+
+
+\LevelE{Using \Code{else}}
+
+
 \begin{figure}[tbh]
   \centering
-  \includegraphics[width=0.7\textwidth]{diagrams/if-flow.pdf}
-  \caption{General \Code{if} and \Code{else} statement flow of execution} \label{fig-if-flowchart}
+  \includegraphics[width=\textwidth]{diagrams/if-flow.pdf}
+  \caption{\Code{if} and \Code{else} statement flow of execution} \label{fig-if-flowchart}
 \end{figure}
+
 
 An \Code{else} statement may be placed after an \Code{if} statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
 For example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-if(variable == variable2)
+int a = 0;
+if(var1 == var2)
 {
   // Code here executes only when
   // the value of variable is the same as variable2
+  a = 1;
 }
 else
 {
   // Code here executes if they are not the same
+  a = 2;
 }
 \end{lstlisting}\end{minipage}
 
@@ -96,10 +155,9 @@ Take a look at Figure \ref{fig-else-if-flowchart} for a flowchart example.
 
 \begin{figure}[tbh]
   \centering
-  \includegraphics[width=0.7\textwidth]{diagrams/if-else.pdf}
+  \includegraphics[width=\textwidth]{diagrams/if-else.pdf}
   \caption{How \Code{if}-\Code{else} chaining works} \label{fig-else-if-flowchart}
 \end{figure}
-%TODO: Get this figure to be consistent with the style.
 
 Here's what the three statements would look like all together: \nopagebreak[4]
 
@@ -118,7 +176,8 @@ else
 }
 \end{lstlisting}\end{minipage}
 
-Note that every conditional expression is in parentheses. 
+Note that every conditional expression is in parentheses.
+Each \Code{if} must be followed by a \Code{(...)} in C++. 
 Conditional expressions also appear in loops (discussed in Chapter \ref{chap_loops}) and \Code{switch} statements.
 
 \LevelD{\Code{switch} statements}
