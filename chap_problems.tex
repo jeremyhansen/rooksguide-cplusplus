@@ -100,7 +100,20 @@ int main()
 
 \end{enumerate}
 
-%\LevelD{Review Answers}
+\LevelD{Review Answers}
+
+\begin{enumerate}
+	\item 
+	\begin{enumerate}
+		\item \Code{retun} should be \Code{return}. 
+		There is an extra semicolon at the end of the function header, and one missing after the \Code{return} statement.
+		\item There are no parentheses around the addition, so \Code{s4} will be divided by 4, then added to \Code{s1 + s2 + s3}, instead of adding all four variables and then dividing the sum by 4.
+	\end{enumerate}
+	
+	\item Remove the unused variable \Code{cont} and \Code{cout.unsetf} lines.
+Because \Code{shots} and \Code{goals} are both integers, the program does the math as though you are looking for an \Code{int} result and doesn't store the fractional parts, even though it stores the result in a \Code{double}. Change \Code{shots}, \Code{goals}, and \Code{saves} to be of type \Code{double} and the program will work as intended.
+
+\end{enumerate}
 
 %\LevelD{Further Reading}
 

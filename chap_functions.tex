@@ -54,7 +54,7 @@ With basic functions, your declarations should start with a \Keyword{return type
 
 \begin{figure}[tb]
   \centering
-  \includegraphics[width=0.7\textwidth]{diagrams/function_structure_diagram_1.pdf}
+  \includegraphics[width=0.8\textwidth]{diagrams/function_structure_diagram_1.pdf}
   \caption{The structure of a function declaration} \label{fig:function_structure_diagram_1} 
 \end{figure}
 
@@ -70,7 +70,7 @@ A comma separates function parameters and your declaration must end with a semic
 double profit (int cost, double price); 
 \end{lstlisting}\end{minipage}
         	
-Using function looks much like an abbreviated version of the function declaration. 
+Using a function looks much like an abbreviated version of the function declaration. 
 A \Keyword{function call} is responsible for telling the compiler when and how to execute a function.
 Function calls are found in another function like \Code{main()}. 
 Often the user is prompted to enter necessary data with \Code{cout} statements and his or her response is collected with \Code{cin}. 
@@ -348,7 +348,84 @@ void example()
 \end{enumerate}
 
 
-%\LevelD{Review Answers}
+\LevelD{Review Answers}
+
+\begin{enumerate}
+	\item Return type, function name, parameter(s)
+	\item No
+	\item As many as you want
+	\item There is no output
+	\item 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
+using namespace std;
+void guessing_game();
+
+int main() {
+  guessing_game();
+}
+
+void guessing_game() {
+  int guess, counter = 0, number = 5;
+  bool found = false;
+  do {
+    cout << "Guess a number:\t";
+    cin >> guess;
+    if (guess > 100 or guess <= 0)
+    {
+      cout << "Number is between 1 and 100!\n\n";
+      counter++;
+    }
+    else if (guess < number)
+    {
+      cout << "Too low. Guess again.\n\n";
+      counter++;
+    }
+    else if (guess > number)
+    {
+      cout << "Too high. Guess again.\n\n";
+      counter++;
+    }
+    else //guess == number
+    {
+      cout << "You got it!\n";
+      found = true;
+      counter++;
+    }
+  } while (!found);
+  cout << "It took you " << counter << " guesses!\n";
+  cout << "Thanks for playing!\n\n";
+}
+\end{lstlisting}\end{minipage}
+
+\item 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream>
+using namespace std;
+double mph(double miles, double hours);
+
+int main()
+{
+  double miles = 0, hours = 0, milesPerHour;
+  cout << "Enter the number of miles traveled: ";
+  cin >> miles;
+  cout << "Enter the travel time in hours: ";
+  cin >> hours;
+  cout << "Your speed in miles per hour: " 
+    << mph(miles, hours);
+  return 0;
+}
+
+double mph(double miles, double hours)
+{
+  return miles/hours;
+}
+\end{lstlisting}\end{minipage}
+
+
+\end{enumerate}
+
+
 
 \LevelD{Further Reading}
 

@@ -25,7 +25,7 @@ Additionally, the C++11 standard provides for the \Code{long long int} data type
 			\Code{long int} (\Code{long}) & 4 bytes & $-2,147,483,648$ to \newline $2,147,483,647$ \\ \hline
 			\Code{float} & 4 bytes & See ``Floating-point Types'' \newline below \\ \hline
 			\Code{double} & 8 bytes & See ``Floating-point Types'' \newline below \\ \hline
-			\Code{long double} & 8 bytes & See ``Floating-point Types'' \newline below \\ \hline
+			\Code{long double} & 8 bytes\footnote{A \Code{long double} \emph{might} be stored as an 80-bit extended precision type, but this is dependent on the compiler. Variables of this type will be at least as large as a \Code{double}.} & See ``Floating-point Types'' \newline below \\ \hline
 		\end{tabular}
 		\caption{Common data types and their ranges of values}
     \label{table-data-types}
@@ -211,7 +211,7 @@ int z = (int)(3.3 + 4.8); // z is set to 8
 \LevelD{Automatic Types in C++11}
 
 C++11 introduces the \Code{auto} data type, which leaves the determination of a variable's type up to the compiler. 
-At compile time, the data type of the value that is assigned determines the data type that replaces the \Code{auto} type.
+At compile time, the data type of the value that is assigned determines the data type that replaces the \Code{auto} type. Some of the syntax in the second line below may be unfamiliar---for a description of what's happening there, refer to Chapter \ref{chap_pointers}.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 auto myVar = 3;       // myVar is an int
@@ -252,7 +252,17 @@ auto myIterator = v.begin();
 \end{enumerate}
 
 
-% \LevelD{Review Answers}
+\LevelD{Review Answers}
+
+\begin{enumerate}
+	\item \Code{int}s only store whole numbers. 
+				\Code{float}s and \Code{double}s can store numbers with decimal points. 
+				\Code{int}s are useful for anything that cannot have fractional parts, and you might also use a \Code{double} for very large numbers.
+	\item The fractional part is left off. (\Code{num} is 1 in the example)
+	\item \Code{double sampleSize = 14.58093;}
+	\item \Code{sampleSize += 12.495;}
+
+\end{enumerate}
 
 \LevelD{Further Reading}
 

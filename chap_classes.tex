@@ -337,9 +337,7 @@ Which of the following is the correct way to initialize the variables from the \
 \end{comment}
 
 
-\item Write a program that can store information about animals in a zoo.
-
-You should have a \Code{class} called \Code{Animal} and the following private variables: \nopagebreak[4]
+\item Create a \Code{class} called \Code{Animal} that can store information about animals in a zoo and has the following private variables: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 string name; // the name of the animal
@@ -370,9 +368,34 @@ Point a, b;
 Your class should have accessor and mutator functions, a function that calculates and returns the slope of a line between the two \Code{Point}s as a \Code{double}, and a function that outputs the data to the user called \Code{print()}.
 \end{enumerate}
 
-%\LevelD{Review Answers}
+\LevelD{Review Answers}
 
+\begin{enumerate}
+	\item Only (a) is correct: (b) through (e) will result in syntax errors.
+	\item 
+	
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+class Animal
+{
+public:
+	Animal();
+	string getName();
+	void setName(string inputName);
+	int getPounds();
+	void setPounds(int inputPounds);
+	char getType();
+	void setType(char inputType);
+	void print();
 
+private:
+	string name ;     // the name of the animal
+  int pounds ;      // number of pounds of food eaten
+  char animalType ; // the type of animal
+};
+\end{lstlisting}\end{minipage}
+
+	
+\end{enumerate}
 
 \LevelD{Further Reading}
 

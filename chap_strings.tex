@@ -201,14 +201,40 @@ else
 \item What function do you have to use to take an input with a space?
 \item Write code that takes in 5 words and outputs each of them 4 times.
 
-\item Write a program that takes in the following words: King, Queen, Knight, Bishop, Rook, Pawn. 
-Then it has to switch the King with the Pawn, the Rook with the Queen, and the Bishop with the Knight.
-It must output the original data in the original order, and output the data once it is all finished.
+\item Write a program that takes in an input of at least two words of the same length. 
+			The program should then switch the last word and the first word.
 
-\item Write a game program where the user inputs 4 different words, then the user gets 4 guesses to guess all of the words they originally Entered. This program should run as many times as the user wants.
+
 \end{enumerate}
 
-%\LevelD{Review Answers}
+\LevelD{Review Answers}
+
+\begin{enumerate}
+	\item 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+string myString;
+cout << "Please input a string: ";
+getline(cin, myString);
+//cin >> myString; is also acceptable
+\end{lstlisting}\end{minipage}
+	
+	\item Yes
+	\item When you need to hold a collection of printable characters such as words, sentences, or longer sequences.
+	\item \Code{\#include <string>}
+	\item \Code{getline}
+	\item
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+string myString;
+cout << "Please input a string: ";
+getline(cin, myString);
+//cin >> myString; is also acceptable
+\end{lstlisting}\end{minipage}
+	
+
+\end{enumerate}
+
+
+
 
 \LevelD{Further Reading}
 \begin{itemize}

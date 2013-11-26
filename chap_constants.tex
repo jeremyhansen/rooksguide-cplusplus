@@ -2,10 +2,6 @@
 % Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
 % as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
-We call a variable whose value we cannot change a constant. 
-After you declare a constant, you are unable to change it, no matter what. 
-There are two types of constants: literals and declared constants (\Code{const}). 
-
 \LevelD{Literals}
 
 A literal is a value outside of a variable such as $5$, $9$, $103$, and $-21$. 
@@ -37,10 +33,12 @@ Table \ref{table-literal-examples} contains a few examples.
 
 \LevelD{Declared Constants}
 
+We call a variable whose value we cannot change a constant. 
+After you declare a constant, you are unable to change it, no matter what. 
 The difference between declaring a normal variable and a constant is that we simply place the keyword \Code{const} before the data type in the declaration. 
 This indicates whatever variable and type that follows the \Code{const} will be a constant and cannot be changed. 
 Since it is a constant, we will also need to initialize the value at the time we declare the variable. 
-Here is an example: \nopagebreak[4]
+Here is an example (we cover the \Code{cout} object shortly in Chapter \ref{chap_output}): \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 const float pi = 3.14;
@@ -53,23 +51,47 @@ cout << area; // outputs 78.5
 \LevelD{Review Questions}
 
 \begin{enumerate}
-	\item Describe the difference between literal and declared constants. When would a declared constant be more useful than a literal constant?
+	\item Describe the difference between literals and declared constants. 
+	When would a declared constant be more useful than a literal constant?
 	\item What is the difference between a normal variable and a constant?
-	\item Write a code that uses a \Code{const} to add 3\% interest to a bank account every year. Print out the balance for the next ten years.
+%	\item Write code that uses a \Code{const} to add 3\% interest to a bank account every year. Print out the balance for the next ten years.
 	\item Build a program in C++ that does the following:
 	
 	\begin{enumerate}
 		\item Declare a \Code{double} variable named \Code{Feet}. Initialize it to your height.
 		\item Declare a \Code{double} constant named \Code{MetersPerFoot}, with the value of $0.3048$.
 		\item Declare a \Code{double} variable named \Code{Meters}. Set it to \Code{Feet} multiplied by \Code{MetersPerFoot}.
-		\item	Display \Code{Meters} to the screen.
+%		\item	Display \Code{Meters} to the screen.
 	\end{enumerate}
 
 	\item Create a program that displays the diameter and area of a circle for any given radius. Use a \Code{const float} to represent $\pi$. 
 
 \end{enumerate}
 
-%\LevelD{Review Answers}
+\LevelD{Review Answers}
+
+\begin{enumerate}
+	\item A literal is a value not stored in a variable; a constant is an unchanging value stored in a variable.
+	\item Normal variables can be changed or overwritten; constants cannot be changed or overwritten.
+	\item 
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+double Feet 5.5;
+const double MetersPerFoot = .3048;
+double Meters = Feet * MetersPerFoot;
+\end{lstlisting}\end{minipage}
+
+	\item
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+float radius = 5;
+const float pi = 3.14159
+double diameter, area;
+diameter = radius * 2;
+area = pi * (radius * radius)
+\end{lstlisting}\end{minipage}
+
+
+\end{enumerate}
+
 
 %\LevelD{Further Reading}
 %\begin{itemize}

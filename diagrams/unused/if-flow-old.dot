@@ -1,0 +1,28 @@
+digraph ifflow {
+// Created by Levi Schuck
+
+	node [shape=circle];
+	if [shape=doublecircle];
+	done [shape=doublecircle];
+	code2 [label="block"];
+	
+	st2 [label="statement"];
+
+	subgraph {
+		rank=same;
+		code [label="block"];
+		st [label="statement"];
+	}
+
+	if -> code [xlabel=" True and {"];
+	if -> st [rotate=90,headlabel=" True but\n no { found  "];
+	else -> code2 [xlabel=" {"];
+	else -> st2 [label=" no { found"];
+	if -> else [label=" False and has else"];
+	if -> done [label=" False but no else found"];
+	code2 -> done;
+	st2 -> done;
+	code -> done [xlabel=" no else found"];
+	st -> done [xlabel=" no else found"];
+	code -> st [style=invis];
+}

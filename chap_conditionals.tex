@@ -62,7 +62,6 @@ if (variable == variable2)
 \end{lstlisting}\end{minipage}
 
 It is not recommended to go without braces for mere brevity at the cost of making mistakes later on.
-
 For example, suppose you have some code for baking bread, like the following.
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -70,7 +69,7 @@ if (breadType == 10)
   ovenFanOn = true;
 \end{lstlisting}\end{minipage}
 
-But then later you are told that bread type 10 needs to be cooked at $350^{\circ}F$.
+Then later you are told that bread type 10 needs to be cooked at $350\,^{\circ}\mathrm{F}$.
 So you make the following change:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -79,7 +78,7 @@ if (breadType == 10)
   ovenTemp = 350;
 \end{lstlisting}\end{minipage}
 
-Except.. that is really the same as.. 
+Except that is really the same as:  \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 if (breadType == 10)
@@ -88,7 +87,7 @@ if (breadType == 10)
 ovenTemp = 350;
 \end{lstlisting}\end{minipage}
 
-So now the baker is mad because every bread is being cooked wrong except bread type 10!
+Now the baker is upset because every loaf is being cooked wrong except bread of type 10!
 What you really meant was: 
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
@@ -121,7 +120,7 @@ An empty expression does nothing, and so now every bread type will have the fan 
 
 
 An \Code{else} statement may be placed after an \Code{if} statement, and any time the expression inside the parentheses following the \Code{if} is not true, the code inside the \Code{else} block is executed. 
-For example:
+For example: \nopagebreak[4]
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int a = 0;
@@ -177,7 +176,7 @@ else
 \end{lstlisting}\end{minipage}
 
 Note that every conditional expression is in parentheses.
-Each \Code{if} must be followed by a \Code{(...)} in C++. 
+Each \Code{if} must be followed by a \Code{(...)} (with a Boolean expression inside the parentheses) in C++.
 Conditional expressions also appear in loops (discussed in Chapter \ref{chap_loops}) and \Code{switch} statements.
 
 \LevelD{\Code{switch} statements}
@@ -245,13 +244,16 @@ However, when you get to a greater number of cases, \Code{switch} statements bec
 
 In \Code{switch} statements, only one \Code{case}'s code executes, provided that each \Code{case} is followed by \Code{break}. 
 Otherwise, the program continues execution until it reaches a \Code{break} statement or the end of the \Code{switch} block. 
-With an \Code{if} and \Code{else if}, only one branch may be executed, but the conditions in each \Code{if} are evaluated.
+With an \Code{if} and \Code{else if}, only one branch may be executed, and the condition in the \Code{else if} is only evaluated if the condition in the \Code{if} is \Code{false}.
 
-\begin{table}[bh]
+\begin{table}[tbh]
 		\begin{tabular}{| p{1.5in} | p{2.5in} |}
 		\hline
 			\textbf{User enters} & \textbf{Output} \\ \hline
-			\Code{//Program start} &	<1> Addition \newline				<2> Subtraction\newline				             <3> Compare\newline							Type the number of your desired option: \\ \hline
+			\Code{//Program start} &	<1> Addition \newline 
+																<2> Subtraction\newline 
+																<3> Compare\newline 
+																Type the number of your desired option: \\ \hline
 			\Code{1} & The result of this addition is 9.3 \\ \hline
 			\Code{2} & The result of this subtraction is 0.9 \\ \hline
 			\Code{3} & A is greater than B \\ \hline
@@ -268,30 +270,23 @@ Compiling and running the following code results in the output in Table \ref{tab
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
 using namespace std;
-int main()
-{
+int main() {
   int choice;
   double a = 5.1, b = 4.2;
 
-  cout << "<1> Addition\n";
-  cout << "<2> Subtraction\n";
-  cout << "<3> Compare\n";
-
+  cout << "<1> Addition\n<2> Subtraction\n<3> Compare\n";
   cout << "Type the number of your desired option:\t";
   cin >> choice;
 
-  switch(choice)
-  {
+  switch(choice) {
     case 1:
 	    cout << "The result of this addition is " 
 	      << a + b << endl << endl;
 	    break;
-
     case 2:
 	    cout << "The result of this subtraction is "
 	      << a - b << endl << endl;
 	    break;
-
     case 3:
       if (a > b)
 		    cout << "A is greater than B";
@@ -300,12 +295,10 @@ int main()
 	    else //a == b
 		    cout << "A equals B";
 	    break;
-
     default:
       cout << "Not an option";
       break;
   }
-
   return 0;
 }
 \end{lstlisting}\end{minipage}
