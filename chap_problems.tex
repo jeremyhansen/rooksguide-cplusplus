@@ -73,7 +73,6 @@ int main()
 
   cout.unsetf(ios::fixed);
   cout.unsetf(ios::showpoint);
-
   cout << "Enter the number of shots on goal:\t";
   cin >> shots;
   cout << "Enter the number of goals scored:\t";
@@ -81,7 +80,6 @@ int main()
   cout << endl;
 
   saves = shots - goals;
-
   // Hockey shows save % as decimal to three places
   save_perc = (saves / shots); 
   cout << "If there were " << shots << " shots and " 

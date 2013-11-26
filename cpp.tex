@@ -5,7 +5,7 @@
 %      {Creative Commons}%
 %      -Licensed text
       }
- \date{20 November 2013}
+ \date{26 November 2013}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                    %
@@ -114,6 +114,7 @@
 
 \usepackage{libertine}
 \usepackage{fontspec}
+\usepackage{tablefootnote}
 %\usepackage{polyglossia}
 %\usepackage{xunicode}
 %\usepackage{xltxtra}
@@ -152,8 +153,8 @@
  \usepackage{layout}
 \usepackage[paperwidth=6.0in, paperheight=9.0in]{geometry}
 %\usepackage[paperwidth=8.5in, paperheight=11.0in]{geometry}
- \usepackage{hyperref}
-
+ \usepackage[pdfauthor={Jeremy A. Hansen, Ph.D.}, pdftitle={The Rook's Guide to C++}]{hyperref}
+ \urlstyle{same}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                   %%
 %%   The listings package produces nicely-formatted source-code      %%
@@ -193,6 +194,43 @@
  \setcounter{page}{1}
  \pagenumbering{roman}
 % \pagestyle{plain}
+
+\chapter*{Preface}
+
+What you are reading is the first of what I hope to be many ever-improving iterations of a useful C++ textbook.
+We've gone fairly quickly from whim to print on an all-volunteer basis, and as a result, there are many things that I'd add and change if I had an infinite amount of time in my schedule.
+The vast majority of the contents were written in less than 36 hours by 25 students (mostly freshmen!) at Norwich University over a long weekend.
+Some of it is mine, and some was added by our crack team of technical editors as we translated sleep-deprived poor grammar into sleep-deprived better grammar.
+
+Where it goes from here is mostly up to you!
+If there's a section that's missing or in need of clarification, please take a bit of time and make those changes.
+If you don't want to bother yourself with the GitHub repository, send me your additions and modifications directly.
+
+I want to first thank my family for the time I didn't spend with them on the writing weekend and throughout the summer when I was editing and typesetting. I promise I won't do this next summer!
+
+My next thanks go out to the technical editors and typesetters, without whom you would have a much uglier book.
+Thanks to Ted Rolle for building the initial \LaTeX framework and to Matt Jadud for the incredibly helpful pointers on how to manage the pile of typesetting files in a collaborative environment. I also thank Craig Robbins and Levi Schuck, who, on different sides of the planet, managed to contribute extensively to the heavy lifting of getting the book into the shape it's in now. If we ever meet, I owe you a beer or whatever you're having!
+
+I also would like to thank all of the Kickstarter backers not only for the money which made this possible, but for reinforcing the idea that this is a worthwhile contribution to the community. Peter Stephenson and Andrew Pedley also contributed food directly over the textbook writing hackathon weekend, and without them we'd never have gotten our saturated fat quota! (Note to future project leaders: there's nothing that gets a bunch of college students who are generally lukewarm about programming to write a textbook like free food. It didn't even matter what the food was. Really.)
+
+Thanks to Matt Russo for shooting the video and organizing the media and social networking efforts with the Kickstarter project through the writing weekend.
+
+Special thanks to Allyson LeFebvre\footnote{That's ``la-fave'', everyone} for the textbook photography, several diagrams, and the extensive search through the semi-final textbook that turned up a bunch of mistakes that I missed.
+
+And my last (and not at all least) thanks go out to all the students who showed up in person or digitally. And without getting too grandiose, you remind us all that we can make the world better by showing up. Keep showing up!
+
+~ \linebreak
+
+\noindent \textbf{Jeremy}
+
+\noindent \texttt{jeremyhansen@acm.org}
+
+\noindent 26 November 2013
+
+~ \linebreak
+
+\pagebreak 
+
  \tableofcontents
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

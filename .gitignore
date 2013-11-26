@@ -34,6 +34,7 @@
 *.mtc
 *.mtc1
 *.out
+*.sty
 *.synctex.gz
 cpp.pdf
 # Since we may include PDF inserts that we generate elsewhere, if there are any other temporary pdfs

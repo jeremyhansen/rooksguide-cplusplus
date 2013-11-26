@@ -14,9 +14,21 @@ The C++ language defines a handful of basic types, some of which were discussed 
 These types, their sizes (which may vary depending on the operating system), and the range of possible values can be found in Table \ref{table-data-types}.
 Additionally, the C++11 standard provides for the \Code{long long int} data type as described in Table \ref{table-long-long-int}.
 
-\begin{table}[tbh]
+Several of the integer types have unsigned versions, which may only contain values greater than or equal to zero. 
+The \Keyword{floating-point types} do not have unsigned versions, as the sign is part of the standard that defines how these variables are represented in memory. 
+\LevelD{Floating-point types}
+
+Floating-point types are used to represent numbers that are not whole integers. 
+For example: \nopagebreak[4]
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+float f = 3.35;
+\end{lstlisting}\end{minipage}
+
+
+\begin{table}[tb]
 	\centering
-		\begin{tabular}{| l | l | p{2in} |}
+		\begin{tabular}{| l | l | p{1.9in} |}
 		\hline
 			\Code{bool} & 1 byte & \Code{true} or \Code{false} \\ \hline
 			\Code{char} & 1 byte & $-128$ to $127$ \\ \hline
@@ -25,13 +37,13 @@ Additionally, the C++11 standard provides for the \Code{long long int} data type
 			\Code{long int} (\Code{long}) & 4 bytes & $-2,147,483,648$ to \newline $2,147,483,647$ \\ \hline
 			\Code{float} & 4 bytes & See ``Floating-point Types'' \newline below \\ \hline
 			\Code{double} & 8 bytes & See ``Floating-point Types'' \newline below \\ \hline
-			\Code{long double} & 8 bytes\footnote{A \Code{long double} \emph{might} be stored as an 80-bit extended precision type, but this is dependent on the compiler. Variables of this type will be at least as large as a \Code{double}.} & See ``Floating-point Types'' \newline below \\ \hline
+			\Code{long double} & 8 bytes\tablefootnote{A \Code{long double} \emph{might} be stored as an 80-bit extended precision type, but this is dependent on the compiler. Variables of this type will be at least as large as a \Code{double}.} & See ``Floating-point Types'' \newline below \\ \hline
 		\end{tabular}
 		\caption{Common data types and their ranges of values}
     \label{table-data-types}
 \end{table}
 
-\begin{table}[tbh]
+\begin{table}[tb]
 	\centering
 		\begin{tabular}{| p{1.5in} | l | p{2in} |}
 		\hline
@@ -42,10 +54,11 @@ Additionally, the C++11 standard provides for the \Code{long long int} data type
     \label{table-long-long-int}
 \end{table}
 
-Several of the integer types have unsigned versions, which may only contain values greater than or equal to zero. 
-The \Keyword{floating-point types} do not have unsigned versions, as the sign is part of the standard that defines how these variables are represented in memory. 
+Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335 \times 10^{-2}$. 
+The first part, $335$, (sometimes called the \Keyword{coefficient} or \Keyword{significand}) is stored separately from the second part, $-2$, (called the \Keyword{exponent}). 
+The types can represent different ranges of significand and exponents, as shown in Table \ref{table-floating-point-types}.
 
-\begin{table}[tbh]
+\begin{table}[tb]
 	\centering
 		\begin{tabular}{| l | l | p{2in} |}
 		\hline
@@ -54,26 +67,13 @@ The \Keyword{floating-point types} do not have unsigned versions, as the sign is
 			\Code{unsigned short} & 2 bytes & $0$ to $65,535$ \\ \hline
 			\Code{unsigned int} & 4 bytes & $0$ to $4,294,967,295$ \\ \hline
 			\Code{unsigned long} & 4 bytes & $0$ to $4,294,967,295$ \\ \hline
-			\Code{unsigned long long}\footnote{This data type is found in the C++11 standard.} & 8 bytes & $0$ to \newline $18,446,744,073,709,551,615$ \\ \hline
+			\Code{unsigned long long}\tablefootnote{This data type is found in the C++11 standard.} & 8 bytes & $0$ to \newline $18,446,744,073,709,551,615$ \\ \hline
 		\end{tabular}
 		\caption{Unsigned types}
     \label{table-unsigned-types}
 \end{table}
 
-\LevelD{Floating-point types}
-
-Floating-point types are used to represent numbers that are not whole integers. 
-For example: \nopagebreak[4]
-
-\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-float f = 3.35;
-\end{lstlisting}\end{minipage}
-
-Variables of type \Code{float} and of type \Code{double} store these numbers in similar components as scientific notation, so the above value could be represented as $335 \times 10^{-2}$. 
-The first part, $335$, (sometimes called the \Keyword{coefficient} or \Keyword{significand}) is stored separately from the second part, $-2$, (called the \Keyword{exponent}). 
-The types can represent different ranges of significand and exponents, as shown in Table \ref{table-floating-point-types}.
-
-\begin{table}[tbh]
+\begin{table}[tb]
 	\centering
 		\begin{tabular}{| l | l | p{2in} |}
 		\hline
