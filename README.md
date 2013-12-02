@@ -1,4 +1,4 @@
-The Rook's Guide to C++
+﻿The Rook's Guide to C++
 ====================
 
 
@@ -8,11 +8,9 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * The cpp.tex file is the core of the project, and the place where all the chapters are inserted via `\input{}`
 
-* chap_advancedarith.tex is a decent place to see a fairly well-developed chapter
-
 * Chapter `\sections` should be designated with `\LevelD{My section}` and `\subsections` with `\LevelE{My subsection}`
 
-* Bits of code and symbols within a sentence should be placed within a `\Code{…}`. (Note that this has changed from `\texttt`!) So should program output, which should appear on its own line.
+* Bits of code and symbols within a sentence should be placed within a `\Code{…}`. So should program output, which should appear on its own line.
 
 * Code listings that stand on their own (and pseudocode) should be put in
 
@@ -20,9 +18,9 @@ Here are some basic expectations for getting the .tex files in publication shape
 	    /* Code */
 	    \end{lstlisting}\end{minipage}
 
-* Important terms should be placed within `\Keyword{...}`
+* Important terms should be placed within `\Keyword{...}`. This indexes them automatically.
 
-* Each chapter has the following sections, in this order:
+* Each chapter should have the following sections, in this order:
 
 	+ `\LevelD{Review Questions}`
 
@@ -36,8 +34,4 @@ Here are some basic expectations for getting the .tex files in publication shape
 
 * Fork your own branch, and we'll pull your changes gradually into the master branch
 
-* The raw material we have now is very rough - I would appreciate not sharing it with the world just yet
-
-* Control the urge to purge the students' colloquial expressions unless they make the text too difficult to read, but feel free to get rid of the silly. ("Witch doctors" and "voodoo" crept into a number of places inexplicably)
-
-* Thanks for your help! Feel free to contact me at jeremyhansen@acm.org, skype:jah_vt, or 802-279-6054. (If it's more appropriate to add it as a GitHub issue, feel free to put it there.)
+* Thanks for your help! Feel free to contact me at jeremyhansen@acm.org, skype:jah_vt, or if it's more appropriate to add it as a GitHub issue, feel free to put it there.
