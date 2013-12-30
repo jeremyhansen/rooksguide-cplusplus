@@ -190,7 +190,7 @@
  \pagenumbering{roman}
 % \pagestyle{plain}
 
-\pagestyle{empty}
+ \thispagestyle{empty}
 %% copyrightpage
 \begingroup
 \normalsize
@@ -231,8 +231,12 @@ Berlin, VT 05602 \\
 \endgroup
 %\clearpage
 
+\newpage
 
-\chapter*{Preface}
+ \setcounter{page}{1}
+
+
+\chapter*{Preface\markboth{\MakeUppercase{Preface}}{}}
 
 What you are reading is the first of what I hope to be many ever-improving iterations of a useful C++ textbook.
 We've gone fairly quickly from whim to print on an all-volunteer basis, and as a result, there are many things that I'd add and change if I had an infinite amount of time in my schedule.
@@ -281,7 +285,8 @@ And my last (and not at all least) thanks go out to all the students who showed 
 
  %\Comment{ % Frontmatter.
 
-\chapter*{License}
+\chapter*{License\markboth{\MakeUppercase{License}}{}}
+
 
 \vspace{1in}
 
@@ -305,7 +310,7 @@ And my last (and not at all least) thanks go out to all the students who showed 
 % \\A \href{http://creativecommons.org/licenses/by-nc/3.0/}
 
 
-   \chapter*{Dramatis Person\ae}
+\chapter*{Dramatis Person\ae\markboth{\MakeUppercase{Dramatis Person\ae}}{}}
 
  \begin{description}
 
