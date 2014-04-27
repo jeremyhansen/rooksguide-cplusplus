@@ -2,13 +2,16 @@
 % Attribution-NonCommercial-ShareAlike 3.0 Unported License, 
 % as described at http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode
 
-Preprocessor directives are lines of code that are executed before the compilation of the code begins. 
-These directives are like getting everyone in a room before starting a project or doing warmups before running a race. 
+Preprocessor directives are lines of code that are resolved before the compilation of the code begins.
+Directives can be used to change source code prior to compilation.
+This may include adding, removing, or changing values in the source of the program.
 One of the most frequently-used preprocessor directives is \Code{\#include}.
 
-When we want to include in our code a system library or some other file, we use the keyword \Code{\#include} followed by the library name or the file name. 
-The way we distinguish between including libraries and including files is with angle brackets and quotes, respectively. 
-For example, when we want to use objects like \Code{cout} or \Code{cin}, we need to include the \Code{iostream} library like so: 
+\LevelD{\Code{\#include}}
+
+When we want to include a separate file for the compilation process, we use the directive \Code{\#include} followed by the library or file name. 
+The distinguishing factor between including libraries and including files is the use of angle brackets and quotes, respectively. 
+For example, when we want to include the \Code{iostream} library: 
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream> 
@@ -21,7 +24,7 @@ If we want to include a file, such as a file named \Code{myFile.h}, we can write
 \end{lstlisting}\end{minipage}
 
 However, when we include files, they must be in the same directory as the file where the \Code{\#include} appears. 
-We discuss the Standard Template Library in Chapter \ref{chap_stl}, and include a short sample of other libraries in Table \ref{tab:libraries}.
+We discuss the C++ Standard Library in Chapter \ref{chap_stl}, and include a short sample of other libraries in Table \ref{tab:libraries}.
 
 \begin{table}[tb]
 	\centering
@@ -42,8 +45,118 @@ We discuss the Standard Template Library in Chapter \ref{chap_stl}, and include 
 \end{table}
 
 %TODO: #if, #ifdef, #ifndef, #define, etc.
+\LevelD{\Code{\#define}}
 
-\pagebreak
+Syntax:
+
+\Code{\#define \textit{identifier} \textit{token-string}}
+
+\Code{\#define \textit{identifier(args...)} \textit{token-string}}
+~\\
+
+The \Code{\#define} directive defines an \textit{identifier} which is replaced by a \textit{token-string} in the source file.
+The preprocessor will replace all instances of the \textit{identifier} with instances of the \textit{token-string} prior to compilation.
+
+The \textit{token-string} may be any combination of keywords, constants, or complete statements. For example, to define a macro to represent a constant:
+~\\
+
+\Code{\#define PI 3.14159}
+~\\
+
+A macro may also define a statement:
+
+~\\
+
+\Code{\#define ADD(a, b) (a + b)}
+
+~\\
+
+These could be used in the source code like this:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+
+#include <iostream>
+
+#define PI 3.14159
+#define ADD(a, b) (a + b)
+
+using namespace std;
+
+int main()
+{
+  cout << ADD(PI, PI) << endl;
+}
+
+\end{lstlisting}\end{minipage}
+
+After the preprocessor processes the file prior to compilation the macros are expanded to this:
+
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+
+#include <iostream>
+
+#define PI 3.14159
+#define ADD(a, b) (a + b)
+
+using namespace std;
+
+int main()
+{
+  cout << (3.14159 + 3.14159) << endl;
+}
+
+\end{lstlisting}\end{minipage}
+
+\LevelD{\Code{\#undef}}
+
+Syntax:
+
+\Code{\#undef \textit{identifier}}
+
+~\\
+
+The \Code{\#undef} directive undefines a previously defined \textit{identifier}.
+
+\LevelD{\Code{\#if}, \Code{\#elif}, \Code{\#else}, \Code{\#endif}}
+
+Syntax:
+
+\Code{\#if \textit{conditional}}
+
+\Code{\#elif \textit{conditional}}
+
+\Code{\#else}
+
+~\\
+
+If the conditional is non-zero the lines following the \Code{\#if} are parsed until an \Code{\#endif} is reached. \Code{\#elif} is the equivalent of the compiled \textit{else if}. If the \textit{conditional} is non-zero, the lines following are parsed until the next directive is reached.
+
+\LevelD{\Code{\#ifdef}, \Code{\#ifndef}}
+
+Syntax:
+
+\Code{\#ifdef \textit{identifier}}
+
+\Code{\#elif \textit{identifier}}
+
+~\\
+
+The \Code{\#ifdef} and \Code{\#ifndef} directives are similar to the \Code{\#if} directive. However, \Code{\#ifdef} checks to see if an \textit{identifier} is defined and if so, the condition is true. \Code{\#ifndef} checks to see if an identifier is not defined and if so, the condition is true.
+
+\LevelD{\Code{\#using}}
+
+Syntax:
+
+\Code{\#using \textit{identifier}}
+
+~\\
+
+The \Code{\#using} directive imports metadata from an external .dll, .exe, .netmodule, or .obj. Do not confuse this with \textit{using namespace}, as they are not the same thing. 
+
+~\\
+
+\newpage
 
 \LevelD{Review Questions}
 
@@ -70,10 +183,10 @@ We discuss the Standard Template Library in Chapter \ref{chap_stl}, and include 
 #include <cstdlib>
 #include <iostream>
 using namespace std;
-int main(int argc, char *argv[])
+int main()
 {
   cout << "Included!" << endl;
-	return 0;
+  return 0;
 }
 \end{lstlisting}\end{minipage}
 
@@ -102,6 +215,4 @@ int main(int argc, char *argv[])
 %\item \url{~}
 %\item \url{~}
 %\end{itemize}	
-
-
 
