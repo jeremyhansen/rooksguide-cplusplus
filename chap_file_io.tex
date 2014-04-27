@@ -56,7 +56,7 @@ An example of a text file name is \Code{TextFile.txt} and its location in a Wind
 In a UNIX-based operating system, the same file might be in \Code{/home/user1/TextFile.txt}. 
 Regardless of the operating system, we need to know the file's path in order to tell the program where to find the file. 
 
-\LevelD{Opening and closing a File}
+\LevelD{Opening and Closing a File}
 
 Before we can even start reading from and writing to a file we must open it. 
 In order to open a file you must first make an object of type \Code{ifstream}, \Code{ofstream}, or \Code{fstream} just like we did earlier. 
@@ -66,8 +66,8 @@ Otherwise, if the file already exists, the \Code{open} function will erase exist
 The following example demonstrates how to open files for both input and output:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-#include <iostream> //For cin and cout 
-#include <fstream> // For ifstream and ofstream
+#include <iostream> // For cin and cout 
+#include <fstream>  // For ifstream and ofstream
 using namespace std;
 int main ()
 {
@@ -81,9 +81,27 @@ int main ()
   //Creates text file for output
   outFile.open("OutputTextFile.txt"); 
 	
-  return 0;
-}
+	// The rest of the program goes here...
 \end{lstlisting}\end{minipage}
+
+An easier (and preferred) way to open a file is to specify the file name immediately at declaration time.
+The above code can be rewritten as:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+#include <iostream> // For cin and cout 
+#include <fstream>  // For ifstream and ofstream
+using namespace std;
+int main ()
+{
+  //Declares a variable of type ifstream called inFile
+  ifstream inFile("TextFile.txt"); 
+  //Declares a variable of type ofstream called outFile
+  ofstream outFile("OutputTextFile.txt"); 
+	
+	// The rest of the program goes here...
+\end{lstlisting}\end{minipage}
+
+
 
 %TODO: Add an example of appending data to an ofstream
 
@@ -116,9 +134,7 @@ using namespace std;
 int main()
 {
   int number = 5;
-  ifstream inFile;
-
-  inFile.open("TextFile.txt");
+  ifstream inFile("TextFile.txt");
 
   inFile >> number; 
   // The value 5 in number is overwritten
@@ -147,9 +163,7 @@ using namespace std;
 int main ()
 {
   char Letter = 'A';
-  ofstream outFile;
-
-  outFile.open("OutputTextFile.txt");
+  ofstream outFile("OutputTextFile.txt");
 
   outFile << Letter; // Puts the letter 'A' into the file
 
@@ -181,7 +195,7 @@ We already know data types such as integers, \Code{double}s, and \Code{char}s, b
 When calling the functions \Code{open} or \Code{close}, you will notice we use a period between the object name and the function. 
 We call this the \Keyword{dot operator} and it is used to reference member functions and member variables of a class. 
 
-\LevelD{Other functions}
+\LevelD{Other Functions}
 
 The \Code{<fstream>} library comes with many functions to help test to see if things are working. 
 One example is the \Code{fail()} function. 
@@ -190,7 +204,7 @@ We usually use \Code{if} statements with the function so that if the file does n
 For example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
-inFile.open("TextFile.txt");
+ifstream inFile("TextFile.txt");
 if (inFile.fail())
 { 
   cout << "Failed to open!";
@@ -199,6 +213,15 @@ if (inFile.fail())
 
 This will warn the user if the file did not open correctly. 
 If the file \emph{did} open correctly, the program would continue without printing the error message.
+On the other hand, instead of testing whether something failed during the open, we can also test if everything worked:
+
+\noindent\begin{minipage}{\linewidth}\begin{lstlisting}
+ifstream inFile("TextFile.txt");
+if (inFile.good())
+{ 
+  cout << "The file opened successfully!";
+}
+\end{lstlisting}\end{minipage}
 
 The next function is the \Code{eof()} (\textbf{e}nd \textbf{o}f \textbf{f}ile) function. 
 This function tests to see if the stream has reached the end of the file. 
@@ -207,7 +230,7 @@ For example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 int number;
-inFile.open("TextFile.txt");
+ifstream inFile("TextFile.txt");
 while (!inFile.eof())
 {
   inFile >> number
@@ -227,7 +250,7 @@ For example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 char Character;
-ifstream inFile;
+ifstream inFile("TextFile.txt");
 
 cin.get(Character);
 //or
@@ -243,7 +266,7 @@ For example:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 char Character = '\n'; // newline character
-ofstream outFile;
+ofstream outFile("TextFile.txt");
 
 cout.put(Character);
 // or

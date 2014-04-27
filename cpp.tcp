@@ -6,7 +6,7 @@ Version=4
 MainFile=cpp.tex
 UseBibTeX=1
 UseMakeIndex=1
-ActiveProfile=XeLaTeX => PDF
+ActiveProfile=XeLaTeX ⇨ PDF
 ProjectLanguage=en
 ProjectDialect=US
 
