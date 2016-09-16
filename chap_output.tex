@@ -119,10 +119,11 @@ int main()
 
 We don't always have to output words the screen using \Code{cout}. 
 We can also print variables of type \Code{int}, \Code{double}, and \Code{float} and can control the number of digits that appear after the decimal point. 
-For example, if we had a variable that contained the value 3.14159265 we might only care about the first two numbers after the decimal point and just want to output 3.14 to the screen. 
+For example, if we had a variable that contained the value 3.14159265 we might only care about the first two numbers after the decimal point and just want to output 3.14 to the screen.
+Note that there is also one digit before the decimal point.
 We do that with the \Code{precision()} member function. 
 This function call will result in subsequent \Code{float} or \Code{double} variables being printed with the specified number of decimal places. 
-In the following code, the number of digits is set to 2:
+In the following code, the number of digits is set to 3:
 
 \noindent\begin{minipage}{\linewidth}\begin{lstlisting}
 #include <iostream>
@@ -130,7 +131,7 @@ using namespace std;
 int main()
 {
   double num = 3.14159265;
-  cout.precision(2);
+  cout.precision(3);
   cout << num << endl;
 }
 \end{lstlisting}\end{minipage}
